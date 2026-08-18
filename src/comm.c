@@ -112,7 +112,6 @@ void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_get_new_class( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_roll_stats( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_stats_ok( DESCRIPTOR_DATA *d, const char *argument );
-void nanny_get_want_ripansi( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_get_msp( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_press_enter( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_read_motd( DESCRIPTOR_DATA *d, const char *argument );
@@ -1616,10 +1615,6 @@ void nanny( DESCRIPTOR_DATA * d, const char *argument )
       nanny_stats_ok( d, argument );
       break;
 
-    case CON_GET_WANT_RIPANSI:
-      nanny_get_want_ripansi( d, argument );
-      break;
-
     case CON_GET_MSP:
       nanny_get_msp( d, argument );
       break;
@@ -2187,33 +2182,9 @@ void nanny_stats_ok( DESCRIPTOR_DATA *d, const char *argument )
          return;
    }
 
-   write_to_buffer(
-      d,
-      "\r\nWould you like ANSI or no graphic/color support, (R/A/N)? ",
-      0 );
-
-   d->connected = CON_GET_WANT_RIPANSI;
-}
-
-void nanny_get_want_ripansi( DESCRIPTOR_DATA *d, const char *argument )
-{
-  CHAR_DATA *ch = d->character;
-
-  switch( argument[0] )
-    {
-    case 'a':
-    case 'A':
-      SET_BIT( ch->act, PLR_ANSI );
-      break;
-    case 'n':
-    case 'N':
-      break;
-    default:
-      write_to_buffer( d, "Invalid selection.\r\nANSI or NONE? ", 0 );
-      return;
-    }
-  write_to_buffer( d, "Does your mud client have the Mud Sound Protocol? ", 0 );
-  d->connected = CON_GET_MSP;
+   SET_BIT( d->character->act, PLR_ANSI );
+   write_to_buffer( d, "Does your mud client have the Mud Sound Protocol? ", 0 );
+   d->connected = CON_GET_MSP;
 }
 
 void nanny_get_msp( DESCRIPTOR_DATA *d, const char *argument )
