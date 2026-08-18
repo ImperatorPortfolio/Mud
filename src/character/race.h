@@ -282,6 +282,4 @@ struct character_trait
    | LANG_TRANDOSHAN | LANG_CHADRA_FAN | LANG_QUARREN | LANG_DUINUOGWUIN)
 /*  26 Languages */
 
-/*
-
 #endif /* ZEROPOINT_CHARACTER_RACE_H */

@@ -1,6 +1,7 @@
 #ifndef ZEROPOINT_WORLD_SERVICES_H
 #define ZEROPOINT_WORLD_SERVICES_H
 
+/*
 * TO types for act.
 */
 #define TO_ROOM		    0

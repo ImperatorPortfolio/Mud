@@ -41,6 +41,7 @@ struct pc_data
    short wizinvis;   /* wizinvis level */
    short min_snoop;  /* minimum snoop level */
    short condition[MAX_CONDS];
+   short nutrition;  /* Long-term dietary condition: 0-100. */
    short learned[MAX_SKILL];
    KILLED_DATA killed[MAX_KILLTRACK];
    short quest_number;  /* current *QUEST BEING DONE* DON'T REMOVE! */
