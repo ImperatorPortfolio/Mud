@@ -11,8 +11,10 @@
  *   - active combat develops Constitution as physical endurance;
  *   - recently executed D20 skill commands develop their governing ability.
  *
- * The update-loop sampler runs only once every five seconds and each ability
- * has its own cooldown. Repeating a command cannot award progress every pulse.
+ * Maintenance is deliberately forgiving. Hidden, unbanked development
+ * progress receives a fourteen-day grace period and then loses only one point
+ * per additional seven days of continued disuse. Permanent ability scores are
+ * not reduced by this pass.
  ***************************************************************************/
 
 #include "mud.h"
@@ -22,6 +24,11 @@
 #define NATURAL_COMBAT_COOLDOWN     180
 #define NATURAL_SKILL_PROGRESS        1
 #define NATURAL_COMBAT_PROGRESS       1
+
+#define MAINTENANCE_SCAN_SECONDS   3600
+#define MAINTENANCE_GRACE_SECONDS  ( 14 * 24 * 60 * 60 )
+#define MAINTENANCE_DECAY_SECONDS  (  7 * 24 * 60 * 60 )
+#define MAINTENANCE_DECAY_PROGRESS 1
 
 void legacy_update_handler( void );
 
@@ -179,22 +186,111 @@ static void natural_attribute_update( void )
    }
 }
 
+static void maintenance_attribute_update( void )
+{
+   CHAR_DATA *ch;
+
+   for( ch = first_char; ch; ch = ch->next )
+   {
+      int ability;
+
+      if( IS_NPC( ch )
+          || !ch->pcdata )
+         continue;
+
+      for( ability = ABILITY_SCORE_STR;
+           ability <= ABILITY_SCORE_CHA;
+           ++ability )
+      {
+         time_t last_used;
+         time_t inactive;
+         time_t overdue;
+         int decay_steps;
+         int progress;
+
+         progress =
+            ch->pcdata->attribute_progress[ability];
+
+         if( progress <= 0 )
+            continue;
+
+         last_used =
+            ch->pcdata->attribute_last_used[ability];
+
+         /*
+          * Old characters may have progress from before timestamps existed.
+          * Give them a fresh grace period instead of treating that progress as
+          * ancient and deleting it on first login/update.
+          */
+         if( last_used <= 0 )
+         {
+            ch->pcdata->attribute_last_used[ability] =
+               current_time;
+            continue;
+         }
+
+         inactive =
+            current_time - last_used;
+
+         if( inactive <= MAINTENANCE_GRACE_SECONDS )
+            continue;
+
+         overdue =
+            inactive - MAINTENANCE_GRACE_SECONDS;
+
+         decay_steps =
+            1 + (int)( overdue / MAINTENANCE_DECAY_SECONDS );
+
+         decay_steps =
+            UMIN(
+               decay_steps,
+               progress / MAINTENANCE_DECAY_PROGRESS );
+
+         if( decay_steps <= 0 )
+            continue;
+
+         ch->pcdata->attribute_progress[ability] =
+            UMAX(
+               0,
+               progress
+               - ( decay_steps * MAINTENANCE_DECAY_PROGRESS ) );
+
+         /*
+          * Advance only the decay anchor, not all the way to current_time.
+          * Continued disuse therefore loses one additional point per seven
+          * days while preserving the original fourteen-day grace semantics.
+          */
+         ch->pcdata->attribute_last_used[ability] +=
+            decay_steps * MAINTENANCE_DECAY_SECONDS;
+      }
+   }
+}
+
 /*
- * Keep the inherited update scheduler authoritative, then perform the bounded
- * passive-development sample. update.c is compiled with its original
- * update_handler renamed to legacy_update_handler.
+ * Keep the inherited update scheduler authoritative, then perform bounded
+ * passive-development and maintenance samples. update.c is compiled with its
+ * original update_handler renamed to legacy_update_handler.
  */
 void update_handler( void )
 {
    static time_t next_natural_scan = 0;
+   static time_t next_maintenance_scan = 0;
 
    legacy_update_handler();
 
-   if( current_time < next_natural_scan )
-      return;
+   if( current_time >= next_natural_scan )
+   {
+      next_natural_scan =
+         current_time + NATURAL_SCAN_SECONDS;
 
-   next_natural_scan =
-      current_time + NATURAL_SCAN_SECONDS;
+      natural_attribute_update();
+   }
 
-   natural_attribute_update();
+   if( current_time >= next_maintenance_scan )
+   {
+      next_maintenance_scan =
+         current_time + MAINTENANCE_SCAN_SECONDS;
+
+      maintenance_attribute_update();
+   }
 }
