@@ -48,8 +48,8 @@ typedef enum
 #define WT_NEWBIE 3
 
 #include <stdio.h>
-#include "dns.h"
-#include "color.h"
+#include "../dns.h"
+#include "../color.h"
 
 /*
 * do_who output structure -- Narn

@@ -57,7 +57,7 @@
 #define LEVEL_NEOPHYTE		   (MAX_LEVEL - 4)
 #define LEVEL_AVATAR		   (MAX_LEVEL - 5)
 
-#include "hotboot.h"
+#include "../hotboot.h"
 
 #define LEVEL_LOG		    LEVEL_LESSER
 #define LEVEL_HIGOD		    LEVEL_GOD
