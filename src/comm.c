@@ -2412,12 +2412,12 @@ void nanny_read_motd( DESCRIPTOR_DATA *d, const char *argument )
 
       if( !sysdata.WAIT_FOR_AUTH )
 	{
-	  char_to_room( ch, get_room_index( ROOM_VNUM_SCHOOL ) );
+	  char_to_room( ch, get_room_index( wherehome( ch ) ) );
 	  ch->pcdata->auth_state = 3;
 	}
       else
 	{
-	  char_to_room( ch, get_room_index( ROOM_VNUM_SCHOOL ) );
+	  char_to_room( ch, get_room_index( wherehome( ch ) ) );
 	  ch->pcdata->auth_state = 1;
 	  SET_BIT( ch->pcdata->flags, PCFLAG_UNAUTHED );
 	}
