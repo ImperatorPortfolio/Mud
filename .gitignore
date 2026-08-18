@@ -12,3 +12,6 @@ core.*
 # Windows metadata
 Thumbs.db
 Desktop.ini
+
+# Machine-specific runtime DNS cache
+/system/dns.dat
