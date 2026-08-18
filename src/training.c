@@ -1,20 +1,34 @@
 /***************************************************************************
- * Zero Point - Attribute Training
+ * Zero Point - Unified Attribute Training
  *
- * Progress-based deliberate training built on the D20 ability and trait
- * potential systems. The inherited binary training implementation remains
- * compiled under a legacy symbol during this bounded migration.
+ * Player-facing syntax:
+ *   train <attribute>
+ *   train <attribute> <equipment>
+ *
+ * Self-directed training is always available. Matching equipment and an
+ * ACT_TRAIN trainer in the room improve the same shared progress calculation.
  ***************************************************************************/
 
+#include <ctype.h>
 #include <string.h>
 #include "mud.h"
+
+#define TRAINING_EQUIPMENT_MARKER 1414680135
+#define TRAINING_DEFAULT_QUALITY  100
+#define TRAINING_DEFAULT_PROGRESS 8
+#define TRAINING_SELF_QUALITY     85
+#define TRAINING_SELF_PROGRESS    5
 
 struct training_session_data
 {
    char attribute[16];
+   char equipment[128];
    short ability;
    short trainer_modifier;
+   short equipment_modifier;
+   short base_progress;
    short exertion;
+   bool used_equipment;
 };
 
 void apply_exertion_nutrition(
@@ -58,20 +72,211 @@ void apply_exertion_nutrition(
    }
 }
 
+static void split_training_arguments(
+   const char *argument,
+   char *attribute,
+   size_t attribute_size,
+   char *equipment,
+   size_t equipment_size )
+{
+   const char *p;
+   size_t length;
+
+   if( attribute_size > 0 )
+      attribute[0] = '\0';
+   if( equipment_size > 0 )
+      equipment[0] = '\0';
+
+   if( !argument )
+      return;
+
+   p = argument;
+   while( *p && isspace( ( unsigned char )*p ) )
+      ++p;
+
+   length = 0;
+   while( p[length]
+          && !isspace( ( unsigned char )p[length] ) )
+      ++length;
+
+   if( length > 0 && attribute_size > 0 )
+   {
+      size_t copy_length;
+
+      copy_length = UMIN( length, attribute_size - 1 );
+      memcpy( attribute, p, copy_length );
+      attribute[copy_length] = '\0';
+   }
+
+   p += length;
+   while( *p && isspace( ( unsigned char )*p ) )
+      ++p;
+
+   if( equipment_size > 0 )
+      strlcpy( equipment, p, equipment_size );
+}
+
+static int training_ability_from_name(
+   const char *name,
+   int *effect,
+   const char **canonical_name )
+{
+   if( !name || !effect || !canonical_name )
+      return -1;
+
+   if( !str_cmp( name, "str" )
+       || !str_cmp( name, "strength" ) )
+   {
+      *effect = TRAIT_EFFECT_STR_POTENTIAL;
+      *canonical_name = "strength";
+      return ABILITY_SCORE_STR;
+   }
+
+   if( !str_cmp( name, "dex" )
+       || !str_cmp( name, "dexterity" ) )
+   {
+      *effect = TRAIT_EFFECT_DEX_POTENTIAL;
+      *canonical_name = "dexterity";
+      return ABILITY_SCORE_DEX;
+   }
+
+   if( !str_cmp( name, "con" )
+       || !str_cmp( name, "constitution" ) )
+   {
+      *effect = TRAIT_EFFECT_CON_POTENTIAL;
+      *canonical_name = "constitution";
+      return ABILITY_SCORE_CON;
+   }
+
+   if( !str_cmp( name, "int" )
+       || !str_cmp( name, "intelligence" ) )
+   {
+      *effect = TRAIT_EFFECT_INT_POTENTIAL;
+      *canonical_name = "intelligence";
+      return ABILITY_SCORE_INT;
+   }
+
+   if( !str_cmp( name, "wis" )
+       || !str_cmp( name, "wisdom" ) )
+   {
+      *effect = TRAIT_EFFECT_WIS_POTENTIAL;
+      *canonical_name = "wisdom";
+      return ABILITY_SCORE_WIS;
+   }
+
+   if( !str_cmp( name, "cha" )
+       || !str_cmp( name, "charisma" ) )
+   {
+      *effect = TRAIT_EFFECT_CHA_POTENTIAL;
+      *canonical_name = "charisma";
+      return ABILITY_SCORE_CHA;
+   }
+
+   return -1;
+}
+
+static int training_ability_score(
+   CHAR_DATA *ch,
+   int ability )
+{
+   if( !ch )
+      return 0;
+
+   switch( ability )
+   {
+      case ABILITY_SCORE_STR: return ch->perm_str;
+      case ABILITY_SCORE_DEX: return ch->perm_dex;
+      case ABILITY_SCORE_CON: return ch->perm_con;
+      case ABILITY_SCORE_INT: return ch->perm_int;
+      case ABILITY_SCORE_WIS: return ch->perm_wis;
+      case ABILITY_SCORE_CHA: return ch->perm_cha;
+      default: return 0;
+   }
+}
+
+static bool is_training_equipment(
+   OBJ_DATA *obj )
+{
+   return obj
+      && obj->value[5] == TRAINING_EQUIPMENT_MARKER;
+}
+
+static int training_exertion(
+   OBJ_DATA *obj,
+   int ability )
+{
+   int configured;
+
+   configured = obj ? obj->value[3] : 0;
+
+   switch( configured )
+   {
+      case 1: return EXERTION_LIGHT;
+      case 2: return EXERTION_MODERATE;
+      case 3: return EXERTION_HEAVY;
+      case 4: return EXERTION_EXTREME;
+      default:
+         break;
+   }
+
+   if( ability == ABILITY_SCORE_STR
+       || ability == ABILITY_SCORE_DEX
+       || ability == ABILITY_SCORE_CON )
+      return EXERTION_HEAVY;
+
+   return EXERTION_LIGHT;
+}
+
+static CHAR_DATA *find_attribute_trainer(
+   CHAR_DATA *ch )
+{
+   CHAR_DATA *mob;
+
+   if( !ch || !ch->in_room )
+      return NULL;
+
+   for( mob = ch->in_room->first_person;
+        mob;
+        mob = mob->next_in_room )
+   {
+      if( IS_NPC( mob )
+          && IS_SET( mob->act, ACT_TRAIN ) )
+         return mob;
+   }
+
+   return NULL;
+}
+
+static void show_training_usage(
+   CHAR_DATA *ch )
+{
+   send_to_char(
+      "Train which attribute?\r\n"
+      "Usage: train <attribute> [equipment]\r\n"
+      "Attributes: strength, dexterity, constitution, intelligence, wisdom, charisma\r\n"
+      "Examples: train strength   |   train strength weights\r\n",
+      ch );
+}
+
 void do_train( CHAR_DATA *ch, const char *argument )
 {
-   char arg[MAX_INPUT_LENGTH];
-   CHAR_DATA *mob;
+   char attribute_arg[MAX_INPUT_LENGTH];
+   char equipment_arg[MAX_INPUT_LENGTH];
    int effect;
    int ability;
+   int current;
+   int potential;
    int trainer_modifier;
+   int equipment_modifier;
+   int base_progress;
    int session_exertion;
+   CHAR_DATA *trainer;
+   OBJ_DATA *equipment;
+   const char *attribute_name;
    bool improved;
 
    if( IS_NPC( ch ) || !ch->pcdata )
       return;
-
-   strlcpy( arg, argument, MAX_INPUT_LENGTH );
 
    switch( ch->substate )
    {
@@ -79,13 +284,16 @@ void do_train( CHAR_DATA *ch, const char *argument )
       {
          struct training_session_data *session;
 
-         if( arg[0] == '\0' )
+         split_training_arguments(
+            argument,
+            attribute_arg,
+            sizeof( attribute_arg ),
+            equipment_arg,
+            sizeof( equipment_arg ) );
+
+         if( attribute_arg[0] == '\0' )
          {
-            send_to_char( "Train what?\r\n", ch );
-            send_to_char(
-               "\r\nChoices: strength, intelligence, wisdom, "
-               "dexterity, constitution or charisma\r\n",
-               ch );
+            show_training_usage( ch );
             return;
          }
 
@@ -98,140 +306,99 @@ void do_train( CHAR_DATA *ch, const char *argument )
          if( !ch->in_room )
             return;
 
-         mob = NULL;
-
-         for( mob = ch->in_room->first_person;
-              mob;
-              mob = mob->next_in_room )
-         {
-            if( IS_NPC( mob )
-                && IS_SET( mob->act, ACT_TRAIN ) )
-               break;
-         }
-
-         if( !mob )
-         {
-            send_to_char( "You can't do that here.\r\n", ch );
-            return;
-         }
-
          effect = TRAIT_EFFECT_NONE;
-         ability = ABILITY_SCORE_STR;
+         attribute_name = NULL;
+         ability = training_ability_from_name(
+            attribute_arg,
+            &effect,
+            &attribute_name );
 
-         if( !str_cmp( arg, "str" )
-             || !str_cmp( arg, "strength" ) )
+         if( ability < ABILITY_SCORE_STR
+             || ability > ABILITY_SCORE_CHA )
          {
-            effect = TRAIT_EFFECT_STR_POTENTIAL;
-            ability = ABILITY_SCORE_STR;
-            strlcpy( arg, "strength", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin your weight training.\r\n",
-               ch );
-         }
-         else if( !str_cmp( arg, "dex" )
-                  || !str_cmp( arg, "dexterity" ) )
-         {
-            effect = TRAIT_EFFECT_DEX_POTENTIAL;
-            ability = ABILITY_SCORE_DEX;
-            strlcpy( arg, "dexterity", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin to work at some challenging tests "
-               "of coordination.\r\n",
-               ch );
-         }
-         else if( !str_cmp( arg, "int" )
-                  || !str_cmp( arg, "intelligence" ) )
-         {
-            effect = TRAIT_EFFECT_INT_POTENTIAL;
-            ability = ABILITY_SCORE_INT;
-            strlcpy( arg, "intelligence", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin your studies.\r\n",
-               ch );
-         }
-         else if( !str_cmp( arg, "wis" )
-                  || !str_cmp( arg, "wisdom" ) )
-         {
-            effect = TRAIT_EFFECT_WIS_POTENTIAL;
-            ability = ABILITY_SCORE_WIS;
-            strlcpy( arg, "wisdom", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin contemplating several ancient texts "
-               "in an effort to gain wisdom.\r\n",
-               ch );
-         }
-         else if( !str_cmp( arg, "con" )
-                  || !str_cmp( arg, "constitution" ) )
-         {
-            effect = TRAIT_EFFECT_CON_POTENTIAL;
-            ability = ABILITY_SCORE_CON;
-            strlcpy( arg, "constitution", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin your endurance training.\r\n",
-               ch );
-         }
-         else if( !str_cmp( arg, "cha" )
-                  || !str_cmp( arg, "charisma" ) )
-         {
-            effect = TRAIT_EFFECT_CHA_POTENTIAL;
-            ability = ABILITY_SCORE_CHA;
-            strlcpy( arg, "charisma", MAX_INPUT_LENGTH );
-
-            send_to_char(
-               "&GYou begin lessons in manners and etiquette.\r\n",
-               ch );
-         }
-         else
-         {
-            do_train( ch, "" );
+            show_training_usage( ch );
             return;
          }
 
-         trainer_modifier =
-            get_trait_training_chance(
-               ch,
-               mob,
-               effect );
+         current = training_ability_score( ch, ability );
+         potential = get_trait_training_potential( ch, effect );
 
-         if( trainer_modifier <= 0 )
+         if( effect == TRAIT_EFFECT_NONE
+             || current >= potential )
          {
-            int potential;
-
-            potential =
-               get_trait_training_potential(
-                  ch,
-                  effect );
-
             ch_printf(
                ch,
-               "&YYou have reached your natural potential "
-               "for this attribute: %d.&w\r\n",
+               "&YYou have reached your natural potential for %s: %d.&w\r\n",
+               attribute_name,
                potential );
             return;
          }
 
-         /*
-          * The inherited helper returns a training chance. Preserve its
-          * trainer/potential judgement, but convert a positive result into
-          * a bounded productivity modifier for persistent progress.
-          */
-         trainer_modifier =
-            URANGE(
-               50,
-               50 + trainer_modifier,
-               150 );
+         equipment = NULL;
+         equipment_modifier = TRAINING_SELF_QUALITY;
+         base_progress = TRAINING_SELF_PROGRESS;
+         session_exertion = training_exertion( NULL, ability );
 
-         session_exertion =
-            ( ability == ABILITY_SCORE_STR
-              || ability == ABILITY_SCORE_DEX
-              || ability == ABILITY_SCORE_CON )
-            ? EXERTION_HEAVY
-            : EXERTION_LIGHT;
+         if( equipment_arg[0] != '\0' )
+         {
+            equipment = get_obj_here( ch, equipment_arg );
+
+            if( !equipment )
+            {
+               send_to_char(
+                  "You don't see that training equipment here.\r\n",
+                  ch );
+               return;
+            }
+
+            if( !is_training_equipment( equipment )
+                || equipment->value[0] != ability )
+            {
+               ch_printf(
+                  ch,
+                  "You don't think %s would help you train your %s.\r\n",
+                  equipment->short_descr
+                     ? equipment->short_descr
+                     : "that equipment",
+                  attribute_name );
+               return;
+            }
+
+            equipment_modifier = equipment->value[1];
+            if( equipment_modifier <= 0 )
+               equipment_modifier = TRAINING_DEFAULT_QUALITY;
+            equipment_modifier =
+               URANGE( 50, equipment_modifier, 150 );
+
+            base_progress = equipment->value[2];
+            if( base_progress <= 0 )
+               base_progress = TRAINING_DEFAULT_PROGRESS;
+            base_progress = URANGE( 1, base_progress, 25 );
+
+            session_exertion =
+               training_exertion( equipment, ability );
+         }
+
+         trainer = find_attribute_trainer( ch );
+         trainer_modifier = 100;
+
+         if( trainer )
+         {
+            int trainer_chance;
+
+            trainer_chance =
+               get_trait_training_chance(
+                  ch,
+                  trainer,
+                  effect );
+
+            if( trainer_chance > 0 )
+               trainer_modifier =
+                  URANGE(
+                     75,
+                     50 + trainer_chance,
+                     150 );
+         }
 
          CREATE(
             session,
@@ -240,14 +407,48 @@ void do_train( CHAR_DATA *ch, const char *argument )
 
          strlcpy(
             session->attribute,
-            arg,
+            attribute_name,
             sizeof( session->attribute ) );
+         session->equipment[0] = '\0';
+
+         if( equipment )
+            strlcpy(
+               session->equipment,
+               equipment->short_descr
+                  ? equipment->short_descr
+                  : "training equipment",
+               sizeof( session->equipment ) );
 
          session->ability = ability;
          session->trainer_modifier = trainer_modifier;
+         session->equipment_modifier = equipment_modifier;
+         session->base_progress = base_progress;
          session->exertion = session_exertion;
+         session->used_equipment = equipment != NULL;
 
          ch->dest_buf = session;
+
+         if( session->used_equipment )
+         {
+            ch_printf(
+               ch,
+               "&GYou begin training your %s using %s.&w\r\n",
+               session->attribute,
+               session->equipment );
+         }
+         else
+         {
+            ch_printf(
+               ch,
+               "&GYou begin a self-directed %s training session.&w\r\n",
+               session->attribute );
+         }
+
+         if( trainer )
+            ch_printf(
+               ch,
+               "&G%s guides your training.&w\r\n",
+               capitalize( trainer->short_descr ) );
 
          add_timer(
             ch,
@@ -269,13 +470,20 @@ void do_train( CHAR_DATA *ch, const char *argument )
             ( struct training_session_data * )ch->dest_buf;
 
          strlcpy(
-            arg,
+            attribute_arg,
             session->attribute,
-            MAX_INPUT_LENGTH );
+            sizeof( attribute_arg ) );
+         strlcpy(
+            equipment_arg,
+            session->equipment,
+            sizeof( equipment_arg ) );
 
          ability = session->ability;
          trainer_modifier = session->trainer_modifier;
+         equipment_modifier = session->equipment_modifier;
+         base_progress = session->base_progress;
          session_exertion = session->exertion;
+         equipment = session->used_equipment ? ( OBJ_DATA * )1 : NULL;
 
          DISPOSE( ch->dest_buf );
          break;
@@ -286,7 +494,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
          ch->substate = SUB_NONE;
 
          send_to_char(
-            "&RYou fail to complete your training.\r\n",
+            "&RYou stop before completing your training session.&w\r\n",
             ch );
          return;
    }
@@ -301,23 +509,30 @@ void do_train( CHAR_DATA *ch, const char *argument )
       gain_ability_training_progress(
          ch,
          ability,
-         10,
-         100,
+         base_progress,
+         equipment_modifier,
          trainer_modifier );
 
    if( improved )
    {
       ch_printf(
          ch,
-         "&GYour %s training pays off. "
-         "Your ability has improved.&w\r\n",
-         arg );
+         "&GYour %s training pays off. Your ability has improved.&w\r\n",
+         attribute_arg );
+   }
+   else if( equipment )
+   {
+      ch_printf(
+         ch,
+         "&GYou complete a productive %s session using %s.&w\r\n",
+         attribute_arg,
+         equipment_arg );
    }
    else
    {
       ch_printf(
          ch,
-         "&GYou complete a productive %s training session.&w\r\n",
-         arg );
+         "&GYou complete a productive self-directed %s training session.&w\r\n",
+         attribute_arg );
    }
 }
