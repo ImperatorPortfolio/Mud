@@ -869,11 +869,49 @@ ch_ret move_char( CHAR_DATA * ch, EXIT_DATA * pexit, int fall )
          }
       }
 
-      WAIT_STATE( ch, move );
-      if( ch->mount )
-         ch->mount->move -= move;
-      else
-         ch->move -= move;
+WAIT_STATE( ch, move );
+
+if( ch->mount )
+{
+   ch->mount->move -= move;
+}
+else
+{
+   ch->move -= move;
+
+   /*
+    * Physical exertion consumes stored energy and water.
+    *
+    * Existing terrain movement cost determines how strenuous
+    * the movement was, so mountains/deserts/etc naturally cost more.
+    */
+   if( !IS_NPC( ch ) && ch->pcdata )
+   {
+      if( move >= 6 )
+      {
+         consume_nutrition(
+            ch,
+            0,  /* protein */
+            1,  /* carbs */
+            0,  /* fats */
+            0,
+            0,
+            1   /* hydration */
+         );
+      }
+      else if( move >= 3 && number_range( 1, 3 ) == 1 )
+      {
+         consume_nutrition(
+            ch,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1 );
+      }
+   }
+}
    }
 
    /*

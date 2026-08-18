@@ -1328,6 +1328,34 @@ void char_update( void )
          }
          gain_condition( ch, COND_DRUNK, -1 );
          gain_condition( ch, COND_FULL, -1 );
+         /*
+ * Long-term nutritional metabolism.
+ *
+ * Nutrition is deliberately much slower than hunger/thirst.
+ */
+if( !IS_NPC( ch ) && ch->pcdata )
+{
+   if( number_range( 1, 8 ) == 1 )
+      consume_nutrition(
+         ch,
+         1,  /* protein */
+         1,  /* carbs */
+         1,  /* fats */
+         1,  /* vitamins */
+         1,  /* minerals */
+         0   /* hydration handled more quickly below */
+      );
+
+   if( number_range( 1, 4 ) == 1 )
+      consume_nutrition(
+         ch,
+         0,
+         0,
+         0,
+         0,
+         0,
+         1 );
+}
          if( ch->in_room )
             switch ( ch->in_room->sector_type )
             {

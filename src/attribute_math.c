@@ -63,6 +63,57 @@ void add_nutrition( CHAR_DATA *ch, int profile )
       URANGE( 0, ch->pcdata->nutrition[NUTRITION_HYDRATION] + p->hydration, 100 );
 }
 
+void consume_nutrition(
+   CHAR_DATA *ch,
+   int protein,
+   int carbs,
+   int fats,
+   int vitamins,
+   int minerals,
+   int hydration )
+{
+   if( !ch
+       || IS_NPC( ch )
+       || !ch->pcdata )
+      return;
+
+   ch->pcdata->nutrition[NUTRITION_PROTEIN] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_PROTEIN] - UMAX( 0, protein ),
+         100 );
+
+   ch->pcdata->nutrition[NUTRITION_CARBS] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_CARBS] - UMAX( 0, carbs ),
+         100 );
+
+   ch->pcdata->nutrition[NUTRITION_FATS] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_FATS] - UMAX( 0, fats ),
+         100 );
+
+   ch->pcdata->nutrition[NUTRITION_VITAMINS] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_VITAMINS] - UMAX( 0, vitamins ),
+         100 );
+
+   ch->pcdata->nutrition[NUTRITION_MINERALS] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_MINERALS] - UMAX( 0, minerals ),
+         100 );
+
+   ch->pcdata->nutrition[NUTRITION_HYDRATION] =
+      URANGE(
+         0,
+         ch->pcdata->nutrition[NUTRITION_HYDRATION] - UMAX( 0, hydration ),
+         100 );
+}
+
 int get_nutrition_training_modifier( CHAR_DATA *ch, int ability )
 {
    int a, b, average;

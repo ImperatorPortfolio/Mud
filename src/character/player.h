@@ -48,21 +48,20 @@ short condition[MAX_CONDS];
     *
     * Range: 0-100.
     */
-   short nutrition[MAX_NUTRITION];
+short nutrition[MAX_NUTRITION];
+
 /*
- * Hidden development progress for the six trainable
- * D&D ability scores.
- *
+ * Progress toward the next permanent D&D ability point.
  * Indexed by ABILITY_SCORE_STR through ABILITY_SCORE_CHA.
  */
 int attribute_progress[6];
 
 /*
- * Last meaningful use/training time for each ability.
- * Used later for passive maintenance and decline.
+ * Last time the ability received meaningful use or training.
  */
 time_t attribute_last_used[6];
-   short learned[MAX_SKILL];
+
+short learned[MAX_SKILL];
    KILLED_DATA killed[MAX_KILLTRACK];
    short quest_number;  /* current *QUEST BEING DONE* DON'T REMOVE! */
    short quest_curr; /* current number of quest points */
