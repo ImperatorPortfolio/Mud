@@ -107,9 +107,20 @@ Vnum     9001
 Name     Earth Penitentiary~
 Sector   city~
 Flags    nomob prototype~
+Desc     The main public concourse serves both the penitentiary entrance and a small
+municipal wellness annex. Visitors bound for the secure complex continue to
+the southeast or southwest, while the public training centre lies east.
+
+The detention complex uses reinforced composite walls, controlled lighting and unobtrusive surveillance.
+~
 #EXIT
 Direction north~
 ToRoom    398
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    9034
 #ENDEXIT
 
 #EXIT
@@ -691,9 +702,29 @@ Reset O 0 9001 1 9033
 
 #ROOM
 Vnum     9034
-Name     Floating in a void~
-Sector   city~
-Flags    nomob prototype~
+Name     Hague Public Training Centre~
+Sector   inside~
+Flags    indoors safe~
+Desc     This municipal training centre provides basic physical, cognitive and social
+conditioning for residents, academy students and public-service personnel. Six
+standardized stations line the room. Use EXERCISE <equipment> to complete a
+training session; regular activity and good nutrition improve development over
+time.
+
+The equipment here is deliberately ordinary rather than elite. More advanced
+facilities elsewhere can provide higher-quality training as characters progress.
+~
+#EXIT
+Direction west~
+ToRoom    9001
+#ENDEXIT
+
+Reset O 0 10320 1 9034
+Reset O 0 10321 1 9034
+Reset O 0 10322 1 9034
+Reset O 0 10323 1 9034
+Reset O 0 10324 1 9034
+Reset O 0 10325 1 9034
 #ENDROOM
 
 #ROOM
