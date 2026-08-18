@@ -884,6 +884,41 @@ int get_trait_training_chance(
    return URANGE( 1, chance_value, 95 );
 }
 
+static void show_trait_catalog( CHAR_DATA *ch )
+{
+   int i;
+
+   send_to_pager( "\r\n&CAvailable Trait Pairs&w\r\n", ch );
+   send_to_pager( "------------------------------------------------------------\r\n", ch );
+
+   for( i = 0; i < trait_table_count; ++i )
+   {
+      const trait_definition *trait;
+      const trait_definition *opposite;
+
+      trait = &trait_table[i];
+
+      if( !trait->positive )
+         continue;
+
+      opposite = get_trait_definition( trait->opposite );
+
+      if( !opposite )
+         continue;
+
+      pager_printf(
+         ch,
+         "&G+ %-27s &R- %-27s&w\r\n",
+         trait->name,
+         opposite->name );
+      pager_printf( ch, "   Effect: %s\r\n", get_trait_effect_name( trait->effect ) );
+   }
+
+   send_to_pager( "------------------------------------------------------------\r\n", ch );
+   send_to_pager( "Ranks I, II, and III apply modifiers of 1, 2, and 3.\r\n", ch );
+   send_to_pager( "Type HELP TRAITS for details.\r\n", ch );
+}
+
 void show_character_traits( CHAR_DATA *ch )
 {
    int i;
@@ -930,8 +965,24 @@ void show_character_traits( CHAR_DATA *ch )
 
 void do_traits( CHAR_DATA *ch, const char *argument )
 {
+   char arg[MAX_INPUT_LENGTH];
+
    if( IS_NPC( ch ) || !ch->pcdata )
       return;
 
-   show_character_traits( ch );
+   argument = one_argument( argument, arg );
+
+   if( arg[0] == '\0' || !str_cmp( arg, "mine" ) )
+   {
+      show_character_traits( ch );
+      return;
+   }
+
+   if( !str_cmp( arg, "list" ) || !str_cmp( arg, "all" ) )
+   {
+      show_trait_catalog( ch );
+      return;
+   }
+
+   send_to_char( "Syntax: traits [mine|list]\r\n", ch );
 }

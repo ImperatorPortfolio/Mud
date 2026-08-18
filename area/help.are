@@ -7897,6 +7897,31 @@ Require THREE people and causes heavy damage to all in the room,
 and then blinds everyone, including casters.
 ~
 
+0 TRAIT TRAITS TRAITLIST~
+Syntax: traits
+Syntax: traits list
+
+Every character has six personal traits: four positive traits and two
+negative traits. Traits are generated when a character is created, or when
+an older character without traits first loads. The positive and negative
+rank totals are always balanced.
+
+TRAITS displays your character's assigned traits. TRAITS LIST displays every
+available positive and negative trait pair and the ability each pair affects.
+
+Traits have three ranks:
+  Rank I    applies a modifier of 1
+  Rank II   applies a modifier of 2
+  Rank III  applies a modifier of 3
+
+A positive trait adds its modifier and a negative trait subtracts it. Trait
+effects may alter attribute training potential, saving throws, combat skills,
+piloting skills, utility skills, or crafting skills. The effect shown beside
+each personal trait identifies what it modifies.
+
+See also: SCORE, PRACTICE, TRAIN
+~
+
 0 $~
 
 

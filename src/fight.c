@@ -627,21 +627,94 @@ short off_shld_lvl( CHAR_DATA * ch, CHAR_DATA * victim )
 }
 
 /*
+ * Determine whether a weapon uses the ranged d20 attack formula.
+ */
+static bool is_ranged_combat_weapon( OBJ_DATA *wield )
+{
+   if( !wield )
+      return FALSE;
+
+   if( wield->item_type != ITEM_WEAPON )
+      return FALSE;
+
+   switch( wield->value[3] )
+   {
+      case WEAPON_BLASTER:
+      case WEAPON_BOWCASTER:
+         return TRUE;
+
+      default:
+         return FALSE;
+   }
+}
+
+/*
+ * Convert an ability score to its d20 modifier. C++ integer division
+ * truncates toward zero, so negative values need explicit floor behavior.
+ */
+static int get_ability_modifier( int ability )
+{
+   if( ability >= 10 )
+      return ( ability - 10 ) / 2;
+
+   return -( ( 11 - ability ) / 2 );
+}
+
+/*
+ * SWR ability levels run from 0 to 100. Mapping five ability levels to
+ * one d20 point produces a base attack progression from +0 to +20.
+ */
+static int get_base_attack_bonus( CHAR_DATA *ch )
+{
+   if( !ch )
+      return 0;
+
+   return URANGE( 0, ch->skill_level[COMBAT_ABILITY] / 5, 20 );
+}
+
+/*
+ * Convert legacy descending armor into ascending d20 Defense. Unarmored
+ * characters start at armor 100; each ten points below that grants +1.
+ */
+static int get_defense( CHAR_DATA *ch )
+{
+   int armor_bonus;
+   int dexterity_bonus;
+
+   if( !ch )
+      return 10;
+
+   armor_bonus = ( 100 - ch->armor ) / 10;
+   dexterity_bonus =
+      IS_AWAKE( ch )
+      ? get_ability_modifier( get_curr_dex( ch ) )
+      : 0;
+
+   return 10
+      + get_base_attack_bonus( ch )
+      + dexterity_bonus
+      + armor_bonus;
+}
+
+/*
  * Hit one guy once.
  */
 ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
 {
    OBJ_DATA *wield;
-   int victim_ac;
-   int thac0;
-   int thac0_00;
-   int thac0_32;
+
+   int victim_defense;
+   int attack_bonus;
+   int ability_bonus;
+   int trait_bonus;
    int plusris;
    int dam, x;
    int diceroll;
    int attacktype, cnt;
    int prof_bonus;
    int prof_gsn;
+   bool ranged_attack;
+
    ch_ret retcode = rNONE;
    int schance;
    bool fail;
@@ -736,66 +809,191 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    }
 
    /*
-    * Calculate to-hit-armor-class-0 versus armor.
-    */
-   thac0_00 = 20;
-   thac0_32 = 10;
-   thac0 = interpolate( ch->skill_level[COMBAT_ABILITY], thac0_00, thac0_32 ) - GET_HITROLL( ch );
-   victim_ac = ( int )( GET_AC( victim ) / 10 );
+ * Star Wars d20 attack resolution.
+ *
+ * Melee:
+ *
+ *   d20 + BAB + STR mod + weapon proficiency
+ *       + trait + equipment/misc
+ *
+ * Ranged:
+ *
+ *   d20 + BAB + DEX mod + weapon proficiency
+ *       + trait + equipment/misc
+ *
+ * versus ascending Defense.
+ */
+
+ranged_attack =
+   is_ranged_combat_weapon( wield );
+
+if( ranged_attack )
+{
+   ability_bonus =
+      get_ability_modifier(
+         get_curr_dex( ch ) );
+}
+else
+{
+   ability_bonus =
+      get_ability_modifier(
+         get_curr_str( ch ) );
+}
+
+attack_bonus =
+   get_base_attack_bonus( ch )
+   + ability_bonus
+   + ch->hitroll;
+
+/*
+ * SWR weapon skills are currently percentages.
+ *
+ * Until Stage 3 converts skills fully to d20 ranks/checks,
+ * every 20 percentage points supplies +1 attack.
+ *
+ * 20  = +1
+ * 40  = +2
+ * 60  = +3
+ * 80  = +4
+ * 100 = +5
+ */
+if( prof_gsn != -1 )
+{
+   attack_bonus += prof_bonus / 20;
 
    /*
-    * if you can't see what's coming... 
+    * Our character traits now directly influence the
+    * corresponding weapon attack.
+    *
+    * Rank I   = +/-1
+    * Rank II  = +/-2
+    * Rank III = +/-3
     */
-   if( wield && !can_see_obj( victim, wield ) )
-      victim_ac += 1;
-   if( !can_see( ch, victim ) )
-      victim_ac -= 4;
+   trait_bonus =
+      get_trait_skill_modifier(
+         ch,
+         prof_gsn );
 
-   if( ch->race == RACE_DEFEL )
-      victim_ac += 2;
+   attack_bonus += trait_bonus;
+}
 
-   if( !IS_AWAKE( victim ) )
-      victim_ac += 5;
+/*
+ * Preserve useful SWR situational modifiers while translating
+ * them into ascending d20 bonuses/penalties.
+ */
 
-   /*
-    * Weapon proficiency bonus 
-    */
-   victim_ac += prof_bonus / 20;
+/*
+ * Defender cannot see the attacking weapon.
+ */
+if( wield && !can_see_obj( victim, wield ) )
+   attack_bonus += 1;
 
-   /*
-    * The moment of excitement!
-    */
-   diceroll = number_range( 1, 20 );
+/*
+ * Attacker cannot see the target.
+ */
+if( !can_see( ch, victim ) )
+   attack_bonus -= 4;
 
-   if( diceroll == 1 || ( diceroll < 20 && diceroll < thac0 - victim_ac ) )
-   {
-      /*
-       * Miss. 
-       */
-      if( prof_gsn != -1 )
-         learn_from_failure( ch, prof_gsn );
-      damage( ch, victim, 0, dt );
-      tail_chain(  );
-      return rNONE;
-   }
+/*
+ * Preserve the existing Defel combat advantage.
+ */
+if( ch->race == RACE_DEFEL )
+   attack_bonus += 2;
 
+/*
+ * Helpless/sleeping target.
+ */
+if( !IS_AWAKE( victim ) )
+   attack_bonus += 4;
+
+victim_defense =
+   get_defense( victim );
+
+/*
+ * The moment of excitement.
+ */
+diceroll =
+   number_range( 1, 20 );
+
+/*
+ * Natural 1 always misses.
+ *
+ * Natural 20 always hits.
+ *
+ * Otherwise:
+ *
+ * d20 + attack bonus >= Defense
+ */
+if( diceroll == 1
+    || ( diceroll != 20
+         && diceroll + attack_bonus < victim_defense ) )
+{
+   if( prof_gsn != -1 )
+      learn_from_failure(
+         ch,
+         prof_gsn );
+
+   damage(
+      ch,
+      victim,
+      0,
+      dt );
+
+   tail_chain();
+
+   return rNONE;
+}
    /*
     * Hit.
     * Calc damage.
     */
-   if( !wield )   /* dice formula fixed by Thoric */
-      dam = number_range( ch->barenumdie, ch->baresizedie * ch->barenumdie ) + ch->damplus;
-   else
-      dam = number_range( wield->value[1], wield->value[2] );
+/*
+ * Base weapon damage.
+ */
+if( !wield )
+{
+   dam =
+      number_range(
+         ch->barenumdie,
+         ch->baresizedie * ch->barenumdie )
+      + ch->damplus;
+}
+else
+{
+   dam =
+      number_range(
+         wield->value[1],
+         wield->value[2] );
+}
 
-   /*
-    * Bonuses.
-    */
+/*
+ * Existing equipment/APPLY_DAMROLL bonuses remain valid.
+ */
+dam += ch->damroll;
 
-   dam += GET_DAMROLL( ch );
+/*
+ * D&D / Star Wars d20 ability contribution:
+ *
+ * Melee/unarmed:
+ *     weapon damage + STR modifier
+ *
+ * Blaster/bowcaster:
+ *     weapon damage only
+ *
+ * Ranged accuracy already uses DEX.
+ */
+if( !ranged_attack )
+{
+   dam +=
+      get_ability_modifier(
+         get_curr_str( ch ) );
+}
 
-   if( prof_bonus )
-      dam *= ( 1 + prof_bonus / 100 );
+/*
+ * Damage from a successful normal attack should not fall
+ * below 1 before resistance/immunity processing.
+ */
+dam = UMAX( 1, dam );
 
    if( !IS_NPC( ch ) && ch->pcdata->learned[gsn_enhanced_damage] > 0 )
    {

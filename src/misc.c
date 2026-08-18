@@ -2709,16 +2709,34 @@ void do_train( CHAR_DATA *ch, const char *argument )
             return;
          }
 
-         success_chance =
-            get_trait_training_chance(
-               ch,
-               mob,
-               effect );
+   success_chance =
+   get_trait_training_chance(
+      ch,
+      mob,
+      effect );
 
-         CREATE(
-            session,
-            struct training_session_data,
-            1 );
+if( success_chance <= 0 )
+{
+   int potential;
+
+   potential =
+      get_trait_training_potential(
+         ch,
+         effect );
+
+   ch_printf(
+      ch,
+      "&YYou cannot improve this attribute any further through natural training.\r\n"
+      "&WYour natural potential is %d.&w\r\n",
+      potential );
+
+   return;
+}
+
+CREATE(
+   session,
+   struct training_session_data,
+   1 );
 
          strlcpy(
             session->attribute,
