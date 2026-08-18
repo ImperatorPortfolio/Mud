@@ -25,6 +25,7 @@ int get_str_carry_bonus( int strength );
 int get_str_wield_bonus( int strength );
 int get_dex_defensive_bonus( int dexterity );
 int get_int_learn_bonus( int intelligence );
+int get_nutrition_training_modifier( CHAR_DATA *ch, int ability );
 
 typedef enum
 {

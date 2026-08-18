@@ -2895,6 +2895,12 @@ Hell takes arguments of either hours or days.  To hell someone for 3 hours,
 To release a player from hell early, simply "unhell <character>".  
 ~
 
+1 HEALTH~
+Syntax: health
+
+Displays your current health, movement, nutrition, hydration, and satiety.
+~
+
 0 HELP~
 |--------------------------------------|--------------------------------------|
 |                MOVEMENT              |                 GROUP                |

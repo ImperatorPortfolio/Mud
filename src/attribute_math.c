@@ -10,6 +10,112 @@
 
 #include "mud.h"
 
+struct nutrition_profile
+{
+   short protein;
+   short carbs;
+   short fats;
+   short vitamins;
+   short minerals;
+   short hydration;
+};
+
+static const nutrition_profile nutrition_profiles[] =
+{
+   { 0,  0,  0,  0,  0,  0 },   /* 0 none */
+   { 8,  3,  2,  2,  4,  1 },   /* 1 meat */
+   { 2,  8,  1,  5,  3,  2 },   /* 2 fruit/veg */
+   { 3, 10,  2,  2,  2,  1 },   /* 3 grains/starch */
+   { 4,  2,  9,  3,  3,  1 },   /* 4 fats/oils */
+   { 5,  4,  4,  5,  6,  2 },   /* 5 balanced meal */
+   { 0,  0,  0,  0,  1, 10 }    /* 6 water/drink */
+};
+
+void add_nutrition( CHAR_DATA *ch, int profile )
+{
+   const nutrition_profile *p;
+
+   if( !ch || IS_NPC( ch ) )
+      return;
+
+   if( profile <= 0
+       || profile >= (int)( sizeof( nutrition_profiles ) / sizeof( nutrition_profiles[0] ) ) )
+      return;
+
+   p = &nutrition_profiles[profile];
+
+   ch->pcdata->nutrition[NUTRITION_PROTEIN] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_PROTEIN] + p->protein, 100 );
+
+   ch->pcdata->nutrition[NUTRITION_CARBS] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_CARBS] + p->carbs, 100 );
+
+   ch->pcdata->nutrition[NUTRITION_FATS] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_FATS] + p->fats, 100 );
+
+   ch->pcdata->nutrition[NUTRITION_VITAMINS] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_VITAMINS] + p->vitamins, 100 );
+
+   ch->pcdata->nutrition[NUTRITION_MINERALS] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_MINERALS] + p->minerals, 100 );
+
+   ch->pcdata->nutrition[NUTRITION_HYDRATION] =
+      URANGE( 0, ch->pcdata->nutrition[NUTRITION_HYDRATION] + p->hydration, 100 );
+}
+
+int get_nutrition_training_modifier( CHAR_DATA *ch, int ability )
+{
+   int a, b, average;
+
+   if( !ch || IS_NPC( ch ) )
+      return 100;
+
+   switch( ability )
+   {
+      case ABILITY_SCORE_STR:
+         a = NUTRITION_PROTEIN;
+         b = NUTRITION_MINERALS;
+         break;
+
+      case ABILITY_SCORE_DEX:
+         a = NUTRITION_CARBS;
+         b = NUTRITION_VITAMINS;
+         break;
+
+      case ABILITY_SCORE_CON:
+         a = NUTRITION_PROTEIN;
+         b = NUTRITION_CARBS;
+         break;
+
+      case ABILITY_SCORE_INT:
+         a = NUTRITION_FATS;
+         b = NUTRITION_HYDRATION;
+         break;
+
+      case ABILITY_SCORE_WIS:
+         a = NUTRITION_FATS;
+         b = NUTRITION_MINERALS;
+         break;
+
+      case ABILITY_SCORE_CHA:
+         a = NUTRITION_VITAMINS;
+         b = NUTRITION_HYDRATION;
+         break;
+
+      default:
+         return 100;
+   }
+
+   average = ( ch->pcdata->nutrition[a] + ch->pcdata->nutrition[b] ) / 2;
+
+   if( average >= 80 ) return 125;
+   if( average >= 60 ) return 110;
+   if( average >= 30 ) return 100;
+   if( average >= 15 ) return 75;
+
+   return 50;
+}
+
 extern const struct str_app_type ability_str_app[] =
 {
    { -5, -5, 0, 0 }, /*   0 */

@@ -813,7 +813,7 @@ void do_fill( CHAR_DATA * ch, const char *argument )
    argument = one_argument( argument, arg2 );
 
    /*
-    * munch optional words 
+    * munch optional words
     */
    if( ( !str_cmp( arg2, "from" ) || !str_cmp( arg2, "with" ) ) && argument[0] != '\0' )
       argument = one_argument( argument, arg2 );
@@ -843,7 +843,7 @@ void do_fill( CHAR_DATA * ch, const char *argument )
          send_to_char( "You cannot fill that.\r\n", ch );
          return;
          /*
-          * place all fillable item types here 
+          * place all fillable item types here
           */
       case ITEM_DRINK_CON:
          src_item1 = ITEM_FOUNTAIN;
@@ -906,7 +906,7 @@ void do_fill( CHAR_DATA * ch, const char *argument )
           * This used to let you fill a pipe from an object on the ground.  Seems
           * to me you should be holding whatever you want to fill a pipe with.
           * It's nitpicking, but I needed to change it to get a mobprog to work
-          * right.  Check out Lord Fitzgibbon if you're curious.  -Narn 
+          * right.  Check out Lord Fitzgibbon if you're curious.  -Narn
           */
       if( dest_item == ITEM_PIPE )
       {
@@ -1205,6 +1205,29 @@ void do_fill( CHAR_DATA * ch, const char *argument )
    }
 }
 
+static void consume_nutrition( CHAR_DATA *ch, OBJ_DATA *obj )
+{
+   int nutrition;
+
+   if( !ch
+       || IS_NPC( ch )
+       || !ch->pcdata
+       || !obj )
+      return;
+
+   for( nutrition = 0;
+        nutrition < MAX_NUTRITION;
+        ++nutrition )
+   {
+      ch->pcdata->nutrition[nutrition] =
+         URANGE(
+            0,
+            ch->pcdata->nutrition[nutrition]
+               + obj->nutrition[nutrition],
+            100 );
+   }
+}
+
 void do_drink( CHAR_DATA * ch, const char *argument )
 {
    char arg[MAX_INPUT_LENGTH];
@@ -1214,7 +1237,7 @@ void do_drink( CHAR_DATA * ch, const char *argument )
 
    argument = one_argument( argument, arg );
    /*
-    * munch optional words 
+    * munch optional words
     */
    if( !str_cmp( arg, "from" ) && argument[0] != '\0' )
       argument = one_argument( argument, arg );
@@ -1304,12 +1327,18 @@ void do_drink( CHAR_DATA * ch, const char *argument )
          amount = 1; /* UMIN(amount, obj->value[1]); */
          /*
           * what was this? concentrated drinks?  concentrated water
-          * too I suppose... sheesh! 
+          * too I suppose... sheesh!
           */
 
          gain_condition( ch, COND_DRUNK, amount * liq_table[liquid].liq_affect[COND_DRUNK] );
          gain_condition( ch, COND_FULL, amount * liq_table[liquid].liq_affect[COND_FULL] );
          gain_condition( ch, COND_THIRST, amount * liq_table[liquid].liq_affect[COND_THIRST] );
+/*
+          * Nutritious drinks may also contribute to diet quality.
+          * Ordinary legacy drinks with value[4] == 0 do nothing.
+          */
+         if( !IS_NPC( ch ) )
+   consume_nutrition( ch, obj );
 
          if( !IS_NPC( ch ) )
          {
@@ -1338,7 +1367,7 @@ void do_drink( CHAR_DATA * ch, const char *argument )
          if( obj->value[3] )
          {
             /*
-             * The drink was poisoned! 
+             * The drink was poisoned!
              */
             AFFECT_DATA af;
 
@@ -1395,7 +1424,7 @@ void do_eat( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * required due to object grouping 
+    * required due to object grouping
     */
    separate_obj( obj );
 
@@ -1426,22 +1455,39 @@ void do_eat( CHAR_DATA * ch, const char *argument )
          else
             foodcond = 10;
 
-         if( !IS_NPC( ch ) )
+if( !IS_NPC( ch ) )
          {
             int condition;
 
             condition = ch->pcdata->condition[COND_FULL];
-            gain_condition( ch, COND_FULL, ( obj->value[0] * foodcond ) / 10 );
-            if( condition <= 1 && ch->pcdata->condition[COND_FULL] > 1 )
-               send_to_char( "You are no longer hungry.\r\n", ch );
+
+            gain_condition(
+               ch,
+               COND_FULL,
+               ( obj->value[0] * foodcond ) / 10 );
+
+            if( condition <= 1
+                && ch->pcdata->condition[COND_FULL] > 1 )
+            {
+               send_to_char(
+                  "You are no longer hungry.\r\n",
+                  ch );
+            }
             else if( ch->pcdata->condition[COND_FULL] > 40 )
-               send_to_char( "You are full.\r\n", ch );
+            {
+               send_to_char(
+                  "You are full.\r\n",
+                  ch );
+            }
+
+            if( !IS_NPC( ch ) )
+               consume_nutrition( ch, obj );
          }
 
          if( obj->value[3] != 0 || ( foodcond < 4 && number_range( 0, foodcond + 1 ) == 0 ) )
          {
             /*
-             * The food was poisoned! 
+             * The food was poisoned!
              */
             AFFECT_DATA af;
 
@@ -1469,7 +1515,7 @@ void do_eat( CHAR_DATA * ch, const char *argument )
 
       case ITEM_PILL:
          /*
-          * allow pills to fill you, if so desired 
+          * allow pills to fill you, if so desired
           */
          if( !IS_NPC( ch ) && obj->value[4] )
          {
@@ -2592,6 +2638,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
    char arg[MAX_INPUT_LENGTH];
    CHAR_DATA *mob;
    int effect;
+   int ability;
    int success_chance;
    bool successful;
 
@@ -2640,11 +2687,13 @@ void do_train( CHAR_DATA *ch, const char *argument )
          }
 
          effect = TRAIT_EFFECT_NONE;
+         ability = ABILITY_SCORE_STR;
 
          if( !str_cmp( arg, "str" )
              || !str_cmp( arg, "strength" ) )
          {
             effect = TRAIT_EFFECT_STR_POTENTIAL;
+            ability = ABILITY_SCORE_STR;
             strlcpy( arg, "strength", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2655,6 +2704,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                   || !str_cmp( arg, "dexterity" ) )
          {
             effect = TRAIT_EFFECT_DEX_POTENTIAL;
+            ability = ABILITY_SCORE_DEX;
             strlcpy( arg, "dexterity", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2666,6 +2716,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                   || !str_cmp( arg, "intelligence" ) )
          {
             effect = TRAIT_EFFECT_INT_POTENTIAL;
+            ability = ABILITY_SCORE_INT;
             strlcpy( arg, "intelligence", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2676,6 +2727,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                   || !str_cmp( arg, "wisdom" ) )
          {
             effect = TRAIT_EFFECT_WIS_POTENTIAL;
+            ability = ABILITY_SCORE_WIS;
             strlcpy( arg, "wisdom", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2687,6 +2739,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                   || !str_cmp( arg, "constitution" ) )
          {
             effect = TRAIT_EFFECT_CON_POTENTIAL;
+            ability = ABILITY_SCORE_CON;
             strlcpy( arg, "constitution", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2697,6 +2750,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                   || !str_cmp( arg, "charisma" ) )
          {
             effect = TRAIT_EFFECT_CHA_POTENTIAL;
+            ability = ABILITY_SCORE_CHA;
             strlcpy( arg, "charisma", MAX_INPUT_LENGTH );
 
             send_to_char(
@@ -2715,7 +2769,7 @@ void do_train( CHAR_DATA *ch, const char *argument )
                mob,
                effect );
 
-         if( success_chance <= 0 )
+       if( success_chance <= 0 )
          {
             int potential;
 
@@ -2731,7 +2785,19 @@ void do_train( CHAR_DATA *ch, const char *argument )
                potential );
 
             return;
-}
+         }
+
+         /*
+          * Nutrition affects training efficiency, not the character's
+          * actual D&D ability score or natural potential.
+          */
+         success_chance =
+            ( success_chance
+              * get_nutrition_training_modifier( ch, ability ) ) / 100;
+
+         success_chance =
+            URANGE( 1, success_chance, 100 );
+
          CREATE(
             session,
             struct training_session_data,

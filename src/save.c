@@ -159,7 +159,7 @@ void save_char_obj( CHAR_DATA * ch )
 
    saving_char = ch;
    /*
-    * save pc's clan's data while we're at it to keep the data in sync 
+    * save pc's clan's data while we're at it to keep the data in sync
     */
    if( !IS_NPC( ch ) && ch->pcdata->clan )
       save_clan( ch->pcdata->clan );
@@ -452,9 +452,18 @@ if( ch->pcdata->traits_initialized )
 
          fprintf( fp, "\n" );
       }
-      fprintf( fp, "Condition    %d %d %d %d\n",
-               ch->pcdata->condition[0], ch->pcdata->condition[1], ch->pcdata->condition[2], ch->pcdata->condition[3] );
-      if( ch->desc && ch->desc->host )
+      fprintf( fp, "Condition    %d %d %d %d\n", ch->pcdata->condition[0], ch->pcdata->condition[1], ch->pcdata->condition[2], ch->pcdata->condition[3] );
+      fprintf(
+   fp,
+   "Nutrition    %d %d %d %d %d %d\n",
+   ch->pcdata->nutrition[NUTRITION_PROTEIN],
+   ch->pcdata->nutrition[NUTRITION_CARBS],
+   ch->pcdata->nutrition[NUTRITION_FATS],
+   ch->pcdata->nutrition[NUTRITION_VITAMINS],
+   ch->pcdata->nutrition[NUTRITION_MINERALS],
+   ch->pcdata->nutrition[NUTRITION_HYDRATION] );
+
+               if( ch->desc && ch->desc->host )
          fprintf( fp, "Site         %s\n", ch->desc->host );
       else
          fprintf( fp, "Site         (Link-Dead)\n" );
@@ -502,7 +511,7 @@ if( ch->pcdata->traits_initialized )
    }
 
    /*
-    * Save color values - Samson 9-29-98 
+    * Save color values - Samson 9-29-98
     */
    {
       int x;
@@ -566,13 +575,13 @@ void fwrite_obj( CHAR_DATA * ch, OBJ_DATA * obj, FILE * fp, int iNest, short os_
       return;
 
    /*
-    * DO NOT save corpses lying on the ground as a hotboot item, they already saved elsewhere! - Samson 
+    * DO NOT save corpses lying on the ground as a hotboot item, they already saved elsewhere! - Samson
     */
    if( hotboot && obj->item_type == ITEM_CORPSE_PC )
       return;
 
    /*
-    * Corpse saving. -- Altrag 
+    * Corpse saving. -- Altrag
     */
    fprintf( fp, ( os_type == OS_CORPSE ? "#CORPSE\n" : "#OBJECT\n" ) );
 
@@ -739,6 +748,10 @@ bool load_char_obj( DESCRIPTOR_DATA * d, char *name, bool preload, bool copyover
    ch->pcdata->condition[COND_THIRST] = 48;
    ch->pcdata->condition[COND_FULL] = 48;
    ch->pcdata->condition[COND_BLOODTHIRST] = 10;
+   /* Existing players start nutritionally healthy for compatibility. */
+   for( i = 0; i < MAX_NUTRITION; ++i )
+      ch->pcdata->nutrition[i] = 60;
+
    ch->pcdata->wizinvis = 0;
    ch->mental_state = -10;
    ch->mobinvis = 0;
@@ -774,7 +787,7 @@ bool load_char_obj( DESCRIPTOR_DATA * d, char *name, bool preload, bool copyover
       }
    }
    /*
-    * else no player file 
+    * else no player file
     */
 
    if( ( fp = fopen( strsave, "r" ) ) != NULL )
@@ -786,7 +799,7 @@ bool load_char_obj( DESCRIPTOR_DATA * d, char *name, bool preload, bool copyover
 
       found = TRUE;
       /*
-       * Cheat so that bug will show line #'s -- Altrag 
+       * Cheat so that bug will show line #'s -- Altrag
        */
       fpArea = fp;
       strlcpy( strArea, strsave, MAX_INPUT_LENGTH );
@@ -924,7 +937,7 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
    file_ver = 0;
    killcnt = 0;
    /*
-    * Setup color values in case player has none set - Samson 
+    * Setup color values in case player has none set - Samson
     */
    memcpy( &ch->colors, &default_set, sizeof( default_set ) );
    for( ;; )
@@ -1135,7 +1148,7 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
             break;
 
             /*
-             * 'E' was moved to after 'S' 
+             * 'E' was moved to after 'S'
              */
          case 'F':
             KEY( "Flags", ch->pcdata->flags, fread_number( fp ) );
@@ -1157,7 +1170,7 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
             KEY( "Glory", ch->pcdata->quest_curr, fread_number( fp ) );
             KEY( "Gold", ch->gold, fread_number( fp ) );
             /*
-             * temporary measure 
+             * temporary measure
              */
             if( !str_cmp( word, "Guild" ) )
             {
@@ -1281,17 +1294,53 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
             }
             break;
 
-         case 'N':
-            if( !str_cmp( word, "Name" ) )
-            {
-               /*
-                * Name already set externally.
-                */
-               fread_to_eol( fp );
-               fMatch = TRUE;
-               break;
-            }
-            break;
+  case 'N':
+   if( !str_cmp( word, "Name" ) )
+   {
+      fread_to_eol( fp );
+      fMatch = TRUE;
+      break;
+   }
+
+   if( !str_cmp( word, "Nutrition" ) )
+   {
+      line = fread_line( fp );
+
+      x1 = x2 = x3 = x4 = x5 = x6 = 60;
+
+      sscanf(
+         line,
+         "%d %d %d %d %d %d",
+         &x1,
+         &x2,
+         &x3,
+         &x4,
+         &x5,
+         &x6 );
+
+      ch->pcdata->nutrition[NUTRITION_PROTEIN] =
+         URANGE( 0, x1, 100 );
+
+      ch->pcdata->nutrition[NUTRITION_CARBS] =
+         URANGE( 0, x2, 100 );
+
+      ch->pcdata->nutrition[NUTRITION_FATS] =
+         URANGE( 0, x3, 100 );
+
+      ch->pcdata->nutrition[NUTRITION_VITAMINS] =
+         URANGE( 0, x4, 100 );
+
+      ch->pcdata->nutrition[NUTRITION_MINERALS] =
+         URANGE( 0, x5, 100 );
+
+      ch->pcdata->nutrition[NUTRITION_HYDRATION] =
+         URANGE( 0, x6, 100 );
+
+      fMatch = TRUE;
+      break;
+   }
+
+   break;
 
          case 'O':
             KEY( "Outcast_time", ch->pcdata->outcast_time, fread_number( fp ) );
@@ -1495,7 +1544,7 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                }
                if( !IS_IMMORTAL( ch ) && !ch->speaking )
                   /*
-                   * ch->speaking = LANG_COMMON;      
+                   * ch->speaking = LANG_COMMON;
                    */
                   ch->speaking = race_table[ch->race].language;
                if( IS_IMMORTAL( ch ) )
@@ -1588,7 +1637,7 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
             }
             KEY( "Trust", ch->trust, fread_number( fp ) );
             /*
-             * Let no character be trusted higher than one below maxlevel -- Narn 
+             * Let no character be trusted higher than one below maxlevel -- Narn
              */
             ch->trust = UMIN( ch->trust, MAX_LEVEL - 1 );
 
@@ -1789,7 +1838,7 @@ void fread_obj( CHAR_DATA * ch, FILE * fp, short os_type )
                   if( file_ver > 1 || obj->wear_loc < -1 || obj->wear_loc >= MAX_WEAR )
                      obj->wear_loc = -1;
                   /*
-                   * Corpse saving. -- Altrag 
+                   * Corpse saving. -- Altrag
                    */
                   if( os_type == OS_CORPSE )
                   {
@@ -2011,7 +2060,7 @@ void write_corpses( CHAR_DATA * ch, const char *name )
 
    /*
     * Name and ch support so that we dont have to have a char to save their
-    * corpses.. (ie: decayed corpses while offline) 
+    * corpses.. (ie: decayed corpses while offline)
     */
    if( ch && IS_NPC( ch ) )
    {
@@ -2021,7 +2070,7 @@ void write_corpses( CHAR_DATA * ch, const char *name )
    if( ch )
       name = ch->name;
    /*
-    * Go by vnum, less chance of screwups. -- Altrag 
+    * Go by vnum, less chance of screwups. -- Altrag
     */
    for( corpse = first_object; corpse; corpse = corpse->next )
       if( corpse->pIndexData->vnum == OBJ_VNUM_CORPSE_PC &&

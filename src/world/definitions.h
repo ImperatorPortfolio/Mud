@@ -154,7 +154,7 @@
 #define RIS_PARALYSIS		  BV21
 /* 21 RIS's*/
 
-/* 
+/*
 * Attack types
 */
 #define ATCK_BITE		  BV00
@@ -745,6 +745,21 @@ typedef enum
 {
    COND_DRUNK, COND_FULL, COND_THIRST, COND_BLOODTHIRST, MAX_CONDS
 } conditions;
+
+/*
+ * Long-term nutritional condition.
+ * Values are stored from 0 to 100.
+ */
+typedef enum
+{
+   NUTRITION_PROTEIN,
+   NUTRITION_CARBS,
+   NUTRITION_FATS,
+   NUTRITION_VITAMINS,
+   NUTRITION_MINERALS,
+   NUTRITION_HYDRATION,
+   MAX_NUTRITION
+} nutrition_types;
 
 /*
 * Positions.

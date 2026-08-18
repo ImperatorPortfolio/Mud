@@ -40,8 +40,16 @@ struct pc_data
    int o_range_hi;
    short wizinvis;   /* wizinvis level */
    short min_snoop;  /* minimum snoop level */
-   short condition[MAX_CONDS];
-   short nutrition;  /* Long-term dietary condition: 0-100. */
+short condition[MAX_CONDS];
+
+   /*
+    * Protein, carbohydrates, fats,
+    * vitamins, minerals and hydration.
+    *
+    * Range: 0-100.
+    */
+   short nutrition[MAX_NUTRITION];
+
    short learned[MAX_SKILL];
    KILLED_DATA killed[MAX_KILLTRACK];
    short quest_number;  /* current *QUEST BEING DONE* DON'T REMOVE! */
@@ -61,7 +69,8 @@ struct pc_data
    short drug_level[10];
    int wanted_flags;
    long bank;
-   bool hotboot;  /* hotboot tracker */
+bool hotboot;  /* hotboot tracker */
+
    struct character_trait traits[MAX_CHARACTER_TRAITS];
    bool traits_initialized;
 };

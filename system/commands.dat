@@ -1103,6 +1103,14 @@ Log         0
 End
 
 #COMMAND
+Name        health~
+Code        do_health
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
 Name        hedit~
 Code        do_hedit
 Position    0

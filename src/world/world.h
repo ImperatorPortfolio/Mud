@@ -46,6 +46,11 @@ struct obj_index_data
    short weight;
    int cost;
    int value[6];
+   /*
+ * Per-object nutritional values:
+ * protein, carbs, fats, vitamins, minerals, hydration.
+ */
+short nutrition[MAX_NUTRITION];
    int serial;
    short layers;
    int rent;   /* Unused */
@@ -89,6 +94,8 @@ struct obj_data
    short level;
    short timer;
    int value[6];
+   short nutrition[MAX_NUTRITION];
+
    short count;   /* support for object grouping */
    int serial; /* serial number         */
    int room_vnum; /* hotboot tracker */

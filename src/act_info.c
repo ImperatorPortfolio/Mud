@@ -522,9 +522,9 @@ void show_char_to_char_0( CHAR_DATA * victim, CHAR_DATA * ch )
 
    /*
     * strlcat( buf, PERS( victim, ch ), MAX_STRING_LENGTH );       old system of titles
-    * *    removed to prevent prepending of name to title     -Kuran  
+    * *    removed to prevent prepending of name to title     -Kuran
     * *
-    * *    But added back bellow so that you can see mobs too :P   -Durga 
+    * *    But added back bellow so that you can see mobs too :P   -Durga
     */
    if( !IS_NPC( victim ) && !IS_SET( ch->act, PLR_BRIEF ) )
       strlcat( buf, victim->pcdata->title, MAX_STRING_LENGTH );
@@ -828,7 +828,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
       SHIP_DATA *ship;
 
       /*
-       * 'look' or 'look auto' 
+       * 'look' or 'look auto'
        */
       set_char_color( AT_RMNAME, ch );
       send_to_char( ch->in_room->name, ch );
@@ -836,7 +836,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
 
       if( !ch->desc->original )
       {
-         if( ( get_trust( ch ) >= LEVEL_IMMORTAL ) )             
+         if( ( get_trust( ch ) >= LEVEL_IMMORTAL ) )
          {
             if( IS_SET( ch->act, PLR_ROOMVNUM ) )
             {
@@ -930,7 +930,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
       int count;
 
       /*
-       * 'look under' 
+       * 'look under'
        */
       if( arg2[0] == '\0' )
       {
@@ -967,7 +967,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
       int count;
 
       /*
-       * 'look in' 
+       * 'look in'
        */
       if( arg2[0] == '\0' )
       {
@@ -1150,7 +1150,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * finally fixed the annoying look 2.obj desc bug -Thoric 
+    * finally fixed the annoying look 2.obj desc bug -Thoric
     */
    number = number_argument( arg1, arg );
    for( cnt = 0, obj = ch->last_carrying; obj; obj = obj->prev_content )
@@ -1933,7 +1933,7 @@ void do_hset( CHAR_DATA * ch, const char *argument )
 
    argument = smash_tilde_copy( argument );
    argument = one_argument( argument, arg1 );
-   
+
    if( arg1[0] == '\0' )
    {
       send_to_char( "Syntax: hset <field> [value] [help page]\r\n", ch );
@@ -2057,7 +2057,7 @@ void do_hlist( CHAR_DATA * ch, const char *argument )
       send_to_char( "None found.\r\n", ch );
 }
 
-/* 
+/*
  * New do_who with WHO REQUEST, clan, race and homepage support.  -Thoric
  *
  * Latest version of do_who eliminates redundant code by using linked lists.
@@ -2299,7 +2299,7 @@ void do_who( CHAR_DATA * ch, const char *argument )
        * What we do instead is put the found data into a linked list
        */
       /*
-       * First make the structure. 
+       * First make the structure.
        */
       CREATE( cur_who, WHO_DATA, 1 );
       cur_who->text = strdup( buf );
@@ -2311,7 +2311,7 @@ void do_who( CHAR_DATA * ch, const char *argument )
          cur_who->type = WT_MORTAL;
 
       /*
-       * Then put it into the appropriate list. 
+       * Then put it into the appropriate list.
        */
       switch ( cur_who->type )
       {
@@ -2332,11 +2332,11 @@ void do_who( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * Ok, now we have three separate linked lists and what remains is to 
+    * Ok, now we have three separate linked lists and what remains is to
     * * display the information and clean up.
     */
    /*
-    * Deadly list removed for swr ... now only 2 lists 
+    * Deadly list removed for swr ... now only 2 lists
     */
    if( first_newbie )
    {
@@ -3466,7 +3466,7 @@ void do_channels( CHAR_DATA * ch, const char *argument )
          REMOVE_BIT( ch->deaf, CHANNEL_CHAT );
          REMOVE_BIT( ch->deaf, CHANNEL_QUEST );
          /*
-          * REMOVE_BIT (ch->deaf, CHANNEL_IMMTALK); 
+          * REMOVE_BIT (ch->deaf, CHANNEL_IMMTALK);
           */
          REMOVE_BIT( ch->deaf, CHANNEL_PRAY );
          REMOVE_BIT( ch->deaf, CHANNEL_MUSIC );
@@ -3477,8 +3477,8 @@ void do_channels( CHAR_DATA * ch, const char *argument )
          /*
           * if (ch->pcdata->clan)
           * REMOVE_BIT (ch->deaf, CHANNEL_CLAN);
-          * 
-          * 
+          *
+          *
           * if (ch->pcdata->guild)
           * REMOVE_BIT (ch->deaf, CHANNEL_GUILD);
           */
@@ -3495,7 +3495,7 @@ void do_channels( CHAR_DATA * ch, const char *argument )
          SET_BIT( ch->deaf, CHANNEL_CHAT );
          SET_BIT( ch->deaf, CHANNEL_QUEST );
          /*
-          * SET_BIT (ch->deaf, CHANNEL_IMMTALK); 
+          * SET_BIT (ch->deaf, CHANNEL_IMMTALK);
           */
          SET_BIT( ch->deaf, CHANNEL_PRAY );
          SET_BIT( ch->deaf, CHANNEL_MUSIC );
@@ -3765,8 +3765,8 @@ void do_areas( CHAR_DATA *ch, const char *argument )
 }
 */
 
-/* 
- * New do_areas with soft/hard level ranges 
+/*
+ * New do_areas with soft/hard level ranges
  */
 
 void do_areas( CHAR_DATA * ch, const char *argument )
@@ -4032,4 +4032,193 @@ void do_pager( CHAR_DATA * ch, const char *argument )
    if( ch->pcdata->pagerlen < 5 )
       ch->pcdata->pagerlen = 5;
    ch_printf( ch, "Page pausing set to %d lines.\r\n", ch->pcdata->pagerlen );
+}
+
+static const char *nutrition_status( int value )
+{
+   if( value < 20 )
+      return "&RDeficient&w";
+
+   if( value < 40 )
+      return "&YLow&w";
+
+   if( value < 60 )
+      return "&wAdequate&w";
+
+   if( value < 80 )
+      return "&GGood&w";
+
+   return "&BExcellent&w";
+}
+
+
+static const char *hunger_status( int value )
+{
+   if( value <= 0 )
+      return "&RStarving&w";
+
+   if( value <= 5 )
+      return "&RHungry&w";
+
+   if( value <= 15 )
+      return "&YPeckish&w";
+
+   if( value <= 30 )
+      return "&GSatisfied&w";
+
+   return "&GFull&w";
+}
+
+
+static const char *thirst_status( int value )
+{
+   if( value <= 0 )
+      return "&RDehydrated&w";
+
+   if( value <= 5 )
+      return "&RThirsty&w";
+
+   if( value <= 15 )
+      return "&YDry&w";
+
+   if( value <= 30 )
+      return "&GHydrated&w";
+
+   return "&GFully Hydrated&w";
+}
+
+
+static const char *mental_status( int value )
+{
+   if( value >= 60 )
+      return "&RSeverely Unwell&w";
+
+   if( value >= 30 )
+      return "&YUnwell&w";
+
+   if( value <= -60 )
+      return "&RExhausted&w";
+
+   if( value <= -30 )
+      return "&YFatigued&w";
+
+   return "&GClear&w";
+}
+
+
+void do_health( CHAR_DATA *ch, const char *argument )
+{
+   int hp_percent;
+   int move_percent;
+
+   if( IS_NPC( ch ) || !ch->pcdata )
+   {
+      send_to_char( "Health information is only available to players.\r\n", ch );
+      return;
+   }
+
+   hp_percent =
+      ch->max_hit > 0
+      ? ( ch->hit * 100 ) / ch->max_hit
+      : 0;
+
+   move_percent =
+      ch->max_move > 0
+      ? ( ch->move * 100 ) / ch->max_move
+      : 0;
+
+   send_to_char(
+      "\r\n"
+      "&W+--------------------------------------------------+\r\n"
+      "&W|                    HEALTH                        |\r\n"
+      "&W+--------------------------------------------------+&w\r\n",
+      ch );
+
+   ch_printf(
+      ch,
+      " Hit Points : %d / %d  (%d%%)\r\n"
+      " Stamina    : %d / %d  (%d%%)\r\n",
+      ch->hit,
+      ch->max_hit,
+      hp_percent,
+      ch->move,
+      ch->max_move,
+      move_percent );
+
+   ch_printf(
+      ch,
+      " Hunger     : %s\r\n"
+      " Thirst     : %s\r\n"
+      " Mental     : %s\r\n",
+      hunger_status(
+         ch->pcdata->condition[COND_FULL] ),
+      thirst_status(
+         ch->pcdata->condition[COND_THIRST] ),
+      mental_status(
+         ch->mental_state ) );
+
+   if( IS_AFFECTED( ch, AFF_POISON ) )
+      send_to_char( " Condition  : &RPoisoned&w\r\n", ch );
+   else
+      send_to_char( " Condition  : &GHealthy&w\r\n", ch );
+
+   if( ch->pcdata->condition[COND_DRUNK] > 0 )
+   {
+      ch_printf(
+         ch,
+         " Alcohol    : %d / 48\r\n",
+         ch->pcdata->condition[COND_DRUNK] );
+   }
+
+   send_to_char(
+      "\r\n"
+      "&W Nutrition&w\r\n"
+      " ----------------------------------------------------\r\n",
+      ch );
+
+   ch_printf(
+      ch,
+      " Protein    : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_PROTEIN],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_PROTEIN] ) );
+
+   ch_printf(
+      ch,
+      " Carbs      : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_CARBS],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_CARBS] ) );
+
+   ch_printf(
+      ch,
+      " Fats       : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_FATS],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_FATS] ) );
+
+   ch_printf(
+      ch,
+      " Vitamins   : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_VITAMINS],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_VITAMINS] ) );
+
+   ch_printf(
+      ch,
+      " Minerals   : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_MINERALS],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_MINERALS] ) );
+
+   ch_printf(
+      ch,
+      " Hydration  : %3d / 100   %s\r\n",
+      ch->pcdata->nutrition[NUTRITION_HYDRATION],
+      nutrition_status(
+         ch->pcdata->nutrition[NUTRITION_HYDRATION] ) );
+
+   send_to_char(
+      "&W+--------------------------------------------------+&w\r\n",
+      ch );
 }

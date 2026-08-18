@@ -343,7 +343,7 @@ void boot_db( bool fCopyOver )
    {
       log_string( "dl: Error opening local system executable as handle, please check compile flags." );
       shutdown_mud( "libdl failure" );
-      exit( 1 );   
+      exit( 1 );
    }
 
    log_string( "Loading commands..." );
@@ -357,7 +357,7 @@ void boot_db( bool fCopyOver )
    log_string( "Loading sysdata configuration..." );
 
    /*
-    * default values 
+    * default values
     */
    sysdata.read_all_mail = LEVEL_DEMI;
    sysdata.read_mail_free = LEVEL_IMMORTAL;
@@ -822,7 +822,7 @@ void load_resetmsg( AREA_DATA * tarea, FILE * fp )
 }
 
 /*
- * Load area flags. Narn, Mar/96 
+ * Load area flags. Narn, Mar/96
  */
 void load_flags( AREA_DATA * tarea, FILE * fp )
 {
@@ -1033,20 +1033,20 @@ void load_mobiles( AREA_DATA * tarea, FILE * fp )
       pMobIndex->ac = fread_number( fp );
       pMobIndex->hitnodice = fread_number( fp );
       /*
-       * 'd'      
+       * 'd'
        */ fread_letter( fp );
       pMobIndex->hitsizedice = fread_number( fp );
       /*
-       * '+'      
+       * '+'
        */ fread_letter( fp );
       pMobIndex->hitplus = fread_number( fp );
       pMobIndex->damnodice = fread_number( fp );
       /*
-       * 'd'      
+       * 'd'
        */ fread_letter( fp );
       pMobIndex->damsizedice = fread_number( fp );
       /*
-       * '+'      
+       * '+'
        */ fread_letter( fp );
       pMobIndex->damplus = fread_number( fp );
       pMobIndex->gold = fread_number( fp );
@@ -1237,8 +1237,8 @@ void load_objects( AREA_DATA * tarea, FILE * fp )
       pObjIndex->action_desc = fread_string( fp );
 
       /*
-       * Commented out by Narn, Apr/96 to allow item short descs like 
-       * Bonecrusher and Oblivion 
+       * Commented out by Narn, Apr/96 to allow item short descs like
+       * Bonecrusher and Oblivion
        */
       /*
        * pObjIndex->short_descr[0]  = LOWER(pObjIndex->short_descr[0]);
@@ -1266,7 +1266,16 @@ void load_objects( AREA_DATA * tarea, FILE * fp )
       pObjIndex->weight = UMAX( 1, pObjIndex->weight );
       pObjIndex->cost = fread_number( fp );
       pObjIndex->rent = fread_number( fp );  /* unused */
-
+/*
+ * Nutrition is optional in area files.
+ * Old objects therefore remain nutrition-neutral.
+ */
+for( int nutrition = 0;
+     nutrition < MAX_NUTRITION;
+     ++nutrition )
+{
+   pObjIndex->nutrition[nutrition] = 0;
+}
       for( ;; )
       {
          letter = fread_letter( fp );
@@ -1298,6 +1307,41 @@ void load_objects( AREA_DATA * tarea, FILE * fp )
             ed->description = fread_string( fp );
             LINK( ed, pObjIndex->first_extradesc, pObjIndex->last_extradesc, next, prev );
             top_ed++;
+         }
+
+         else if( letter == 'N' )
+         {
+            ln = fread_line( fp );
+
+            x1 = x2 = x3 = x4 = x5 = x6 = 0;
+
+            sscanf(
+               ln,
+               "%d %d %d %d %d %d",
+               &x1,
+               &x2,
+               &x3,
+               &x4,
+               &x5,
+               &x6 );
+
+            pObjIndex->nutrition[NUTRITION_PROTEIN] =
+               URANGE( 0, x1, 100 );
+
+            pObjIndex->nutrition[NUTRITION_CARBS] =
+               URANGE( 0, x2, 100 );
+
+            pObjIndex->nutrition[NUTRITION_FATS] =
+               URANGE( 0, x3, 100 );
+
+            pObjIndex->nutrition[NUTRITION_VITAMINS] =
+               URANGE( 0, x4, 100 );
+
+            pObjIndex->nutrition[NUTRITION_MINERALS] =
+               URANGE( 0, x5, 100 );
+
+            pObjIndex->nutrition[NUTRITION_HYDRATION] =
+               URANGE( 0, x6, 100 );
          }
 
          else if( letter == '>' )
@@ -1722,7 +1766,7 @@ void load_rooms( AREA_DATA * tarea, FILE * fp )
       pRoomIndex->description = fread_string( fp );
 
       /*
-       * Area number         fread_number( fp ); 
+       * Area number         fread_number( fp );
        */
       ln = fread_line( fp );
       x1 = x2 = x3 = x4 = x5 = x6 = 0;
@@ -2017,7 +2061,7 @@ void initialize_economy( void )
    for( tarea = first_area; tarea; tarea = tarea->next )
    {
       /*
-       * skip area if they already got some gold 
+       * skip area if they already got some gold
        */
       if( tarea->high_economy > 0 || tarea->low_economy > 10000 )
          continue;
@@ -2074,7 +2118,7 @@ void fix_exits( void )
    }
 
    /*
-    * Set all the rexit pointers   -Thoric 
+    * Set all the rexit pointers   -Thoric
     */
    for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
    {
@@ -2217,7 +2261,7 @@ void area_update( void )
          char buf[MAX_STRING_LENGTH];
 
          /*
-          * Rennard 
+          * Rennard
           */
          if( pArea->resetmsg )
             snprintf( buf, MAX_STRING_LENGTH, "%s\r\n", pArea->resetmsg );
@@ -2312,7 +2356,7 @@ CHAR_DATA *create_mobile( MOB_INDEX_DATA * pMobIndex )
       mob->max_hit = pMobIndex->hitnodice * number_range( 1, pMobIndex->hitsizedice ) + pMobIndex->hitplus;
    mob->hit = mob->max_hit;
    /*
-    * lets put things back the way they used to be! -Thoric 
+    * lets put things back the way they used to be! -Thoric
     */
    mob->gold = pMobIndex->gold;
    mob->position = pMobIndex->position;
@@ -2397,6 +2441,17 @@ OBJ_DATA *create_object( OBJ_INDEX_DATA * pObjIndex, int level )
    obj->value[3] = pObjIndex->value[3];
    obj->value[4] = pObjIndex->value[4];
    obj->value[5] = pObjIndex->value[5];
+   {
+   int nutrition;
+
+   for( nutrition = 0;
+        nutrition < MAX_NUTRITION;
+        ++nutrition )
+   {
+      obj->nutrition[nutrition] =
+         pObjIndex->nutrition[nutrition];
+   }
+}
    obj->weight = pObjIndex->weight;
    obj->cost = pObjIndex->cost;
    /*
@@ -3655,7 +3710,7 @@ bool str_suffix( const char *astr, const char *bstr )
  * Rewritten by FearItself@AvP
  */
 char *capitalize( const char *str )
-{ 
+{
    static char buf[MAX_STRING_LENGTH];
    char *dest = buf;
    enum { Normal, Color } state = Normal;
@@ -4013,7 +4068,7 @@ void add_to_wizlist( char *name, int level )
    }
 
    /*
-    * insert sort, of sorts 
+    * insert sort, of sorts
     */
    for( tmp = first_wiz; tmp; tmp = tmp->next )
       if( level > tmp->level )
@@ -4683,7 +4738,7 @@ void delete_obj( OBJ_INDEX_DATA * obj )
    CHAR_DATA *ch;
 
    /*
-    * Remove references to object index 
+    * Remove references to object index
     */
    for( o = first_object; o; o = o_next )
    {
@@ -5131,7 +5186,7 @@ EXIT_DATA *make_exit( ROOM_INDEX_DATA * pRoomIndex, ROOM_INDEX_DATA * to_room, s
    else
    {
       /*
-       * keep exits in incremental order - insert exit into list 
+       * keep exits in incremental order - insert exit into list
        */
       if( broke && texit )
       {
@@ -6877,7 +6932,7 @@ void fread_fuss_mobile( FILE * fp, AREA_DATA * tarea )
                fMatch = TRUE;
                break;
             }
-            
+
             if( !str_cmp( word, "Stats1" ) )
             {
                char *ln = fread_line( fp );
@@ -7317,7 +7372,7 @@ void load_area_file( AREA_DATA * tarea, const char *filename )
       else if( !str_cmp( word, "RESETMSG" ) )
          load_resetmsg( tarea, fpArea );
       /*
-       * Rennard 
+       * Rennard
        */
       else if( !str_cmp( word, "HELPS" ) )
          load_helps( fpArea );
@@ -8159,17 +8214,17 @@ void do_check_vnums( CHAR_DATA * ch, const char *argument )
 	   continue;
 	else
 	if (room)
-	  if((pArea->low_r_vnum >= low_range) 
+	  if((pArea->low_r_vnum >= low_range)
 	  && (pArea->hi_r_vnum <= high_range))
 	    area_conflict = TRUE;
 
 	if (mob)
-	  if((pArea->low_m_vnum >= low_range) 
+	  if((pArea->low_m_vnum >= low_range)
 	  && (pArea->hi_m_vnum <= high_range))
 	    area_conflict = TRUE;
 
 	if (obj)
-	  if((pArea->low_o_vnum >= low_range) 
+	  if((pArea->low_o_vnum >= low_range)
 	  && (pArea->hi_o_vnum <= high_range))
 	    area_conflict = TRUE;
 
@@ -8189,17 +8244,17 @@ void do_check_vnums( CHAR_DATA * ch, const char *argument )
 	   continue;
 	else
 	if (room)
-	  if((pArea->low_r_vnum >= low_range) 
+	  if((pArea->low_r_vnum >= low_range)
 	  && (pArea->hi_r_vnum <= high_range))
 	    area_conflict = TRUE;
 
 	if (mob)
-	  if((pArea->low_m_vnum >= low_range) 
+	  if((pArea->low_m_vnum >= low_range)
 	  && (pArea->hi_m_vnum <= high_range))
 	    area_conflict = TRUE;
 
 	if (obj)
-	  if((pArea->low_o_vnum >= low_range) 
+	  if((pArea->low_o_vnum >= low_range)
 	  && (pArea->hi_o_vnum <= high_range))
 	    area_conflict = TRUE;
 

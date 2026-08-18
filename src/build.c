@@ -240,7 +240,7 @@ const char *sector_name[SECT_MAX] = {
  * Something to consider: some of these triggers can be grouped together,
  * and differentiated by different arguments... for example:
  *  hour and time, rand and randiw, speech and speechiw
- * 
+ *
  */
 const char *const mprog_flags[] = {
    "act", "speech", "rand", "fight", "death", "hitprcnt", "entry", "greet",
@@ -1823,7 +1823,7 @@ void do_mset( CHAR_DATA * ch, const char *argument )
       {
          /*
           * Crash bug fix, oops guess I should have caught this one :)
-          * * But it was early in the morning :P --Shaddai 
+          * * But it was early in the morning :P --Shaddai
           */
          if( victim->pcdata->clan == NULL )
             return;
@@ -1831,7 +1831,7 @@ void do_mset( CHAR_DATA * ch, const char *argument )
           * Added a check on immortals so immortals don't take up
           * * any membership space. --Shaddai
           */
-	   if( !IS_IMMORTAL( victim ) ) 
+	   if( !IS_IMMORTAL( victim ) )
          {
             --victim->pcdata->clan->members;
             if( victim->pcdata->clan->members < 0 )
@@ -2694,7 +2694,7 @@ void do_mset( CHAR_DATA * ch, const char *argument )
       }
 
       /*
-       * Make sure they have an area assigned -Druid 
+       * Make sure they have an area assigned -Druid
        */
       if( !victim->pcdata->area )
       {
@@ -3257,7 +3257,7 @@ void do_oset( CHAR_DATA * ch, const char *argument )
       }
       else
          /*
-          * Feature added by Narn, Apr/96 
+          * Feature added by Narn, Apr/96
           * * If the item is not proto, add the word 'rename' to the keywords
           * * if it is not already there.
           */
@@ -4921,11 +4921,11 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
       }
 
       /*
-       * added format command - shogar 
+       * added format command - shogar
        *
        * This has been redone to be more efficient, and to make format
        * start at beginning of buffer, not whatever line you happened
-       * to be on, at the time.   
+       * to be on, at the time.
        */
       if( !str_cmp( cmd + 1, "f" ) )
       {
@@ -5480,12 +5480,12 @@ void save_reset_level( FILE * fpout, RESET_DATA * start_reset, const int level )
       }  /* end of switch on command */
 
       /*
-       * recurse to save nested resets 
+       * recurse to save nested resets
        */
       save_reset_level( fpout, reset->first_reset, level + 1 );
 
       /*
-       * where we go next depends on if this is a top-level reset or not - for some reason 
+       * where we go next depends on if this is a top-level reset or not - for some reason
        */
       if( level == 0 )
          reset = reset->next;
@@ -5506,10 +5506,10 @@ void fwrite_fuss_room( FILE * fpout, ROOM_INDEX_DATA * room, bool install )
       CHAR_DATA *victim, *vnext;
       OBJ_DATA *obj, *obj_next;
 
-      // remove prototype flag from room 
+      // remove prototype flag from room
       REMOVE_BIT( room->room_flags, ROOM_PROTOTYPE );
 
-      // purge room of (prototyped) mobiles 
+      // purge room of (prototyped) mobiles
       for( victim = room->first_person; victim; victim = vnext )
       {
          vnext = victim->next_in_room;
@@ -5517,7 +5517,7 @@ void fwrite_fuss_room( FILE * fpout, ROOM_INDEX_DATA * room, bool install )
             extract_char( victim, true );
       }
 
-      // purge room of (prototyped) objects 
+      // purge room of (prototyped) objects
       for( obj = room->first_content; obj; obj = obj_next )
       {
          obj_next = obj->next_content;
@@ -5776,7 +5776,7 @@ void fwrite_area_header( FILE * fpout, AREA_DATA * tarea, bool install )
             tarea->low_soft_range, tarea->hi_soft_range, tarea->low_hard_range, tarea->hi_hard_range );
    if( tarea->high_economy || tarea->low_economy )
       fprintf( fpout, "Economy      %d %d\n", tarea->high_economy, tarea->low_economy );
-   if( tarea->resetmsg )   
+   if( tarea->resetmsg )
       fprintf( fpout, "ResetMsg     %s~\n", tarea->resetmsg );
    if( tarea->reset_frequency )
       fprintf( fpout, "ResetFreq    %d\n", tarea->reset_frequency );
@@ -5885,7 +5885,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
    fprintf( fpout, "#ECONOMY %d %d\n\n", tarea->high_economy, tarea->low_economy );
 
    /*
-    * save mobiles 
+    * save mobiles
     */
    fprintf( fpout, "#MOBILES\n" );
    for( vnum = tarea->low_m_vnum; vnum <= tarea->hi_m_vnum; vnum++ )
@@ -5915,7 +5915,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
       fprintf( fpout, "%d %d %d %c\n", pMobIndex->act,
                pMobIndex->affected_by, pMobIndex->alignment, complexmob ? 'Z' : 'S' );
       /*
-       * C changed to Z for ZeroPoint vip_flags  
+       * C changed to Z for ZeroPoint vip_flags
        */
 
       fprintf( fpout, "%d %d %d ", pMobIndex->level, pMobIndex->mobthac0, pMobIndex->ac );
@@ -5973,7 +5973,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
       tarea->hi_m_vnum = vnum - 1;
 
    /*
-    * save objects 
+    * save objects
     */
    fprintf( fpout, "#OBJECTS\n" );
    for( vnum = tarea->low_o_vnum; vnum <= tarea->hi_o_vnum; vnum++ )
@@ -6030,6 +6030,28 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
       fprintf( fpout, "%d %d %d\n", pObjIndex->weight,
                pObjIndex->cost, pObjIndex->rent ? pObjIndex->rent : ( int )( pObjIndex->cost / 10 ) );
 
+/*
+ * Only write Nutrition when the object actually contains nutrition.
+ * This keeps non-food legacy objects clean.
+ */
+if( pObjIndex->nutrition[NUTRITION_PROTEIN]
+    || pObjIndex->nutrition[NUTRITION_CARBS]
+    || pObjIndex->nutrition[NUTRITION_FATS]
+    || pObjIndex->nutrition[NUTRITION_VITAMINS]
+    || pObjIndex->nutrition[NUTRITION_MINERALS]
+    || pObjIndex->nutrition[NUTRITION_HYDRATION] )
+{
+   fprintf(
+      fpout,
+      "N %d %d %d %d %d %d\n",
+      pObjIndex->nutrition[NUTRITION_PROTEIN],
+      pObjIndex->nutrition[NUTRITION_CARBS],
+      pObjIndex->nutrition[NUTRITION_FATS],
+      pObjIndex->nutrition[NUTRITION_VITAMINS],
+      pObjIndex->nutrition[NUTRITION_MINERALS],
+      pObjIndex->nutrition[NUTRITION_HYDRATION] );
+}
+
       for( ed = pObjIndex->first_extradesc; ed; ed = ed->next )
          fprintf( fpout, "E\n%s~\n%s~\n", ed->keyword, strip_cr( ed->description ) );
 
@@ -6071,7 +6093,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
       tarea->hi_o_vnum = vnum - 1;
 
    /*
-    * save rooms   
+    * save rooms
     */
    fprintf( fpout, "#ROOMS\n" );
    for( vnum = tarea->low_r_vnum; vnum <= tarea->hi_r_vnum; vnum++ )
@@ -6084,11 +6106,11 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
          OBJ_DATA *obj, *obj_next;
 
          /*
-          * remove prototype flag from room 
+          * remove prototype flag from room
           */
          REMOVE_BIT( room->room_flags, ROOM_PROTOTYPE );
          /*
-          * purge room of (prototyped) mobiles 
+          * purge room of (prototyped) mobiles
           */
          for( victim = room->first_person; victim; victim = vnext )
          {
@@ -6097,7 +6119,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
                extract_char( victim, TRUE );
          }
          /*
-          * purge room of (prototyped) objects 
+          * purge room of (prototyped) objects
           */
          for( obj = room->first_content; obj; obj = obj_next )
          {
@@ -6136,7 +6158,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
 	      case 'o': case 'O':
 		   fprintf( fpout, "R %c %d %d %d %d\n", UPPER( pReset->command ),
 		      pReset->extra, pReset->arg1, pReset->arg2, pReset->arg3 );
-            
+
                for( tReset = pReset->first_reset; tReset; tReset = tReset->next_reset )
                {
                      switch( tReset->command )
@@ -6233,7 +6255,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
       tarea->hi_r_vnum = vnum - 1;
 
    /*
-    * save shops 
+    * save shops
     */
    fprintf( fpout, "#SHOPS\n" );
    for( vnum = tarea->low_m_vnum; vnum <= tarea->hi_m_vnum; vnum++ )
@@ -6252,7 +6274,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
    fprintf( fpout, "0\n\n\n" );
 
    /*
-    * save repair shops 
+    * save repair shops
     */
    fprintf( fpout, "#REPAIRS\n" );
    for( vnum = tarea->low_m_vnum; vnum <= tarea->hi_m_vnum; vnum++ )
@@ -6269,7 +6291,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
    fprintf( fpout, "0\n\n\n" );
 
    /*
-    * save specials 
+    * save specials
     */
    fprintf( fpout, "%s", "#SPECIALS\n" );
    for( vnum = tarea->low_m_vnum; vnum <= tarea->hi_m_vnum; vnum++ )
@@ -6285,7 +6307,7 @@ void old_fold_area( AREA_DATA * tarea, const char *filename, bool install )
    fprintf( fpout, "S\n\n\n" );
 
    /*
-    * END 
+    * END
     */
    fprintf( fpout, "#$\n" );
    FCLOSE( fpout );
@@ -6521,45 +6543,45 @@ void do_installarea( CHAR_DATA * ch, const char *argument )
          }
 
          /*
-          * Fold area with install flag -- auto-removes prototype flags 
+          * Fold area with install flag -- auto-removes prototype flags
           */
          send_to_char( "Saving and installing file...\r\n", ch );
          fold_area( tarea, tarea->filename, TRUE );
 
          /*
-          * Remove from prototype area list 
+          * Remove from prototype area list
           */
          UNLINK( tarea, first_build, last_build, next, prev );
 
          /*
-          * Add to real area list 
+          * Add to real area list
           */
          LINK( tarea, first_area, last_area, next, prev );
 
          /*
-          * Remove it from the prototype sort list. BUGFIX: Samson 4-15-03 
+          * Remove it from the prototype sort list. BUGFIX: Samson 4-15-03
           */
          UNLINK( tarea, first_bsort, last_bsort, next_sort, prev_sort );
 
          /*
-          * Sort the area into it's proper sort list. BUGFIX: Samson 4-15-03 
+          * Sort the area into it's proper sort list. BUGFIX: Samson 4-15-03
           */
          sort_area( tarea, FALSE );
          sort_area_by_name( tarea );
 
          /*
-          * Fix up author if online 
+          * Fix up author if online
           */
          for( d = first_descriptor; d; d = d->next )
          {
             if( d->character && d->character->pcdata && d->character->pcdata->area == tarea )
             {
                /*
-                * remove area from author 
+                * remove area from author
                 */
                d->character->pcdata->area = NULL;
                /*
-                * clear out author vnums  
+                * clear out author vnums
                 */
                d->character->pcdata->r_range_lo = 0;
                d->character->pcdata->r_range_hi = 0;
@@ -7811,7 +7833,7 @@ void do_rpedit( CHAR_DATA * ch, const char *argument )
    argument = one_argument( argument, arg2 );
    value = atoi( arg2 );
    /*
-    * argument = one_argument( argument, arg3 ); 
+    * argument = one_argument( argument, arg3 );
     */
 
    if( arg1[0] == '\0' )
@@ -8034,7 +8056,7 @@ void do_rdelete( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * Find the room. 
+    * Find the room.
     */
    if( !( location = find_location( ch, argument ) ) )
    {
@@ -8043,7 +8065,7 @@ void do_rdelete( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * Does the player have the right to delete this room? 
+    * Does the player have the right to delete this room?
     */
    if( get_trust( ch ) < sysdata.level_modify_proto
        && ( location->vnum < ch->pcdata->area->low_r_vnum || location->vnum > ch->pcdata->area->hi_r_vnum ) )
@@ -8082,7 +8104,7 @@ void do_odelete( CHAR_DATA * ch, const char *argument )
    vnum = atoi( argument );
 
    /*
-    * Find the obj. 
+    * Find the obj.
     */
    if( !( obj = get_obj_index( vnum ) ) )
    {
@@ -8091,7 +8113,7 @@ void do_odelete( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * Does the player have the right to delete this object? 
+    * Does the player have the right to delete this object?
     */
    if( get_trust( ch ) < sysdata.level_modify_proto
        && ( obj->vnum < ch->pcdata->area->low_o_vnum || obj->vnum > ch->pcdata->area->hi_o_vnum ) )
@@ -8129,7 +8151,7 @@ void do_mdelete( CHAR_DATA * ch, const char *argument )
    vnum = atoi( argument );
 
    /*
-    * Find the mob. 
+    * Find the mob.
     */
    if( !( mob = get_mob_index( vnum ) ) )
    {
@@ -8138,7 +8160,7 @@ void do_mdelete( CHAR_DATA * ch, const char *argument )
    }
 
    /*
-    * Does the player have the right to delete this mob? 
+    * Does the player have the right to delete this mob?
     */
    if( get_trust( ch ) < sysdata.level_modify_proto
        && ( mob->vnum < ch->pcdata->area->low_m_vnum || mob->vnum > ch->pcdata->area->hi_m_vnum ) )
@@ -8214,7 +8236,7 @@ void RelDestroy( relation_type tp, void *actor, void *subject )
       {
          UNLINK( rq, first_relation, last_relation, next, prev );
          /*
-          * Dispose will also set to NULL the passed parameter 
+          * Dispose will also set to NULL the passed parameter
           */
          DISPOSE( rq );
          break;
