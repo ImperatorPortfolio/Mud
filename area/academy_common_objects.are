@@ -213,10 +213,15 @@ Desc     This sealed service room exists only to attach reusable training-equipm
 resets to established trainer rooms. It is not part of the playable world.
 ~
 
+# Gamaak Fitness Center: weight trainer (room 10227)
 Reset O 0 10320 1 10227
 Reset O 0 10322 1 10227
+
+# Gamaak Fitness Center: aerobics trainer (room 10228)
 Reset O 0 10321 1 10228
 Reset O 0 10322 1 10228
+
+# Mountain School: self-defence trainer (room 488)
 Reset O 0 10320 1 488
 Reset O 0 10321 1 488
 Reset O 0 10324 1 488
