@@ -228,6 +228,18 @@ o/track.o: track.c mud.h core/base.h core/types.h core/flags.h \
  space/planet.h space/ship.h game/social.h world/affect.h \
  world/definitions.h character/character.h character/player.h \
  character/progression.h world/world.h game/skills.h game/api.h
+o/training.o: training.c mud.h core/base.h core/types.h core/flags.h \
+ core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
+ core/../color.h character/race.h world/services.h space/space.h \
+ space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
+o/training_guard.o: training_guard.c mud.h core/base.h core/types.h \
+ core/flags.h core/limits.h core/../hotboot.h core/runtime.h \
+ core/../dns.h core/../color.h character/race.h world/services.h \
+ space/space.h space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
 o/traits.o: traits.c mud.h core/base.h core/types.h core/flags.h \
  core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
  core/../color.h character/race.h world/services.h space/space.h \

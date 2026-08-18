@@ -823,6 +823,14 @@ Log         0
 End
 
 #COMMAND
+Name        exercise~
+Code        do_exercise
+Position    8
+Level       0
+Log         0
+End
+
+#COMMAND
 Name        exits~
 Code        do_exits
 Position    5

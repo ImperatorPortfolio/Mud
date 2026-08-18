@@ -15,6 +15,7 @@
  * object behaviour.
  ***************************************************************************/
 
+#include <string.h>
 #include "mud.h"
 
 #define TRAINING_EQUIPMENT_MARKER 1414680135
