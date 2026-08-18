@@ -6,6 +6,7 @@
  * compiled under a legacy symbol during this bounded migration.
  ***************************************************************************/
 
+#include <string.h>
 #include "mud.h"
 
 struct training_session_data
