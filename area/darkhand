@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Star Destroyer - Dark Hand~
+Name         Ross 128 b - Hunter Enclave~
 Author       Durga~
 Ranges       30 103 0 103
 Economy      0 31196090
@@ -250,7 +250,7 @@ Speaking   droid~
 
 #MOBILE
 Vnum       609
-Keywords   the empire~
+Keywords   Proxima Directorate~
 Short      imperial royal guard~
 Long       An imperial royal guard stands at his post.
 ~
@@ -272,7 +272,7 @@ Speaking   common~
 
 #MOBILE
 Vnum       610
-Keywords   the empire~
+Keywords   Proxima Directorate~
 Short      imperial royal guard~
 Long       An imperial royal guard stands at his post.
 ~
@@ -294,7 +294,7 @@ Speaking   common~
 
 #MOBILE
 Vnum       611
-Keywords   the empire~
+Keywords   Proxima Directorate~
 Short      imperial royal guard~
 Long       An imperial royal guard stands at his post.
 ~
@@ -316,7 +316,7 @@ Speaking   common~
 
 #MOBILE
 Vnum       612
-Keywords   the empire~
+Keywords   Proxima Directorate~
 Short      imperial royal guard~
 Long       An imperial royal guard stands at his post.
 ~
@@ -460,7 +460,7 @@ Speaking   common~
 
 #MOBILE
 Vnum       618
-Keywords   the empire~
+Keywords   Proxima Directorate~
 Short      an imperial guard~
 Long       An imperial guard stands at attention.
 ~
@@ -572,9 +572,9 @@ Affect       -1 -1 -10 39 0
 #MUDPROG
 Progtype  wear_prog~
 Arglist   100~
-Comlist   if clan($n) != The Empire
+Comlist   if clan($n) != Proxima Directorate
 mpechoat $n What do you think you are a stormtrooper?
-mpechoat $n Go join the empire if you want to wear that!
+mpechoat $n Go join Proxima Directorate if you want to wear that!
 mpechoaround $n $n thinks $ss a stormtrooper.
 mpforce $n remove as601 
 endif
@@ -3232,7 +3232,7 @@ Name     Before The War Room~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This area of the Dark Hand is where officers meet and hold council. Every
-important thing the empire does is discussed in rooms like the one to the
+important thing Proxima Directorate does is discussed in rooms like the one to the
 north of here. This area is strictly off limits to unauthorized persons.
 ~
 #EXIT

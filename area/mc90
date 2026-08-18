@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         MC90 Calamari Starcruiser~
+Name         Pelagian Fleet Cruiser~
 Author       Bleeds~
 Ranges       0 0 0 103
 Economy      0 31252130
@@ -11,10 +11,10 @@ ResetFreq    15
 #MOBILE
 Vnum       6700
 Keywords   Republic Pilot~
-Short      A New Republic Pilot.~
-Long       A New Republic Pilot.
+Short      A Terran Union Pilot.~
+Long       A Terran Union Pilot.
 ~
-Desc       A New Republic pilot sits here at the helm of this might MC-90 warship. If
+Desc       A Terran Union pilot sits here at the helm of this might MC-90 warship. If
 you wish to take over from him simpy toggle the auto-pilot switch and take
 command of the vessel. 
 ~
@@ -61,10 +61,10 @@ Speaking   common~
 #MOBILE
 Vnum       6702
 Keywords   republic gunner~
-Short      A New Republic Gunner~
-Long       A New Republic gunner is here.
+Short      A Terran Union Gunner~
+Long       A Terran Union gunner is here.
 ~
-Desc       A New Republic gunner sits here at the controls of the ships more than
+Desc       A Terran Union gunner sits here at the controls of the ships more than
 adiquate firing systems.
 ~
 Race       Human~
@@ -85,10 +85,10 @@ Speaking   common~
 #MOBILE
 Vnum       6703
 Keywords   republic Captain~
-Short      A New Republic captain~
-Long       A New Republic captain is resting here.
+Short      A Terran Union captain~
+Long       A Terran Union captain is resting here.
 ~
-Desc       The new republic captain is here relaxing in his quarters.  He has little
+Desc       Terran Union captain is here relaxing in his quarters.  He has little
 to worry about because of his secret "ACCESS" to the bridge deck hidden in
 this room. 
 ~
@@ -135,9 +135,9 @@ Speaking   common~
 Vnum       6705
 Keywords   Republic Salesman~
 Short      Republic Salesman~
-Long       A New Republic salesman is here supplying the ship.
+Long       A Terran Union salesman is here supplying the ship.
 ~
-Desc       Dressed in a new republic Uniform this guy is who you need for all the NR
+Desc       Dressed in a Terran Union Uniform this guy is who you need for all the NR
 supplies. He trys to Stock all the New NR equipment as it comes out so
 check back often.
 ~
@@ -1755,7 +1755,7 @@ Name     Hanger~
 Sector   city~
 Flags    can_land can_fly spacecraft~
 Desc     The hanger on the MC-90 is huge. It looks as if it could house a dozen
-fighter squadrens. A couple New Republic security personal patrol the area
+fighter squadrens. A couple Terran Union security personal patrol the area
 looking for imperial raiders. 
 ~
 #EXIT
@@ -1772,7 +1772,7 @@ Name     Security Checkpoint~
 Sector   city~
 Flags    spacecraft~
 Desc     All security checkpoints about the MC-90 are manned by massive guards
-dressed in New Republic Uniforms. After checking all your credentials they
+dressed in Terran Union Uniforms. After checking all your credentials they
 allow you to pass through the checkpoint. 
 ~
 #EXIT
@@ -1794,7 +1794,7 @@ Name     Security Checkpoint~
 Sector   city~
 Flags    spacecraft~
 Desc     All security checkpoints about the MC-90 are manned by massive guards
-dressed in New Republic Uniforms. After checking all your credentials they
+dressed in Terran Union Uniforms. After checking all your credentials they
 allow you to pass through the checkpoint. 
 ~
 #EXIT
@@ -1816,7 +1816,7 @@ Name     Security Checkpoint~
 Sector   city~
 Flags    spacecraft~
 Desc     All security checkpoints about the MC-90 are manned by massive guards
-dressed in New Republic Uniforms. After checking all your credentials they
+dressed in Terran Union Uniforms. After checking all your credentials they
 allow you to pass through the checkpoint. 
 ~
 #EXIT
@@ -2192,7 +2192,7 @@ Vnum     6773
 Name     Medical Bay~
 Sector   city~
 Flags    spacecraft~
-Desc     Since the New Republic is lucky enough to be allied with the Jedi the
+Desc     Since Terran Union is lucky enough to be allied with the Jedi the
 decided just to have a few medical bays ' instead of the cumbersom bacta
 tanks. Looking around you see various injuries all being looked after by
 the proficient droids.
@@ -2403,11 +2403,11 @@ Flags     isdoor~
 
 #ROOM
 Vnum     6782
-Name     Mon Calamari Quarters~
+Name     Pelagian Quarters~
 Sector   city~
 Flags    spacecraft~
 Desc     These quarters have been designed by the origanal builders of the ship and
-now house the most capable enigeneers for the ship the Mon Calamari. as
+now house the most capable enigeneers for the ship the Pelagian. as
 such it is acctually and underwater room with the water held by an
 interesting field at the door. 
 ~
@@ -2420,11 +2420,11 @@ ToRoom    6704
 
 #ROOM
 Vnum     6783
-Name     Mon Calamari Quarters~
+Name     Pelagian Quarters~
 Sector   city~
 Flags    spacecraft~
 Desc     These quarters have been designed by the origanal builders of the ship and
-now house the most capable enigeneers for the ship the Mon Calamari. as
+now house the most capable enigeneers for the ship the Pelagian. as
 such it is acctually and underwater room with the water held by an
 interesting field at the door. 
 ~
@@ -2437,11 +2437,11 @@ ToRoom    6704
 
 #ROOM
 Vnum     6784
-Name     Mon Calamari Quarters~
+Name     Pelagian Quarters~
 Sector   city~
 Flags    spacecraft~
 Desc     These quarters have been designed by the origanal builders of the ship and
-now house the most capable enigeneers for the ship the Mon Calamari. as
+now house the most capable enigeneers for the ship the Pelagian. as
 such it is acctually and underwater room with the water held by an
 interesting field at the door. 
 ~
@@ -2609,8 +2609,8 @@ Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Designed by the same team that produced the X-Wing, the FreiTek E-Wing
-starfighter was introduced in New Republic service during the Admiral
-Thrawn campaign, five years after the Battle of Endor. Intended to fill
+starfighter was introduced in Terran Union service during the Admiral
+Thrawn campaign, five years after the Battle of TRAPPIST-1 f. Intended to fill
 the role of a convoy escort fighter, a post held by the A-Wing, the E-Wing
 rapidly became known as the next premier space superiority fighter for
 Republican pilots. Top-notch speed, excellent stability, and a potent,
@@ -2628,8 +2628,8 @@ Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Designed by the same team that produced the X-Wing, the FreiTek E-Wing
-starfighter was introduced in New Republic service during the Admiral
-Thrawn campaign, five years after the Battle of Endor. Intended to fill
+starfighter was introduced in Terran Union service during the Admiral
+Thrawn campaign, five years after the Battle of TRAPPIST-1 f. Intended to fill
 the role of a convoy escort fighter, a post held by the A-Wing, the E-Wing
 rapidly became known as the next premier space superiority fighter for
 Republican pilots. Top-notch speed, excellent stability, and a potent,
@@ -2647,8 +2647,8 @@ Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Designed by the same team that produced the X-Wing, the FreiTek E-Wing
-starfighter was introduced in New Republic service during the Admiral
-Thrawn campaign, five years after the Battle of Endor. Intended to fill
+starfighter was introduced in Terran Union service during the Admiral
+Thrawn campaign, five years after the Battle of TRAPPIST-1 f. Intended to fill
 the role of a convoy escort fighter, a post held by the A-Wing, the E-Wing
 rapidly became known as the next premier space superiority fighter for
 Republican pilots. Top-notch speed, excellent stability, and a potent,
@@ -2666,8 +2666,8 @@ Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Designed by the same team that produced the X-Wing, the FreiTek E-Wing
-starfighter was introduced in New Republic service during the Admiral
-Thrawn campaign, five years after the Battle of Endor. Intended to fill
+starfighter was introduced in Terran Union service during the Admiral
+Thrawn campaign, five years after the Battle of TRAPPIST-1 f. Intended to fill
 the role of a convoy escort fighter, a post held by the A-Wing, the E-Wing
 rapidly became known as the next premier space superiority fighter for
 Republican pilots. Top-notch speed, excellent stability, and a potent,
@@ -2685,8 +2685,8 @@ Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Designed by the same team that produced the X-Wing, the FreiTek E-Wing
-starfighter was introduced in New Republic service during the Admiral
-Thrawn campaign, five years after the Battle of Endor. Intended to fill
+starfighter was introduced in Terran Union service during the Admiral
+Thrawn campaign, five years after the Battle of TRAPPIST-1 f. Intended to fill
 the role of a convoy escort fighter, a post held by the A-Wing, the E-Wing
 rapidly became known as the next premier space superiority fighter for
 Republican pilots. Top-notch speed, excellent stability, and a potent,
@@ -2705,7 +2705,7 @@ Flags    nomob spacecraft~
 Stats    0 0 1
 Desc     Outfitted admirably to serve as a multi-role platform for the Caspian
 Marines, the Z-105 Harpoon is only outclassed by the Slayn & Korpil B-Wing
-of the New Republic. Built around the premise of long range being a must,
+of Terran Union. Built around the premise of long range being a must,
 it has found a home as a fighter-bomber, strike craft, recon-scout,
 escort, assault craft, and a trainer. The incorporation of a HOWL, or High
 Ordinance Weapon Launcher, and the sensitivity and importance of its

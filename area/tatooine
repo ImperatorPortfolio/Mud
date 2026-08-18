@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Tatooine~
+Name         Barnard b - Frontier Settlements~
 Author       Satin~
 Ranges       0 0 0 103
 Economy      0 30830139
@@ -33,11 +33,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       31501
-Keywords   Water jawa~
-Short      A large jawa sells water here~
-Long       A large mean looking jawa sits in his chair comfortably here selling liquids for journeys out into the great dune sea.
+Keywords   Water Veyran~
+Short      A large Veyran sells water here~
+Long       A large mean looking Veyran sits in his chair comfortably here selling liquids for journeys out into the great dune sea.
 ~
-Desc       This jawa seems fierce and old. It has rinkles down the side of its face and appears older with every glance. He has a small pouch where he keeps his money and change for costomers willing to purchase something.
+Desc       This Veyran seems fierce and old. It has rinkles down the side of its face and appears older with every glance. He has a small pouch where he keeps his money and change for costomers willing to purchase something.
 ~
 Race       Human~
 Position   aggressive~
@@ -113,11 +113,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       31504
-Keywords   Young Jawa~
-Short      A Young Jawa~
-Long       A young jawa walks around here.
+Keywords   Young Veyran~
+Short      A Young Veyran~
+Long       A young Veyran walks around here.
 ~
-Desc       This creature is not one of the more respectable species but manages to live on its own. This Jawa is a very young and untrained.
+Desc       This creature is not one of the more respectable species but manages to live on its own. This Veyran is a very young and untrained.
 ~
 Race       Human~
 Position   aggressive~
@@ -136,11 +136,11 @@ Speaking   jawa~
 
 #MOBILE
 Vnum       31505
-Keywords   Jawa Guard~
-Short      A Jawa Guard~
-Long       The Jawa guard stands here guarding whats to be
+Keywords   Veyran Guard~
+Short      A Veyran Guard~
+Long       The Veyran guard stands here guarding whats to be
 ~
-Desc       This is not a regular filthy creature. This Jawa is Trained and armed to the teeth. Consider it before you attack him.
+Desc       This is not a regular filthy creature. This Veyran is Trained and armed to the teeth. Consider it before you attack him.
 ~
 Race       Human~
 Position   aggressive~
@@ -251,11 +251,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       31510
-Keywords   Wise Jawa~
-Short      A Wise Jawa~
-Long       A Wise Jawa stands here ready to teach you skills.
+Keywords   Wise Veyran~
+Short      A Wise Veyran~
+Long       A Wise Veyran stands here ready to teach you skills.
 ~
-Desc       This Jawa has studied the ways of this world for many years, and if you pay attention can teach you may things of many uses. Be carefull not to attack him for he has great powers.
+Desc       This Veyran has studied the ways of this world for many years, and if you pay attention can teach you may things of many uses. Be carefull not to attack him for he has great powers.
 ~
 Race       Human~
 Position   aggressive~
@@ -471,11 +471,11 @@ Comlist   say So ya need something fixed eh?
 
 #MOBILE
 Vnum       31518
-Keywords   Jawa~
-Short      A Tall Jawa~
-Long       A Tall jawa stands here protecting his Rontos
+Keywords   Veyran~
+Short      A Tall Veyran~
+Long       A Tall Veyran stands here protecting his Rontos
 ~
-Desc       This jawa is probably the talles Jawa ever. Although he is still smaller than you he looks tough, and with that gun i would be scared.
+Desc       This Veyran is probably the talles Veyran ever. Although he is still smaller than you he looks tough, and with that gun i would be scared.
 ~
 Race       Human~
 Position   aggressive~
@@ -731,9 +731,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       31529
-Keywords   A Rodian~
-Short      A Rodian~
-Long       A Rodian sits here contemplating his naval.
+Keywords   A Keshari~
+Short      A Keshari~
+Long       A Keshari sits here contemplating his naval.
 ~
 Race       Human~
 Position   aggressive~
@@ -877,15 +877,15 @@ ExDescKey    ~
 
 #OBJECT
 Vnum     31502
-Keywords Jawa~
+Keywords Veyran~
 Type     corpse~
-Short    a dead Jawa~
-Long     A dead jawa lies motionless on the ground here.~
+Short    a dead Veyran~
+Long     A dead Veyran lies motionless on the ground here.~
 Values   0 0 0 0 0 0
 Stats    100 0 0 0 0
 #EXDESC
-ExDescKey    look jawa~
-ExDesc       This jawa has been laying here for quite a while as it seems. His skin has begun decaying and you can see his bones in certain spots.~
+ExDescKey    look Veyran~
+ExDesc       This Veyran has been laying here for quite a while as it seems. His skin has begun decaying and you can see his bones in certain spots.~
 #ENDEXDESC
 
 #ENDOBJECT
@@ -967,10 +967,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     31509
-Keywords Jawa Robe~
+Keywords Veyran Robe~
 Type     armor~
-Short    a dirty Jawa robe~
-Long     A Jawa robe is here waiting to be taken.~
+Short    a dirty Veyran robe~
+Long     A Veyran robe is here waiting to be taken.~
 Flags    glow small_size~
 Values   1 0 0 1345 0 0
 Stats    3 0 0 0 0
@@ -990,9 +990,9 @@ Stats    2 0 0 0 0
 
 #OBJECT
 Vnum     31511
-Keywords Jawa Blaster~
+Keywords Veyran Blaster~
 Type     weapon~
-Short    a Jawa Blaster~
+Short    a Veyran Blaster~
 Long     A elegant little blaster lays here on the ground.~
 WFlags   take wield~
 Values   7200 5 6 6 0 0
@@ -1077,8 +1077,8 @@ Affect       -1 -1 0 2 0
 Vnum     31517
 Keywords Ionization Gun~
 Type     weapon~
-Short    a Jawa Ionization Gun~
-Long     A Jawa Ionization gun has been foolishly left behind.~
+Short    a Veyran Ionization Gun~
+Long     A Veyran Ionization gun has been foolishly left behind.~
 WFlags   take wield~
 Values   7200 6 6 6 1000 1000
 Stats    8 0 0 0 0
@@ -1182,7 +1182,7 @@ ToRoom    31557
 Vnum     31501
 Name     Desert~
 Sector   desert~
-Desc     You are walking along the soft sand in the desert of Tatooine. Just ahead of you you can see the dune sea developping. Behind you the small city diminishes into only a spot. With every step you take the city becomes smaller and smaller.
+Desc     You are walking along the soft sand in the desert of Barnard b. Just ahead of you you can see the dune sea developping. Behind you the small city diminishes into only a spot. With every step you take the city becomes smaller and smaller.
 ~
 #EXIT
 Direction east~
@@ -1372,7 +1372,7 @@ ToRoom    31516
 Vnum     31516
 Name     Desert~
 Sector   desert~
-Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Tatooine.
+Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Barnard b.
 ~
 #EXIT
 Direction east~
@@ -1408,7 +1408,7 @@ ToRoom    31518
 Vnum     31518
 Name     Desert~
 Sector   desert~
-Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Tatooine.
+Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -1449,7 +1449,7 @@ ToRoom    31518
 Vnum     31520
 Name     Desert~
 Sector   desert~
-Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Tatooine.
+Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -1467,7 +1467,7 @@ ToRoom    31519
 Vnum     31521
 Name     Desert~
 Sector   desert~
-Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Tatooine.
+Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Barnard b.
 ~
 #EXIT
 Direction south~
@@ -2024,7 +2024,7 @@ ToRoom    31548
 Vnum     31552
 Name     Desert~
 Sector   desert~
-Desc     You walk around the imense shuttle to the top of a dune and continue exploring the dune sea of Tatooine. It tower around you fromm all directions.
+Desc     You walk around the imense shuttle to the top of a dune and continue exploring the dune sea of Barnard b. It tower around you fromm all directions.
 ~
 #EXIT
 Direction east~
@@ -2130,7 +2130,7 @@ ToRoom    31592
 Vnum     31558
 Name     Desert~
 Sector   desert~
-Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Tatooine.
+Desc     You are on the top of a sand dune and you can see across the whole dune sea. It is just a great sight to see. The sand dunes dip in and out of the ground. The immense amount of sand frightens you as you look across the great sand dune sea of Barnard b.
 ~
 #EXIT
 Direction east~
@@ -2391,7 +2391,7 @@ ToRoom    31572
 Vnum     31572
 Name     Desert~
 Sector   desert~
-Desc     You walk down to the base of one of the largest dunes you have climbed in your trip through the great sea of Tatooine.
+Desc     You walk down to the base of one of the largest dunes you have climbed in your trip through the great sea of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -2540,7 +2540,7 @@ ToRoom    31580
 Vnum     31580
 Name     Desert~
 Sector   desert~
-Desc     The sea of dunes is making a great impression on what you think of Tatooine.
+Desc     The sea of dunes is making a great impression on what you think of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -2696,7 +2696,7 @@ Vnum     31588
 Name     Cave~
 Sector   mountain~
 Flags    dark~
-Desc     You are in the back of a cave which seems to have been used as a living habitat. On the floor in the corner you are appaled when seing three dead jawa's. There are some blaster scars on the walls and big gashes everywhere. Only one thing could have done this... Sand people.
+Desc     You are in the back of a cave which seems to have been used as a living habitat. On the floor in the corner you are appaled when seing three dead Veyran's. There are some blaster scars on the walls and big gashes everywhere. Only one thing could have done this... Sand people.
 ~
 #EXIT
 Direction north~
@@ -2945,7 +2945,7 @@ Flags     hidden~
 Vnum     31600
 Name     Desert~
 Sector   desert~
-Desc     You are walking along the flat sand of Tatooine.
+Desc     You are walking along the flat sand of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -3140,7 +3140,7 @@ Vnum     31608
 Name     Inside the controll centre.~
 Sector   inside~
 Flags    indoors~
-Desc     You are in the entrance to the Controll cantre. There are turbolifts moving all around you. The controll tower is on the higher levels but the offices are here on the main level of the building. The ground is hard and seems to be made of stone. The air is crisp and relaxing in here for it is shielded from the twin suns of Tatooine.
+Desc     You are in the entrance to the Controll cantre. There are turbolifts moving all around you. The controll tower is on the higher levels but the offices are here on the main level of the building. The ground is hard and seems to be made of stone. The air is crisp and relaxing in here for it is shielded from the twin suns of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -3442,7 +3442,7 @@ ToRoom    31654
 Vnum     31658
 Name     Desert~
 Sector   desert~
-Desc     You are standing on the harsh sand of Tatooine. You are walking on the
+Desc     You are standing on the harsh sand of Barnard b. You are walking on the
 rippiling surface of the sand which has been expoed to e treme heat over
 the many years. The sand is very warm and stings your face as the wind
 blows it up onto your soft skin. The air is heavy and very heavy to
@@ -3465,7 +3465,7 @@ ToRoom    31600
 Vnum     31659
 Name     Desert~
 Sector   desert~
-Desc     You are on the hard sand of Tatooine. All around you you can see sand for miles unless you look back.
+Desc     You are on the hard sand of Barnard b. All around you you can see sand for miles unless you look back.
 ~
 #EXIT
 Direction north~
@@ -3483,7 +3483,7 @@ ToRoom    31658
 Vnum     31660
 Name     Desert~
 Sector   desert~
-Desc     You are standing on the thickning sand of Tatooine.
+Desc     You are standing on the thickning sand of Barnard b.
 ~
 #EXIT
 Direction north~
@@ -3519,7 +3519,7 @@ ToRoom    31662
 Vnum     31662
 Name     Desert~
 Sector   desert~
-Desc     You walk on the sand of Tatooine. As you walk over it your feet sink into the grounf leabing an everlasting mark.
+Desc     You walk on the sand of Barnard b. As you walk over it your feet sink into the grounf leabing an everlasting mark.
 ~
 #EXIT
 Direction east~
@@ -3537,7 +3537,7 @@ ToRoom    31663
 Vnum     31663
 Name     Desert~
 Sector   desert~
-Desc     You are walking on The sand of Tatooine. The sand gradually hardens with every minute ecposed to the sun.
+Desc     You are walking on The sand of Barnard b. The sand gradually hardens with every minute ecposed to the sun.
 ~
 #EXIT
 Direction east~
@@ -3573,7 +3573,7 @@ ToRoom    31665
 Vnum     31665
 Name     Desert~
 Sector   desert~
-Desc     You are standing on the great sands og Tatooine. Far away in the distance you cam see the developing sea of sand dunes.
+Desc     You are standing on the great sands og Barnard b. Far away in the distance you cam see the developing sea of sand dunes.
 ~
 #EXIT
 Direction east~
@@ -3808,7 +3808,7 @@ ToRoom    31678
 Vnum     31678
 Name     Desert~
 Sector   desert~
-Desc     You are walking on a dune. It is shaped by the everlasting winds of Tatooine.
+Desc     You are walking on a dune. It is shaped by the everlasting winds of Barnard b.
 ~
 #EXIT
 Direction east~
@@ -3876,7 +3876,7 @@ Vnum     31682
 Name     Desert~
 Sector   desert~
 Flags    nomob~
-Desc     You walk on the sand dunes of the great sea of Tatooine. They shimmer around you in the daylight.
+Desc     You walk on the sand dunes of the great sea of Barnard b. They shimmer around you in the daylight.
 ~
 #ENDROOM
 
@@ -3926,7 +3926,7 @@ ToRoom    31683
 Vnum     31685
 Name     Desert~
 Sector   desert~
-Desc     You are at the step of the first sand dune. You can enter the sand dune sea of Tatooine to the north, the west and the east.
+Desc     You are at the step of the first sand dune. You can enter the sand dune sea of Barnard b to the north, the west and the east.
 ~
 #EXIT
 Direction north~
@@ -4689,7 +4689,7 @@ ToRoom    31727
 Vnum     31727
 Name     Desert~
 Sector   desert~
-Desc     You are standing infront of what you now recognize as Jabba the Hutt's former home.
+Desc     You are standing infront of what you now recognize as Jabba the Lethari's former home.
 ~
 #EXIT
 Direction north~
@@ -4793,7 +4793,7 @@ ToRoom    31734
 Vnum     31732
 Name     Jabba's former Dais~
 Sector   inside~
-Desc     You are standing on Jabba the Hutt's former Dais. It is a very large area which has an exellent view of the audience chamber.
+Desc     You are standing on Jabba the Lethari's former Dais. It is a very large area which has an exellent view of the audience chamber.
 ~
 #EXIT
 Direction south~
@@ -4870,7 +4870,7 @@ ToRoom    31734
 Vnum     31736
 Name     Beside the dais~
 Sector   inside~
-Desc     You are standing beside the Dais of the former Jabba the Hutt. From here you cannot see very well but you are very near the Dais.
+Desc     You are standing beside the Dais of the former Jabba the Lethari. From here you cannot see very well but you are very near the Dais.
 ~
 #EXIT
 Direction south~
@@ -5940,7 +5940,7 @@ ToRoom    31801
 Vnum     31801
 Name     Jabba's palace's kitchen~
 Sector   inside~
-Desc     You are standing inside the kitchen that was used to make jabba the hutt's disgusting foods.There is a table in the centre of the room with a cutting board and extra utensils. On the wall there are many shelves and utensils layed everywhere.
+Desc     You are standing inside the kitchen that was used to make jabba the Lethari's disgusting foods.There is a table in the centre of the room with a cutting board and extra utensils. On the wall there are many shelves and utensils layed everywhere.
 ~
 #EXIT
 Direction north~
@@ -6047,7 +6047,7 @@ ToRoom    31808
 Vnum     31808
 Name     Deserty path~
 Sector   desert~
-Desc     You are walking along the hot sand heated by the twin suns of Tatooine. the ground beaneath you is hardnening gradually as you walk over it or is it just your immagination?
+Desc     You are walking along the hot sand heated by the twin suns of Barnard b. the ground beaneath you is hardnening gradually as you walk over it or is it just your immagination?
 ~
 #EXIT
 Direction north~
@@ -6228,7 +6228,7 @@ Vnum     31817
 Name     Water Shack~
 Sector   mountain~
 Flags    safe~
-Desc     You are standing in a dimly lit room. There is an aged jawa shopkeeper
+Desc     You are standing in a dimly lit room. There is an aged Veyran shopkeeper
 sitting  n the corner behind a table selling items you may need to
 explore this vast lan  filled with opertinities and predators. In
 this small cave it is darker which  akes the temperature drop
@@ -6277,11 +6277,11 @@ Vnum     31819
 Name     Path in the city~
 Sector   mountain~
 Desc     You are walking down a wide path in the middle of this small city
-seemingly bel nging to the jawa's. It has been used frewuently and
+seemingly bel nging to the Veyran's. It has been used frewuently and
 you can tell this for the  ock is shaved away be wieght and the path
 is full of marks. Straight shead also there is a hufe fortress of
 some sorts. It is simply constructed and seems old  ut that is
-probably because of the wind and the scorching suns of Tatooine. 
+probably because of the wind and the scorching suns of Barnard b. 
 ~
 #EXIT
 Direction north~
@@ -6311,7 +6311,7 @@ Vnum     31820
 Name     Dusty path~
 Sector   mountain~
 Desc     You walk along a wide dusty path between two of the most popular
-places in this small veritable city. All around jawas and smal
+places in this small veritable city. All around Veyran and smal
 creature of likes you do not wa t to be aquainted with. As you
 continue down this path you recognize many thing  and see the
 fortress growing with every step you take seemingly growing to an 
@@ -6335,8 +6335,8 @@ Vnum     31821
 Name     Path~
 Sector   mountain~
 Desc     You walk along a wide path seemingly wider than you think because of
-the reflec ion and glare of the two twin suns of Tatooine. In front
-of you the Jawa fortre s stans immensly with not much arcitechtural
+the reflec ion and glare of the two twin suns of Barnard b. In front
+of you the Veyran fortre s stans immensly with not much arcitechtural
 design to it. You can continue dow  this road towards the fortress or
 turn off into one of te side strets leading  o who knows where.
 ~
@@ -6355,7 +6355,7 @@ Reset M 0 31504 100 31821
 
 #ROOM
 Vnum     31822
-Name     Directly infront of the Jawa Foretress.~
+Name     Directly infront of the Veyran Foretress.~
 Sector   mountain~
 Desc     You are standing directly infront of the Jwa Fortress. It seems ratjer
 large fr m this viewpoint but is limited to levels and interior space
@@ -6379,7 +6379,7 @@ Reset M 0 31504 100 31822
 
 #ROOM
 Vnum     31823
-Name     Entrance to Jawa Fortress~
+Name     Entrance to Veyran Fortress~
 Sector   inside~
 Flags    indoors~
 Desc     You are standing in a vey large room. It was built plainly and simply
@@ -6497,7 +6497,7 @@ Sector   inside~
 Flags    indoors~
 Desc     You are standing in an enourmous room. There are small bags, matresses
 and all  orts of small things all over the room layed about. There
-are a few Jawas young and old roaming these hallways. This here room
+are a few Veyran young and old roaming these hallways. This here room
 is used for more of a storage pl ce and not for eating.
 ~
 #EXIT
@@ -6523,9 +6523,9 @@ Vnum     31830
 Name     Quarters~
 Sector   inside~
 Flags    indoors hotel~
-Desc     Here, at night Jawas go to sleep. There are millions of tiny things
+Desc     Here, at night Veyran go to sleep. There are millions of tiny things
 from wires  nd circuts to translator droid in here. Considering the
-fact that Jawas sleep i  this room it has a quite awful stench.
+fact that Veyran sleep i  this room it has a quite awful stench.
 Downwards there is a small opening lead ng to lower levels or
 something of an interesting nature. This room is very comfortable and
 safe with guard in pretty much all directions.
@@ -6560,7 +6560,7 @@ Sector   inside~
 Flags    indoors~
 Desc     You are standing in what seems to be an area where extra things and stolen
 good  are kept. In the corners there are baskets full of wires and old
-goods that ar  probably useless to the everyday person. There is a jawa
+goods that ar  probably useless to the everyday person. There is a Veyran
 guard half asleep her  watching over the items. This room does not seem to
 have been dug out yet was  ut here by nature.
 ~
@@ -6623,7 +6623,7 @@ Vnum     31834
 Name     Hallway~
 Sector   inside~
 Flags    indoors~
-Desc     You are standing in a think gloomy hallway. Towards the south you can gear the sounds of discussing and occasional laughing. The ground is cool and soft for it is not dried by the everydays syns if Tatooine. The hallway is a Gloomy place and makes you think twice before you do anything.
+Desc     You are standing in a think gloomy hallway. Towards the south you can gear the sounds of discussing and occasional laughing. The ground is cool and soft for it is not dried by the everydays syns if Barnard b. The hallway is a Gloomy place and makes you think twice before you do anything.
 ~
 #EXIT
 Direction east~
@@ -6709,7 +6709,7 @@ Vnum     31838
 Name     Chambers~
 Sector   inside~
 Flags    indoors~
-Desc     You are standing in the chambers of the Wise Jawa of these parts. The
+Desc     You are standing in the chambers of the Wise Veyran of these parts. The
 walls are poorly decorated and any signs of extra materials does not
 exist. Mayebe you should try to understand him before comming to any
 conclusions for he may able to help your or to teach you something of
@@ -6887,7 +6887,7 @@ Reset D 0 31850 3 0
 Vnum     31851
 Name     Infront of A large keeping area~
 Sector   mountain~
-Desc     You are standing infront of some large fences. Inside these fences are kept many Rontos the animal that Jawa's ride to go to different areas. There is a rather tall jawa at the gate entry with an Ionization gun ready to shoot any theifs or trespassers.
+Desc     You are standing infront of some large fences. Inside these fences are kept many Rontos the animal that Veyran's ride to go to different areas. There is a rather tall Veyran at the gate entry with an Ionization gun ready to shoot any theifs or trespassers.
 ~
 #EXIT
 Direction east~
@@ -7471,7 +7471,7 @@ Desc     You are standing infront of an old man. Here he makes his own food to s
 to people passing by. He has a large selection, everything from
 banthaburgers to dewbak ribs depending on how carnivorous your appetite
 is. His booth is made of old junk probably scavenged or bought from the
-jawas. His cooking supplies are rather disgusting to look at and when you
+Veyran. His cooking supplies are rather disgusting to look at and when you
 think of what you are eating from it makes your stomach churn.
 ~
 #EXIT

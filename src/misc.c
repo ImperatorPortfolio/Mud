@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -2709,34 +2709,33 @@ void do_train( CHAR_DATA *ch, const char *argument )
             return;
          }
 
-   success_chance =
-   get_trait_training_chance(
-      ch,
-      mob,
-      effect );
+            success_chance =
+            get_trait_training_chance(
+               ch,
+               mob,
+               effect );
 
-if( success_chance <= 0 )
-{
-   int potential;
+         if( success_chance <= 0 )
+         {
+            int potential;
 
-   potential =
-      get_trait_training_potential(
-         ch,
-         effect );
+            potential =
+               get_trait_training_potential(
+                  ch,
+                  effect );
 
-   ch_printf(
-      ch,
-      "&YYou cannot improve this attribute any further through natural training.\r\n"
-      "&WYour natural potential is %d.&w\r\n",
-      potential );
+            ch_printf(
+               ch,
+               "&YYou have reached your natural potential "
+               "for this attribute: %d.&w\r\n",
+               potential );
 
-   return;
+            return;
 }
-
-CREATE(
-   session,
-   struct training_session_data,
-   1 );
+         CREATE(
+            session,
+            struct training_session_data,
+            1 );
 
          strlcpy(
             session->attribute,

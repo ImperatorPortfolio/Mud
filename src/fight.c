@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -649,54 +649,6 @@ static bool is_ranged_combat_weapon( OBJ_DATA *wield )
 }
 
 /*
- * Convert an ability score to its d20 modifier. C++ integer division
- * truncates toward zero, so negative values need explicit floor behavior.
- */
-static int get_ability_modifier( int ability )
-{
-   if( ability >= 10 )
-      return ( ability - 10 ) / 2;
-
-   return -( ( 11 - ability ) / 2 );
-}
-
-/*
- * SWR ability levels run from 0 to 100. Mapping five ability levels to
- * one d20 point produces a base attack progression from +0 to +20.
- */
-static int get_base_attack_bonus( CHAR_DATA *ch )
-{
-   if( !ch )
-      return 0;
-
-   return URANGE( 0, ch->skill_level[COMBAT_ABILITY] / 5, 20 );
-}
-
-/*
- * Convert legacy descending armor into ascending d20 Defense. Unarmored
- * characters start at armor 100; each ten points below that grants +1.
- */
-static int get_defense( CHAR_DATA *ch )
-{
-   int armor_bonus;
-   int dexterity_bonus;
-
-   if( !ch )
-      return 10;
-
-   armor_bonus = ( 100 - ch->armor ) / 10;
-   dexterity_bonus =
-      IS_AWAKE( ch )
-      ? get_ability_modifier( get_curr_dex( ch ) )
-      : 0;
-
-   return 10
-      + get_base_attack_bonus( ch )
-      + dexterity_bonus
-      + armor_bonus;
-}
-
-/*
  * Hit one guy once.
  */
 ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
@@ -809,7 +761,7 @@ ch_ret one_hit( CHAR_DATA * ch, CHAR_DATA * victim, int dt )
    }
 
    /*
- * Star Wars d20 attack resolution.
+ * Zero Point d20 attack resolution.
  *
  * Melee:
  *
@@ -972,7 +924,7 @@ else
 dam += ch->damroll;
 
 /*
- * D&D / Star Wars d20 ability contribution:
+ * D&D / Zero Point d20 ability contribution:
  *
  * Melee/unarmed:
  *     weapon damage + STR modifier
@@ -2256,7 +2208,7 @@ OBJ_DATA *raw_kill( CHAR_DATA * ch, CHAR_DATA * victim )
    set_char_color( AT_DIEMSG, victim );
    do_help( victim, "_DIEMSG_" );
 
-   /* swreality chnages begin here */
+   /* ZeroPoint chnages begin here */
 
    for( ship = first_ship; ship; ship = ship->next )
    {
@@ -2522,7 +2474,7 @@ int xp_compute( CHAR_DATA * gch, CHAR_DATA * victim )
    }
 
    /*
-    * new xp cap for swreality 
+    * new xp cap for ZeroPoint 
     */
 
    return URANGE( 1, xp,

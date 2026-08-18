@@ -1,0 +1,18 @@
+PACKAGE QA
+==========
+
+- Python syntax compilation: PASS
+- Installer self-test: PASS
+- Synthetic current-layout fixture install: PASS
+- Race-table replacement: PASS
+- Character-creation 8-race filter injection: PASS
+- Homeworld mapping replacement: PASS
+- Planet visible-name conversion: PASS
+- Active system visible-name conversion: PASS
+- Internal space/*.system Filename preservation: PASS
+- Area header conversion: PASS
+- Parser-facing Race/VIPFlags preservation: PASS
+- Internal area filenames, planet filenames, VNUMs and save race indexes are preserved.
+
+The fixture test exercised all 9 planet slots and all 15 currently active
+space/space.lst system slots.

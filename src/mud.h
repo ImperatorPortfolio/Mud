@@ -1,10 +1,10 @@
 /****************************************************************************
- *                           STAR WARS REALITY 1.0                          *
+ *                           Zero Point 1.0                          *
  *--------------------------------------------------------------------------*
- * Star Wars Reality Code Additions and changes from the Smaug Code         *
+ * Zero Point Code Additions and changes from the Smaug Code         *
  * copyright (c) 1997, 1998 by Sean Cooper                                  *
  * -------------------------------------------------------------------------*
- * Starwars and Starwars Names copyright (c) Lucasfilm Ltd.                 *
+ * Zero Point and Zero Point Names copyright (c) Zero Point Ltd.                 *
  *--------------------------------------------------------------------------*
  * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
  * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -25,7 +25,7 @@
 
 using namespace std;
 
-#define CODENAME "SWRFUSS"
+#define CODENAME "ZeroPoint"
 #define CODEVERSION "1.4.4"
 
 // Backward compatibility for snippets and such.
@@ -2378,12 +2378,60 @@ void clear_character_traits( CHAR_DATA *ch );
 void generate_character_traits( CHAR_DATA *ch );
 void show_character_traits( CHAR_DATA *ch );
 
+int get_ability_modifier( int score );
+
+int get_base_attack_bonus( CHAR_DATA *ch );
+int get_defense( CHAR_DATA *ch );
+
 int get_str_tohit_bonus( int strength );
 int get_str_todam_bonus( int strength );
 int get_str_carry_bonus( int strength );
 int get_str_wield_bonus( int strength );
 int get_dex_defensive_bonus( int dexterity );
 int get_int_learn_bonus( int intelligence );
+
+typedef enum
+{
+   ABILITY_SCORE_STR,
+   ABILITY_SCORE_DEX,
+   ABILITY_SCORE_CON,
+   ABILITY_SCORE_INT,
+   ABILITY_SCORE_WIS,
+   ABILITY_SCORE_CHA
+} ability_score_type;
+
+typedef enum
+{
+   SAVE_FORTITUDE,
+   SAVE_REFLEX,
+   SAVE_WILL
+} saving_throw_type;
+
+int get_character_ability_modifier(
+   CHAR_DATA *ch,
+   int ability );
+
+int get_skill_bonus(
+   CHAR_DATA *ch,
+   int sn,
+   int ability );
+
+bool skill_check(
+   CHAR_DATA *ch,
+   int sn,
+   int ability,
+   int difficulty );
+
+int get_save_bonus(
+   CHAR_DATA *ch,
+   int save_type );
+
+bool saving_throw(
+   CHAR_DATA *ch,
+   int save_type,
+   int difficulty,
+   int trait_effect_id,
+   int misc_bonus );
 
 /*
 * Liquids.
@@ -3298,7 +3346,6 @@ extern const struct race_type race_table[MAX_RACE];
 extern const struct liq_type liq_table[LIQ_MAX];
 extern const char *const attack_table[13];
 extern const char *const ability_name[MAX_ABILITY];
-
 extern const char *const skill_tname[];
 extern short const movement_loss[SECT_MAX];
 extern const char *const dir_name[];

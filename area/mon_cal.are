@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Mon Calamri~
+Name         LHS 1140 b - Pelagian Capital~
 Author       Ackbar~
 Ranges       0 60 0 103
 Economy      0 187437359
@@ -121,7 +121,7 @@ mpecho busy!
 Vnum       21003
 Keywords   Shana spice dealer~
 Short      the spice dealer~
-Long       The Rodian spice dealer stands behind the counter.
+Long       The Keshari spice dealer stands behind the counter.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -1896,9 +1896,9 @@ Comlist   say Hey tell me your here to buy my new script... Intersteller Wars?
 
 #MOBILE
 Vnum       21082
-Keywords   gamorrean male Toisk~
-Short      &G Toisk, A rather dumb Gamorrean male~
-Long       &G Toisk, A rather dumb Gamorrean male sits here counting the cracks in the
+Keywords   Drakken male Toisk~
+Short      &G Toisk, A rather dumb Drakken male~
+Long       &G Toisk, A rather dumb Drakken male sits here counting the cracks in the
 floor.
 ~
 Race       Gamorrean~
@@ -2023,7 +2023,7 @@ Keywords   takiki mon police clerk~
 Short      Takiki, A Mon Calamarian police clerk~
 Long       Takiki, A Mon Calamarian police clerk
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -2466,11 +2466,11 @@ ShopData   0 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       21445
-Keywords   drunk quarren~
-Short      A quarren drunk ~
-Long       A quarren drunk stumbles here.
+Keywords   drunk Pelagian~
+Short      A Pelagian drunk ~
+Long       A Pelagian drunk stumbles here.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -2492,11 +2492,11 @@ Progtype  speech_prog~
 Arglist   hi hello~
 Comlist   Say hello, You new here $n? or have I talked to you I don't know, 
 say hey bartender get me another drink.
-mpecho You see the bartender poor the quarren another drink.
-say you ever been down to the quarren city $n It's awsome.
+mpecho You see the bartender poor the Pelagian another drink.
+say you ever been down to the Pelagian city $n It's awsome.
 mpecho You see the drunk reach in his pockets and 
 mpecho you see he has no credits.
-Say hey $n give me 200 credits and I'll give you a map to the Quarren city
+Say hey $n give me 200 credits and I'll give you a map to the Pelagian city
 .
 ~
 #ENDPROG
@@ -2514,9 +2514,9 @@ give map $n
 
 #MOBILE
 Vnum       21446
-Keywords   quarren child~
-Short      A Quarren child plays here.~
-Long       A Quarren child plays here.
+Keywords   Pelagian child~
+Short      A Pelagian child plays here.~
+Long       A Pelagian child plays here.
 ~
 Race       Quarren~
 Position   aggressive~
@@ -3409,8 +3409,8 @@ ExDesc       What you've never seen a chair before??
 Vnum     21117
 Keywords vest gamorean double strap~
 Type     armor~
-Short    &G A gamorrean double strap vest &x~
-Long     &G A gamorrean double strap vest was left here. &x~
+Short    &G A Drakken double strap vest &x~
+Long     &G A Drakken double strap vest was left here. &x~
 Flags    inventory large_size~
 WFlags   take body about~
 Values   0 7 0 0 0 0
@@ -3582,13 +3582,13 @@ All the weapons of this group had shiny metal surfaces and had been covered
 by black tar.  The conclusion was that the clan had attempted to avoid
 detection in sunlight by preventing the blades of their weapons from
 reflecting the sun's rays.
-The created most of thier armor from raiding the quarren's mine shafts
+The created most of thier armor from raiding the Pelagian's mine shafts
 long
 before the two races became friends.
 
 Hidden among the weapons and artifacts was a set of tattered parchments,
 which upon translation, appeared to be Training material written by
-ancient Quarren.  Although some of the information is now obsolete,
+ancient Pelagian.  Although some of the information is now obsolete,
 some of the info still be of use.
 ~
 #ENDEXDESC
@@ -3841,13 +3841,13 @@ All the weapons of this group had shiny metal surfaces and had been covered
 by black tar.  The conclusion was that the clan had attempted to avoid
 detection in sunlight by preventing the blades of their weapons from
 reflecting the sun's rays.
-The created most of thier armor from raiding the quarren's mine shafts
+The created most of thier armor from raiding the Pelagian's mine shafts
 long
 before the two races became friends.
 
 Hidden among the weapons and artifacts was a set of tattered parchments,
 which upon translation, appeared to be Training material written by
-ancient Quarren.  Although some of the information is now obsolete,
+ancient Pelagian.  Although some of the information is now obsolete,
 some of the info still be of use.
 ~
 #ENDEXDESC
@@ -4142,7 +4142,7 @@ Vnum     21004
 Name     Intersection of Anna Avenue and Security Road~
 Sector   city~
 Desc     &RYou stand at the intersection of &PAnna Avenue&R and Security Road.  This
-main road is home to the Mon Calamari Police. It is highly recommended
+main road is home to the Pelagian Police. It is highly recommended
 that you do not walk down this street with rifle a blaze. Soft greenery
 have been added to the street sides to help make it look more attractive.
 To the north you can see the north docking bay where the transport ships
@@ -4749,7 +4749,7 @@ Desc      Anna Avenue and Law Avenue cross to the west.
 
 #EXDESC
 ExDescKey    sign post signpost~
-ExDesc       North - Jawa Traders
+ExDesc       North - Veyran Traders
 East  - Law Avenue
         - To Luke Street
 West  - Law Avenue
@@ -5040,7 +5040,7 @@ Vnum     21026
 Name     Intersection of Trading Post  Street and Monock Road~
 Sector   city~
 Desc     &Y You stand at the intersection of Trading Post  Street and Monock Road. 
-A wall towers over you to the west, keeping intruders (mostly Quarren) out
+A wall towers over you to the west, keeping intruders (mostly Pelagian) out
 of Coral City unannounced.  To the east are the newly built shops of Coral
 City, while Monock Road continues to the north and south.
 ~
@@ -5807,7 +5807,7 @@ Vnum     21046
 Name     Trading Post  Street~
 Sector   city~
 Desc     &YCitizens of Coral City waddle  around you, anxious to finish their
-shopping. Gazing northward, you can see a female Rodian drying a multitude
+shopping. Gazing northward, you can see a female Keshari drying a multitude
 of spices, while to the south you see Coral City's courier service. 
 Trading Post  Street ranges to the east and west. 
 ~
@@ -6697,7 +6697,7 @@ Sector   inside~
 Flags    indoors safe~
 Desc     &z This lavish room comes complete with plush bantha leather seat benches.
 A brand new drinking fountain that diperses fresh salt water for drinking.
-And a new cooking droid here to serve some of the great Mon Calamari food.
+And a new cooking droid here to serve some of the great Pelagian food.
 The floor is a soft grey colored marble like rock sanded to a smooth
 surface. 
 ~
@@ -7220,7 +7220,7 @@ Name     Inside the Western Docking bay~
 Sector   city~
 Flags    nomob~
 Desc     &z You stand in the western dockingbay, do to the massive damage this place
-took by the empire , only small shuttles can enter this docking bay. This
+took by Proxima Directorate , only small shuttles can enter this docking bay. This
 platform was designed as a slave port for Mon Calamrian workers by the
 Empire years ago, but were later easily converted in to Docking Bay's for
 the Rebellion's greatest ship builder. You can hear the soft wind of the
@@ -7605,7 +7605,7 @@ Vnum     21100
 Name     Inside the Northern Docking bay~
 Sector   city~
 Flags    nomob~
-Desc     &z You stand in the main docking bay of the planet Mon Calamari. This state
+Desc     &z You stand in the main docking bay of the planet LHS 1140 b. This state
 of the art Dockingbay recently recived a facelift to allow for a better
 image of the planet. The floor is now a polished metal, that reflexs the
 extensive lighting system they installed. From the ceiling you can see new
@@ -8480,7 +8480,7 @@ Name     Medical Supply Store~
 Sector   inside~
 Flags    indoors safe~
 Desc     &C This small area of the building was sectioned off to allow travelers to
-Mon Calamari the option to purchase medical equipment. The walls are a
+Pelagian the option to purchase medical equipment. The walls are a
 polished coral rock which give off a pinkish reflection. The floor has a
 
 medical track on it to allow easy transport of victims to and from areas
@@ -8570,7 +8570,7 @@ Vnum     21132
 Name     Security Lobby~
 Sector   city~
 Flags    safe prototype~
-Desc     &z You enter the main office of the Mon Calamari Security. This room is
+Desc     &z You enter the main office of the Pelagian Security. This room is
 slightly, less extravegant then the rest, and has more of a rough ocean
 bottom feel. The walls  are decorated with pictures of wanted men, and the
 floors are polished rock that imitates a marble look. This rock was
@@ -8622,7 +8622,7 @@ project, the city mayor decided this would be a better idea. The ground is
 covered by a imported weed from a nearby planet. It is well known for it's
 durablity and groth rate. Both of which will be need to maintain the
 trampling and activity it will see. This grass like surface is new to Mon
-Calamarians and they find it extremely interesting, while the Quarren's
+Calamarians and they find it extremely interesting, while the Pelagian's
 find it just frivlous. 
 ~
 #EXIT
@@ -8657,7 +8657,7 @@ covered by a imported weed from a nearby planet. It is well known for
 it's;durablity and groth rate. Both of which will be need to maintain
 the;trampling and activity it will see. This grass like surface is new to
 Mon Calamarians and they find it extremely interesting, while the
-Quarren's find it just frivlous.  You can see a large white leafed tree
+Pelagian's find it just frivlous.  You can see a large white leafed tree
 sitting in the middle of the park.
 ~
 #EXIT
@@ -8695,7 +8695,7 @@ covered by a imported weed from a nearby planet. It is well known for
 it's;durablity and groth rate. Both of which will be need to maintain
 the;trampling and activity it will see. This grass like surface is new to
 Mon Calamarians and they find it extremely interesting, while the
-Quarren's find it just frivlous.  There is a large brown fence keeping the
+Pelagian's find it just frivlous.  There is a large brown fence keeping the
 animals and people in surrounding  the edge of the park
 ~
 #EXIT
@@ -8729,7 +8729,7 @@ it's;durablity and groth rate. Both of which will be need to maintain
 
 the;trampling and activity it will see. This grass like surface is new to
 Mon Calamarians and they find it extremely interesting, while the
-Quarren's find it just frivlous.  There is a large fence that surrounds
+Pelagian's find it just frivlous.  There is a large fence that surrounds
 the area to keep animals and people in.
 ~
 #EXIT
@@ -8965,9 +8965,9 @@ Name     Chief Security Officer's Office~
 Sector   city~
 Flags    prototype~
 Desc     The chief of security's office is now vacant. As the last chief was ordered
-to leave by the Crime Syndacate Mon Calamari is currently looking for a
+to leave by the Crime Syndacate Pelagian is currently looking for a
 BRAVE security officer to replace him. If interested please contact
-Ackbar. Sorry you must be Mon Calamari to fulfill duties
+Ackbar. Sorry you must be Pelagian to fulfill duties
 ~
 #EXIT
 Direction north~
@@ -9142,7 +9142,7 @@ Flags    prototype~
 Desc     &c There is a big round desk in the middle of the room here, with all sorts
 of security equipment secured around it.  It looks like some sort of
 high-tech, punch in area for workers to check in. There is a room to the
-east, where most of the Quarren and Mon Calamarian workers seem to be
+east, where most of the Pelagian and Mon Calamarian workers seem to be
 going. There is a excellent grained wooden door to the west with an
 extravegant golden sign on it.  This room is tastefully done in a coral
 pink and dark purple decor which makes it feel somewhat exciting. You can
@@ -9795,7 +9795,7 @@ Name     Tunnel~
 Sector   city~
 Flags    prototype~
 Desc     You stand in a dark tunnel system made out of a mined ore obviously the
-work of the Quarren. The walls are ribbed and appear to be fastened by
+work of the Pelagian. The walls are ribbed and appear to be fastened by
 metal pins along the seam. Above you can see the hatch, while below you
 look down and see nothing but complete darkness.
 ~
@@ -9819,7 +9819,7 @@ Name     Tunnel~
 Sector   city~
 Flags    dark prototype~
 Desc     You stand in a dark tunnel system made out of a mined ore obviously the
-work of the Quarren. The walls are ribbed and appear to be fastened by
+work of the Pelagian. The walls are ribbed and appear to be fastened by
 metal pins along the seam. Above you can see only darkness, while below
 you look down and see a glimmer of light coming from the darkness.
 ~
@@ -9869,7 +9869,7 @@ Flags    prototype~
 Desc     &z You stand in a rather large room full of computer and survailence
 equipment. There are strange markings on the displays .You are familiar
 with the markings, Imperial code language . Apparently the rumors about
-the Quarren are true. 
+the Pelagian are true. 
 &x
 ~
 #EXIT

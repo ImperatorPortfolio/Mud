@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucasfilm Ltd.                  *
+* Zero Point and Zero Point Names copyright(c) Zero Point Ltd.                  *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -15,7 +15,7 @@
 * Original Diku Mud copyright (C) 1990, 1991 by Sebastian Hammer,          *
 * Michael Seifert, Hans Henrik St{rfeldt, Tom Madsen, and Katja Nyboe.     *
 * ------------------------------------------------------------------------ *
-*		   New Star Wars Skills Unit    			   *   
+*		   New Zero Point Skills Unit    			   *   
 ****************************************************************************/
 
 #include <math.h>
@@ -3057,14 +3057,27 @@ void do_first_aid( CHAR_DATA * ch, const char *argument )
       return;
    }
 
-   heal = number_range( 1, 150 );
+if( !skill_check(
+       ch,
+       gsn_first_aid,
+       ABILITY_SCORE_WIS,
+       15 ) )
+{
+   ch_printf(
+      ch,
+      "You fail in your attempt at first aid.\r\n" );
 
-   if( heal > ch->pcdata->learned[gsn_first_aid] * 2 )
-   {
-      ch_printf( ch, "You fail in your attempt at first aid.\r\n" );
-      learn_from_failure( ch, gsn_first_aid );
-      return;
-   }
+   learn_from_failure(
+      ch,
+      gsn_first_aid );
+
+   return;
+}
+
+heal =
+   number_range(
+      1,
+      150 );
 
    if( victim == ch )
    {

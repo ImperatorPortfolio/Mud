@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Some Hunter Spacecraft~
+Name         Contractors' Fleet~
 Author       Bleeds~
 Ranges       0 0 0 103
 Economy      0 31268379
@@ -1282,7 +1282,7 @@ Name     Guest Suite~
 Sector   city~
 Flags    hotel spacecraft~
 Desc     A private bath and jacuzi is located here , designed to fit a bein of any
-race or sex even as large as a hutt, So it could easily entertain many
+race or sex even as large as a Lethari, So it could easily entertain many
 human sized guests. 
 ~
 #EXIT

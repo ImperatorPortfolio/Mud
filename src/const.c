@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -38,43 +38,77 @@
  */
 const struct race_type race_table[MAX_RACE] = {
    /*
-    * race name     DEF_AFF      st dx ws in cn ch lk fc hp mn re su   RESTRICTION  LANGUAGE 
+    * Internal race indexes are retained for save-file compatibility.
+    * Character creation exposes only the eight Local Sphere species.
+    *
+    * race name     DEF_AFF      st dx ws in cn ch lk fc hp mn re su   RESTRICTION  LANGUAGE
     */
    {
     "Human", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_COMMON},
-   {
-    "Wookiee", 0, 8, -1, -3, 0, 2, -2, 0, 0, 3, 0, 0, 0, 0, LANG_WOOKIEE},
-   {
-    "Twi'lek", 0, 0, 2, 2, 2, -1, -1, 0, 0, 0, 0, 0, 0, 0, LANG_TWI_LEK},
-   {
-    "Rodian", 0, 0, 3, 0, 0, 1, -1, 0, 0, 0, 0, 0, 0, 0, LANG_RODIAN},
-   {
-    "Hutt", 0, -3, -9, -3, 3, 5, -6, 0, 0, 3, 0, 0, 0, 0, LANG_HUTT},
-   {
-    "Mon Calamari", AFF_AQUA_BREATH, 0, -1, 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_MON_CALAMARI},
-   {
-    "Noghri", AFF_SNEAK, 0, 8, -2, -1, 0, -3, 0, 0, 0, 0, 0, 0, 0, LANG_NOGHRI},
-   {
-    "Gamorrean", 0, 6, 0, -5, -5, 5, -2, 0, 0, 3, 0, 0, 0, 0, LANG_GAMORREAN},
-   {
-    "Jawa", 0, -3, 3, 1, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, LANG_JAWA},
-   {
-    "Adarian", 0, -2, -1, +2, +2, -1, +2, 0, 0, 0, 0, 0, 0, 0, LANG_ADARIAN},
-   {
-    "Ewok", 0, -2, -1, -5, -5, -2, +8, 0, 0, 0, 0, 0, 0, 0, LANG_EWOK},
-   {
-    "Verpine", 0, -1, 0, +1, +6, -1, 0, 0, 0, 0, 0, 0, 0, 0, LANG_VERPINE},
-   {
-    "Defel", AFF_INVISIBLE, +1, +3, -3, -3, +1, 0, 0, 0, 0, 0, 0, 0, 0, LANG_DEFEL},
-   {
-    "Trandoshan", AFF_INFRARED, +2, 0, 0, 0, +6, -1, 0, 0, 0, 0, 0, 0, 0, LANG_TRANDOSHAN},
-   {
-    "Chadra-Fan", AFF_INFRARED, -3, +3, 0, +2, -1, 0, 0, 0, 0, 0, 0, 0, 0, LANG_CHADRA_FAN},
-   {
-    "Quarren", AFF_AQUA_BREATH | AFF_INFRARED, -1, +1, 0, +1, -1, 0, 0, 0, 0, 0, 0, 0, 0, LANG_MON_CALAMARI},
-   {
-    "Duinuogwuin", AFF_FLYING, 0, -1, +3, 0, +8, +1, 0, 0, 0, +10, 0, 0, 0, LANG_DUINUOGWUIN}
 
+   /* RACE_WOOKIEE -> Vordan */
+   {
+    "Vordan", 0, +4, -2, -2, 0, +2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_WOOKIEE},
+
+   /* RACE_TWI_LEK -> Lethari */
+   {
+    "Lethari", 0, 0, +2, -2, 0, -2, +2, 0, 0, 0, 0, 0, 0, 0, LANG_TWI_LEK},
+
+   /* Legacy Rodian index -> Keshari */
+   {
+    "Keshari", AFF_SNEAK, 0, +2, +2, -2, 0, -2, 0, 0, 0, 0, 0, 0, 0, LANG_NOGHRI},
+
+   /* Legacy Hutt index -> Lethari */
+   {
+    "Lethari", 0, 0, +2, -2, 0, -2, +2, 0, 0, 0, 0, 0, 0, 0, LANG_TWI_LEK},
+
+   /* RACE_MON_CALAMARI -> Pelagian */
+   {
+    "Pelagian", AFF_AQUA_BREATH, -2, -2, +2, +2, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_MON_CALAMARI},
+
+   /* RACE_NOGHRI -> Keshari */
+   {
+    "Keshari", AFF_SNEAK, 0, +2, +2, -2, 0, -2, 0, 0, 0, 0, 0, 0, 0, LANG_NOGHRI},
+
+   /* Legacy Gamorrean index -> Drakken */
+   {
+    "Drakken", AFF_INFRARED, +2, -2, 0, -2, +4, -2, 0, 0, 0, 0, 0, 0, 0, LANG_TRANDOSHAN},
+
+   /* Legacy Jawa index -> Veyran */
+   {
+    "Veyran", 0, -2, +2, 0, +4, -2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_VERPINE},
+
+   /* Legacy Adarian index -> Lethari */
+   {
+    "Lethari", 0, 0, +2, -2, 0, -2, +2, 0, 0, 0, 0, 0, 0, 0, LANG_TWI_LEK},
+
+   /* Legacy Ewok index -> Noxian */
+   {
+    "Noxian", AFF_INFRARED | AFF_SNEAK, -2, +4, +2, 0, -2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_DEFEL},
+
+   /* RACE_VERPINE -> Veyran */
+   {
+    "Veyran", 0, -2, +2, 0, +4, -2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_VERPINE},
+
+   /* RACE_DEFEL -> Noxian */
+   {
+    "Noxian", AFF_INFRARED | AFF_SNEAK, -2, +4, +2, 0, -2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_DEFEL},
+
+   /* RACE_TRANDOSHAN -> Drakken */
+   {
+    "Drakken", AFF_INFRARED, +2, -2, 0, -2, +4, -2, 0, 0, 0, 0, 0, 0, 0, LANG_TRANDOSHAN},
+
+   /* Legacy Chadra-Fan index -> Noxian */
+   {
+    "Noxian", AFF_INFRARED | AFF_SNEAK, -2, +4, +2, 0, -2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_DEFEL},
+
+   /* Legacy Quarren index -> Pelagian */
+   {
+    "Pelagian", AFF_AQUA_BREATH, -2, -2, +2, +2, 0, 0, 0, 0, 0, 0, 0, 0, 0, LANG_MON_CALAMARI},
+
+   /* Legacy Duinuogwuin index -> Vordan */
+   {
+    "Vordan", 0, +4, -2, -2, 0, +2, -2, 0, 0, 0, 0, 0, 0, 0, LANG_WOOKIEE}
 };
 
 

@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Quarren Mine City~
+Name         LHS 1140 b - Abyssal District~
 Author       Ackbar~
 Ranges       0 0 0 103
 Economy      -1 999514284
@@ -15,7 +15,7 @@ Short      sharklike krakanas~
 Long       A Krakanas, sharklike animal with twin pincer tentacles swims near.
 ~
 Desc       This legandary and scary sea creature is the most feared aquatic member to
-Mon Calamari.
+Pelagian.
 ~
 Race       Human~
 Position   aggressive~
@@ -216,10 +216,10 @@ Comlist   say &R What you need now! Can't you see I'm busy!!!!!!!
 #MOBILE
 Vnum       6806
 Keywords   ~
-Short      a Quarren~
-Long       A Quarren is daydreaming about the ocean.
+Short      a Pelagian~
+Long       A Pelagian is daydreaming about the ocean.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -240,11 +240,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       6807
-Keywords   Quarren miner~
-Short      A Quarren miner~
-Long       &w A Quarren miner works diligently to strip the mine.
+Keywords   Pelagian miner~
+Short      A Pelagian miner~
+Long       &w A Pelagian miner works diligently to strip the mine.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -272,7 +272,7 @@ Comlist   say &R Can't you see I'm working?  Some of us work you know!
 Progtype  rand_prog~
 Arglist   15~
 Comlist   if ispc ($n)
-   mpecho The quarren miner stops working to stare at you.
+   mpecho The Pelagian miner stops working to stare at you.
     mpecho Then decides to go back to work digging.
 else
  endif
@@ -306,11 +306,11 @@ ShopData   0 8 0 0 0 120 90 8 12
 
 #MOBILE
 Vnum       6809
-Keywords   quarren krusi clerk~
-Short      Krusi, A quarren clerk~
-Long       Krusi, A Quarren Security Clerk stands behind the counter waiting.
+Keywords   Pelagian krusi clerk~
+Short      Krusi, A Pelagian clerk~
+Long       Krusi, A Pelagian Security Clerk stands behind the counter waiting.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -512,9 +512,9 @@ ShopData   0 5 0 0 0 100 90 0 23
 
 #MOBILE
 Vnum       6816
-Keywords   librarian quarren~
-Short      A female Quarren librarian~
-Long       &p A female Quarren librarian retypes a new book.
+Keywords   librarian Pelagian~
+Short      A female Pelagian librarian~
+Long       &p A female Pelagian librarian retypes a new book.
 ~
 Race       Quarren~
 Position   aggressive~
@@ -556,11 +556,11 @@ Comlist   say &R Hey SHHHHhhhhhhh!   This is a library not your playpen $n!
 
 #MOBILE
 Vnum       6817
-Keywords   quarren man~
-Short      &R A Quarren citizen~
-Long       A Quarren citizen enjoys his day off.
+Keywords   Pelagian man~
+Short      &R A Pelagian citizen~
+Long       A Pelagian citizen enjoys his day off.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -678,8 +678,8 @@ say Dang it I don't have time for visitors!
 #MOBILE
 Vnum       6820
 Keywords   female sec secretary ~
-Short      &P A female Quarren Secretary~
-Long       &P A female Quarren Secretary stands here and twidles here thumbs.
+Short      &P A female Pelagian Secretary~
+Long       &P A female Pelagian Secretary stands here and twidles here thumbs.
 ~
 Race       Quarren~
 Position   aggressive~
@@ -957,8 +957,8 @@ Comlist   Say Hello $n looking for a place to stay?
 #MOBILE
 Vnum       6828
 Keywords   police cop security~
-Short      &y A Quarren Security Officer~
-Long       &y A Quarren Security Officer patrol the streets.
+Short      &y A Pelagian Security Officer~
+Long       &y A Pelagian Security Officer patrol the streets.
 ~
 Race       Mon Calamari~
 Position   aggressive~
@@ -979,8 +979,8 @@ Speaking   mon_calamari~
 #MOBILE
 Vnum       6829
 Keywords   police security~
-Short      &y A Quarren Security Officer~
-Long       &y A Quarren Security Officer patrol the streets.
+Short      &y A Pelagian Security Officer~
+Long       &y A Pelagian Security Officer patrol the streets.
 ~
 Race       Mon Calamari~
 Position   aggressive~
@@ -1033,7 +1033,7 @@ Progtype  speech_prog~
 Arglist   yes~
 Comlist   Say Well you can always just swim on the top..
 say but then you can try your luck swimming to..
-say the Quarren mine city..
+say the Pelagian mine city..
 stare $n
 say then again you look to weak to try that.
 ~
@@ -1074,7 +1074,7 @@ Speaking   common~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   100~
-Comlist   if race($n) != mon calamari
+Comlist   if race($n) != Pelagian
    say Your not allowed down here!
      mpforce $n n
  else
@@ -1089,8 +1089,8 @@ endif
 #MOBILE
 Vnum       6832
 Keywords   Guard~
-Short      Quarren Guard~
-Long       Quarren Guard stands here.
+Short      Pelagian Guard~
+Long       Pelagian Guard stands here.
 ~
 Race       Human~
 Position   aggressive~
@@ -1108,11 +1108,11 @@ Speaking   common~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   100~
-Comlist   if race($n) != quarren
+Comlist   if race($n) != Pelagian
   say Your not allowed down here!
   mpforce $n w
  else
-  Say Welcome Quarren to your city!
+  Say Welcome Pelagian to your city!
     mptransfer $n 6943
 endif
 ~
@@ -1123,8 +1123,8 @@ endif
 #MOBILE
 Vnum       6833
 Keywords   clerk bank~
-Short      &G A Quarren First Bank of Mon bank clerk~
-Long       &G A Quarren First Bank of Mon bank clerk stands here counting the intake.
+Short      &G A Pelagian First Bank of Mon bank clerk~
+Long       &G A Pelagian First Bank of Mon bank clerk stands here counting the intake.
 ~
 Race       Quarren~
 Position   aggressive~
@@ -1154,9 +1154,9 @@ mpecho laser beam scan you for your bio-info.
 
 #MOBILE
 Vnum       6834
-Keywords   wookiee male Tacebeca~
-Short      &z Tacebeca, Wookiee repair tech~
-Long       &z Tacebeca, Wookiee repair tech is waiting trial here.
+Keywords   Vordan male Tacebeca~
+Short      &z Tacebeca, Vordan repair tech~
+Long       &z Tacebeca, Vordan repair tech is waiting trial here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -1174,7 +1174,7 @@ Speaking   wookiee~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   100~
-Comlist   if race($n) != wookiee
+Comlist   if race($n) != Vordan
 say I'll Kill you!!
 mpkill $n 
 else
@@ -1429,7 +1429,7 @@ Values   3 0 0 0 0 0
 Stats    1 18 1 0 0
 #EXDESC
 ExDescKey    &G Kelp salad~
-ExDesc       &G the salad is comprised of kelp and seaweed. A tasty treat for Quarren.
+ExDesc       &G the salad is comprised of kelp and seaweed. A tasty treat for Pelagian.
 ~
 #ENDEXDESC
 
@@ -1545,7 +1545,7 @@ Values   3 0 0 0 0 0
 Stats    1 0 0 0 0
 #EXDESC
 ExDescKey    &G Kelp salad~
-ExDesc       &G the salad is comprised of kelp and seaweed. A tasty treat for Quarren.
+ExDesc       &G the salad is comprised of kelp and seaweed. A tasty treat for Pelagian.
 ~
 #ENDEXDESC
 
@@ -1707,8 +1707,8 @@ Affect       -1 -1 15 17 0
 Vnum     6834
 Keywords shield~
 Type     armor~
-Short    &b Quarren miner's Blast Shield~
-Long     &b Quarren miner's Blast Shield rests here.~
+Short    &b Pelagian miner's Blast Shield~
+Long     &b Pelagian miner's Blast Shield rests here.~
 Flags    large_size~
 WFlags   take head~
 Values   0 6 0 0 0 0
@@ -1719,8 +1719,8 @@ Stats    1 0 0 0 1
 Vnum     6835
 Keywords pants~
 Type     armor~
-Short    Quarren miner's pants~
-Long     Quarren miner's pants was left here.~
+Short    Pelagian miner's pants~
+Long     Pelagian miner's pants was left here.~
 Flags    large_size~
 WFlags   take legs~
 Values   0 5 0 0 0 0
@@ -1758,8 +1758,8 @@ Stats    3 20 2 0 1
 Vnum     6838
 Keywords boots~
 Type     armor~
-Short    &B Quarren Miner's boots~
-Long     &B Quarren Miner's boots were left here.~
+Short    &B Pelagian Miner's boots~
+Long     &B Pelagian Miner's boots were left here.~
 Flags    large_size~
 WFlags   take feet~
 Values   0 8 0 0 0 0
@@ -1840,7 +1840,7 @@ ExDesc       Cells -   C|   B|   A |
                     B    M     Q     T   L
  
 Key A- armory    B- Bank     J- jewler    L - Library   M - Mine office
-Q - Quarren training     S- Seabird grill   T-Tavern  W-Weapons
+Q - Pelagian training     S- Seabird grill   T-Tavern  W-Weapons
 ~
 #ENDEXDESC
 
@@ -1895,7 +1895,7 @@ Vnum     6800
 Name     &C Calamari Ocean - Top~
 Sector   water swim~
 Flags    nomob silence~
-Desc     &c You glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c You glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -1931,7 +1931,7 @@ Vnum     6801
 Name     &C Calamari Ocean - Top~
 Sector   city~
 Flags    nomob~
-Desc     &c &CYou glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c &CYou glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -1973,7 +1973,7 @@ Vnum     6802
 Name     &C Calamari Ocean - Top~
 Sector   water swim~
 Flags    nomob silence~
-Desc     &c &CYou glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c &CYou glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -2033,7 +2033,7 @@ Vnum     6803
 Name     &C Calamari Ocean - Top ~
 Sector   water swim~
 Flags    nomob silence~
-Desc     &c &CYou glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c &CYou glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -2093,7 +2093,7 @@ Vnum     6804
 Name     &C Calamari Ocean - Top.~
 Sector   water swim~
 Flags    nomob silence~
-Desc     &c &CYou glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c &CYou glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -2150,7 +2150,7 @@ ToRoom    6804
 
 #ROOM
 Vnum     6805
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &c The murky waters of the Middle ocean are covered with small water born
@@ -2214,7 +2214,7 @@ ToRoom    6814
 
 #ROOM
 Vnum     6806
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2280,7 +2280,7 @@ Reset M 0 6803 12 6806
 
 #ROOM
 Vnum     6807
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2346,7 +2346,7 @@ Reset M 0 6801 5 6807
 
 #ROOM
 Vnum     6808
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2411,7 +2411,7 @@ Reset M 0 6803 12 6808
 
 #ROOM
 Vnum     6809
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2478,7 +2478,7 @@ Reset M 0 6801 5 6809
 
 #ROOM
 Vnum     6810
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2542,7 +2542,7 @@ ToRoom    6810
 
 #ROOM
 Vnum     6811
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2607,7 +2607,7 @@ Reset M 0 6803 12 6811
 
 #ROOM
 Vnum     6812
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2672,10 +2672,10 @@ Reset M 0 6801 5 6812
 
 #ROOM
 Vnum     6813
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    silence~
-Desc     &c &CYou glance across the great Mon Calamari Ocean , seeing a vast body of
+Desc     &c &CYou glance across the great Pelagian Ocean , seeing a vast body of
 water. The view looks peaceful dispite the creatures that lurk below. A
 soft breeze blows past your head , and even through the strong smell of
 salt-water you can swear you smell, Rich Mon food cooking. Of coarse it
@@ -2749,7 +2749,7 @@ Reset M 0 6803 12 6813
 
 #ROOM
 Vnum     6814
-Name     &B Mon Calamari Ocean - Middle~
+Name     &B Pelagian Ocean - Middle~
 Sector   underwater~
 Flags    nomob~
 Desc     &CThe murky waters of the Middle ocean are covered with small water born
@@ -2813,7 +2813,7 @@ ToRoom    6814
 
 #ROOM
 Vnum     6815
-Name     &B Mon Calamari Ocean - Middle &w~
+Name     &B Pelagian Ocean - Middle &w~
 Sector   underwater~
 Flags    silence~
 Desc     &c The murky waters of the Middle ocean are covered with small water born
@@ -2877,7 +2877,7 @@ ToRoom    6815
 
 #ROOM
 Vnum     6816
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    silence~
 Desc     &c  &b You stand in the darkest part of the ocean, very few people other
@@ -2937,7 +2937,7 @@ ToRoom    6817
 
 #ROOM
 Vnum     6817
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -2998,7 +2998,7 @@ Reset M 0 6801 5 6817
 
 #ROOM
 Vnum     6818
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3063,7 +3063,7 @@ Reset M 0 6803 12 6818
 
 #ROOM
 Vnum     6819
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3118,7 +3118,7 @@ ToRoom    6817
 
 #ROOM
 Vnum     6820
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3178,7 +3178,7 @@ ToRoom    6821
 
 #ROOM
 Vnum     6821
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3238,7 +3238,7 @@ ToRoom    6818
 
 #ROOM
 Vnum     6822
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &b You stand in the darkest part of the ocean, very few people other then
@@ -3298,7 +3298,7 @@ ToRoom    6819
 
 #ROOM
 Vnum     6823
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3358,7 +3358,7 @@ ToRoom    6820
 
 #ROOM
 Vnum     6824
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3418,7 +3418,7 @@ ToRoom    6822
 
 #ROOM
 Vnum     6825
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3478,7 +3478,7 @@ ToRoom    6826
 
 #ROOM
 Vnum     6826
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3538,7 +3538,7 @@ ToRoom    6836
 
 #ROOM
 Vnum     6827
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3598,7 +3598,7 @@ ToRoom    6818
 
 #ROOM
 Vnum     6828
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    dark~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3654,7 +3654,7 @@ Reset M 0 6802 3 6828
 
 #ROOM
 Vnum     6829
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3758,7 +3758,7 @@ visibility extremely easy.
 
 #ROOM
 Vnum     6831
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3803,7 +3803,7 @@ ToRoom    6834
 
 #ROOM
 Vnum     6832
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3849,7 +3849,7 @@ Reset M 0 6802 3 6832
 
 #ROOM
 Vnum     6833
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3894,7 +3894,7 @@ ToRoom    6833
 
 #ROOM
 Vnum     6834
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -3942,7 +3942,7 @@ Vnum     6835
 Name     &z Mine Enterence &w~
 Sector   ocean floor~
 Flags    nomob silence~
-Desc     &w You stand before a Quarren mine enterence. The main hole is covered by a
+Desc     &w You stand before a Pelagian mine enterence. The main hole is covered by a
 sythetic  clear dome. At one corner is a small one man hatch used for
 enterence. On the ground you can see scraps of metal and rock apparently
 dropped from a shipment boat heading up to the city of Akatamer. There is
@@ -3975,7 +3975,7 @@ ExDesc       &R DaxbnabEW    KLis'sjkdjfu     ^R Suop  Suop Suop!!!!!^x
 
 #EXDESC
 ExDescKey    hatch~
-ExDesc       &x The hatch is manmade, cilinder door a Quarren apparently climbs into.
+ExDesc       &x The hatch is manmade, cilinder door a Pelagian apparently climbs into.
 You can see a security panel on the wall, with a voice code box.
 ~
 #ENDEXDESC
@@ -3994,7 +3994,7 @@ ExDesc       It is nothing more than scrap ore and metals of very little worth.
 
 #ROOM
 Vnum     6836
-Name     &b Mon Calamari Ocean - Bottom~
+Name     &b Pelagian Ocean - Bottom~
 Sector   ocean floor~
 Flags    nomob silence~
 Desc     &bYou stand in the darkest part of the ocean, very few people other then
@@ -4019,11 +4019,11 @@ ToRoom    6826
 
 #ROOM
 Vnum     6837
-Name     &R Domed Quarren City of Heurkea &w~
+Name     &R Domed Pelagian City of Heurkea &w~
 Sector   city~
 Desc     &c Standing before you is one of the largest underwater cities on Mon
-Calamari  The dome shield hosts thousands of Quarren citizens who spend
-most of their life  underwater. Although the Quarren can breath Oxagen
+Calamari  The dome shield hosts thousands of Pelagian citizens who spend
+most of their life  underwater. Although the Pelagian can breath Oxagen
 from water they do prefer a  change. So they contructed these massive
 domed cities to allow them to live underwater and still have the luxuries
 of above ground.   To the West is a workers enterence from a nerby Mine. 
@@ -4061,7 +4061,7 @@ ToRoom    6817
 
 #EXDESC
 ExDescKey    dome~
-ExDesc       The Quarren developed this dome in order to allow them to have both
+ExDesc       The Pelagian developed this dome in order to allow them to have both
 luxuries, air and water.
 ~
 #ENDEXDESC
@@ -4099,7 +4099,7 @@ Please reset the strat button by pulling bio-scan
 Next push the bioscan button to move to next checkpoint
  Thanks
  
-Quarren Security
+Pelagian Security
 ~
 #ENDEXDESC
 
@@ -4112,7 +4112,7 @@ Sector   underground~
 Flags    nomob~
 Desc     &c The interior of this enterence is loaded with hi-tech gadgets and
 devices. used to make sure the intended Quarran is authorized to enter.
-Precautionary measures do to the suspected allegince to the Empire. On the
+Precautionary measures do to the suspected allegince to Proxima Directorate. On the
 wall directly ahead is a voice activated code box. The floor has apparent
 dirt and soot , that most likely came from the mines.  There is a large
 sign written in two languages above the code box.
@@ -4148,7 +4148,7 @@ Name     Cave Enterence~
 Sector   underground~
 Flags    indoors~
 Desc     &c You enter the cave with a slight weasyness from the decompressure.
-Non-Quarren  creatures tend to have problems with the deep ocean pressure.
+Non-Pelagian  creatures tend to have problems with the deep ocean pressure.
 The cave is a standard layout, with a Front office to the left. Some tools
 in the shed to the right. and up-ahead you can see the tail end of the ore
 carriers. The cave's humidity level is extremly high and smells damp and
@@ -4528,7 +4528,7 @@ Desc     &c Standing in the lower Level corridor you can see why most of the
 oldtimers prefer not to work down here..The shaft is not carved out well
 and is extremly dry (something residents of here don't like alot) The
 ground is a lighter sandy color and you can see sparkles of silver metal
-coming through. It is this corridor that the the younger Quarren miners
+coming through. It is this corridor that the the younger Pelagian miners
 make their money as this is the metal most of the shipbuilders prefer. To
 the west you can see the main ore shaft.
 ~
@@ -4553,7 +4553,7 @@ Desc     &c Standing in the lower Level corridor you can see why most of the
 oldtimers prefer not to work down here..The shaft is not carved out well
 and is extremly dry (something residents of here don't like alot) The
 ground is a lighter sandy color and you can see sparkles of silver metal
-coming through. It is this corridor that the the younger Quarren miners
+coming through. It is this corridor that the the younger Pelagian miners
 make their money as this is the metal most of the shipbuilders prefer.
 ~
 #EXIT
@@ -4578,7 +4578,7 @@ Desc     &c Standing in the lower Level corridor you can see why most of the
 oldtimers prefer not to work down here..The shaft is not carved out well
 and is extremly dry (something residents of here don't like alot) The
 ground is a lighter sandy color and you can see sparkles of silver metal
-coming through. It is this corridor that the the younger Quarren miners
+coming through. It is this corridor that the the younger Pelagian miners
 make their money as this is the metal most of the shipbuilders prefer.
 ~
 #EXIT
@@ -4601,7 +4601,7 @@ Desc     &c Standing in the lower Level corridor you can see why most of the
 oldtimers prefer not to work down here..The shaft is not carved out well
 and is extremly dry (something residents of here don't like alot) The
 ground is a lighter sandy color and you can see sparkles of silver metal
-coming through. It is this corridor that the the younger Quarren miners
+coming through. It is this corridor that the the younger Pelagian miners
 make their money as this is the metal most of the shipbuilders prefer.
 ~
 #EXIT
@@ -4625,7 +4625,7 @@ Desc     &c Standing in the lower Level corridor you can see why most of the
 oldtimers prefer not to work down here..The shaft is not carved out well
 and is extremly dry (something residents of here don't like alot) The
 ground is a lighter sandy color and you can see sparkles of silver metal
-coming through. It is this corridor that the the younger Quarren miners
+coming through. It is this corridor that the the younger Pelagian miners
 make their money as this is the metal most of the shipbuilders prefer. To
 the west you see a boarded up turn in the corridor.
 ~
@@ -4658,7 +4658,7 @@ ExDesc       &w Stay Out ,  Unsafe area!
 &R Failure to follow these orders will result in imediate dismisal of
 job.
  
-^R These corridors have already taken several Quarren life !^x
+^R These corridors have already taken several Pelagian life !^x
 &w This is your last an only warning.
 ~
 #ENDEXDESC
@@ -4913,7 +4913,7 @@ Vnum     6866
 Name     &R Break Shed &x~
 Sector   underground~
 Flags    indoors~
-Desc     &Y The break shed is a place for the Quarren to hang out and relax during
+Desc     &Y The break shed is a place for the Pelagian to hang out and relax during
 thier ten minute breaks. The shed was created out of the wall and food and
 drink dispensors were brought in. The upper shaft was used to house the
 place, due to the inactivity the digging has provided. There are several
@@ -5012,7 +5012,7 @@ Desc     The interior of the ore miner is quite spacious. The above area is a cl
 holobubble, so you can see where your driving and that you don't run some
 poor miner over. The floor board has two pedals , one for fuel the second
 for brake. They are currently extremely dirty from the last guy who used
-it.  The chair is made for a quarren , A straight water moisturizing back
+it.  The chair is made for a Pelagian , A straight water moisturizing back
 that goes through the length of the vehicle. Directly behind the back is a
 large bin so you can place your digs in here for movement purposes.
 To drive just type Drive then the direction ...
@@ -5073,10 +5073,10 @@ Name     Miner's Enterence~
 Sector   city~
 Flags    nomob~
 Desc     &B Standing in front of the miner enterence security post. you realize the
-seriousness the quarren take thier job. The room is layedout with sveral
+seriousness the Pelagian take thier job. The room is layedout with sveral
 flatback chairs for the tired Miners to rest on. Uphead you see a
 bio-scanner disigned to make sure you are who you say you are. The walls
-are well decorated and have a smooth polished look. The Quarren use alot
+are well decorated and have a smooth polished look. The Pelagian use alot
 of coral and natural rocks to sculp thier underground city.
 ~
 #EXIT
@@ -5308,7 +5308,7 @@ ExDesc       Cost - 12,000 credits and Good taste buds!
 
 #ROOM
 Vnum     6887
-Name     Quarren Library~
+Name     Pelagian Library~
 Sector   underground~
 Flags    indoors~
 Desc     Standing on Lamprey St. You see the everyday rituals of the
@@ -5317,7 +5317,7 @@ weapon. City life underwater seems to go on forever. Of coarse there isn't
 a sun rise or set so time has very little relevince. Most of the people
 wake up and go whenever they feel like it, Unfortunately so do the
 building owners. There is a large building before you constructed from a
-dark grey rock. This building is of great importance to the Quarren as
+dark grey rock. This building is of great importance to the Pelagian as
 they have spent many hours carving into the rock extravegant sculptures.
 There is a large Sign on top of the building and a smaller posting on the
 door.
@@ -5400,7 +5400,7 @@ a sun rise or set so time has very little relevince. Most of the people
 wake up and go whenever they feel like it, Unfortunately so do the shop
 owners.  A high-tech building stands here with a small window for
 conversation. The buildings walls are constructed of a rare metal found in
-the Quarren underwater mines. It is here that the legendary inventor
+the Pelagian underwater mines. It is here that the legendary inventor
 Torisk creates some of his famous and not so famous, weapons.
 There is a large sign and a small note fixed to the stand.
 ~
@@ -5509,7 +5509,7 @@ ocean floor that used to be here covered with water. They have managed to
 adapt a plant that uses very little to grow down here although the leaves
 are a pale white. Lining the walls of the street are small shacks the
 miners use for domicles. To the North is a large white structure with
-statues of great Quarren fighters framing the main steps.
+statues of great Pelagian fighters framing the main steps.
 ~
 #EXIT
 Direction north~
@@ -5606,7 +5606,7 @@ ExDesc       Cost - 50,000 credits Cha - 15
 
 #ROOM
 Vnum     6893
-Name     &G Quarren Training Facility~
+Name     &G Pelagian Training Facility~
 Sector   underground~
 Flags    indoors~
 Desc     Standing on Lamprey St.. You see the everyday rituals of the
@@ -5615,8 +5615,8 @@ weapon. City life underwater seems to go on forever. Of coarse there isn't
 a sun rise or set so time has very little relevince. Most of the people
 wake up and go whenever they feel like it, Unfortunately so do the shop
 owners.   The main building to the south is well guarded by some of the
-largest Quarren you have ever seen. It is said that it is there that
-Security forces train individual quarren on weapon and battle tricks.
+largest Pelagian you have ever seen. It is said that it is there that
+Security forces train individual Pelagian on weapon and battle tricks.
 ~
 #EXIT
 Direction north~
@@ -5841,7 +5841,7 @@ Reset M 0 6829 1 6897
 
 #ROOM
 Vnum     6898
-Name     Quarren Security Armory~
+Name     Pelagian Security Armory~
 Sector   underground~
 Flags    indoors safe~
 Desc     &z Standing on Coral st. You see the everyday rituals of the
@@ -5878,7 +5878,7 @@ Reset M 0 6815 1 6898
 Reset M 0 6817 4 6898
 #EXDESC
 ExDescKey    sign~
-ExDesc       &z Quarren Security Armory
+ExDesc       &z Pelagian Security Armory
 We buy and sell all weapons.
 Dealing mostly with older models.
 ~
@@ -5894,7 +5894,7 @@ ExDesc       Cost - 29,000 credits and Str - 16
 
 #ROOM
 Vnum     6899
-Name     &G Quarren First of Mon Bank~
+Name     &G Pelagian First of Mon Bank~
 Sector   underground~
 Flags    indoors~
 Desc     Standing on Lamprey St.. You see the everyday rituals of the
@@ -6054,7 +6054,7 @@ ToRoom    6901
 
 #ROOM
 Vnum     6904
-Name     &B Quarren City Platform~
+Name     &B Pelagian City Platform~
 Sector   city~
 Desc     You stand on a large platform surrounded by extremely rough waters. The
 platform is well hidden and to this day is not locatable from the air.
@@ -6076,7 +6076,7 @@ Name     &R Tunnel system~
 Sector   city~
 Desc     &w  &W This small branch off of the road leads to two underground tunnels
 marked Mon Calamrian to the south. While the tunnel to the east is marked
-Quarren There is extreme measures taken to make sure only those two races
+Pelagian There is extreme measures taken to make sure only those two races
 would have access to the service entrance to the city. The floor is dark
 and covered with soot from miners who have a few days off on vaction.
 ~
@@ -6209,7 +6209,7 @@ Sector   underground~
 Flags    nomob indoors nomagic safe~
 Desc     &c This former mariage suite is now known for its sociol atmosphere. The
 owner of the hotel added a large Hot-Tub (a fovorite past time for
-Quarren's). This additon and the removal of all the beds and dressors have
+Pelagian's). This additon and the removal of all the beds and dressors have
 allowed this place to become a brathal of sorts. The Walls are decorated
 with ocean lanscape pictures and soft sounds the ocean can be heard of the
 radio system. The lighting is very low and all communication devices are
@@ -6231,8 +6231,8 @@ Flags    nomob indoors~
 Desc     &w This extremly large building is the Security Officers Training facility.
 For a small fee you can enter the remote area and practice your skills. 
 Although they are allowed to kick you out at anytime. The walls are
-decorated with pictures of Victory's against the Empire! And of famous
-Quarren citizens, There is one large statue in the middle of the room that
+decorated with pictures of Victory's against Proxima Directorate! And of famous
+Pelagian citizens, There is one large statue in the middle of the room that
 seems to have scraches and blaster marks through it, as if people were
 practicing on it. To the south is the remote room . To the East is the
 elderly Security trainer.
@@ -6255,7 +6255,7 @@ ToRoom    6912
 #EXDESC
 ExDescKey    statue~
 ExDesc       The large statue is of the great &Y ^R Admiral Ackbar &x ^x it is no
-wonder, the Quarren citizens fire randomly at the statue, as they resent
+wonder, the Pelagian citizens fire randomly at the statue, as they resent
 having the MOn Cal's control them. Including making them add this statue
 to thier Security Office.
 ~
@@ -6273,7 +6273,7 @@ quite freely. It is mostly empty except for a remote launcher. The floors
 and walls are made up of carved out black gravel rock are covered in scuff
 marks. A sign warns that only one student may  use this room at a time.
 There is also a small Security camera used to analiyze your  skills. The
-Quarren are very cautious about who they train. And are curious why they
+Pelagian are very cautious about who they train. And are curious why they
 want to be tougher.
 ~
 #EXIT
@@ -6299,7 +6299,7 @@ quite freely. It is mostly empty except for a remote launcher. The floors
 and walls are made up of carved out black gravel rock are covered in scuff
 marks. A sign warns that only one student may  use this room at a time.
 There is also a small Security camera used to analiyze your  skills. The
-Quarren are very cautious about who they train. And are curious why they
+Pelagian are very cautious about who they train. And are curious why they
 want to be tougher.
 ~
 #EXIT
@@ -6325,7 +6325,7 @@ quite freely. It is mostly empty except for a remote launcher. The floors
 and walls are made up of carved out black gravel rock are covered in scuff
 marks. A sign warns that only one student may  use this room at a time.
 There is also a small Security camera used to analiyze your  skills. The
-Quarren are very cautious about who they train. And are curious why they
+Pelagian are very cautious about who they train. And are curious why they
 want to be tougher.
 ~
 #EXIT
@@ -6351,7 +6351,7 @@ quite freely. It is mostly empty except for a remote launcher. The floors
 and walls are made up of carved out black gravel rock are covered in scuff
 marks. A sign warns that only one student may  use this room at a time.
 There is also a small Security camera used to analiyze your  skills. The
-Quarren are very cautious about who they train. And are curious why they
+Pelagian are very cautious about who they train. And are curious why they
 want to be tougher.
 ~
 #EXIT
@@ -6432,14 +6432,14 @@ The Miner's Handbook
 #EXDESC
 ExDescKey    krebbex~
 ExDesc       Although scientists swear the extinction of the krebbex was long ago. A few
-Quarren swear to it's exisitence. These  extinct ten-legged crustaceans
+Pelagian swear to it's exisitence. These  extinct ten-legged crustaceans
 once lived in the great Mon ocean. But according to one witness, Witho
 Tokio just recently when she was staring out of the north dome edge she
 saw it in the merky waters above. City officials stated there was anything
 that big in the ocean the sensors would have picked it up a long time ago.
  But Witho is not alone, over 28 diffrent sitings have come up in the past
-year. And several Quarren miners have not returned and are listed as
-missing(with no explination). A few Quarren residents fear the worst and
+year. And several Pelagian miners have not returned and are listed as
+missing(with no explination). A few Pelagian residents fear the worst and
 have refused to leave the city. Although most think of it as a cute story.
 ~
 #ENDEXDESC
@@ -6447,7 +6447,7 @@ have refused to leave the city. Although most think of it as a cute story.
 #EXDESC
 ExDescKey    history3~
 ExDesc       Ackbar was later rescued from slavery by an Alliance force and named
-Admiral of the Rebel fleet. Six years after the Battle of Endor, the
+Admiral of the Rebel fleet. Six years after the Battle of TRAPPIST-1 f, the
 reborn Emperor used his World Devastators to attack Calamari's
 southern;territorial zone, destroying most of the city of Kee-Piru. The
 port city;of Hikahi was also;damaged, harming the planet's
@@ -6460,17 +6460,17 @@ Daala's Star Destroyers resulted in the destruction of Reef Home City.
 
 #EXDESC
 ExDescKey    history2~
-ExDesc       The Mon Calamari had already constructed enormous starships and begun
-traveling space when their planet was discovered by the Empire. The
+ExDesc       The Pelagian had already constructed enormous starships and begun
+traveling space when their planet was discovered by Proxima Directorate. The
 Imperials planned to enslave Calamari and, after meeting with resistance
-from its natives, destroyed three of its floating cities. A Quarren,
+from its natives, destroyed three of its floating cities. A Pelagian,
 Seggor Tels, is believed to have deliberately lowered Calamari's
-defenses;to allow the Empire's attack this has heightened tensions between
-the Mon Calamari and the Quarren ever since. After the Empire showed its
+defenses;to allow Proxima Directorate's attack this has heightened tensions between
+the Pelagian and the Pelagian ever since. After Proxima Directorate showed its
 true colors, Calamarian starships were converted into warships and the
 shipbuilding docks in orbit around Calamari and its single moon became an
 important resource for the Alliance. Many Calamarians were taken as slaves
-by the Empire including the famous Ackbar, who was forced to be the
+by Proxima Directorate including the famous Ackbar, who was forced to be the
 personal servant of Grand Moff Tarkin.  To see the next page type look
 history3 
 ~
@@ -6480,15 +6480,15 @@ history3
 ExDescKey    history ~
 ExDesc       Calamari (sometimes called Mons Calamari) is a tectonically stable world
 almost entirely covered with water, and is home to both the peaceful Mon
-Calamari and the cautious Quarren-- over 27 billion inhabitants in all.
+Calamari and the cautious Pelagian-- over 27 billion inhabitants in all.
 The surface of the planet is covered with small marshy islands and
-enormous floating cities that house both species, with the Quarren
+enormous floating cities that house both species, with the Pelagian
 inhabiting the lowest, darkest levels. These attractive constructions
 include Reef Home, Coral Depths, Kee-Piru, Coral City, and Foamwander
-City. The architecture and design of the Mon Calamari have organic
+City. The architecture and design of the Pelagian have organic
 appearances, with rounded edges and irregular surfaces that show their
 love for the natural beauty of their world. Raw ores used in construction
-are mined by the Quarren (who can breathe both air and;water) from domed
+are mined by the Pelagian (who can breathe both air and;water) from domed
 cities on the ocean floor. To see the next page type look history2
 ~
 #ENDEXDESC
@@ -6539,7 +6539,7 @@ So you think you've heard enough background? type look mine3
 #EXDESC
 ExDescKey    mine3~
 ExDesc       To begin here you must get a security id and password form the local mine
-shop boss. This becomes rather tricky, since most Quarren work them, and
+shop boss. This becomes rather tricky, since most Pelagian work them, and
 it takes a little extra to sweaten the secretary to let you in to see the
 boss .  Once you enter the mine you can check out a shovel or pick (your
 preference) and a ore carrier (if one is available) and go to work.
@@ -6560,9 +6560,9 @@ Flags    indoors bank~
 Desc     &g  This marble like surfaced bank allows for easy transactions between you
 and your currerncy. There is a large table in the center of the room to
 sign your life away along with, a counter towards the back where a very
-attractive (well for a quarren) clerk stands and counts the daily inflow
+attractive (well for a Pelagian) clerk stands and counts the daily inflow
 of credits. On the top of the ceiling you can see a rather expensive
-security system tracking your everymove. The Quarren first bank of Mon's
+security system tracking your everymove. The Pelagian first bank of Mon's
 motto isn't "your money is safe with us for no reason."
 To make a bank transaction please type bank.
 ~
@@ -6582,7 +6582,7 @@ Flags    indoors~
 Desc     &Y The main lobby is a incredible site for tourists to visit. The floors
 are made of polished clam shells. giving off a silvery pink reflextion.
 The curved walls have pictures of former governors of this great city. The
-ceiling has a hand carved Quarren emblem made form rare yellow coral. In
+ceiling has a hand carved Pelagian emblem made form rare yellow coral. In
 the middle of the room is a large sign with directions.
 ~
 #EXIT
@@ -6613,7 +6613,7 @@ Name     &Y Mayor's Office~
 Sector   underground~
 Flags    indoors safe~
 Desc     You enter the office space of the mayor of this great city. He has a large
-Quarren flag framed behind his desk. The rest of the walls are left blank
+Pelagian flag framed behind his desk. The rest of the walls are left blank
 and are a smooth polished red The rest of the walls are left blank and are
 a smooth polished &R red coral.&w The main desk fills most of the space
 while two chairs for visitors sit on the opposite side. On the ceiling you
@@ -6631,7 +6631,7 @@ Reset O 0 6805 1 6926
 Reset O 0 6802 1 6926
 #EXDESC
 ExDescKey    flag~
-ExDesc       &R The multi colored flag shows the Quarren 3 elements. &B Water, &Y Salt
+ExDesc       &R The multi colored flag shows the Pelagian 3 elements. &B Water, &Y Salt
 &c Wind &w
 ~
 #ENDEXDESC
@@ -6651,7 +6651,7 @@ Vnum     6927
 Name     &Y Defense Office~
 Sector   underground~
 Flags    indoors~
-Desc     The Quarren military base was stationed here, but do to a very unfortunate
+Desc     The Pelagian military base was stationed here, but do to a very unfortunate
 accident with a modified blaster he is no longer with us The military are
 currently looking for a few good men to fill the positon. A sign on the
 door says contact Ackbar for further details.
@@ -6668,7 +6668,7 @@ Vnum     6928
 Name     &Y Security Office~
 Sector   underground~
 Flags    indoors~
-Desc     &G You enter the main office of the Quarren Security. This room is
+Desc     &G You enter the main office of the Pelagian Security. This room is
 slightly, less extravegant then the rest, and has more of a rough ocean
 bottom feel. The walls  are decorated with pictures of wanted men, and the
 floors are polished rock that imitates a marble look. In front of you is a
@@ -6736,7 +6736,7 @@ Reset D 0 6929 0 2
 Reset D 0 6929 2 0
 #EXDESC
 ExDescKey    sign~
-ExDesc       &z Tacebeca, Wookiee repair tech.
+ExDesc       &z Tacebeca, Vordan repair tech.
 &x
 ~
 #ENDEXDESC
@@ -6748,12 +6748,12 @@ Vnum     6930
 Name     &Y Security Cell A~
 Sector   underground~
 Flags    dark indoors~
-Desc     The Quarren cells are small 8' by 8' cubes. The walls consist of solid rock
+Desc     The Pelagian cells are small 8' by 8' cubes. The walls consist of solid rock
 carved roughly to leave jagged edges. It is rumored that the guards like
 to throw prisoners up against the walls if they get out of hand There is
 no window except for the small tray  hole the guards use to feed the
 prisoner. There is a dmap and musty smell, and cold temperature will make
-a non-quarren quite uncomfortable. There is no use screaming as the walls
+a non-Pelagian quite uncomfortable. There is no use screaming as the walls
 are over 20 ft thick.
 ~
 #EXIT
@@ -6779,12 +6779,12 @@ Vnum     6931
 Name     &Y Security Cell B~
 Sector   underground~
 Flags    dark indoors~
-Desc     The Quarren cells are small 8' by 8' cubes. The walls consist of solid rock
+Desc     The Pelagian cells are small 8' by 8' cubes. The walls consist of solid rock
 carved roughly to leave jagged edges. It is rumored that the guards like
 to throw prisoners up against the walls if they get out of hand There is
 no window except for the small tray  hole the guards use to feed the
 prisoner. There is a dmap and musty smell, and cold temperature will make
-a non-quarren quite uncomfortable. There is no use screaming as the walls
+a non-Pelagian quite uncomfortable. There is no use screaming as the walls
 are over 20 ft thick.
 ~
 #EXIT
@@ -6807,12 +6807,12 @@ Vnum     6932
 Name     &Y Security Cell C~
 Sector   underground~
 Flags    dark indoors~
-Desc     &w The Quarren cells are small 8' by 8' cubes. The walls consist of solid
+Desc     &w The Pelagian cells are small 8' by 8' cubes. The walls consist of solid
 rock carved roughly to leave jagged edges. It is rumored that the guards
 like to throw prisoners up against the walls if they get out of hand There
 is no window except for the small tray hole the guards use to feed the
 prisoner. There is a dmap and musty smell, and cold temperature will make
-a non-quarren quite uncomfortable. There is no use screaming as the walls
+a non-Pelagian quite uncomfortable. There is no use screaming as the walls
 are over 20 ft thick.
 ~
 #EXIT
@@ -6923,7 +6923,7 @@ Flags    indoors~
 Desc     The interior of the mine office is barely decorated. Most of the room is
 covered with dust and dirt form miners with complaints. There is only one
 picture on the wall, which is of the first shovel taken form the ground at
-the nearby mine. There is a very attractive Quarren secretary wasting
+the nearby mine. There is a very attractive Pelagian secretary wasting
 times at the desk. and you can hear mubling and screaming from the
 adjacent room. There is a bash proof door to the east, that has no handles
 and cannot be opened form this side, without a mechanicla button. Which is
@@ -6948,7 +6948,7 @@ Flags    safe~
 Desc     This large room is made of think rock walls A desk is placed in the corner
 with comlinks, datapads and all sorts of mine pieces  scatterd all over
 it. A heavy filing cabinet is to the left of a large pickax sculpture
-Several  photos of Quarren officials line the walls and a large plush
+Several  photos of Pelagian officials line the walls and a large plush
 straight chair with  it's back towards you has been  placed behind the
 desk.  The floor is covered with mine layouts and statistics of mine
 output and costs.
@@ -7151,7 +7151,7 @@ quite freely. It is mostly empty except for a remote launcher. The floors
 and walls are made up of carved out black gravel rock are covered in scuff
 marks. A sign warns that only one student may  use this room at a time.
 There is also a small Security camera used to analiyze your  skills. The
-Quarren are very cautious about who they train. And are curious why they
+Pelagian are very cautious about who they train. And are curious why they
 want to be tougher.
 ~
 #EXIT

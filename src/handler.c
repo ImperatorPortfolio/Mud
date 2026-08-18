@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -390,6 +390,172 @@ short get_curr_frc( CHAR_DATA *ch )
            TRAIT_EFFECT_FRC_POTENTIAL ) );
 }
 
+int get_ability_modifier( int score )
+{
+   if( score >= 10 )
+      return ( score - 10 ) / 2;
+
+   return -( ( 11 - score ) / 2 );
+}
+
+int get_character_ability_modifier(
+   CHAR_DATA *ch,
+   int ability )
+{
+   if( !ch )
+      return 0;
+
+   switch( ability )
+   {
+      case ABILITY_SCORE_STR:
+         return get_ability_modifier(
+            get_curr_str( ch ) );
+
+      case ABILITY_SCORE_DEX:
+         return get_ability_modifier(
+            get_curr_dex( ch ) );
+
+      case ABILITY_SCORE_CON:
+         return get_ability_modifier(
+            get_curr_con( ch ) );
+
+      case ABILITY_SCORE_INT:
+         return get_ability_modifier(
+            get_curr_int( ch ) );
+
+      case ABILITY_SCORE_WIS:
+         return get_ability_modifier(
+            get_curr_wis( ch ) );
+
+      case ABILITY_SCORE_CHA:
+         return get_ability_modifier(
+            get_curr_cha( ch ) );
+   }
+
+   return 0;
+}
+
+/*
+ * Convert SWR's 0-100 style ability progression into
+ * a 1-20 d20-style heroic level.
+ *
+ * 1-5    = level 1
+ * 6-10   = level 2
+ * ...
+ * 96-100 = level 20
+ */
+static int get_d20_level( int swr_level )
+{
+   if( swr_level <= 0 )
+      return 0;
+
+   return URANGE(
+      1,
+      ( swr_level + 4 ) / 5,
+      20 );
+}
+
+/*
+ * Base Attack Bonus.
+ *
+ * For this first conversion pass, Combat Ability is treated
+ * as a full-BAB progression.
+ *
+ * Combat 1-5     = BAB +1
+ * Combat 26-30   = BAB +6
+ * Combat 46-50   = BAB +10
+ * Combat 96-100  = BAB +20
+ */
+int get_base_attack_bonus( CHAR_DATA *ch )
+{
+   int combat_level;
+
+   if( !ch )
+      return 0;
+
+   if( IS_NPC( ch ) )
+      combat_level = ch->top_level;
+   else
+      combat_level = ch->skill_level[COMBAT_ABILITY];
+
+   return get_d20_level( combat_level );
+}
+
+/*
+ * Zero Point d20-style Defense.
+ *
+ * The final system will eventually have proper class/heroic
+ * Defense progressions and dedicated armor rules.
+ *
+ * During Stage 2 we convert the existing SWR armor value into
+ * an ascending Defense bonus so existing armor remains useful.
+ *
+ * Existing SWR:
+ *     Base armor = 100
+ *     Lower armor = better
+ *
+ * Conversion:
+ *     armor 100 = +0 Defense
+ *     armor  90 = +1 Defense
+ *     armor  80 = +2 Defense
+ *     armor  50 = +5 Defense
+ */
+int get_defense( CHAR_DATA *ch )
+{
+   int heroic_level;
+   int defense_bonus;
+   int dex_bonus;
+   int armor_bonus;
+   int defense;
+
+   if( !ch )
+      return 10;
+
+   heroic_level =
+      get_d20_level( ch->top_level );
+
+   /*
+    * Transitional generic Defense progression.
+    *
+    * Heroic level 1  = +2
+    * Heroic level 5  = +4
+    * Heroic level 10 = +6
+    * Heroic level 15 = +9
+    * Heroic level 20 = +11
+    */
+   if( heroic_level > 0 )
+      defense_bonus =
+         1 + ( ( heroic_level + 1 ) / 2 );
+   else
+      defense_bonus = 0;
+
+   /*
+    * Sleeping/unconscious characters lose their DEX bonus.
+    */
+   if( IS_AWAKE( ch ) )
+      dex_bonus =
+         get_ability_modifier(
+            get_curr_dex( ch ) );
+   else
+      dex_bonus = 0;
+
+   /*
+    * Temporary compatibility bridge for existing SWR armor.
+    *
+    * Stage 4 can replace this with proper d20 armor rules.
+    */
+   armor_bonus =
+      ( 100 - ch->armor ) / 10;
+
+   defense =
+      10
+      + defense_bonus
+      + dex_bonus
+      + armor_bonus;
+
+   return UMAX( 1, defense );
+}
+
 int get_str_tohit_bonus( int strength )
 {
    if( strength <= 25 )
@@ -442,6 +608,7 @@ int get_int_learn_bonus( int intelligence )
 
    return 100;
 }
+
 
 /*
  * Retrieve a character's carry capacity.

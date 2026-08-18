@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Gamorr~
+Name         GJ 273 b - Vordan Territory~
 Author       Thrawn~
 Ranges       1 100 1 100
 Economy      0 100034519
@@ -40,9 +40,9 @@ Comlist   smile
 
 #MOBILE
 Vnum       28001
-Keywords   A Gamorrean male~
-Short      A Gamorrean male~
-Long       A Gamorrean male wanders around here.
+Keywords   A Drakken male~
+Short      A Drakken male~
+Long       A Drakken male wanders around here.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -68,8 +68,8 @@ Comlist   grunt
 #MUDPROG
 Progtype  fight_prog~
 Arglist   30~
-Comlist   mpechoat $n The Gamorrean head butts you!
-mpechoaround $n The Gamorrean headbutts $n!
+Comlist   mpechoat $n The Drakken head butts you!
+mpechoaround $n The Drakken headbutts $n!
 mpdamage $n 15
 ~
 #ENDPROG
@@ -78,9 +78,9 @@ mpdamage $n 15
 
 #MOBILE
 Vnum       28002
-Keywords   gamorrean child kid piglet~
-Short      A Gamorrean child~
-Long       A Gamorrean child is playing around here
+Keywords   Drakken child kid piglet~
+Short      A Drakken child~
+Long       A Drakken child is playing around here
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -99,9 +99,9 @@ Speaking   gamorrean~
 
 #MOBILE
 Vnum       28003
-Keywords   gamorrean watch beast big pig ~
-Short      A Gamorreans watch-beast~
-Long       A Gamorreans watch-beast is eatting a freshly killed tourist
+Keywords   Drakken watch beast big pig ~
+Short      A Drakken watch-beast~
+Long       A Drakken watch-beast is eatting a freshly killed tourist
 ~
 Desc       You've heard about these guys they are nothing to be messed with, they
 are cunning evil and like to eat living flesh. nothing on this planet
@@ -211,7 +211,7 @@ eat baby
 Vnum       28007
 Keywords   Imperial stormtrooper~
 Short      An Imperial Stormtrooper~
-Long       An Imperial Stormtrooper is loading infant Gamorrean watch-beasts
+Long       An Imperial Stormtrooper is loading infant Drakken watch-beasts
 ~
 Race       Human~
 Position   aggressive~
@@ -272,9 +272,9 @@ Speaking   gamorrean~
 
 #MOBILE
 Vnum       28010
-Keywords   gamorrean guard~
-Short      A Gamorrean guard~
-Long       A Gamorrean stands guard here
+Keywords   Drakken guard~
+Short      A Drakken guard~
+Long       A Drakken stands guard here
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -293,7 +293,7 @@ Speaking   gamorrean~
 Progtype  greet_prog~
 Arglist   100~
 Comlist   sigh
-say Welcome to Gamorr may you stay be...
+say Welcome to GJ 273 b may you stay be...
 grunt
 say pleasing.
 smirk
@@ -373,10 +373,10 @@ Keywords   zicreex beast~
 Short      a zicreex beast ~
 Long       A Zicreex beast is on the hunt here.
 ~
-Desc       This is the Zicreex, well known around Gamorr for its hunting of the
-natives most gamorreans keep a safe distance from these hungry beasts
+Desc       This is the Zicreex, well known around GJ 273 b for its hunting of the
+natives most Drakken keep a safe distance from these hungry beasts
 and with good reason too the Zicreexs diet mainly consists of
-gamorreans.
+Drakken.
  
 ~
 Race       Human~
@@ -430,8 +430,8 @@ drop all
 #MOBILE
 Vnum       28016
 Keywords   shamon gamorran healer~
-Short      A gamorrean shamon ~
-Long       A gamorrean shamon is sitting here.
+Short      A Drakken shamon ~
+Long       A Drakken shamon is sitting here.
 ~
 Desc       This old human man seems to be content just gazing at the stars. He is
 dressed in a long hooded cloak and old brown boots. from the scars on
@@ -456,9 +456,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       28017
-Keywords   gamorrean shop owner~
-Short      a gamorrean shop keeper~
-Long       A gamorrean shop keeper is selling some water goods.
+Keywords   Drakken shop owner~
+Short      a Drakken shop keeper~
+Long       A Drakken shop keeper is selling some water goods.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -478,9 +478,9 @@ ShopData   17 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       28018
-Keywords   gamorrean shop owner~
-Short      The Gamorrean Shop keeper~
-Long       A gamorrean shop keeper is selling some goods here.
+Keywords   Drakken shop owner~
+Short      The Drakken Shop keeper~
+Long       A Drakken shop keeper is selling some goods here.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -500,9 +500,9 @@ ShopData   19 15 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       28019
-Keywords   gamorrean shop owner~
-Short      The Gamorrean Shop keeper~
-Long       A gamorrean shop keeper is selling some of her weapons here.
+Keywords   Drakken shop owner~
+Short      The Drakken Shop keeper~
+Long       A Drakken shop keeper is selling some of her weapons here.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -522,9 +522,9 @@ ShopData   9 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       28020
-Keywords   noghri patron~
-Short      a noghri~
-Long       A noghri is sitting here minding his own business.
+Keywords   Keshari patron~
+Short      a Keshari~
+Long       A Keshari is sitting here minding his own business.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -543,9 +543,9 @@ Speaking   noghri~
 
 #MOBILE
 Vnum       28021
-Keywords   trandoshan hunter~
-Short      A trandoshan hunter~
-Long       A trandoshan hunter is sitting here watching out for something.
+Keywords   Drakken hunter~
+Short      A Drakken hunter~
+Long       A Drakken hunter is sitting here watching out for something.
 ~
 Race       Trandoshan~
 Position   aggressive~
@@ -563,8 +563,8 @@ Speaking   trandoshan~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   100~
-Comlist   if race($n) == wookiee
-' Wookiee Scum!!
+Comlist   if race($n) == Vordan
+' Vordan Scum!!
 mpkill $n
 endif
 ~
@@ -574,9 +574,9 @@ endif
 
 #MOBILE
 Vnum       28022
-Keywords   wookiee~
-Short      a newly created wookiee~
-Long       Some god abandoned a newly created wookiee here.
+Keywords   Vordan~
+Short      a newly created Vordan~
+Long       Some god abandoned a newly created Vordan here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -625,9 +625,9 @@ mpoload 28029
 
 #MOBILE
 Vnum       28025
-Keywords   female gamorrean~
-Short      A Female Gamorrean~
-Long       A Female Gamorrean is going to collect the crops.
+Keywords   female Drakken~
+Short      A Female Drakken~
+Long       A Female Drakken is going to collect the crops.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -646,9 +646,9 @@ Speaking   gamorrean~
 
 #MOBILE
 Vnum       28107
-Keywords   Gamorrean Shop keeper.~
-Short      The Gamorrean Shop keeper~
-Long       The Gamorrean shop keeper is selling her weapons.
+Keywords   Drakken Shop keeper.~
+Short      The Drakken Shop keeper~
+Long       The Drakken shop keeper is selling her weapons.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -679,7 +679,7 @@ Keywords   Ugmush alpha female~
 Short      Ugmush~
 Long       The Alpha-Female Ugmush stands before you.
 ~
-Desc       Ugmush is a Beauty to the Gamorreans, she has a long pink wig and her
+Desc       Ugmush is a Beauty to the Drakken, she has a long pink wig and her
 heavy muscled arms and breasts are sporting fifteen parasitic morrts
 to demonstrate her strength and endurance.   
  
@@ -750,25 +750,25 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     28001
-Keywords baby gamorrean pig piglet piggy swine~
+Keywords baby Drakken pig piglet piggy swine~
 Type     food~
-Short    A baby Gamorrean~
-Long     A baby Gamorrean is lying here.~
+Short    A baby Drakken~
+Long     A baby Drakken is lying here.~
 WFlags   take~
 Values   15 0 0 0 0 0
 Stats    1 0 0 0 0
 #MUDPROG
 Progtype  rand_prog~
 Arglist   100~
-Comlist   mpecho The baby Gamorrean squeals loudly!
+Comlist   mpecho The baby Drakken squeals loudly!
 ~
 #ENDPROG
 
 #MUDPROG
 Progtype  use_prog~
 Arglist   100~
-Comlist   mpechoat $n The Gamorrean baby SCREAMS in terror as you swallow it whole
-mpechoaround $n The Gamorrean baby SCREAMS in shear terror as $n eats it!!!!
+Comlist   mpechoat $n The Drakken baby SCREAMS in terror as you swallow it whole
+mpechoaround $n The Drakken baby SCREAMS in shear terror as $n eats it!!!!
 ~
 #ENDPROG
 
@@ -985,10 +985,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     28015
-Keywords metal helmet gamorrean~
+Keywords metal helmet Drakken~
 Type     armor~
 Short    a metal helm~
-Long     Some clumsy Gamorrean has drop his helmet~
+Long     Some clumsy Drakken has drop his helmet~
 Flags    large_size~
 WFlags   take head~
 Values   6 6 0 0 0 0
@@ -1012,7 +1012,7 @@ Vnum     28017
 Keywords wrist guards~
 Type     armor~
 Short    wrist guards~
-Long     Some clumsy Gamorrean has drop his wrist guards here~
+Long     Some clumsy Drakken has drop his wrist guards here~
 Flags    large_size~
 WFlags   take wrist~
 Values   7 7 0 0 0 0
@@ -1046,7 +1046,7 @@ Vnum     28020
 Keywords hand axe~
 Type     weapon~
 Short    a hand axe~
-Long     A clumsy gamorrean has carlessly drop his axe here.~
+Long     A clumsy Drakken has carlessly drop his axe here.~
 WFlags   take wield hold~
 Values   12 4 3 3 0 0
 Stats    3 100 10 0 0
@@ -1064,7 +1064,7 @@ Stats    100 0 0 0 0
 
 #OBJECT
 Vnum     28022
-Keywords infant gamorrean watch beats~
+Keywords infant Drakken watch beats~
 Type     trash~
 Short    an infant watch-beast~
 Long     An infant watch-beast is sitting here.~
@@ -1086,8 +1086,8 @@ mpforce $n put infant crate
 Vnum     28023
 Keywords ship cube zicreex~
 Type     spacecraft~
-Short    The Gamorrean cube ship Zireex~
-Long     The gamorrean cube ship Zicreex is parked here.~
+Short    The Drakken cube ship Zireex~
+Long     The Drakken cube ship Zicreex is parked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1172,9 +1172,9 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     28100
-Keywords SUPER noghri blaster thingy~
+Keywords SUPER Keshari blaster thingy~
 Type     trash~
-Short    A Noghri Blaster~
+Short    A Keshari Blaster~
 Long     A sleak and deadly blaster lies on the ground here.~
 Flags    hum prototype~
 Values   0 0 0 0 0 0
@@ -1185,7 +1185,7 @@ Affect       -1 -1 5 18 0
 Progtype  use_prog~
 Arglist   100~
 Comlist   mpechoat $n The power of this weapon flows into your soul.
-mpechoaround $n You wet yourself when $n wields a Noghri blaster
+mpechoaround $n You wet yourself when $n wields a Keshari blaster
 ~
 #ENDPROG
 
@@ -1362,7 +1362,7 @@ messed up, there is what looks like would be the nest of a gurda on
 the floor, could it be the she owns the gurda?, it would make sense
 since only the matron is allowd to have childern and no other female
 can because the would defeat the purpose of haveing the social
-structure the gamorreans have adopted as their own. You come to the
+structure the Drakken have adopted as their own. You come to the
 conclusion that the matron sent the gurda after the other females
 child, to kill t or to bring it back, only the matron knows.
 ~
@@ -1479,7 +1479,7 @@ Vnum     28008
 Name     Entrance to a Corridor.~
 Sector   city~
 Flags    nomob indoors safe~
-Desc     You are standing in the Gamorr safe house. Far to the south
+Desc     You are standing in the GJ 273 b safe house. Far to the south
 you can here the loud chatter of fellow visitors and natives
 takeing time out and haveing some refreshments to easy the 
 pressure of everyday life.
@@ -1926,13 +1926,13 @@ ToRoom    28023
 Vnum     28025
 Name     The Desert.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people. 
+Drakken are a harsh people. 
 ~
 #EXIT
 Direction south~
@@ -1948,15 +1948,15 @@ ToRoom    28026
 
 #ROOM
 Vnum     28026
-Name     Deep in the Gamorr Desert.~
+Name     Deep in the GJ 273 b Desert.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people.
+Drakken are a harsh people.
 ~
 #EXIT
 Direction north~
@@ -1977,7 +1977,7 @@ ToRoom    28025
 
 #ROOM
 Vnum     28027
-Name     Lost in The Deserts of Gamorr.~
+Name     Lost in The Deserts of GJ 273 b.~
 Sector   city~
 Flags    reserved nomob~
 Desc     You have completly lost you way. You cant seem to get you dirctions
@@ -2072,7 +2072,7 @@ Sector   city~
 Flags    indoors~
 Desc     The tunnel end abruptly, and the stench from the gurda has filled the
 tunnel with a mind numbing sickening smell that makes you wanna blow
-chunks everywhere, to think that the gamorreans wear the gurdas skin as a
+chunks everywhere, to think that the Drakken wear the gurdas skin as a
 prize, The tunnel itself is realy to dark to make heads or tails of what
 might be on the walls, from what you can tell  its just cuts made from the
 tools of mining.
@@ -2093,7 +2093,7 @@ Sector   city~
 Flags    dark indoors~
 Desc     The tunnel end abruptly, and the stench from the gurda has filled the
 tunnel with a mind numbing sickening smell that makes you wanna blow
-chunks everywhere, to think that the gamorreans wear the gurdas skin as a
+chunks everywhere, to think that the Drakken wear the gurdas skin as a
 prize, The tunnel itself is realy to dark to make heads or tails of what
 might be on the walls, from what you can tell  its just cuts made from the
 tools of mining.
@@ -2156,10 +2156,10 @@ Vnum     28036
 Name     Small Clearing.~
 Sector   city~
 Flags    safe~
-Desc     The small clearing has a rather large mudhole in it that the gamorreans
+Desc     The small clearing has a rather large mudhole in it that the Drakken
 have classified as the sacred land, where no fighting can take place. They
 come here to relax and heal there sore and swollen muscles after a hard
-days battle. The place smells like a sewer on coruscant, but it does look
+days battle. The place smells like a sewer on Earth, but it does look
 inviting.
 ~
 #EXIT
@@ -2193,7 +2193,7 @@ Imperial Star Destroyer, but how often do you see that. The area has
 the odd small cargo ship parked here and there as well as one or two
 stock light freighters loading and unloading so stuff you don't want
 to get involved with. You even see a ship loading a couple of infant
-Gamorrean watch-beasts with extream caution
+Drakken watch-beasts with extream caution
 ~
 #EXIT
 Direction west~
@@ -2300,7 +2300,7 @@ Name     Village Street.~
 Sector   city~
 Desc     You wonder through the village streets wondering where to go
 the sight here are very pleasant to thte eye, well it would be
-if the Gamorreans would stop fighting to keep the places looking 
+if the Drakken would stop fighting to keep the places looking 
 helf descent, but other then that the sights here are very 
 pleaseing to the eye. The street carries on to the north, east
 and west or you can go south back to the Huntbird.
@@ -2337,10 +2337,10 @@ Name     Village street.~
 Sector   city~
 Desc     You wonder through the village streets wondering where to go the sight
 here are very pleasant to thte eye, well it would be if the
-Gamorreans would stop fighting to keep the places looking  helf
+Drakken would stop fighting to keep the places looking  helf
 descent, but other then that the sights here are very  pleaseing to
 the eye. The street carries on the the south and back to the west, to
-the north is a gamorrean house.
+the north is a Drakken house.
 ~
 #EXIT
 Direction north~
@@ -2361,7 +2361,7 @@ ToRoom    28103
 
 #ROOM
 Vnum     28105
-Name     Gamorrean House Hold.~
+Name     Drakken House Hold.~
 Sector   city~
 #EXIT
 Direction east~
@@ -2416,7 +2416,7 @@ Vnum     28108
 Name     Village Street.~
 Sector   city~
 Desc     Wondering through the street, the strong smell of the male half of
-the Gamorrean race hits your nose like a ton of bricks. It is a 
+the Drakken race hits your nose like a ton of bricks. It is a 
 very strong smell of urine as well as some other stench you really
 aren't to interested in finding out its origins. The street travels
 east, west and north as well as the way you came.
@@ -2530,7 +2530,7 @@ Reset M 0 28002 4 28112
 #MUDPROG
 Progtype  entry_prog~
 Arglist   100~
-Comlist   if race($n) != gamorrean
+Comlist   if race($n) != Drakken
 mpforce $n puke
 else
 mpforce $n grunt
@@ -2619,7 +2619,7 @@ ToRoom    28114
 #MUDPROG
 Progtype  entry_prog~
 Arglist   100~
-Comlist   if race($n) == gamorrean
+Comlist   if race($n) == Drakken
 mpforce $n comb
 endif
 ~
@@ -2634,7 +2634,7 @@ Sector   city~
 Desc     You are standing in the quarters of the Alfa-Female, Ugmush. She is
 well known for her fierceness and she might not be to happy about
 intruders in her home. The house has a semi-pleasent odour to it
-considering the fact that its owned by a Gamorrean. You hear the
+considering the fact that its owned by a Drakken. You hear the
 comotion of the children in there bedrooms as well as the  adults
 outside the house.
 ~
@@ -2757,7 +2757,7 @@ Sector   city~
 Desc     Wondering through the streets, you notice to the east and west are 
 small huts for the males of the tribe. To the south is more of the
 village street. You also see the streets full of various levels of
-females in the hierarchy of the Gamorrean society, you also notice 
+females in the hierarchy of the Drakken society, you also notice 
 that there is no sign of the Alpha Female anywhere to be seen.
 ~
 #EXIT
@@ -2838,7 +2838,7 @@ Sector   city~
 Desc     Wondering through the streets, you notice to the east and west are
 small huts for the males of the tribe. To the south is more of the
 village street. You also see the streets full of various levels of
-females in the hierarchy of the Gamorrean society, you also notice
+females in the hierarchy of the Drakken society, you also notice
 that there is no sign of the Alpha Female anywhere to be seen.
 ~
 #EXIT
@@ -2871,7 +2871,7 @@ Sector   city~
 Desc     Wondering through the streets, you notice to the east and west are
 small huts for the males of the tribe. To the south is more of the
 village street. You also see the streets full of various levels of
-females in the hierarchy of the Gamorrean society, you also notice
+females in the hierarchy of the Drakken society, you also notice
 that there is no sign of the Alpha Female anywhere to be seen.
 ~
 #EXIT
@@ -2899,7 +2899,7 @@ standing at its edge, and it looks very unforgiving to the happless
 wonderer. Roumors have been floating around that some huge beast
 thing lives out in the desert eatting anything and everything it
 wants and its has been known to wander into the village from time to
-time to snatch the odd gamorrean. 
+time to snatch the odd Drakken. 
 ~
 #EXIT
 Direction north~
@@ -2917,13 +2917,13 @@ ToRoom    28127
 Vnum     28127
 Name     Out in the desert.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people.
+Drakken are a harsh people.
 ~
 #EXIT
 Direction north~
@@ -2944,7 +2944,7 @@ Sector   city~
 Desc     Wondering through the streets, you notice to the east and west are
 small huts for the males of the tribe. To the south is more of the
 village street. You also see the streets full of various levels of
-females in the hierarchy of the Gamorrean society, you also notice
+females in the hierarchy of the Drakken society, you also notice
 that there is no sign of the Alpha Female anywhere to be seen.
 ~
 #EXIT
@@ -2988,7 +2988,7 @@ Sector   city~
 Desc     Wondering through the streets, you notice to the east and west are
 small huts for the males of the tribe. To the south is more of the
 village street. You also see the streets full of various levels of
-females in the hierarchy of the Gamorrean society, you also notice
+females in the hierarchy of the Drakken society, you also notice
 that there is no sign of the Alpha Female anywhere to be seen. 
 ~
 #EXIT
@@ -3277,7 +3277,7 @@ Name     An Old Path.~
 Sector   city~
 Flags    nomob~
 Desc     This clearing leads you straight in to a villages entrance. Of course
-it is swarming with gamorreans and for some stange reason they are
+it is swarming with Drakken and for some stange reason they are
 what is causing the strange noises in most of the forest. With what
 looks like a feast in honour of the Matron herself The smell of
 barbaque and some other thing fill the air with a wierd aroma. 
@@ -3301,7 +3301,7 @@ Sector   city~
 Desc     This is the entrance to the Forest clans village. The entrance is
 guarded by two large coloumns made from a concrete type of matierial
 and stnads at least fifteen feet high and three feet wide. Inside the
-entrance it is swarming with gamorreans and for some strange reason
+entrance it is swarming with Drakken and for some strange reason
 they are what is causing the strange noises in most of the forest.
 With what looks like a feast in honour of the Matron herself The
 smell of barbaque and some other thing fill the air with a wierd
@@ -3443,7 +3443,7 @@ Vnum     28150
 Name     A turn in the Village Street.~
 Sector   city~
 Desc     The street to the west ends on a semi circle of huts where you presume
-the male gamorreans sleep and gather for there clan war meetings.
+the male Drakken sleep and gather for there clan war meetings.
 This part of the street turns west to this little ending and from
 there it goes no where but back to the spot. You can return back to
 the east and go back into the heart of the village or head into the
@@ -3468,7 +3468,7 @@ Vnum     28151
 Name     End of the Village Street.~
 Sector   city~
 Flags    nomob~
-Desc     This little semi circle is surrounded by the male gamorreans huts. And
+Desc     This little semi circle is surrounded by the male Drakken huts. And
 you can tell by the smell they dont take good care of their living
 quarters, the smell of urine fills the air and burns your nose.
 Though the smell of the forest you were travelling in had such a
@@ -3552,7 +3552,7 @@ Sector   city~
 Flags    safe~
 Desc     This store has all its supplies on the wall behind the counter, to prevent
 slippery little hands from snatching the goods that might have been on
-shelves in the middle of the store.  The gamorrean behind the counter
+shelves in the middle of the store.  The Drakken behind the counter
 doesnt look to pleasent either she looks like she was hit by a swoop and
 draged for a few light years on her face.
 ~
@@ -3595,12 +3595,12 @@ Name     Arms for Sale.~
 Sector   city~
 Flags    safe~
 Desc     These walls are lined with very well crafted axes that look as though the
-gamorrean who crafted them might have taken her time and put alot of care
+Drakken who crafted them might have taken her time and put alot of care
 into makeing them because they all have real nice intricate designs
 covering the blades and the war hammers look like they could fetch a
-bundle in the black market.  this Gamorrean much like the rest enjoys her
+bundle in the black market.  this Drakken much like the rest enjoys her
 work and takes alot of pride in what she does and she looks like the type
-of gamorrean that will not hesitate to hack off a hand or two to protect
+of Drakken that will not hesitate to hack off a hand or two to protect
 her goods.
 ~
 #EXIT
@@ -3623,7 +3623,7 @@ Sector   city~
 Desc     This path is wider then most of the other paths you have encountered thus
 far, to the south you notice that the path comes to an end and leads
 straight to the alpha females house. The path is also loaded with
-gamorreans coming and going to and from the matrons house, paying homage
+Drakken coming and going to and from the matrons house, paying homage
 and mostly the males are trying to find out when the next mateing battles
 will take place.
 ~
@@ -3647,7 +3647,7 @@ Sector   city~
 Desc     This path is wider then most of the other paths you have encountered thus
 far, to the south you notice that the path comes to an end and leads
 straight to the alpha females house. The path is also loaded with
-gamorreans coming and going to and from the matrons house, paying homage
+Drakken coming and going to and from the matrons house, paying homage
 and mostly the males are trying to find out when the next mateing battles
 will take place. 
 ~
@@ -3737,15 +3737,15 @@ ToRoom    28151
 
 #ROOM
 Vnum     28163
-Name     Desert plains of Gamorr.~
+Name     Desert plains of GJ 273 b.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people.
+Drakken are a harsh people.
 ~
 #EXIT
 Direction north~
@@ -3763,13 +3763,13 @@ ToRoom    28164
 Vnum     28164
 Name     Desert plains.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people. 
+Drakken are a harsh people. 
 ~
 #EXIT
 Direction north~
@@ -3787,13 +3787,13 @@ ToRoom    28163
 Vnum     28165
 Name     Desert path.~
 Sector   city~
-Desc     The Gamorrean deset stretches on for miles. It is hot and you start to
+Desc     The Drakken deset stretches on for miles. It is hot and you start to
 sweat almost immediatly. You can see the odd cactus here and there,
 as well as  the odd corpino scurrying past you in search of some
 shade. The relentless sun beats down on you neck causeing you to
 start gasping for some water, it is a wonder how anything could
 possibly live in such a harsh enviornment, but then again the
-gamorreans are a harsh people. 
+Drakken are a harsh people. 
 ~
 #EXIT
 Direction north~
@@ -3916,7 +3916,7 @@ Flags    nomob~
 Desc     The mud bubbles and gurggles all around you, the bubbles tickling you as
 they rise to the top. The mud is very refreshing to your aches and pains
 and seems  to ease all the sores you have accumulated from your travels.
-The only problem is, There are other gamorreans here with you and you
+The only problem is, There are other Drakken here with you and you
 don't know if the bubbles are from the underground or from them, and the
 slight smell is starting to make you wonder. 
 ~
@@ -4015,7 +4015,7 @@ Desc     You are standing in the infamous Zicreex. Which is owned by Ugmush and
 it has a slight stench to it, could possible be from her husbands as
 well as the other ship men she has to maintain can help pilot her
 beloved ship. It isn't exactlly the best of ships but how often do
-you get to sit in a Gamorrean Cube ship?
+you get to sit in a Drakken Cube ship?
 ~
 #EXIT
 Direction east~
@@ -4235,7 +4235,7 @@ Name     cliff ledge~
 Sector   city~
 Desc     You can see alomost the whole planet from here, it looks great. You
 have a cool breeze blowing past you face making you feel refreshed
-after that long climb you can here what sounds like gamorreans
+after that long climb you can here what sounds like Drakken
 getting ready to do something, you have no idea what, but it sounds
 very important or dangerous the way they sound. 
 ~
@@ -4259,7 +4259,7 @@ Name     cliff ledge~
 Sector   city~
 Desc     You can see alomost the whole planet from here, it looks great. You
 have a cool breeze blowing past you face making you feel refreshed
-after that long climb you can here what sounds like gamorreans
+after that long climb you can here what sounds like Drakken
 getting ready to do something, you have no idea what, but it sounds
 very important or dangerous the way they sound. 
 ~
@@ -4302,7 +4302,7 @@ Reset M 0 28001 41 28193
 Vnum     28194
 Name     Entrance to The mountain Clan.~
 Sector   city~
-Desc     You are standing in the entrance and no gamorrean seems to have
+Desc     You are standing in the entrance and no Drakken seems to have
 noticed you, They are far to busy trying to rid themselve of this
 small problem that it has left them open to unwanted visitors. From
 the mine shaft in the ground you hear a viscious groweling and it
@@ -4326,7 +4326,7 @@ ToRoom    28193
 Vnum     28195
 Name     Path in The Clan Village.~
 Sector   city~
-Desc     The village is in chaos, there seems to be only one gamorrean with his
+Desc     The village is in chaos, there seems to be only one Drakken with his
 thoughts straight and the is the shammon to the south. The groweling
 is still very  loud and promenent as still very viscious. Hear the
 scream of a child as it sound as if it has been captured by a gurda.
@@ -4357,13 +4357,13 @@ Vnum     28196
 Name     Small Cave entrance.~
 Sector   city~
 Flags    indoors safe~
-Desc     This is the home to the Gamorreans only known shammon, he has his
-place in good order for a Gamorrean, and the smell isn't as bad as
+Desc     This is the home to the Drakken only known shammon, he has his
+place in good order for a Drakken, and the smell isn't as bad as
 you had the pleaseue of smelling in the main village. The Shammon has
 an assortment of small trinkets lying around his abode everything
 from small and large gems to the odd credit and you think you see a
 hilt of some sort but, that would not be a surprise even for a
-Gamorrean of his age.
+Drakken of his age.
 ~
 #EXIT
 Direction down~

@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Endor~
+Name         TRAPPIST-1 f - Noxian Wilderness~
 Author       Thrawn~
 Ranges       2 100 2 100
 Economy      0 31250251
@@ -11,9 +11,9 @@ ResetFreq    15
 
 #MOBILE
 Vnum       3000
-Keywords   ewok female~
-Short      An ewok female~
-Long       An Ewok female is tending to the young here.
+Keywords   Noxian female~
+Short      An Noxian female~
+Long       An Noxian female is tending to the young here.
 ~
 Race       Ewok~
 Position   aggressive~
@@ -53,7 +53,7 @@ Speaking   ewok~
 #MUDPROG
 Progtype  greet_prog~
 Arglist   100~
-Comlist   if race($n) == ewok
+Comlist   if race($n) == Noxian
 smile
 cack
 'mmmm dinner!
@@ -67,9 +67,9 @@ endif
 
 #MOBILE
 Vnum       3002
-Keywords   male ewok~
-Short      an ewok male~
-Long       A male Ewok is going about his business.
+Keywords   male Noxian~
+Short      an Noxian male~
+Long       A male Noxian is going about his business.
 ~
 Race       Ewok~
 Position   aggressive~
@@ -89,9 +89,9 @@ VIPFlags   endor~
 
 #MOBILE
 Vnum       3003
-Keywords   ewok child~
-Short      an ewok child~
-Long       An ewok child is playing here.
+Keywords   Noxian child~
+Short      an Noxian child~
+Long       An Noxian child is playing here.
 ~
 Race       Gamorrean~
 Position   aggressive~
@@ -112,7 +112,7 @@ Speaking   ewok~
 Vnum       3004
 Keywords   Wicket~
 Short      Wicket~
-Long       Wicket Leader of the Ewok people stands here spear in hand.
+Long       Wicket Leader of the Noxian people stands here spear in hand.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -132,8 +132,8 @@ Speaking   ewok~
 #MOBILE
 Vnum       3005
 Keywords   supply keeper~
-Short      ewok supply keeper~
-Long       An ewok is here, keeping watch over the supplies.
+Short      Noxian supply keeper~
+Long       An Noxian is here, keeping watch over the supplies.
 ~
 Race       Ewok~
 Position   aggressive~
@@ -258,14 +258,14 @@ Stats    1 10 1 0 0
 
 #ROOM
 Vnum     3000
-Name     Ewok Nursery House~
+Name     Noxian Nursery House~
 Sector   city~
 Flags    nomob~
-Desc     You stand in the middle of a room filled with little ewok children they
+Desc     You stand in the middle of a room filled with little Noxian children they
 range  in size from very tiny and crawling on fur blankets to the near
 adolecents playing with toy bows arrows and spears. The room is littered
 with an abundant amount of  toys for the children to play with. Its a
-rather room for ewok standards and has been put to use from what you can
+rather room for Noxian standards and has been put to use from what you can
 guess to be a very very long time. There are few females here tending to
 the young as well as the cries of the new born infants.
 ~
@@ -307,12 +307,12 @@ Name     Walkway Around the Nursery~
 Sector   city~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -338,7 +338,7 @@ get visitors to their village, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -365,12 +365,12 @@ Name     Walkway Around the Nursery~
 Sector   city~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -392,12 +392,12 @@ Name     Walkway Around the Nursery~
 Sector   city~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -425,12 +425,12 @@ Sector   city~
 Flags    nomob~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -458,12 +458,12 @@ Sector   city~
 Flags    nomob~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -491,12 +491,12 @@ Sector   city~
 Flags    nomob~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 village being so high off the ground.
 ~
 #EXIT
@@ -517,12 +517,12 @@ Name     Walkway Around the Nursery~
 Sector   city~
 Desc     The walkway is made from some very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of the pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their village, so quite naturaly they are a little 
 cautious when it comes to new people here, but they do eventualy 
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
-carnivors that inhabit the planet with the ewok people. The most feared
+carnivors that inhabit the planet with the Noxian people. The most feared
 beast is the humanoid behemoth Gorax, who are the main reason for the 
 village being so high off the ground.
 ~
@@ -550,7 +550,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -573,7 +573,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -596,7 +596,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -618,13 +618,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction east~
@@ -649,13 +649,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction east~
@@ -682,13 +682,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction south~
@@ -708,13 +708,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -739,13 +739,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -765,13 +765,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -801,13 +801,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -827,13 +827,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -859,7 +859,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -881,13 +881,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction east~
@@ -907,13 +907,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -943,13 +943,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction south~
@@ -974,13 +974,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1005,13 +1005,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1031,13 +1031,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1062,13 +1062,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1087,13 +1087,13 @@ Vnum     3028
 Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1119,7 +1119,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1142,7 +1142,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1165,7 +1165,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1188,7 +1188,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1216,7 +1216,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1239,7 +1239,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1262,7 +1262,7 @@ Sector   city~
 Desc     The bridge is suppported buy a very sturdy rope that has large 
 wooden planks for easy walking and balance. Strangly enough the
 bridge seems to be rather ridged and barely sways under a stronge 
-gust of wind. The native ewoks don't even seem to notice any swaying
+gust of wind. The native Noxians don't even seem to notice any swaying
 at all as some run past you and others just walk past paying no 
 attention to your presence.
 ~
@@ -1284,13 +1284,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1315,13 +1315,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1346,13 +1346,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction east~
@@ -1372,13 +1372,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction east~
@@ -1403,13 +1403,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction south~
@@ -1429,13 +1429,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1460,13 +1460,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1486,13 +1486,13 @@ Name     Walkway~
 Sector   city~
 Desc     The walkway is made from very sturdy planks of wood that seem to
 be able to withstand alot of weight as well as alot of pressure
-the forest elements have (and can) throw at it. The ewoks very rarely
+the forest elements have (and can) throw at it. The Noxians very rarely
 get visitors to their villages, so quite naturaly they are a little
 cautious when it comes to new people here, but they do eventually
 accept your presence and let you in on the village celebrations.
 The walkways are very high up from the ground, this is due to the
 beast is the humanoid behemoth Gorax, who are the main reson for the 
-village being so high up in the Endor Trees.
+village being so high up in the TRAPPIST-1 f Trees.
 ~
 #EXIT
 Direction north~
@@ -1515,13 +1515,13 @@ ToRoom    3036
 Vnum     3044
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1537,13 +1537,13 @@ ToRoom    3013
 Vnum     3045
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1559,13 +1559,13 @@ ToRoom    3015
 Vnum     3046
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1581,13 +1581,13 @@ ToRoom    3019
 Vnum     3047
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1603,13 +1603,13 @@ ToRoom    3017
 Vnum     3048
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1623,16 +1623,16 @@ ToRoom    3022
 
 #ROOM
 Vnum     3049
-Name     Ewoks Guest House~
+Name     Noxians Guest House~
 Sector   city~
 Flags    hotel~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1648,13 +1648,13 @@ ToRoom    3028
 Vnum     3050
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1670,13 +1670,13 @@ ToRoom    3026
 Vnum     3051
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1692,13 +1692,13 @@ ToRoom    3024
 Vnum     3052
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1714,13 +1714,13 @@ ToRoom    3039
 Vnum     3053
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1736,13 +1736,13 @@ ToRoom    3041
 Vnum     3054
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1758,13 +1758,13 @@ ToRoom    3043
 Vnum     3055
 Name     Ewoke House Hold~
 Sector   city~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1788,13 +1788,13 @@ Vnum     3056
 Name     Ewoke House Hold~
 Sector   city~
 Flags    nomob~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1806,13 +1806,13 @@ Vnum     3057
 Name     Ewoke House Hold~
 Sector   city~
 Flags    nomob~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1824,13 +1824,13 @@ Vnum     3058
 Name     Ewoke House Hold~
 Sector   city~
 Flags    nomob~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1839,16 +1839,16 @@ area more sutable for themselves and their young.
 
 #ROOM
 Vnum     3059
-Name     Ewok Food Supplies~
+Name     Noxian Food Supplies~
 Sector   city~
 Flags    nomob~
-Desc     The houses of the ewoks are littered with feathers pieces of leather
+Desc     The houses of the Noxians are littered with feathers pieces of leather
 spear and arrow heads as well as shatfs for the weapons. You also 
 see the odd insect scurrying around picking up crumbs from the 
 morning breakfast and then scampering off into the shadows to eat
 their new found dinner. From the outside you here the cries of the
 birds deep in the forest as well as the territorial disputes between
-rival preditors battling for more territory and mates. The ewoks
+rival preditors battling for more territory and mates. The Noxians
 on the other hand sound as though they are planning for the morning
 hunt as well as their everyday chores the do to make their living 
 area more sutable for themselves and their young.
@@ -1869,7 +1869,7 @@ Vnum     3060
 Name     Landing Area~
 Sector   city~
 Flags    nomob~
-Desc     Strangly enough, even though the ewok people do not get many 
+Desc     Strangly enough, even though the Noxian people do not get many 
 visitors they seemed to have keep the now very old landing area the 
 republic built in its days of rebellion, and have kept it in very good 
 with a few minor problems though, such as the decorations strune around
@@ -1895,10 +1895,10 @@ Name     Jungle Trail~
 Sector   city~
 Flags    nomob~
 Desc     The path is over grown with vegitation and looks as though it hasn't
-been used in avery long time. The Ewoks it seems have developed a new form
+been used in avery long time. The Noxians it seems have developed a new form
 of hunting the doesn't really need them to venture into the jungle to far
 as well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction up~
@@ -1917,10 +1917,10 @@ Vnum     3062
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't
-been used in avery long time. The Ewoks it seems have developed a new form
+been used in avery long time. The Noxians it seems have developed a new form
 of hunting the doesn't really need them to venture into the jungle to far
 as well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction down~
@@ -1939,10 +1939,10 @@ Vnum     3063
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't
-been used in avery long time. The Ewoks it seems have developed a new form
+been used in avery long time. The Noxians it seems have developed a new form
 of hunting the doesn't really need them to venture into the jungle to far
 as well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction down~
@@ -1961,10 +1961,10 @@ Vnum     3064
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't
-been used in avery long time. The Ewoks it seems have developed a new form
+been used in avery long time. The Noxians it seems have developed a new form
 of hunting the doesn't really need them to venture into the jungle to far
 as well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -1983,10 +1983,10 @@ Vnum     3065
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner. You can also make
+looking for stray Noxians or anything else in that manner. You can also make
 out what looks to be remains of an old imperial base to the west.
 ~
 #EXIT
@@ -2012,7 +2012,7 @@ Name     Destoried Impierial Shield Genorator~
 Sector   city~
 Flags    nomob~
 Desc     The Base was once the main shield generator for the Death Star that was
-destoryed so many years ago by the now New Republic. It has now over
+destoryed so many years ago by the now Terran Union. It has now over
 grown with many different types of vegitation as well it has become the 
 home for many insects and other vermin who do not wish to be seen in the
 light of day.
@@ -2029,10 +2029,10 @@ Vnum     3067
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2051,10 +2051,10 @@ Vnum     3068
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2075,10 +2075,10 @@ Vnum     3069
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction up~
@@ -2097,10 +2097,10 @@ Vnum     3070
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2129,10 +2129,10 @@ Vnum     3071
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2151,10 +2151,10 @@ Vnum     3072
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2174,10 +2174,10 @@ Vnum     3073
 Name     Jungle Trail~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2218,10 +2218,10 @@ Vnum     3075
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2240,10 +2240,10 @@ Vnum     3076
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2262,10 +2262,10 @@ Vnum     3077
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2284,10 +2284,10 @@ Vnum     3078
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2306,10 +2306,10 @@ Vnum     3079
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction down~
@@ -2328,10 +2328,10 @@ Vnum     3080
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction up~
@@ -2351,10 +2351,10 @@ Vnum     3081
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2373,10 +2373,10 @@ Vnum     3082
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2395,10 +2395,10 @@ Vnum     3083
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner. 
+looking for stray Noxians or anything else in that manner. 
 ~
 #EXIT
 Direction south~
@@ -2417,10 +2417,10 @@ Vnum     3084
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2439,10 +2439,10 @@ Vnum     3085
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction up~
@@ -2461,10 +2461,10 @@ Vnum     3086
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction west~
@@ -2483,10 +2483,10 @@ Vnum     3087
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2505,10 +2505,10 @@ Vnum     3088
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner. 
+looking for stray Noxians or anything else in that manner. 
 ~
 #EXIT
 Direction south~
@@ -2527,10 +2527,10 @@ Vnum     3089
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2549,10 +2549,10 @@ Vnum     3090
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction up~
@@ -2571,10 +2571,10 @@ Vnum     3091
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2593,10 +2593,10 @@ Vnum     3092
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2615,10 +2615,10 @@ Vnum     3093
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2637,10 +2637,10 @@ Vnum     3094
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2659,10 +2659,10 @@ Vnum     3095
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction west~
@@ -2681,10 +2681,10 @@ Vnum     3096
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction east~
@@ -2703,10 +2703,10 @@ Vnum     3097
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction north~
@@ -2725,10 +2725,10 @@ Vnum     3098
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction south~
@@ -2747,10 +2747,10 @@ Vnum     3099
 Name     Jungle Path~
 Sector   city~
 Desc     The path is over grown with vegitation and looks as though it hasn't been
-used in avery long time. The Ewoks it seems have developed a new form of
+used in avery long time. The Noxians it seems have developed a new form of
 hunting the doesn't really need them to venture into the jungle to far as
 well as the fear of the ravinous jnugle preditors the roam around here
-looking for stray ewoks or anything else in that manner.
+looking for stray Noxians or anything else in that manner.
 ~
 #EXIT
 Direction down~

@@ -1,0 +1,22 @@
+type,old_internal,new_display,notes
+planet,coruscant,Earth,Sol; human capital
+planet,byss,Proxima Centauri b,Drakken home
+planet,honoghr,Ross 128 b,Keshari home
+planet,gamorr,GJ 273 b,Vordan home
+planet,endor,TRAPPIST-1 f,Noxian home
+planet,Kashyyyk,TRAPPIST-1 e,Veyran home
+planet,moncal,LHS 1140 b,Pelagian home
+planet,adari,Teegarden's Star b,Lethari home
+planet,tatooine,Barnard b,neutral/frontier world
+race,Human,Human,balanced generalist
+race,Wookiee,Vordan,playable internal ID retained
+race,Twi'lek,Lethari,playable internal ID retained
+race,Noghri,Keshari,playable internal ID retained
+race,Mon Calamari,Pelagian,playable internal ID retained
+race,Trandoshan,Drakken,playable internal ID retained
+race,Verpine,Veyran,playable internal ID retained
+race,Defel,Noxian,playable internal ID retained
+area,menari_spaceport,Earth - The Hague Interstellar Terminal,filename retained
+area,monument.plaza,Earth - The Hague Civic Plaza,filename retained
+area,coruscant_streets,Earth - The Hague Metropolitan District,filename retained
+area,senate,Earth Assembly,filename retained

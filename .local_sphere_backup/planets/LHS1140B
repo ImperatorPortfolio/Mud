@@ -1,0 +1,11 @@
+#PLANET
+Name         LHS 1140 b~
+Filename     moncal~
+BaseValue    350000
+Flags        0
+Starsystem   LHS 1140 System~
+Area         quarren.are~
+Area         mon_cal.are~
+End
+
+#END

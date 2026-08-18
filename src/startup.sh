@@ -29,7 +29,7 @@ while true; do
     fi
 
     # Run SMAUG
-    ../src/swreality "$PORT" >> "$LOGFILE" 2>&1
+    ../src/ZeroPoint "$PORT" >> "$LOGFILE" 2>&1
 
     # Check for clean shutdown
     if [ -f "shutdown.txt" ]; then

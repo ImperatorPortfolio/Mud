@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         A City on Byss~
+Name         Proxima Centauri b - Primary Settlement~
 Author       Streen~
 Ranges       0 100 0 103
 Economy      0 31249662
@@ -665,8 +665,8 @@ Sector   inside~
 Flags    nomob~
 Desc     You are standing in the bridge onboard the salvaged Gorgon. The tarnished
 walls glow duly in the light, the ship has been turned into a facility for
-the recently rebuilt Byss. The shattered consoles erraticly shoot sparks
-from the broken wires. Through the torn ceiling the low atmosphere of Byss
+the recently rebuilt Proxima Centauri b. The shattered consoles erraticly shoot sparks
+from the broken wires. Through the torn ceiling the low atmosphere of Proxima Centauri b
 is visible to the naked eye. The dark viewscreen displays the rugged
 landscape, you can see AT-ATs marching along loudly, you notice the large
 amount of lightning coursing through the power core, pure energy from the
@@ -882,7 +882,7 @@ Vnum     28207
 Name     Xanis' pedestal~
 Sector   inside~
 Desc     You are standing infront of the towering pedestal on which Doctor Xanis
-himself stands, the most well known doctor in the empire, he personally
+himself stands, the most well known doctor in Proxima Directorate, he personally
 repaired Lord Darth Vader's damaged body with far advanced technology he
 himself designed. Black smoke floats towards the unvisisble ceiling many
 kilometers above. You began to wonder if you should have gone elsewear for
@@ -918,7 +918,7 @@ Vnum     28209
 Name     Street~
 Sector   city~
 Desc     You are standing in the middle of an almost completely destoyed street, you
-see a few remenants of the empire still roaming the streets looking as
+see a few remenants of Proxima Directorate still roaming the streets looking as
 though they have something important to do. The road is made of ground
 duraplast, duracrete and durasteel, the recycling program must be working
 well... The skies glow a deep purple looking dark and forbidding.
@@ -1026,7 +1026,7 @@ Reset D 0 28212 3 0
 Vnum     28213
 Name     Mail room~
 Sector   inside~
-Desc     You are standing in the galactic mail room for Byss, from here you can send
+Desc     You are standing in the galactic mail room for Proxima Centauri b, from here you can send
 mail to anyone else in the known galaxy. The walls are almost covered in
 message disks stamped return to sender. The floor is relatively clean,
 although you can see a few dropped message disks. droids whirr as they copy
@@ -1421,7 +1421,7 @@ Reset O 0 10424 1 28231
 Vnum     28232
 Name     Spaceport ~
 Sector   city~
-Desc     You are standing in the entrance to the Byss spaceport. The pathway up to
+Desc     You are standing in the entrance to the Proxima Centauri b spaceport. The pathway up to
 the door is pure durasteel, polished to it's finest. The sky above is
 obviously covered in some sort of projected image forcefield to make thesky
 look the standard sky of blue.
@@ -1460,9 +1460,9 @@ ToRoom    28232
 
 #ROOM
 Vnum     28234
-Name     outskirts of byss~
+Name     outskirts of Proxima Centauri b~
 Sector   city~
-Desc     You are standing on the rocky terrain of byss to the south you can faintly
+Desc     You are standing on the rocky terrain of Proxima Centauri b to the south you can faintly
 make out a city. The ground is made of dust and rocks, dust and rocks..dust
 and rocks. you can hear the constant stompping of AT-ATs in the distance, to
 the north storm-troopers conduct drills.
@@ -1748,7 +1748,7 @@ Vnum     28246
 Name     Shipyard entrance~
 Sector   city~
 Flags    nomob~
-Desc     You stand in the entrance ramp of the byss Shipyard. The sky semms to
+Desc     You stand in the entrance ramp of the Proxima Centauri b Shipyard. The sky semms to
 be artificially blued here, covering the lightning scared sky
 The duracrete wallls are polished to a splendid grey and the ramp is
 relatively empty.
@@ -1770,7 +1770,7 @@ Vnum     28247
 Name     Shipyard Docking Platform~
 Sector   city~
 Flags    can_land can_fly~
-Desc     You stand inside the small byss spaceport, it is so small because it is
+Desc     You stand inside the small Proxima Centauri b spaceport, it is so small because it is
 only used for ships leaving to the military base. However it can
 acommadate most any ship The walls here are made of transparastell looking
 out on an obvious prop background an intercom hangs on the wall to inform

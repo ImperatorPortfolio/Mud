@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -1170,6 +1170,95 @@ void do_sset( CHAR_DATA * ch, const char *argument )
    }
    else
       victim->pcdata->learned[sn] = value;
+}
+
+int get_skill_bonus(
+   CHAR_DATA *ch,
+   int sn,
+   int ability )
+{
+   int skill_bonus;
+   int ability_modifier;
+   int trait_modifier;
+
+   if( !ch )
+      return 0;
+
+   if( IS_NPC( ch ) )
+   {
+      skill_bonus =
+         URANGE(
+            0,
+            ch->top_level / 5,
+            20 );
+   }
+   else
+   {
+      if( !ch->pcdata )
+         return 0;
+
+      if( !IS_VALID_SN( sn ) )
+         return 0;
+
+      /*
+       * Convert SWR's existing 0-100 learned value into
+       * a +0 through +20 skill bonus.
+       *
+       * 25  = +5
+       * 50  = +10
+       * 75  = +15
+       * 100 = +20
+       */
+      skill_bonus =
+         URANGE(
+            0,
+            ch->pcdata->learned[sn] / 5,
+            20 );
+   }
+
+   ability_modifier =
+      get_character_ability_modifier(
+         ch,
+         ability );
+
+   trait_modifier =
+      get_trait_skill_modifier(
+         ch,
+         sn );
+
+   return
+      skill_bonus
+      + ability_modifier
+      + trait_modifier;
+}
+
+bool skill_check(
+   CHAR_DATA *ch,
+   int sn,
+   int ability,
+   int difficulty )
+{
+   int roll;
+   int bonus;
+
+   if( !ch )
+      return FALSE;
+
+   roll =
+      number_range( 1, 20 );
+
+   bonus =
+      get_skill_bonus(
+         ch,
+         sn,
+         ability );
+
+   /*
+    * Skill checks do not automatically fail on 1
+    * or automatically succeed on 20.
+    */
+   return
+      roll + bonus >= difficulty;
 }
 
 void learn_from_success( CHAR_DATA *ch, int sn )

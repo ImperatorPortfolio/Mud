@@ -1,4 +1,4 @@
-#This is the SWRFUSS Makefile.
+#This is the ZeroPoint Makefile.
 #This should be usable on pretty much any Linux system.
 #Refer to your 'man gcc' for explanations of these options
 #To compile in FreeBSD or OpenBSD, use the gmake compiler.
@@ -59,43 +59,43 @@ H_FILES = $(wildcard *.h)
 
 all:
 	$(info    Using flags: $(C_FLAGS))
-	$(MAKE) -s swreality
+	$(MAKE) -s ZeroPoint
 	$(MAKE) -s dns
 
 # pull in dependency info for *existing* .o files
 -include dependencies.d
 
 ifdef IS_CYGWIN
-swreality: $(O_FILES)
-	@rm -f swreality.exe
-	@dlltool --export-all --output-def swreality.def $(O_FILES)
-	@dlltool --dllname swreality.exe --output-exp swreality.exp --def swreality.def
-	$(CC) -o swreality.exe $(O_FILES) swreality.exp $(L_FLAGS)
+ZeroPoint: $(O_FILES)
+	@rm -f ZeroPoint.exe
+	@dlltool --export-all --output-def ZeroPoint.def $(O_FILES)
+	@dlltool --dllname ZeroPoint.exe --output-exp ZeroPoint.exp --def ZeroPoint.def
+	$(CC) -o ZeroPoint.exe $(O_FILES) ZeroPoint.exp $(L_FLAGS)
 	@echo "Generating dependency file ...";
 	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
 	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
 	@echo "Done compiling mud.";
-	@chmod g+w swreality.exe
-	@chmod a+x swreality.exe
+	@chmod g+w ZeroPoint.exe
+	@chmod a+x ZeroPoint.exe
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o swreality.exe dependencies.d resolver.exe resolver.o *~
+	@rm -f o/*.o ZeroPoint.exe dependencies.d resolver.exe resolver.o *~
 
 else
-swreality: $(O_FILES)
-	@rm -f swreality
-	$(CC) -export-dynamic -o swreality $(O_FILES) $(L_FLAGS)
+ZeroPoint: $(O_FILES)
+	@rm -f ZeroPoint
+	$(CC) -export-dynamic -o ZeroPoint $(O_FILES) $(L_FLAGS)
 	@echo "Generating dependency file ...";
 	@$(CC) -MM $(C_FLAGS) $(C_FILES) > dependencies.d
 	@perl -pi -e 's.^([a-z]).o/$$1.g' dependencies.d
 	@echo "Done compiling mud.";
-	@chmod g+w swreality
-	@chmod a+x swreality
+	@chmod g+w ZeroPoint
+	@chmod a+x ZeroPoint
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o swreality dependencies.d resolver resolver.o *~
+	@rm -f o/*.o ZeroPoint dependencies.d resolver resolver.o *~
 endif
 
 dns: resolver.o

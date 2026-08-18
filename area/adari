@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Adari - Alfuh City~
+Name         Teegarden's Star b - Lethari Capital~
 Author       Merth~
 Ranges       0 103 0 103
 Economy      0 31248680
@@ -14,7 +14,7 @@ Keywords   shopkeeper feiht krooc~
 Short      Feiht Krooc~
 Long       A shopkeeper, Feiht Krooc is here.
 ~
-Desc       A young, but aged Adarian merchant.  He is short for an Adarian.  He
+Desc       A young, but aged Lethari merchant.  He is short for an Lethari.  He
 is barely one meter tall.  His face is rough and scarred.  He is pathetic
 looking in and loathesome in every way.  Perhaps his value lies deeper
 within.  Or maybe he is just ugly.
@@ -66,9 +66,9 @@ say Welcome to Alfuh...
 
 #MOBILE
 Vnum       29001
-Keywords   worshipper citizen adarian~
-Short      a religous Adarian~
-Long       An Adarian worshipper meditates here.
+Keywords   worshipper citizen Lethari~
+Short      a religous Lethari~
+Long       An Lethari worshipper meditates here.
 ~
 Race       Adarian~
 Position   aggressive~
@@ -87,7 +87,7 @@ VIPFlags   adari~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   40~
-Comlist   mpecho An Adarian worshipper begins to meditate.
+Comlist   mpecho An Lethari worshipper begins to meditate.
 ~
 #ENDPROG
 
@@ -99,7 +99,7 @@ Keywords   yllib apa local law enforcement~
 Short      Yllib Apa~
 Long       The local law, Yllib Apa is on patrol here.
 ~
-Desc       He is a large well built Adarian.  He does not look like a very
+Desc       He is a large well built Lethari.  He does not look like a very
 tolerant nor forgiving individual.  It is best to stay on his good
 side.
 ~
@@ -181,11 +181,11 @@ mpechoaround Yllib Apa looks at $n.
 
 #MOBILE
 Vnum       29003
-Keywords   auditor aged adarian tUmOch~
+Keywords   auditor aged Lethari tUmOch~
 Short      tUmOch~
-Long       An aged Adarian auditor studies some documents.
+Long       An aged Lethari auditor studies some documents.
 ~
-Desc       An older looking Adarian who goes by the name tUmOch.  He is the city
+Desc       An older looking Lethari who goes by the name tUmOch.  He is the city
 auditor.  tUmOch is responsible for Alfuh City finances. 
 ~
 Race       Adarian~
@@ -293,7 +293,7 @@ mpecho A fresh War Droid is lowered in from above.
 Vnum       29006
 Keywords   Eral Tmat healer~
 Short      Eral Tmat~
-Long       An old and religous Adarian is here.
+Long       An old and religous Lethari is here.
 ~
 Desc       A very old looking fellow.  Things are not always what they seem. 
 Watch your step around this one.  He was once a great Jedi.  His
@@ -371,7 +371,7 @@ Keywords   officer customs lana~
 Short      LaNa~
 Long       LaNa, the customs officer inspects goods here.
 ~
-Desc       He is a fairly young Adarian.  It is his job to make sure weapons,
+Desc       He is a fairly young Lethari.  It is his job to make sure weapons,
 drugs and other items of contreband don't come into or leave Alfuh
 City. 
 ~
@@ -418,7 +418,7 @@ Keywords   deputy young~
 Short      a young deputy~
 Long       A deputy patrols the area.
 ~
-Desc       A young Adarian deputy.  You can see it is his dream to enforce
+Desc       A young Lethari deputy.  You can see it is his dream to enforce
 laws.  He is a decent and moral being.
 ~
 Race       Adarian~
@@ -441,11 +441,11 @@ VIPFlags   adari~
 
 #MOBILE
 Vnum       29010
-Keywords   adarian townie~
+Keywords   Lethari townie~
 Short      a Townie~
-Long       An Adarian Townie wanders about here.
+Long       An Lethari Townie wanders about here.
 ~
-Desc       Not the brightest nor most beautiful Adarian.  This is one of the
+Desc       Not the brightest nor most beautiful Lethari.  This is one of the
 citizens of the town.  She lives day to day.
 ~
 Race       Adarian~
@@ -496,7 +496,7 @@ Stats    1500 0 0 0 0
 #EXDESC
 ExDescKey    sign board message~
 ExDesc       East: Town of Alfuh
--Adarian Religous Grounds-
+-Lethari Religous Grounds-
 ~
 #ENDEXDESC
 
@@ -508,13 +508,15 @@ Keywords sign~
 Type     trash~
 Short    a sign.~
 Long     A sign has been posted here.
-
-~
+
+
+
+~
 Values   0 0 0 0 0 0
 Stats    1500 0 0 0 0
 #EXDESC
 ExDescKey    sign message board holy~
-ExDesc       - Adarian Religous Grounds -
+ExDesc       - Lethari Religous Grounds -
 Proverb 01:05
   May you always be guide by Knowledge, Peace, and Harmony.
 ~
@@ -528,8 +530,10 @@ Keywords gresha~
 Type     food~
 Short    a piece of gresha~
 Long     A piece of gresha has been left here.
-
-~
+
+
+
+~
 Flags    bless inventory small_size~
 WFlags   take~
 Values   24 0 0 0 0 0
@@ -553,7 +557,7 @@ Vnum     29004
 Keywords robe garment religous~
 Type     armor~
 Short    a religous robe~
-Long     An Adarian religous garment has been left here.~
+Long     An Lethari religous garment has been left here.~
 WFlags   take about~
 Values   0 3 0 0 0 0
 Stats    5 300 30 0 0
@@ -591,10 +595,10 @@ Stats    5 2500 250 0 0
 
 #OBJECT
 Vnum     29007
-Keywords trousers adarian pair~
+Keywords trousers Lethari pair~
 Type     armor~
-Short    a pair of Adarian trousers~
-Long     A pair of Adarian trousers have been left here.~
+Short    a pair of Lethari trousers~
+Long     A pair of Lethari trousers have been left here.~
 WFlags   take legs hold~
 Values   0 0 0 0 0 0
 Stats    5 2500 250 0 0
@@ -602,10 +606,10 @@ Stats    5 2500 250 0 0
 
 #OBJECT
 Vnum     29008
-Keywords boots adarian~
+Keywords boots Lethari~
 Type     armor~
-Short    a pair if Adarian boots~
-Long     A pair if Adarian boots have been dropped here.~
+Short    a pair if Lethari boots~
+Long     A pair if Lethari boots have been dropped here.~
 WFlags   take feet hold~
 Values   0 0 0 0 0 0
 Stats    5 1000 250 0 0
@@ -782,7 +786,7 @@ Desc     The dark cavernous walls gleam lightly as drops of moisture
 glides down softly into the dirt.  A small multi-colored
 carpet lies in the center of this small yet dull room.
 This apparently the dwelling of a dark, sullen, and religious
-jawa.
+Veyran.
 ~
 #EXIT
 Direction east~
@@ -1124,7 +1128,7 @@ Vnum     29013
 Name     Alfuh City Road~
 Sector   city~
 Desc     This is the outskirts of Alfuh.  To the east is more of town.  Alfuh
-is a religous city for the Adarian race.  From here, you can't really
+is a religous city for the Lethari race.  From here, you can't really
 see that much of the city.  The road beneath your feet is made up of rock
 and is covered with volcanic ash.  You can continue in just about any
 direction.
@@ -1181,7 +1185,7 @@ Name     Alfuh City Road~
 Sector   city~
 Flags    safe norecall~
 Desc     The cool air and soft climate can calm the nerves of even the most
-frazzled travellers.  You are near a sacred shrine of the Adarian
+frazzled travellers.  You are near a sacred shrine of the Lethari
 population.  You can vaguely make it out to the north.  To the east is
 a small cave.  Someone took the time to carve out the rock - mountian.
 To the west is another of these cave cut outs.  The road continues
@@ -1221,7 +1225,7 @@ Vnum     29016
 Name     Shrine Entrance~
 Sector   city~
 Flags    nomob nomagic safe~
-Desc     You are immediately south of an Adarian Shrine.  Each year Adarians
+Desc     You are immediately south of an Lethari Shrine.  Each year Lethari
 from every part of the galaxy return to this.  Their homeworld.  They
 do so at least twice each year.  It is considered a religous pilgrimage.
 To the north is an old shrine that has been heavily visited through out the
@@ -1247,7 +1251,7 @@ Name     Alfuh R & R~
 Sector   city~
 Flags    indoors nomagic safe norecall~
 Desc     This place was cut out of the side of a mountian.  The floor is made
-of rock and is covered in dirt.  This appears to be a restraunt.  Adarians
+of rock and is covered in dirt.  This appears to be a restraunt.  Lethari
 who have travelled from far away galaxies can replinish themselves here.
 To the east is the store exit.
 ~
@@ -1268,7 +1272,7 @@ Vnum     29018
 Name     Alfuh Donation Grounds~
 Sector   city~
 Flags    indoors nomagic donation silence~
-Desc     This is a donation room.  Adarians make several pilgrimages to their 
+Desc     This is a donation room.  Lethari make several pilgrimages to their 
 homeworld every year.  When they do, it is customary for them to leave
 one or two material items as a sign of thanks for their prosperty 
 and health.  They drop items here and then continue on to the shrine
@@ -1289,7 +1293,7 @@ Name     Religous Shrine~
 Sector   city~
 Flags    indoors safe silence~
 Desc     There is a strong sense of peace in the air about you.  This is a safe
-place where Adarians worship.  This is a place great knowledge and
+place where Lethari worship.  This is a place great knowledge and
 wisdom.  It is forbidden to speak in here.  The tranquility and silence
 has not been broken in centuries.  Clarity is achieved through total and
 complete silence.
@@ -1312,7 +1316,7 @@ Sector   city~
 Flags    norecall~
 Stats    0 0 3
 Desc     Volcanic ash steadily descends from above.  This is the planet               
-Adari.  The Adarian race is built on technology and mining.  Sadly,
+Teegarden's Star b.  The Lethari race is built on technology and mining.  Sadly,
 they have mined their own planet and all asteroids in their galaxy.
 You can continue east or west from here.
 ~
@@ -1334,7 +1338,7 @@ Name     Alfuh City Road~
 Sector   city~
 Flags    norecall~
 Stats    0 0 4
-Desc     Alfuh City, on the wonderful planet of Adari.  Adarians are
+Desc     Alfuh City, on the wonderful planet of Teegarden's Star b.  Lethari are
 very religous by nature.  It is very important that they visit their
 homeworld at least once every year.  This city is a tourist trap
 though.  Watch yourself.  You can continue East or West from here.
@@ -1421,8 +1425,8 @@ Flags    norecall~
 Stats    0 0 3
 Desc     Alfuh City, was meant to be among the grand cities of the galaxy.
 Unfortunately, living on a planet that is an active vocano has its
-draw backs.  Worse than that, Adarians are deeply involved in the
-mining industry.  So they have raped Adari of all its natural resources.
+draw backs.  Worse than that, Lethari are deeply involved in the
+mining industry.  So they have raped Teegarden's Star b of all its natural resources.
 This could be a civilization on the downward spiral.  You can continue
 east or west from here.
 ~
@@ -2064,7 +2068,7 @@ Desc     You are at a fork in the road, kind of.  The road turnsm it doesn't
 really fork.  At one time it may have forked, but it doesn't fork
 anymore. To the way, way far east is the heart of Alfuh City.  To the
 west is a big rock.  To the north is the Alfuh City Academy.  Young
-Adarians practice their fighting skills there.
+Lethari practice their fighting skills there.
 ~
 #EXIT
 Direction north~

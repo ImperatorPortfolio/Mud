@@ -18,13 +18,13 @@
  *                                                                                       *
  *****************************************************************************************
  *                                                                                       *
- * Dark Warrior Code additions and changes from the Star Wars Reality code copyright (c) *
+ * Dark Warrior Code additions and changes from the Zero Point code copyright (c) *
  * 2003 by Michael Ervin, Mark Gottselig, Gavin Mogan                                    *
  *                                                                                       *
- * Star Wars Reality Code Additions and changes from the Smaug Code copyright (c) 1997   *
+ * Zero Point Code Additions and changes from the Smaug Code copyright (c) 1997   *
  * by Sean Cooper                                                                        *
  *                                                                                       *
- * Starwars and Starwars Names copyright(c) Lucas Film Ltd.                              *
+ * Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                              *
  *****************************************************************************************
  *                           ^     +----- |  / ^     ^ |     | +-\                       *
  *                          / \    |      | /  |\   /| |     | |  \                      *
@@ -1088,7 +1088,7 @@ void do_hotboot( CHAR_DATA * ch, const char *argument )
    strlcpy( buf3, "-1", 100 );
 
    dlclose( sysdata.dlHandle );
-   execl( EXE_FILE, "swreality", buf, "hotboot", buf2, buf3, ( char * )NULL );
+   execl( EXE_FILE, "ZeroPoint", buf, "hotboot", buf2, buf3, ( char * )NULL );
 
    /*
     * Failed - sucessful exec will not return 

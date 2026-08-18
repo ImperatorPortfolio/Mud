@@ -1,7 +1,7 @@
-SWRFUSS - Fixed Up Smaug Source
+ZeroPoint - Fixed Up Smaug Source
 ===============================
 
-SWRFUSS is an ongoing project to find and eliminate as many bugs in the SWR (Star Wars Reality) MUD codebase as possible, while also modernizing and updating the code where needed.
+ZeroPoint is an ongoing project to find and eliminate as many bugs in the SWR (Zero Point) MUD codebase as possible, while also modernizing and updating the code where needed.
 
 More information about the project is available at https://smaugmuds.afkmods.com/
 
@@ -43,14 +43,14 @@ Adding Commands, Skills, and spec_funs
 
 When you find yourself wanting to add a new command to the code, either from a snippet you've downloaded and decided to use, or from something you've written yourself, if you've been working with Smaug for long you know all about the tables.c file and the places you need to insert things to make it work.
 
-With SWRFUSS, you no longer need to worry about that. The code used the dlsym functionality to handle the required lookups. It isn't even necessary to have DECLARE_DO_FUN statements anywhere. Just insert, compile, and create the command online. It's that easy now.
+With ZeroPoint, you no longer need to worry about that. The code used the dlsym functionality to handle the required lookups. It isn't even necessary to have DECLARE_DO_FUN statements anywhere. Just insert, compile, and create the command online. It's that easy now.
 
 In the unlikely event your system does not have the right library support, you'll need to have that fixed by your sysadmin. Most Linux installs have this natively.
 
 The Makefile
 ============
 
-Configuring the Makefile should no longer be a necessity for SWRFUSS as all of the options that could be have been rewritten for automated detection of code features.
+Configuring the Makefile should no longer be a necessity for ZeroPoint as all of the options that could be have been rewritten for automated detection of code features.
 
 With one exception - if you want to use a compiler other than g++ you will need to set that at the top of the Makefile.
 
@@ -59,15 +59,15 @@ Installing and Using the Code
 
 It should be fairly a straightforward process to install the MUD. It is assumed you already know enough about unpacking files and working with Linux/CYGWIN.
 
-Unpack the archive in whatever folder you will be working in. It will default to creating a "swrfuss" directory. Change the name of this as you see fit.
+Unpack the archive in whatever folder you will be working in. It will default to creating a "ZeroPoint" directory. Change the name of this as you see fit.
 
 On a Linux or CYGWIN based system:
 
-Change to the swrfuss/src directory and type: make
+Change to the ZeroPoint/src directory and type: make
 
 On FreeBSD or OpenBSD:
 
-Change to the swrfuss/src directory and type: gmake
+Change to the ZeroPoint/src directory and type: gmake
 BSD compiling is probably not compatible with pmake.
 
 Starting the MUD After Compiling

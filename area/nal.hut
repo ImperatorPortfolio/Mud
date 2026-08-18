@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Nal Hutta~
+Name         Barnard b - Free Trade Enclave~
 Author       Ackbar~
 Ranges       0 0 0 0
 Economy      0 6250000
@@ -83,7 +83,7 @@ Stats    1 0 0 0 0
 
 #ROOM
 Vnum     21500
-Name     Begiing of zone Nal HUTTA~
+Name     Begiing of zone Barnard Freehold~
 Sector   city~
 Flags    nomob~
 Desc     I will start building with this number ...Durga please separtae the world
@@ -96,7 +96,7 @@ Reset M 0 21500 1 21500
 Vnum     21501
 Name     A Landing Clearing~
 Sector   city~
-Desc     A clearing in the large terrestrial planet of Nal Hutta. There are some
+Desc     A clearing in the large terrestrial planet of Barnard Freehold. There are some
 burn marks from transport vehicle exahust on the ground. From the tracks
 and burn circles you can tell this area recives alot of trafic. Looking up
 into the sky you can see the nearby moon, Nar Shada and what appears to be

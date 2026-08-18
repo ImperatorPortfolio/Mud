@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -1123,7 +1123,7 @@ void load_mobiles( AREA_DATA * tarea, FILE * fp )
          pMobIndex->attacks = 0;
          pMobIndex->defenses = 0;
       }
-      if( letter == 'Z' )  /*  STar Wars Reality Complex Mob  */
+      if( letter == 'Z' )  /*  Zero Point Complex Mob  */
       {
          ln = fread_line( fp );
          x1 = x2 = x3 = x4 = x5 = x6 = x7 = x8 = 0;
@@ -4084,7 +4084,7 @@ void make_wizlist(  )
 
    buf[0] = '\0';
    unlink( WIZLIST_FILE );
-   towizfile( " Masters of Star Wars Reality!" );
+   towizfile( " Masters of Zero Point!" );
    ilevel = 65535;
    for( wiz = first_wiz; wiz; wiz = wiz->next )
    {

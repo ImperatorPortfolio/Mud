@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Hunters Guild~
+Name         Contractors' Guild~
 Author       Bleeds~
 Ranges       0 0 0 103
 Economy      0 25856975
@@ -47,7 +47,7 @@ Comlist   , gets a list from under the counter.
 ' hmm right now we have the following contracts.
 , looks at list.
 ' a disinegration contract for a small time smuggler.
-' Hmm got a bounty for some old guy thats been oggling girls on adari
+' Hmm got a bounty for some old guy thats been oggling girls on Teegarden's Star b
 too.
 ~
 #ENDPROG
@@ -730,7 +730,7 @@ Sector   city~
 Flags    nomob indoors~
 Desc     This luxerious office is dominated by a large oak desk. A plush carpet
 lines the floor and  a giant window behind the desk offers a wonderfull
-view of tatooine. teo chairs sit before the desk and it is obvious by
+view of Barnard b. teo chairs sit before the desk and it is obvious by
 there placement that they are intended for guest of the guildmaster.
 ~
 #EXIT
@@ -889,7 +889,7 @@ ToRoom    6607
 
 #ROOM
 Vnum     6622
-Name     Stormie's Tatooine Residence~
+Name     Stormie's Barnard b Residence~
 Sector   city~
 Flags    nomob indoors plr_home hotel~
 #EXIT

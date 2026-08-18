@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -216,7 +216,7 @@ void do_authorize( CHAR_DATA * ch, const char *argument )
 
       ch_printf( victim,   /* B */
                  "The MUD Administrators have accepted the name %s.\r\n"   /* B */
-                 "You are now fully authorized to play Star Wars Reality.\r\n", victim->name ); /* B */
+                 "You are now fully authorized to play Zero Point.\r\n", victim->name ); /* B */
       return;
    }
    else if( !str_cmp( arg2, "no" ) || !str_cmp( arg2, "deny" ) )

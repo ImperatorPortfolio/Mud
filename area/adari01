@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Adari - Baituh City~
+Name         Teegarden's Star b - Outer Districts~
 Author       Merth~
 Ranges       10 30 0 103
 Economy      0 5000206
@@ -14,8 +14,8 @@ Keywords   officer customs smotsuk~
 Short      Smotsuk~
 Long       Smotsuk, a customs officer is here.
 ~
-Desc       He is a big burly Adarian.  His only intention is to keep weapons
-from being imported or exported from Adari.
+Desc       He is a big burly Lethari.  His only intention is to keep weapons
+from being imported or exported from Teegarden's Star b.
 ~
 Race       Adarian~
 Position   aggressive~
@@ -52,7 +52,7 @@ Keywords   shop keeper shopkeeper baszturd~
 Short      Baszturd~
 Long       A shop keeper works here.
 ~
-Desc       He is an elderly Adarian shop keeper. 
+Desc       He is an elderly Lethari shop keeper. 
 ~
 Race       Adarian~
 Position   aggressive~
@@ -77,7 +77,7 @@ Keywords   scholar old saavy professor sumaretie~
 Short      Professor Sumaretie~
 Long       A saavy, old scholar studies here.
 ~
-Desc       This old Adarian may not know a great deal about fighting, but he
+Desc       This old Lethari may not know a great deal about fighting, but he
 knows many languages and other academic fields.  He might be able to
 help you learn another language. 
 ~
@@ -142,9 +142,9 @@ east
 
 #MOBILE
 Vnum       29064
-Keywords   bartender hutt puttzu~
+Keywords   bartender Lethari puttzu~
 Short      Puttzu~
-Long       A Hutt Bartender works here.
+Long       A Lethari Bartender works here.
 ~
 Race       Hutt~
 Position   aggressive~
@@ -170,7 +170,7 @@ Long       An Astromech Droid acts as a bouncer here.
 ~
 Desc       This Astromech Droid is acting as a bouncer to the bar south of here.
 Only 'adults' can enter.  If you would like to enter the bar, tell
-the droid 'hutts rule!'. 
+the droid 'Lethari rule!'. 
 ~
 Race       Adarian~
 Position   aggressive~
@@ -187,7 +187,7 @@ Speaks     common adarian~
 Speaking   common~
 #MUDPROG
 Progtype  speech_prog~
-Arglist   p hutts rule!~
+Arglist   p Lethari rule!~
 Comlist   mpgoto puttzu
 mptransfer $n
 mpechoat $n The Droid ushers you into the bar.
@@ -237,7 +237,7 @@ Keywords   deputy snopaew~
 Short      Deputy Snopaew~
 Long       A deputy partols the area.
 ~
-Desc       Deputy Snopaew is a tall and gangly looking Adarian.  It is his job to
+Desc       Deputy Snopaew is a tall and gangly looking Lethari.  It is his job to
 keep weapons out of the city.
 ~
 Race       Adarian~
@@ -278,7 +278,7 @@ Keywords   deputy young~
 Short      a young deputy~
 Long       A deputy patrols the area.
 ~
-Desc       A young Adarian deputy.  You can see it is his dream to enforce
+Desc       A young Lethari deputy.  You can see it is his dream to enforce
 laws.  He is a decent and moral being.
 ~
 Race       Adarian~
@@ -301,11 +301,11 @@ VIPFlags   adari~
 
 #MOBILE
 Vnum       29069
-Keywords   adarian townie~
+Keywords   Lethari townie~
 Short      a Townie~
-Long       An Adarian Townie wanders about here.
+Long       An Lethari Townie wanders about here.
 ~
-Desc       Not the brightest nor most beautiful Adarian.  This is one of the
+Desc       Not the brightest nor most beautiful Lethari.  This is one of the
 citizens of the town.  She lives day to day.
 ~
 Race       Adarian~
@@ -569,7 +569,7 @@ Vnum     29062
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -603,7 +603,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue east or south from
 here.
 ~
@@ -627,7 +627,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue west or south from
 here.
 ~
@@ -783,7 +783,7 @@ Vnum     29070
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -945,7 +945,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue west or south from
 here.
 ~
@@ -966,7 +966,7 @@ Vnum     29077
 Name     Baituh City Road~
 Sector   city~
 Flags    nomagic norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -998,7 +998,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue east or south from
 here.
 ~
@@ -1076,7 +1076,7 @@ Vnum     29081
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh City
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh City
 is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -1131,7 +1131,7 @@ Vnum     29083
 Name     Baituh City Academia~
 Sector   city~
 Flags    indoors~
-Desc     At one time Baituh City produced the best and brightest Adarians in
+Desc     At one time Baituh City produced the best and brightest Lethari in
 their state of the art academy.  Since the planet and town have hit
 hard times, things have changed.  Now students must travel to Alfuh
 to work on their fighting skills. Most of the faculty from the old
@@ -1257,7 +1257,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue east or south from
 here.
 ~
@@ -1279,7 +1279,7 @@ Vnum     29089
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -1311,7 +1311,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue west or south from
 here.
 ~
@@ -1389,7 +1389,7 @@ Vnum     29093
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -1522,7 +1522,7 @@ Vnum     29099
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano
@@ -1554,7 +1554,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue east or south from
 here.
 ~
@@ -1583,7 +1583,7 @@ Flags    norecall~
 Desc     The path is fairly wide here.  The black soil is soft and moist
 beneath you.  Baituh City seems pretty desolate and devoid of
 intelligent life.  This once thriving city fell on hard times shortly
-after the fall of the Empire. It has been a struggle to keep most
+after the fall of Proxima Directorate. It has been a struggle to keep most
 cities on this planet alive.  You can continue west or south from
 here.
 ~
@@ -1686,7 +1686,7 @@ Vnum     29105
 Name     Baituh City Road~
 Sector   city~
 Flags    norecall~
-Desc     Baituh City is known all over Adari for its city design.  Baituh
+Desc     Baituh City is known all over Teegarden's Star b for its city design.  Baituh
 City is completely unique in its city structure.  When the city was
 founded, they did not have proper equipment to remove some of the
 thicker rock.  As a result, Large pieces of mountain and volcano

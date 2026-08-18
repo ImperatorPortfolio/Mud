@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality 1.0						           *
+* Zero Point 1.0						           *
 * copyright (c) 1997, 1998 by Sean Cooper                                  *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucasfilm Ltd.                  *
+* Zero Point and Zero Point Names copyright(c) Zero Point Ltd.                  *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *

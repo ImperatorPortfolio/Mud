@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -152,42 +152,41 @@ int wherehome( CHAR_DATA * ch )
 
    if( get_trust( ch ) >= LEVEL_IMMORTAL )
       return ROOM_START_IMMORTAL;
-   if( ch->race == RACE_HUMAN )
-      return ROOM_START_HUMAN;
-   if( ch->race == RACE_WOOKIEE )
-      return ROOM_START_WOOKIEE;
-   if( ch->race == RACE_RODIAN )
-      return ROOM_START_RODIAN;
-   if( ch->race == RACE_MON_CALAMARI )
-      return ROOM_START_MON_CALAMARIAN;
-   if( ch->race == RACE_TWI_LEK )
-      return ROOM_START_TWILEK;
-   if( ch->race == RACE_HUTT )
-      return ROOM_START_HUTT;
-   if( ch->race == RACE_GAMORREAN )
-      return ROOM_START_GAMORREAN;
-   if( ch->race == RACE_JAWA )
-      return ROOM_START_JAWA;
-   if( ch->race == RACE_ADARIAN )
-      return ROOM_START_ADARIAN;
-   if( ch->race == RACE_EWOK )
-      return ROOM_START_EWOK;
-   if( ch->race == RACE_VERPINE )
-      return ROOM_START_VERPINE;
-   if( ch->race == RACE_DEFEL )
-      return ROOM_START_DEFEL;
-   if( ch->race == RACE_TRANDOSHAN )
-      return ROOM_START_TRANDOSHAN;
-   if( ch->race == RACE_CHADRA_FAN )
-      return ROOM_START_CHADRA_FAN;
-   if( ch->race == RACE_QUARREN )
-      return ROOM_START_QUARREN;
-   if( ch->race == RACE_DUINUOGWUIN )
-      return ROOM_START_DUINUOGWUIN;
-   if( ch->race == RACE_NOGHRI )
-      return ROOM_START_NOGHRI;
 
-   return ROOM_VNUM_TEMPLE;
+   /*
+    * Local Sphere homeworld mapping.
+    *
+    * Internal race constants and room VNUMs are deliberately retained.
+    */
+   switch( ch->race )
+   {
+      case RACE_HUMAN:        /* Human -> Terran Orbital Academy */
+         return 50000;
+
+      case RACE_WOOKIEE:      /* Vordan -> Vordan High-Orbit Academy */
+         return 50200;
+
+      case RACE_TWI_LEK:      /* Lethari -> Lethari Orbital Academy */
+         return 50400;
+
+      case RACE_NOGHRI:       /* Keshari -> Keshari Academy */
+         return 50600;
+
+      case RACE_MON_CALAMARI: /* Pelagian -> Pelagian Academy */
+         return 50800;
+
+      case RACE_TRANDOSHAN:   /* Drakken -> Drakken Proxima Academy */
+         return 51000;
+
+      case RACE_VERPINE:      /* Veyran -> Veyran Technical Academy */
+         return 51200;
+
+      case RACE_DEFEL:        /* Noxian -> Noxian Academy */
+         return 51400;
+
+      default:
+         return ROOM_VNUM_TEMPLE;
+   }
 }
 
 char *grab_word( char *argument, char *arg_first )

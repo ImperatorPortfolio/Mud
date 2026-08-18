@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Space Mall~
+Name         Local Sphere Exchange~
 Author       Bleeds~
 Ranges       0 0 0 103
 Economy      0 464718
@@ -37,9 +37,9 @@ ShopData   0 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       7301
-Keywords   Sexy Hutt~
-Short      A sexy Hutt~
-Long       A hutt in a flimsy pink neglige.
+Keywords   Sexy Lethari~
+Short      A sexy Lethari~
+Long       A Lethari in a flimsy pink neglige.
 ~
 Desc       Dressed in nothing but a skimpy pink outfit your simply amased how any one
 but durga could find this even remotly sexy. but to each his own they say.
@@ -132,11 +132,11 @@ endif
 
 #MOBILE
 Vnum       7303
-Keywords   gamorrean bouncer~
-Short      A Gamorrean Bouncer~
-Long       The biggest gamorrean you have ever seen.
+Keywords   Drakken bouncer~
+Short      A Drakken Bouncer~
+Long       The biggest Drakken you have ever seen.
 ~
-Desc       This has got to be the Biggest gamorrean ever, he is simply giant.  Muscles
+Desc       This has got to be the Biggest Drakken ever, he is simply giant.  Muscles
 bulk where the shouldn't even exist. He snarls at you and adjusts the
 settings on his blaster. 
 ~
@@ -184,7 +184,7 @@ Comlist   say Ya the Contraband shop in back here.
 #MUDPROG
 Progtype  bribe_prog~
 Arglist   100000~
-Comlist   mpechoat $n The gamorrean takes your credits and lets you passed.
+Comlist   mpechoat $n The Drakken takes your credits and lets you passed.
 mpechoaround $n $n is allowed passed the bouncer.
 mptransfer $n 7348
 ~
@@ -530,13 +530,13 @@ Comlist   grin
 ' right now we have the following jobs
 , gets a datapad off his desk.
 , looks at pad.
-' hmm a delivery to a Hutt on Coruscant. 
+' hmm a delivery to a Lethari on Earth. 
 ~
 #ENDPROG
 
 #MUDPROG
 Progtype  speech_prog~
-Arglist   hutt~
+Arglist   Lethari~
 Comlist   smile $n
 ' Says here he's in the Undercity. 
 say the package is marked fragile so payment is good.
@@ -632,7 +632,7 @@ Short      A short fat Man~
 Long       A short fat man in senators robes
 ~
 Desc       This man is a visiting senator from an Imperial planet , rumor has it he is
-wanted by the coruscant police for war crimes and he is in need of escort
+wanted by the Earth police for war crimes and he is in need of escort
 to the government buildings  are you up to the job
 ~
 Race       Human~
@@ -783,7 +783,7 @@ Values   2 10 0 0 0 0
 Stats    1 2 0 0 0
 #EXDESC
 ExDescKey    Babydoll Armor~
-ExDesc       This has to be the largest babydoll you have ever seen, designed for a hutt
+ExDesc       This has to be the largest babydoll you have ever seen, designed for a Lethari
 or some otherlarge race. Chances are the owner would be happy to get this
 back.
 ~
@@ -944,7 +944,7 @@ Vnum     7315
 Keywords package~
 Type     weapon~
 Short    A small package.~
-Long     This is a UPS Package addressed to a hut on Coruscant.~
+Long     This is a UPS Package addressed to a hut on Earth.~
 Flags    contraband~
 WFlags   take hold~
 Values   0 0 0 0 0 0

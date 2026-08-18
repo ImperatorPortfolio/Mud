@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         nar.shadda~
+Name         Barnard Orbital Freeport~
 Author       Skeesh~
 Ranges       0 0 0 0
 Economy      0 6268585
@@ -209,9 +209,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       510
-Keywords   Hutt citizen~
-Short      a newly created Hutt citizen~
-Long       A Hutt citizen is wandering around~
+Keywords   Lethari citizen~
+Short      a newly created Lethari citizen~
+Long       A Lethari citizen is wandering around~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -250,9 +250,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       512
-Keywords   Hutt~
-Short      A hutt~
-Long       A hutt is hovering the cash register~
+Keywords   Lethari~
+Short      A Lethari~
+Long       A Lethari is hovering the cash register~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -410,9 +410,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       523
-Keywords   A large hutt~
-Short      A large hutt~
-Long       A large hutt~
+Keywords   A large Lethari~
+Short      A large Lethari~
+Long       A large Lethari~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
@@ -511,9 +511,9 @@ Attacks    punch~
 
 #MOBILE
 Vnum       528
-Keywords   A twi'lek is looking for someone~
-Short      A twi'lek~
-Long       A twi'lek is looking for someone~
+Keywords   A Lethari is looking for someone~
+Short      A Lethari~
+Long       A Lethari is looking for someone~
 Race       Twi'lek~
 Position   aggressive~
 DefPos     aggressive~
@@ -553,8 +553,8 @@ Speaking   common~
 #MOBILE
 Vnum       530
 Keywords   A Gamorean is easily walking up the catwalk~
-Short      A Gamorrean ~
-Long       A Gamorrean is easily walking up the catwalk~
+Short      A Drakken ~
+Long       A Drakken is easily walking up the catwalk~
 Race       Gamorrean~
 Position   aggressive~
 DefPos     aggressive~
@@ -573,8 +573,8 @@ Speaking   gamorrean~
 #MOBILE
 Vnum       531
 Keywords   A chadra-fran ~
-Short      A chadra-fan~
-Long       A chadra-fan is waiting for a shuttle~
+Short      A Noxian~
+Long       A Noxian is waiting for a shuttle~
 Race       Chadra-Fan~
 Position   aggressive~
 DefPos     aggressive~
@@ -592,9 +592,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       532
-Keywords   A hutt hostess~
-Short      A hutt hostess~
-Long       A hutt hostess~
+Keywords   A Lethari hostess~
+Short      A Lethari hostess~
+Long       A Lethari hostess~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -612,9 +612,9 @@ Speaking   hutt~
 
 #MOBILE
 Vnum       534
-Keywords   A rodian is waiting in line for a room~
-Short      A rodian~
-Long       A rodian is waiting in line for a room~
+Keywords   A Keshari is waiting in line for a room~
+Short      A Keshari~
+Long       A Keshari is waiting in line for a room~
 Race       Rodian~
 Position   aggressive~
 DefPos     aggressive~
@@ -755,9 +755,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       541
-Keywords   A hutt is really pigging out on food~
-Short      A hutt~
-Long       A hutt is really pigging out on food ~
+Keywords   A Lethari is really pigging out on food~
+Short      A Lethari~
+Long       A Lethari is really pigging out on food ~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -775,9 +775,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       542
-Keywords   The hutt's wife is looking at her husband devouring food in seconds~
-Short      A hutt~
-Long       The hutt's wife is looking at her husband devouring food in seconds~
+Keywords   The Lethari's wife is looking at her husband devouring food in seconds~
+Short      A Lethari~
+Long       The Lethari's wife is looking at her husband devouring food in seconds~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -897,9 +897,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       548
-Keywords   A strongly built quarren is easily lifting bags~
-Short      A strongly built quarren~
-Long       A strongly built quarren is easily lifting bags~
+Keywords   A strongly built Pelagian is easily lifting bags~
+Short      A strongly built Pelagian~
+Long       A strongly built Pelagian is easily lifting bags~
 Race       Quarren~
 Position   aggressive~
 DefPos     aggressive~
@@ -997,9 +997,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       553
-Keywords   A large wookiee is hauling large crates~
-Short      a newly created A large wookiee is hauling large crates~
-Long       A large wookiee is hauling large crates~
+Keywords   A large Vordan is hauling large crates~
+Short      a newly created A large Vordan is hauling large crates~
+Long       A large Vordan is hauling large crates~
 Race       Wookiee~
 Position   aggressive~
 DefPos     aggressive~
@@ -1017,9 +1017,9 @@ Speaking   wookiee~
 
 #MOBILE
 Vnum       554
-Keywords   A smaller alien is aiding his wookiee friend~
-Short      a newly created A smaller alien is aiding his wookiee friend~
-Long       A smaller alien is aiding his wookiee friend~
+Keywords   A smaller alien is aiding his Vordan friend~
+Short      a newly created A smaller alien is aiding his Vordan friend~
+Long       A smaller alien is aiding his Vordan friend~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
@@ -1097,9 +1097,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       558
-Keywords   A rodian is carefully handling cargo~
-Short      A rodian~
-Long       A rodian is carefully handling cargo~
+Keywords   A Keshari is carefully handling cargo~
+Short      A Keshari~
+Long       A Keshari is carefully handling cargo~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
@@ -1277,9 +1277,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       567
-Keywords   A hutt is listening attentively to the band~
-Short      A hutt~
-Long       A hutt is listening attentively to the band ~
+Keywords   A Lethari is listening attentively to the band~
+Short      A Lethari~
+Long       A Lethari is listening attentively to the band ~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -1297,9 +1297,9 @@ Speaking   hutt~
 
 #MOBILE
 Vnum       568
-Keywords   A hutt is patiently waiting for his caravel to come~
-Short      A hutt~
-Long       A hutt is patiently waiting for his caravel~
+Keywords   A Lethari is patiently waiting for his caravel to come~
+Short      A Lethari~
+Long       A Lethari is patiently waiting for his caravel~
 Race       Hutt~
 Position   aggressive~
 DefPos     aggressive~
@@ -1317,9 +1317,9 @@ Speaking   hutt~
 
 #MOBILE
 Vnum       569
-Keywords   A defel assasin is swaying in the shadows, barely noticed by some people~
-Short      Defel~
-Long       A defel assasin is swaying in the shadows, barely noticed by some people~
+Keywords   A Noxian assasin is swaying in the shadows, barely noticed by some people~
+Short      Noxian~
+Long       A Noxian assasin is swaying in the shadows, barely noticed by some people~
 Race       Defel~
 Position   aggressive~
 DefPos     aggressive~
@@ -1816,7 +1816,7 @@ Vnum     500
 Name     Spaceport Bravo-Beta~
 Sector   city~
 Flags    indoors~
-Desc     Welcome to Nar Shadda, spaceport moon of the famous Nal Hutta. It isconsidered "Smugglers Paradise" to incoming people. Spaceport Bravo-Betais one of the many spaceports in Nar Shadda.  This spaceport is punycompared to the most larger ones.  The spaceport is always busy, filledwith people. A large sheet of transparesteel lies above your head.  Youcan see incoming ships of all types.  You must watch your step to survivein Nar Shadda.  It's a tough life here in Nar Shadda.~
+Desc     Welcome to Barnard Orbital Freeport, spaceport moon of the famous Barnard Freehold. It isconsidered "Smugglers Paradise" to incoming people. Spaceport Bravo-Betais one of the many spaceports in Barnard Orbital Freeport.  This spaceport is punycompared to the most larger ones.  The spaceport is always busy, filledwith people. A large sheet of transparesteel lies above your head.  Youcan see incoming ships of all types.  You must watch your step to survivein Barnard Orbital Freeport.  It's a tough life here in Barnard Orbital Freeport.~
 #EXIT
 Direction north~
 ToRoom    506
@@ -1855,7 +1855,7 @@ Vnum     501
 Name     Spaceport Bravo-Beta Bistro entrance~
 Sector   city~
 Flags    indoors~
-Desc     A large sign hangs in front of the entrance way.  It says Bravo-Betabistro. Music trails of from the middle of the bistro. The entrance isvery large, large enough for a hutt to fit through. The hight of theentrance is very high since some hutts have trouble crawling in, so theyuse repulsor sleds. The bistro is open for everyone.~
+Desc     A large sign hangs in front of the entrance way.  It says Bravo-Betabistro. Music trails of from the middle of the bistro. The entrance isvery large, large enough for a Lethari to fit through. The hight of theentrance is very high since some Lethari have trouble crawling in, so theyuse repulsor sleds. The bistro is open for everyone.~
 #EXIT
 Direction north~
 ToRoom    503
@@ -1914,7 +1914,7 @@ Vnum     504
 Name     Bistro bar~
 Sector   city~
 Flags    indoors~
-Desc     A large booth is lying in front of you.  A large Talz, is cleaning out thedirt out of a dirty glass.  You conclude that it must be the bartender. Many shelfs are stuck into the wall.  You notice various forms of liquorand drinks.  Many red stool a laid out for people to sit on.  A largewhole is in between every two stools.  It's for the large hutts that needsomething to drink.  Besides how would a hutt fit on one of those punystools?~
+Desc     A large booth is lying in front of you.  A large Talz, is cleaning out thedirt out of a dirty glass.  You conclude that it must be the bartender. Many shelfs are stuck into the wall.  You notice various forms of liquorand drinks.  Many red stool a laid out for people to sit on.  A largewhole is in between every two stools.  It's for the large Lethari that needsomething to drink.  Besides how would a Lethari fit on one of those punystools?~
 #EXIT
 Direction west~
 ToRoom    503
@@ -1945,7 +1945,7 @@ Vnum     506
 Name     Spaceport Terminal~
 Sector   city~
 Flags    indoors~
-Desc     You now stand in the terminal of Spaceport Bravo-Beta.  You look aroundsanning your surronding and you see that they're a lot of people walkingabout minding their own buisness. The room slits of into many directionsbut there is no sign to tell you where to go.  Someone could get lost insuch a large spaceport. Luckily a monitor hangs above your head to tellyou the flight of Nar Shadda.  The monitor is in several languages soalmost every type of race can read it.  Most of the flights go to NalHutta.Which way will you go?~
+Desc     You now stand in the terminal of Spaceport Bravo-Beta.  You look aroundsanning your surronding and you see that they're a lot of people walkingabout minding their own buisness. The room slits of into many directionsbut there is no sign to tell you where to go.  Someone could get lost insuch a large spaceport. Luckily a monitor hangs above your head to tellyou the flight of Barnard Orbital Freeport.  The monitor is in several languages soalmost every type of race can read it.  Most of the flights go to NalHutta.Which way will you go?~
 #EXIT
 Direction north~
 ToRoom    510
@@ -1994,7 +1994,7 @@ Vnum     507
 Name     Shuttle stop~
 Sector   city~
 Flags    indoors~
-Desc     Everyone is waiting for a shuttle to bring them somewhere.  This shuttlebrings you to one of Nar Shadda's closest cities. Many people are in lignto board onto the shuttle.  A large uneasy lign is formed.  It is mostlikely that you won't be able to make the next shuttle.   Patience is thekey!~
+Desc     Everyone is waiting for a shuttle to bring them somewhere.  This shuttlebrings you to one of Barnard Orbital Freeport's closest cities. Many people are in lignto board onto the shuttle.  A large uneasy lign is formed.  It is mostlikely that you won't be able to make the next shuttle.   Patience is thekey!~
 #EXIT
 Direction west~
 ToRoom    506
@@ -2012,7 +2012,7 @@ Vnum     508
 Name     Spaceport hotel lobby~
 Sector   city~
 Flags    indoors~
-Desc     You stand in the Spaceport hotel lobby of Bravo-Beta.  Not many people arestaying at this hotel since people are leaving to Nar Shadda's manycities.  It is still open for everyone.  The hotel is very convenientbecause it leads straight of into the Spaceport.  It is great for quickdepatures and quick visits.~
+Desc     You stand in the Spaceport hotel lobby of Bravo-Beta.  Not many people arestaying at this hotel since people are leaving to Barnard Orbital Freeport's manycities.  It is still open for everyone.  The hotel is very convenientbecause it leads straight of into the Spaceport.  It is great for quickdepatures and quick visits.~
 #EXIT
 Direction east~
 ToRoom    506
@@ -2036,7 +2036,7 @@ Vnum     509
 Name     Reception desc~
 Sector   city~
 Flags    indoors~
-Desc     A large booth is here.  Behind the large booth is a large hutt hostess. The reason for the reception desk is because you may find a room with abacta tank.  Ifyou will pay here a amount of money. Several large clocksare hanged behind here and showing the times of many other planets. Thedesk is made of oak and his been recently polshed.  A small lign is formedbehind you as other people wait for their turn.~
+Desc     A large booth is here.  Behind the large booth is a large Lethari hostess. The reason for the reception desk is because you may find a room with abacta tank.  Ifyou will pay here a amount of money. Several large clocksare hanged behind here and showing the times of many other planets. Thedesk is made of oak and his been recently polshed.  A small lign is formedbehind you as other people wait for their turn.~
 #EXIT
 Direction east~
 ToRoom    508
@@ -2135,9 +2135,9 @@ Reset D 0 512 2 0
 
 #ROOM
 Vnum     513
-Name     Spaceport Bravo-Beta Hutt caravel launching bay entrance~
+Name     Spaceport Bravo-Beta Lethari caravel launching bay entrance~
 Sector   city~
-Desc     A large door stands in front of you which is large enough for a hutt to fitthrough.  Many hutts slide through the automatic door in front of you,trailing behind them a slime trail.  Following the hutts are their"Minions and goons" to accompany them to Nal Hutta.  On top of the door isa large scanner, scanning for weapons.  It is very noticeable so if youare smart enough, you'd put it away. ~
+Desc     A large door stands in front of you which is large enough for a Lethari to fitthrough.  Many Lethari slide through the automatic door in front of you,trailing behind them a slime trail.  Following the Lethari are their"Minions and goons" to accompany them to Barnard Freehold.  On top of the door isa large scanner, scanning for weapons.  It is very noticeable so if youare smart enough, you'd put it away. ~
 #EXIT
 Direction east~
 ToRoom    510
@@ -2153,7 +2153,7 @@ Vnum     514
 Name     Spaceport store~
 Sector   city~
 Flags    indoors~
-Desc     You stand in a small room containing: key chains, ammo cells and moreaccesories.  It is large enough to fit a couple of hutts but can get tocrowded.  It is not crowded now and you only notice a small child readingout of the magazine area.  A large fan cools you down as it spins in onedirection   A large cashier stand in front of a large hutt. He seems toknow what he is doing.   It may not seem to have much security but youwill never know.~
+Desc     You stand in a small room containing: key chains, ammo cells and moreaccesories.  It is large enough to fit a couple of Lethari but can get tocrowded.  It is not crowded now and you only notice a small child readingout of the magazine area.  A large fan cools you down as it spins in onedirection   A large cashier stand in front of a large Lethari. He seems toknow what he is doing.   It may not seem to have much security but youwill never know.~
 #EXIT
 Direction north~
 ToRoom    526
@@ -2289,7 +2289,7 @@ Vnum     521
 Name     Bridge~
 Sector   city~
 Flags    nomob~
-Desc     A large bridge is linked together between two landing pads.  It is wideenough for many people and can also support many tons of weight. Engineexaust fills the air as you smell the gas right in your face.  A lot ofships start landing a refueling their ships.    The width of the bridge isvery wide and could fit many hutts standing side by side.  It is very busyand is crossed many times. ~
+Desc     A large bridge is linked together between two landing pads.  It is wideenough for many people and can also support many tons of weight. Engineexaust fills the air as you smell the gas right in your face.  A lot ofships start landing a refueling their ships.    The width of the bridge isvery wide and could fit many Lethari standing side by side.  It is very busyand is crossed many times. ~
 #EXIT
 Direction east~
 ToRoom    522
@@ -2368,7 +2368,7 @@ Vnum     525
 Name     Medical bay~
 Sector   city~
 Flags    nomob~
-Desc     A large desc sits in front of you and behind it, is a Verpine secretary.  A large stack of papers are piled up.   Behind the desc, a large doorstands firm.  It sudenly swings open and you get a glimpse of a largeBacta tank containing a bunch of people.  ~
+Desc     A large desc sits in front of you and behind it, is a Veyran secretary.  A large stack of papers are piled up.   Behind the desc, a large doorstands firm.  It sudenly swings open and you get a glimpse of a largeBacta tank containing a bunch of people.  ~
 #EXIT
 Direction west~
 ToRoom    524
@@ -2870,7 +2870,7 @@ Reset D 0 551 2 0
 Vnum     552
 Name     Spaceport food court~
 Sector   city~
-Desc     The food court of the spaceport is very very large. They're aren't anyseats avaible because everyone is in one.  You might have to share a seatwith someone. It smells like klatooine patty frogs, one of Nal Hutta's andNar Shadda's best delicase. Many aliens are carrying trays full of foodwhile others are just lounging in theire chairs.  Maids, and workers arebusy cleaning up tables for other people to sit in.~
+Desc     The food court of the spaceport is very very large. They're aren't anyseats avaible because everyone is in one.  You might have to share a seatwith someone. It smells like klatooine patty frogs, one of Barnard Freehold's andNar Shadda's best delicase. Many aliens are carrying trays full of foodwhile others are just lounging in theire chairs.  Maids, and workers arebusy cleaning up tables for other people to sit in.~
 #EXIT
 Direction west~
 ToRoom    532
@@ -3080,7 +3080,7 @@ Reset M 0 505 2 562
 Vnum     563
 Name     Slanted catwalk~
 Sector   city~
-Desc     The catwalk gets very hard now.  It takes a lot of time and effort to getup.  You think to yourself, how can hutts get up here? You can look downat the people below, as you see tiny bald spots on their heads. Thecatwalk continues further up, then splits off in the other direction.~
+Desc     The catwalk gets very hard now.  It takes a lot of time and effort to getup.  You think to yourself, how can Lethari get up here? You can look downat the people below, as you see tiny bald spots on their heads. Thecatwalk continues further up, then splits off in the other direction.~
 #EXIT
 Direction up~
 ToRoom    564
@@ -3292,7 +3292,7 @@ Reset M 0 517 1 574
 Vnum     575
 Name     Observation deck~
 Sector   city~
-Desc     The room is filled with transparasteel.  Light pours in from everydirection.  It is a very beautiful sight.  You can see vertical city ofNar Shadda.  Large factories produce large quantities of smog. In the airyou see many star ships and freighters orbiting Nar Shadda spaceportlisntening for directions. Not many people are aloud in here but everyoneis to busy working than to notice you. It's an amazing sight isn't it?~
+Desc     The room is filled with transparasteel.  Light pours in from everydirection.  It is a very beautiful sight.  You can see vertical city ofNar Shadda.  Large factories produce large quantities of smog. In the airyou see many star ships and freighters orbiting Barnard Orbital Freeport spaceportlisntening for directions. Not many people are aloud in here but everyoneis to busy working than to notice you. It's an amazing sight isn't it?~
 #EXIT
 Direction down~
 ToRoom    574
@@ -3305,7 +3305,7 @@ Reset M 0 507 1 575
 Vnum     576
 Name     City street~
 Sector   city~
-Desc     The city streets are very crowded. Speeders pass by you with incrediblespeed. Nar Shadda is a very busy place and also very big. The Bravo-Betaspaceport is south of where you are standing.  Many towers and buildingsare every where you look.~
+Desc     The city streets are very crowded. Speeders pass by you with incrediblespeed. Barnard Orbital Freeport is a very busy place and also very big. The Bravo-Betaspaceport is south of where you are standing.  Many towers and buildingsare every where you look.~
 #EXIT
 Direction north~
 ToRoom    584
@@ -3484,7 +3484,7 @@ Reset M 0 525 1 585
 Vnum     586
 Name     Vertical city~
 Sector   city~
-Desc     The towers stand tall.  Their shadows invades you.  This is what it is likein Nar Shadda smuggler's moon.  The planet is filled with smugglersstopping by.   Speeders pass you so fast that you can barely make out thecolor of the speeder.~
+Desc     The towers stand tall.  Their shadows invades you.  This is what it is likein Barnard Orbital Freeport smuggler's moon.  The planet is filled with smugglersstopping by.   Speeders pass you so fast that you can barely make out thecolor of the speeder.~
 #EXIT
 Direction southeast~
 ToRoom    584
@@ -3533,7 +3533,7 @@ ToRoom    587
 Vnum     589
 Name     Entrance to the Cantina~
 Sector   city~
-Desc     You now stand in front of the famous "Vertical City Cantina".  There areother cantina's  in vertical city but none are as good as this one. Themusic is very loud but it seems that most people like it.  A large numberof people are entering the cantina. The cantina is a great place to findout information and hire spies and assasins.  Many hutt crime lords comeinto the cantina. That is why the door is so large.  They're two bouncerswhich guard the place.  The seems to be at ease. Somehow droids areallowed inside the cantina.  Well atleast you think so.  They're aren'tany droid detectors.~
+Desc     You now stand in front of the famous "Vertical City Cantina".  There areother cantina's  in vertical city but none are as good as this one. Themusic is very loud but it seems that most people like it.  A large numberof people are entering the cantina. The cantina is a great place to findout information and hire spies and assasins.  Many Lethari crime lords comeinto the cantina. That is why the door is so large.  They're two bouncerswhich guard the place.  The seems to be at ease. Somehow droids areallowed inside the cantina.  Well atleast you think so.  They're aren'tany droid detectors.~
 #EXIT
 Direction north~
 ToRoom    590
@@ -3550,7 +3550,7 @@ ToRoom    588
 Vnum     590
 Name     Inside the cantina~
 Sector   city~
-Desc     The music is now playing very loud.  You can see the band playing somesorte of music.  The audience seems to like it a lot. The cantina is verylarge compared to most others.  It's got many posters of advertissments.Booths are every where you look, in every direction.  You can't seem tofind the bar. The cantina has many aliens and humanoids but the mostcommon is hutts. ~
+Desc     The music is now playing very loud.  You can see the band playing somesorte of music.  The audience seems to like it a lot. The cantina is verylarge compared to most others.  It's got many posters of advertissments.Booths are every where you look, in every direction.  You can't seem tofind the bar. The cantina has many aliens and humanoids but the mostcommon is Lethari. ~
 #EXIT
 Direction north~
 ToRoom    593
@@ -3573,7 +3573,7 @@ Reset M 0 563 1 590
 Vnum     591
 Name     Cantina~
 Sector   city~
-Desc     It is extremely crowded inside here.  A large shadow hangs over oneparticular conrer of the cantina.  Large lights bathe the room green andwhite.    Hutt seems to be the dominant species around Nar Shadda andespiecally this cantina.  The cantina is not one bit quiet as you hearmany people talking mixed with the music.~
+Desc     It is extremely crowded inside here.  A large shadow hangs over oneparticular conrer of the cantina.  Large lights bathe the room green andwhite.    Lethari seems to be the dominant species around Barnard Orbital Freeport andespiecally this cantina.  The cantina is not one bit quiet as you hearmany people talking mixed with the music.~
 #EXIT
 Direction east~
 ToRoom    592
@@ -3591,7 +3591,7 @@ Vnum     592
 Name     Booth~
 Sector   city~
 Flags    nomob~
-Desc     The padding is very nice and comfortable.  It is a very large booth with asmall coffey table in the middle.   The seat is farely large and can fit alarge hutt.   You are very lucky that you actually found a booth in thecantina. The table is dirty and has not been cleaned yet.  You canactually see the band from where you are sitting.~
+Desc     The padding is very nice and comfortable.  It is a very large booth with asmall coffey table in the middle.   The seat is farely large and can fit alarge Lethari.   You are very lucky that you actually found a booth in thecantina. The table is dirty and has not been cleaned yet.  You canactually see the band from where you are sitting.~
 #EXIT
 Direction west~
 ToRoom    591

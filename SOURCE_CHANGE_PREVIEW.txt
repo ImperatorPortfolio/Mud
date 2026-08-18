@@ -1,0 +1,44 @@
+SOURCE CHANGES MADE BY apply_conversion.py
+==========================================
+
+src/const.c
+-----------
+- Replaces race_table with normalized Local Sphere species statistics.
+- Keeps MAX_RACE and numeric race indexes unchanged for compatibility.
+- Character creation exposes these eight internal IDs:
+
+  RACE_HUMAN        -> Human
+  RACE_WOOKIEE      -> Vordan
+  RACE_TWI_LEK      -> Lethari
+  RACE_NOGHRI       -> Keshari
+  RACE_MON_CALAMARI -> Pelagian
+  RACE_TRANDOSHAN   -> Drakken
+  RACE_VERPINE      -> Veyran
+  RACE_DEFEL        -> Noxian
+
+src/comm.c
+----------
+- Adds is_local_sphere_playable_race().
+- Both race-selection loops in nanny_get_new_race() skip non-playable IDs.
+- No save-file race renumbering is performed.
+
+src/act_move.c
+--------------
+Human    -> Earth / Sol
+Vordan   -> GJ 273 b
+Lethari  -> Teegarden's Star b
+Keshari  -> Ross 128 b
+Pelagian -> LHS 1140 b
+Drakken  -> Proxima Centauri b
+Veyran   -> TRAPPIST-1 e
+Noxian   -> TRAPPIST-1 f
+
+DATA
+----
+- Planet filenames stay unchanged, but Name and Starsystem fields change.
+- Active .system filenames stay unchanged, but displayed system/planet/star
+  fields change.
+- Area filenames and VNUMs stay unchanged, but #AREADATA Name fields change.
+- A first-pass prose replacement converts major old race/world references.
+- Parser-facing area Race/Speaks/Speaking/VIPFlags identifiers remain untouched
+  in this first compatibility pass.

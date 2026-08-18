@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -107,6 +107,7 @@ void nanny_confirm_new_name( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_get_new_password( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_confirm_new_password( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_get_new_sex( DESCRIPTOR_DATA *d, const char *argument );
+static bool is_local_sphere_playable_race( int race );
 void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_get_new_class( DESCRIPTOR_DATA *d, const char *argument );
 void nanny_roll_stats( DESCRIPTOR_DATA *d, const char *argument );
@@ -264,7 +265,7 @@ int main( int argc, char **argv )
    if( !fCopyOver )  /* We have already the port if copyover'ed */
       control = init_socket( port );
 
-   snprintf( log_buf, MAX_STRING_LENGTH, "Star Wars Reality ready on port %d.", port );
+   snprintf( log_buf, MAX_STRING_LENGTH, "Zero Point ready on port %d.", port );
    log_string( log_buf );
 
    if( fCopyOver )
@@ -1676,7 +1677,7 @@ void nanny_get_name( DESCRIPTOR_DATA *d, const char *orig_argument )
          }
 	 write_to_buffer( d, "\r\nChoosing a name is one of the most important parts of this game...\r\n"
 		                           "Make sure to pick a name appropriate to the character you are going\r\n"
-		                           "to role play, and be sure that it suits our Star Wars theme.\r\n"
+		                           "to role play, and be sure that it suits our Zero Point theme.\r\n"
 		                           "If the name you select is not acceptable, you will be asked to choose\r\n"
 		   "another one.\r\n\r\nPlease choose a name for your character: ", 0 );
 	 d->newstate++;
@@ -1955,6 +1956,8 @@ void nanny_get_new_sex( DESCRIPTOR_DATA *d, const char *argument )
 
   for( iRace = 0; iRace < MAX_RACE; iRace++ )
     {
+      if( !is_local_sphere_playable_race( iRace ) )
+         continue;
       if( race_table[iRace].race_name && race_table[iRace].race_name[0] != '\0' )
 	{
 	  if( iRace > 0 )
@@ -1976,6 +1979,31 @@ void nanny_get_new_sex( DESCRIPTOR_DATA *d, const char *argument )
   d->connected = CON_GET_NEW_RACE;
 }
 
+/*
+ * Local Sphere playable species.
+ *
+ * Old numeric race identifiers remain in place for save compatibility,
+ * but new character creation exposes only the eight converted species.
+ */
+static bool is_local_sphere_playable_race( int race )
+{
+   switch( race )
+   {
+      case RACE_HUMAN:        /* Human */
+      case RACE_WOOKIEE:      /* Vordan */
+      case RACE_TWI_LEK:      /* Lethari */
+      case RACE_NOGHRI:       /* Keshari */
+      case RACE_MON_CALAMARI: /* Pelagian */
+      case RACE_TRANDOSHAN:   /* Drakken */
+      case RACE_VERPINE:      /* Veyran */
+      case RACE_DEFEL:        /* Noxian */
+         return TRUE;
+
+      default:
+         return FALSE;
+   }
+}
+
 void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument )
 {
   char buf[MAX_STRING_LENGTH];
@@ -1995,6 +2023,8 @@ void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument )
 
   for( iRace = 0; iRace < MAX_RACE; iRace++ )
     {
+      if( !is_local_sphere_playable_race( iRace ) )
+         continue;
       if( toupper( arg[0] ) == toupper( race_table[iRace].race_name[0] )
 	  && !str_prefix( arg, race_table[iRace].race_name ) )
 	{
@@ -2258,12 +2288,12 @@ void nanny_read_motd( DESCRIPTOR_DATA *d, const char *argument )
   CHAR_DATA *ch = d->character;
   char buf[MAX_STRING_LENGTH];
 
-  write_to_buffer( d, "\r\nWelcome to Star Wars Reality...\r\n\r\n", 0 );
+  write_to_buffer( d, "\r\nWelcome to Zero Point...\r\n\r\n", 0 );
   add_char( ch );
   d->connected = CON_PLAYING;
 
   if( !IS_NPC( ch ) && IS_SET( ch->act, PLR_SOUND ) )
-    send_to_char( "!!MUSIC(starwars.mid V=100)", ch );
+    send_to_char( "!!MUSIC(Zero Point.mid V=100)", ch );
 
 
   if( ch->top_level == 0 )

@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Throne City~
+Name         Proxima Centauri b - Drakken Capital~
 Author       Trevor~
 Ranges       0 103 0 103
 Economy      0 6249579
@@ -120,7 +120,7 @@ VIPFlags   byss~
 
 #MOBILE
 Vnum       705
-Keywords   byss citizen~
+Keywords   Proxima Centauri b citizen~
 Short      a citizen~
 Long       A citizen minds his own business.
 ~
@@ -246,10 +246,10 @@ ToRoom    700
 Vnum     702
 Name     Within Imperial City~
 Sector   city~
-Desc     You pass the security checkpoint and enter in the heart of the Empire. The
+Desc     You pass the security checkpoint and enter in the heart of Proxima Directorate. The
 darkside hangs on you like sweat and you can feel the darkside in everyone
 that passes by you. As you look around you see an assortmen of shops and
-stores, as well as the infamous Byss Bistro. Fixing your eyes on the
+stores, as well as the infamous Proxima Centauri b Bistro. Fixing your eyes on the
 center of the city you look up in amazed horror as the Emperors Citadel
 looms over all, disapearring into the sky, an ominous sight indeed.
 ~
@@ -281,7 +281,7 @@ Vnum     703
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss. This part of the city contains mainly residences and small store and
+Proxima Centauri b. This part of the city contains mainly residences and small store and
 restaurants. Yet, the place as a cold evil, feel to it. The dark side of
 the force fills the air choking you with fear. In the center of the city
 the emporers citadel looms ominously over the city disapearing into the
@@ -305,7 +305,7 @@ Vnum     704
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -329,7 +329,7 @@ Vnum     705
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -353,7 +353,7 @@ Vnum     706
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -377,22 +377,22 @@ Vnum     707
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
 the sky. You walk along just inside of the great wall that surrounds
-throne city on Byss.  This part of the city contains mainly residences and
+throne city on Proxima Centauri b.  This part of the city contains mainly residences and
 small store and restaurants.  Yet, the place as a cold evil, feel to it.
 The dark side of the force fills the air choking you with fear. In the
 center of the city the emporers citadel looms ominously over the city
 disapearing into the sky. You walk along just inside of the great wall
-that surrounds throne city on Byss.  This part of the city contains mainly
+that surrounds throne city on Proxima Centauri b.  This part of the city contains mainly
 residences and small store and restaurants.  Yet, the place as a cold
 evil, feel to it. The dark side of the force fills the air choking you
 with fear. In the center of the city the emporers citadel looms ominously
 over the city disapearing into the sky. You walk along just inside of the
-great wall that surrounds throne city on Byss.  This part of the city
+great wall that surrounds throne city on Proxima Centauri b.  This part of the city
 contains mainly residences and small store and restaurants.  Yet, the
 place as a cold, evil feel to it. The dark side of the force fills the air
 choking you with fear. In the center of the city the emporers citadel
@@ -416,7 +416,7 @@ Vnum     708
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -440,7 +440,7 @@ Vnum     709
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -464,7 +464,7 @@ Vnum     710
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -489,7 +489,7 @@ Vnum     711
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -513,7 +513,7 @@ Vnum     712
 Name     Along the Western wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -537,7 +537,7 @@ Vnum     713
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -561,7 +561,7 @@ Vnum     714
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -585,7 +585,7 @@ Vnum     715
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss. This part of the city contains mainly residences and small store and
+Proxima Centauri b. This part of the city contains mainly residences and small store and
 restaurants. Yet, the place as a cold evil, feel to it. The dark side of
 the force fills the air choking you with fear. In the center of the city
 the emporers citadel looms ominously over the city disapearing into the
@@ -609,7 +609,7 @@ Vnum     716
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -633,7 +633,7 @@ Vnum     717
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -662,7 +662,7 @@ Vnum     718
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -686,7 +686,7 @@ Vnum     719
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold evil, feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -710,7 +710,7 @@ Vnum     720
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss. This part of the city contains mainly residences and small store and
+Proxima Centauri b. This part of the city contains mainly residences and small store and
 restaurants. Yet, the place as a cold, evil feel to it. The dark side of
 the force fills the air choking you with fear. In the center of the city
 the emporers citadel looms ominously over the city disapearing into the
@@ -734,7 +734,7 @@ Vnum     721
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -758,7 +758,7 @@ Vnum     722
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -783,7 +783,7 @@ Vnum     723
 Name     Along the Western Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -807,7 +807,7 @@ Vnum     724
 Name     Along the Western Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -831,7 +831,7 @@ Vnum     725
 Name     Along the Western Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -855,7 +855,7 @@ Vnum     726
 Name     Along the Western Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -879,7 +879,7 @@ Vnum     727
 Name     An Intersection ~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -913,7 +913,7 @@ Vnum     728
 Name     Along the Eastern Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -937,7 +937,7 @@ Vnum     729
 Name     Along the Eastern Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -961,7 +961,7 @@ Vnum     730
 Name     Along the Eastern Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -985,7 +985,7 @@ Vnum     731
 Name     Along the Eastern Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1009,7 +1009,7 @@ Vnum     732
 Name     Along the Eastern Wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1033,7 +1033,7 @@ Vnum     733
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1057,7 +1057,7 @@ Vnum     734
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1081,7 +1081,7 @@ Vnum     735
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1105,7 +1105,7 @@ Vnum     736
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1129,7 +1129,7 @@ Vnum     737
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1153,7 +1153,7 @@ Vnum     738
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1177,7 +1177,7 @@ Vnum     739
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1201,7 +1201,7 @@ Vnum     740
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1225,7 +1225,7 @@ Vnum     741
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1249,7 +1249,7 @@ Vnum     742
 Name     Imperial Alley~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear. In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1273,7 +1273,7 @@ Vnum     743
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss. This part of the city contains mainly residences and small store and
+Proxima Centauri b. This part of the city contains mainly residences and small store and
 restaurants. Yet, the place as a cold, evil feel to it. The dark side of
 the force fills the air choking you with fear. In the center of the city
 the emporers citadel looms ominously over the city disapearing into the
@@ -1314,7 +1314,7 @@ Vnum     745
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1338,7 +1338,7 @@ Vnum     746
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1362,7 +1362,7 @@ Vnum     747
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1386,7 +1386,7 @@ Vnum     748
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1410,7 +1410,7 @@ Vnum     749
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1434,7 +1434,7 @@ Vnum     750
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1458,7 +1458,7 @@ Vnum     751
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -1482,7 +1482,7 @@ Vnum     752
 Name     Along Eastern wall~
 Sector   city~
 Desc     You walk along just inside of the great wall that surrounds throne city on
-Byss.  This part of the city contains mainly residences and small store
+Proxima Centauri b.  This part of the city contains mainly residences and small store
 and restaurants.  Yet, the place as a cold, evil feel to it. The dark side
 of the force fills the air choking you with fear.  In the center of the
 city the emporers citadel looms ominously over the city disapearing into
@@ -2138,7 +2138,7 @@ ToRoom    727
 Vnum     794
 Name     Before Throne City~
 Sector   city~
-Desc     The small road you stand upon cuts through the barren byss desert. It
+Desc     The small road you stand upon cuts through the barren Proxima Centauri b desert. It
 begins in its north end at a small port town. In the South it ends at the
 walled throne city. The emporers citidel raises far above the city to the
 south dissapearing into the clouds. 
@@ -2159,7 +2159,7 @@ ToRoom    793
 Vnum     795
 Name     Road To Throne City~
 Sector   city~
-Desc     The small road you stand upon cuts through the barren byss desert. It
+Desc     The small road you stand upon cuts through the barren Proxima Centauri b desert. It
 begins in its north end at a small port town. In the South it ends at the
 walled throne city. The emporers citidel raises far above the city to the
 south dissapearing into the clouds.
@@ -2180,7 +2180,7 @@ ToRoom    794
 Vnum     796
 Name     Road To Throne City~
 Sector   city~
-Desc     The small road you stand upon cuts through the barren byss desert. It
+Desc     The small road you stand upon cuts through the barren Proxima Centauri b desert. It
 begins in its north end at a small port town. In the South it ends at the
 walled throne city. The emporers citidel raises far above the city to the
 south dissapearing into the clouds. 
@@ -2201,7 +2201,7 @@ ToRoom    795
 Vnum     797
 Name     Road To Throne City~
 Sector   city~
-Desc     The small road you stand upon cuts through the barren byss desert. It
+Desc     The small road you stand upon cuts through the barren Proxima Centauri b desert. It
 begins in its north end at a small port town. In the South it ends at the
 walled throne city. The emporers citidel raises far above the city to the
 south dissapearing into the clouds.
@@ -2222,7 +2222,7 @@ ToRoom    798
 Vnum     798
 Name     Road To Throne City~
 Sector   city~
-Desc     The small road you stand upon cuts through the barren byss desert. It
+Desc     The small road you stand upon cuts through the barren Proxima Centauri b desert. It
 begins in its north end at a small port town. In the South it ends at the
 walled throne city. The emporers citidel raises far above the city to the
 south dissapearing into the clouds. 
@@ -2245,8 +2245,8 @@ Vnum     799
 Name     Before a Small Town~
 Sector   city~
 Flags    nomob~
-Desc     You stand on a roadway just outside of a small port town on byss. Far to
-the south lines the new seat of the empire: the rebuilt throne city and
+Desc     You stand on a roadway just outside of a small port town on Proxima Centauri b. Far to
+the south lines the new seat of Proxima Directorate: the rebuilt throne city and
 emporers citadel.
 ~
 #EXIT

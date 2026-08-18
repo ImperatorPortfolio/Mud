@@ -19,7 +19,7 @@ if "%WSL_ROOT%"=="" (
     exit /b 1
 )
 
-echo Building SWRFUSS...
+echo Building ZeroPoint...
 wsl.exe -d Ubuntu -- bash -lc "cd \"%WSL_ROOT%/src\" && make"
 set "EXIT_CODE=%ERRORLEVEL%"
 

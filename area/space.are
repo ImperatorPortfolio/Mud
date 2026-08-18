@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Spacecraft and Orbiting Shipyards~
+Name         Deep Space~
 Author       Durga~
 Ranges       0 103 0 103
 Economy      0 28480340
@@ -124,11 +124,11 @@ mpat 32083 drop all
 #MOBILE
 Vnum       32004
 Keywords   republic trooper soldier~
-Short      a new republic trooper~
-Long       A new republic trooper is ready for battle.
+Short      a Terran Union trooper~
+Long       A Terran Union trooper is ready for battle.
 ~
-Desc       The new republic trooper has a cold look of determination in his eyes.
-With the war between the new republic and the old empire escalating
+Desc       Terran Union trooper has a cold look of determination in his eyes.
+With the war between Terran Union and the old empire escalating
 again all the troopers are doing extra training. He is well prepared
 for battle. 
 ~
@@ -229,7 +229,7 @@ Speaking   common~
 
 #MOBILE
 Vnum       32008
-Keywords   New Republic flight instructor~
+Keywords   Terran Union flight instructor~
 Short      a flight instructor~
 Long       A flight instructor is waiting for her student.
 ~
@@ -285,8 +285,8 @@ Defenses   disarm~
 #MOBILE
 Vnum       32010
 Keywords   Twilek craftswoman woman~
-Short      a Twi'lek craftswoman~
-Long       A Twi'lek craftswoman is here selling her crafts.
+Short      a Lethari craftswoman~
+Long       A Lethari craftswoman is here selling her crafts.
 ~
 Desc       This old twilek woman has a booth with some incredably beautiful
 items. She is very skilled in her craft. Maybe she could teach you a
@@ -311,7 +311,7 @@ Speaking   twilek~
 Vnum       32011
 Keywords   new repulic training officer~
 Short      a training officer~
-Long       A New Republic training officer is off duty.
+Long       A Terran Union training officer is off duty.
 ~
 Desc       The training officer is dressed in a light beigh uniform. He is an
 older man who has probably seen years of service. Rumor has it he
@@ -358,13 +358,13 @@ Speaking   common~
 
 #MOBILE
 Vnum       32013
-Keywords   young pilot new republic pilot~
+Keywords   young pilot Terran Union pilot~
 Short      a young pilot~
 Long       A young pilot is here preparing for flight.
 ~
 Desc       The pilot is a young human in is late teens. He wears a big smile on
 his face as he watches the ships launch from the platform ahead. He
-is dressed in a orange New Republic flight suit.
+is dressed in a orange Terran Union flight suit.
 ~
 Race       Human~
 Position   aggressive~
@@ -434,8 +434,8 @@ ShopData   57 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       32016
-Keywords   new republic trooper~
-Short      a new republic trooper~
+Keywords   Terran Union trooper~
+Short      a Terran Union trooper~
 Long       A new rebublic trooper is off duty.
 ~
 Race       Human~
@@ -456,11 +456,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       32017
-Keywords   new republic pilot nrp00~
-Short      a new republic pilot~
-Long       A new republic pilot is here.
+Keywords   Terran Union pilot nrp00~
+Short      a Terran Union pilot~
+Long       A Terran Union pilot is here.
 ~
-Desc       The pilot is dressed in a light grey new republic flight suit. He
+Desc       The pilot is dressed in a light grey Terran Union flight suit. He
 walks with a slight smile on his face as he checks the pressure
 controls on his chestplate.
 ~
@@ -508,10 +508,10 @@ Speaking   droid~
 #MOBILE
 Vnum       32019
 Keywords   pilot~
-Short      a wookiee pilot~
+Short      a Vordan pilot~
 Long       An experienced pilot has seen many years of flight.
 ~
-Desc       This tall wookiee has dark fur that is almost black. He wears a large
+Desc       This tall Vordan has dark fur that is almost black. He wears a large
 ammunition strap and a haversack. He is armed with a bowcaster.
 ~
 Race       Wookiee~
@@ -531,11 +531,11 @@ Speaking   wookiee~
 
 #MOBILE
 Vnum       32020
-Keywords   Quarren~
-Short      a Quarren~
-Long       A Quarren is daydreaming about the ocean.
+Keywords   Pelagian~
+Short      a Pelagian~
+Long       A Pelagian is daydreaming about the ocean.
 ~
-Desc       The Quarren are more commonly know as squidheads throughout the galaxy
+Desc       The Pelagian are more commonly know as squidheads throughout the galaxy
 due to the shape of their heads. The come from the ocean world of Mon
 Calamari.
 ~
@@ -755,11 +755,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       32029
-Keywords   hutt crimelord~
-Short      a hutt~
-Long       A hutt waits impatiently while his barge is repaired.
+Keywords   Lethari crimelord~
+Short      a Lethari~
+Long       A Lethari waits impatiently while his barge is repaired.
 ~
-Desc       The Hutts beautiful large size speaks well of his long full life. The
+Desc       The Lethari beautiful large size speaks well of his long full life. The
 exalted one seems a bit agitated however. Maybe fidgity from having to
 wait for repairs.
 ~
@@ -780,11 +780,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       32030
-Keywords   defel bodyguard~
+Keywords   Noxian bodyguard~
 Short      a bodyguard~
-Long       A Defel bodyguard is here protecting his employer.
+Long       A Noxian bodyguard is here protecting his employer.
 ~
-Desc       The defel is imolst impossible to make out apearing only as a shadow with
+Desc       The Noxian is imolst impossible to make out apearing only as a shadow with
 red eyes.
 ~
 Race       Defel~
@@ -826,9 +826,9 @@ Speaking   common~
 
 #MOBILE
 Vnum       32032
-Keywords   holographic new republic trooper~
+Keywords   holographic Terran Union trooper~
 Short      a hologram~
-Long       A holograph of a New Republic trooper is here poised for attack.
+Long       A holograph of a Terran Union trooper is here poised for attack.
 ~
 Race       Human~
 Position   aggressive~
@@ -916,11 +916,11 @@ Speaking   droid~
 
 #MOBILE
 Vnum       32036
-Keywords   chadra-fan woman citizen~
-Short      a Chadra-Fan~
-Long       A young Chadra-Fan woman is here.
+Keywords   Noxian woman citizen~
+Short      a Noxian~
+Long       A young Noxian woman is here.
 ~
-Desc       Chadra-fan area race of small rodent like humanoids coming from the planet
+Desc       Noxian area race of small rodent like humanoids coming from the planet
 Chad. This one smiles at you as she walks by. 
 ~
 Race       Chadra-Fan~
@@ -940,11 +940,11 @@ Speaking   chadra-fan~
 
 #MOBILE
 Vnum       32037
-Keywords   verpine male citizen~
-Short      a Verpine~
-Long       A young Verpine man is here.
+Keywords   Veyran male citizen~
+Short      a Veyran~
+Long       A young Veyran man is here.
 ~
-Desc       The verpine are a very intelligent race of bipedal insectoids. The have
+Desc       The Veyran are a very intelligent race of bipedal insectoids. The have
 large eyes short snouts and 2 antennea coming out of the sides of their
 heads. Their bodies are thin and stick like.
 ~
@@ -1160,11 +1160,11 @@ Speaking   common~
 
 #MOBILE
 Vnum       32050
-Keywords   rodian hunter bounty mercenary~
-Short      a Rodian~
-Long       A rodian has a cold cruel look in his eyes.
+Keywords   Keshari hunter bounty mercenary~
+Short      a Keshari~
+Long       A Keshari has a cold cruel look in his eyes.
 ~
-Desc       Rodians are well known throughout the galaxy as deadly bounty hunters. They
+Desc       Keshari are well known throughout the galaxy as deadly bounty hunters. They
 are easily disdinguished by their tapered snouts, large eyes, green skin,
 crested heads and suction copped fingers. This one looks very experienced.
 Maybe he could afford the time to give you a few lessons. 
@@ -1379,7 +1379,7 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32005
-Keywords new republic starfighter x-wing xw-0001~
+Keywords Terran Union starfighter x-wing xw-0001~
 Type     spacecraft~
 Short    X-Wing XW-0001~
 Long     X-Wing XW-0001 is docked here.~
@@ -1389,7 +1389,7 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32006
-Keywords new republic starfighter y-wing yw-0001~
+Keywords Terran Union starfighter y-wing yw-0001~
 Type     spacecraft~
 Short    Y-Wing YW-0001~
 Long     Y-Wing YW-0001 is docked here.~
@@ -1399,7 +1399,7 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32007
-Keywords new republic starfighter b-wing bw-0001~
+Keywords Terran Union starfighter b-wing bw-0001~
 Type     spacecraft~
 Short    B-Wing BW-0001~
 Long     B-Wing BW-0001 is docked here.~
@@ -1409,7 +1409,7 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32008
-Keywords new republic starfighter a-wing aw-0001~
+Keywords Terran Union starfighter a-wing aw-0001~
 Type     spacecraft~
 Short    A-Wing AW-0001~
 Long     A-Wing AW-0001 is docked here.~
@@ -2551,7 +2551,7 @@ Affect       -1 -1 -4 17 0
 
 #OBJECT
 Vnum     32226
-Keywords white new republic crested shirt~
+Keywords white Terran Union crested shirt~
 Type     armor~
 Short    a white crested shirt~
 Long     A white shirt is getting dirty lying on the floor.~
@@ -2564,7 +2564,7 @@ Affect       -1 -1 1 2 0
 
 #OBJECT
 Vnum     32227
-Keywords new republic vest~
+Keywords Terran Union vest~
 Type     armor~
 Short    a republic vest~
 Long     A tough vest is here.~
@@ -2748,9 +2748,9 @@ Stats    5 0 0 0 56
 #MUDPROG
 Progtype  wear_prog~
 Arglist   100~
-Comlist   if clan($n) != The Empire
+Comlist   if clan($n) != Proxima Directorate
 mpechoat $n What do you think you are a stormtrooper?
-mpechoat $n Go join the empire if you want to wear that!
+mpechoat $n Go join Proxima Directorate if you want to wear that!
 mpechoaround $n $n thinks $ss a stormtrooper.
 mpforce $n remove s32241 
 endif
@@ -2961,7 +2961,7 @@ Vnum     32258
 Keywords repulsor sled~
 Type     furniture~
 Short    a repulsor sled~
-Long     A repulsor sled would fit around the bottom of a hutt quite well.~
+Long     A repulsor sled would fit around the bottom of a Lethari quite well.~
 Flags    hutt_size~
 WFlags   take waist~
 Values   0 0 0 0 0 0
@@ -3082,10 +3082,10 @@ Affect       -1 -1 10 14 0
 
 #OBJECT
 Vnum     32268
-Keywords wookiee bowcaster~
+Keywords Vordan bowcaster~
 Type     weapon~
-Short    a wookiee bowcaster~
-Long     Bowcasters are the wookiees weapon of choice.~
+Short    a Vordan bowcaster~
+Long     Bowcasters are the Vordans weapon of choice.~
 Flags    large_size~
 WFlags   take wield~
 Values   0 6 7 9 110 110
@@ -3095,8 +3095,8 @@ Affect       -1 -1 1 19 0
 #MUDPROG
 Progtype  wear_prog~
 Arglist   100~
-Comlist   if race($n) != wookiee
-mpechoat $n Only Wookiees can handle bowcasters.
+Comlist   if race($n) != Vordan
+mpechoat $n Only Vordans can handle bowcasters.
 mpechoaround $n $n Tries to figure out what to do with a bowcaster.
 mpforce $n remove bowcaster 
 endif
@@ -3107,10 +3107,10 @@ endif
 
 #OBJECT
 Vnum     32269
-Keywords wookiee bandolier~
+Keywords Vordan bandolier~
 Type     container~
-Short    a wookiee bandolier~
-Long     A wookiee bandolier holds bowcaster quarrels.~
+Short    a Vordan bandolier~
+Long     A Vordan bandolier holds bowcaster quarrels.~
 Flags    large_size~
 WFlags   take about~
 Values   10 0 0 0 0 0
@@ -3268,8 +3268,8 @@ mpgoto 32295
 mptransfer $n 32296
 mpgoto 32296
 mpechoat $n The air pressure drops quickly.
-if race($n) == duinuogwuin
-mpechoat $n Thank god you're a Duinuogwuin.
+if race($n) == Vordan
+mpechoat $n Thank god you're a Vordan.
 else
 mpechoat $n Moments later you are dead.
 mpslay $n
@@ -3633,14 +3633,14 @@ Stats    1 0 0 0 0
 
 #ROOM
 Vnum     32000
-Name     Coruscant Shipyard: Docking Platform Alpha~
+Name     Earth Shipyard: Docking Platform Alpha~
 Sector   city~
 Flags    spacecraft~
-Desc     You are on the main platform of the shipyard orbiting Coruscant. Because
+Desc     You are on the main platform of the shipyard orbiting Earth. Because
 it is an off planet shipyard, larger capital ships maybe built and launched
 from here as well as the more standard planetary ones.
 All of the ships in this part of the shipyard are ready for flight.
-Many of them are owned by the new republic but there are often several
+Many of them are owned by Terran Union but there are often several
 private ones docked here as well as some available to rent
 ~
 #EXIT
@@ -3667,7 +3667,7 @@ ToRoom    32004
 
 #ROOM
 Vnum     32001
-Name     Coruscant Shipyard: Docking Platform Alpha-N~
+Name     Earth Shipyard: Docking Platform Alpha-N~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3701,7 +3701,7 @@ Reset M 0 32014 2 32001
 
 #ROOM
 Vnum     32002
-Name     Coruscant Shipyard: Docking Platform Alpha-E~
+Name     Earth Shipyard: Docking Platform Alpha-E~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3736,7 +3736,7 @@ Reset M 0 32008 1 32002
 
 #ROOM
 Vnum     32003
-Name     Coruscant Shipyard: Docking Platform Alpha-S~
+Name     Earth Shipyard: Docking Platform Alpha-S~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3767,7 +3767,7 @@ Reset M 0 32112 10 32003
 
 #ROOM
 Vnum     32004
-Name     Coruscant Shipyard: Docking Platform Alpha-W~
+Name     Earth Shipyard: Docking Platform Alpha-W~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing by the inside wall of platform alpha. The enormous
@@ -3900,7 +3900,7 @@ ToRoom    32025
 
 #ROOM
 Vnum     32008
-Name     Coruscant Shipyard: Docking Platform Gamma-E~
+Name     Earth Shipyard: Docking Platform Gamma-E~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -3946,7 +3946,7 @@ Reset M 0 32039 2 32008
 
 #ROOM
 Vnum     32009
-Name     Coruscant Shipyard: Docking Platform Gamma~
+Name     Earth Shipyard: Docking Platform Gamma~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -3984,7 +3984,7 @@ ToRoom    32010
 
 #ROOM
 Vnum     32010
-Name     Coruscant Shipyard: Docking Platform Gamma-W~
+Name     Earth Shipyard: Docking Platform Gamma-W~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4018,7 +4018,7 @@ Reset M 0 32112 10 32010
 
 #ROOM
 Vnum     32011
-Name     Coruscant Shipyard: Docking Platform Gamma-N~
+Name     Earth Shipyard: Docking Platform Gamma-N~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4051,7 +4051,7 @@ ToRoom    32010
 
 #ROOM
 Vnum     32012
-Name     Coruscant Shipyard: Docking Platform Gamma-S~
+Name     Earth Shipyard: Docking Platform Gamma-S~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4111,7 +4111,7 @@ Flags     passage~
 
 #ROOM
 Vnum     32014
-Name     Coruscant Shipyard: Docking Platform Delta-S~
+Name     Earth Shipyard: Docking Platform Delta-S~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4147,7 +4147,7 @@ ToRoom    32017
 
 #ROOM
 Vnum     32015
-Name     Coruscant Shipyard: Planetary Shuttle Stop~
+Name     Earth Shipyard: Planetary Shuttle Stop~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4184,7 +4184,7 @@ ToRoom    32017
 
 #ROOM
 Vnum     32016
-Name     Coruscant Shipyard: Docking Platform Delta-N~
+Name     Earth Shipyard: Docking Platform Delta-N~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4217,7 +4217,7 @@ Reset M 0 32018 2 32016
 
 #ROOM
 Vnum     32017
-Name     Coruscant Shipyard: Docking Platform Delta-W~
+Name     Earth Shipyard: Docking Platform Delta-W~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4249,7 +4249,7 @@ Reset M 0 32112 10 32017
 
 #ROOM
 Vnum     32018
-Name     Coruscant Shipyard: Docking Platform Delta-E~
+Name     Earth Shipyard: Docking Platform Delta-E~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4310,7 +4310,7 @@ ToRoom    32028
 
 #ROOM
 Vnum     32020
-Name     Coruscant Shipyard: Docking Platform Beta-N~
+Name     Earth Shipyard: Docking Platform Beta-N~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4346,7 +4346,7 @@ ToRoom    32023
 
 #ROOM
 Vnum     32021
-Name     Coruscant Shipyard: Docking Platform Beta~
+Name     Earth Shipyard: Docking Platform Beta~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4389,7 +4389,7 @@ Reset O 0 32255 1 32021
 
 #ROOM
 Vnum     32022
-Name     Coruscant Shipyard: Docking Platform Beta-S~
+Name     Earth Shipyard: Docking Platform Beta-S~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4421,7 +4421,7 @@ Reset M 0 32112 10 32022
 
 #ROOM
 Vnum     32023
-Name     Coruscant Shipyard: Docking Platform Beta-W~
+Name     Earth Shipyard: Docking Platform Beta-W~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4452,7 +4452,7 @@ ToRoom    32022
 
 #ROOM
 Vnum     32024
-Name     Coruscant Shipyard: Docking Platform Beta-E~
+Name     Earth Shipyard: Docking Platform Beta-E~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -5020,7 +5020,7 @@ Reset M 0 32004 2 32044
 Reset O 0 32272 1 32044
 #EXDESC
 ExDescKey    recruiting recruit desk~
-ExDesc       To join the New Republic type ENLIST
+ExDesc       To join Terran Union type ENLIST
 ~
 #ENDEXDESC
 
@@ -5133,7 +5133,7 @@ ToRoom    32032
 
 #ROOM
 Vnum     32050
-Name     Byss Shipyard, North Platform~
+Name     Proxima Centauri b Shipyard, North Platform~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5170,7 +5170,7 @@ Reset M 0 32003 1 32050
 
 #ROOM
 Vnum     32051
-Name     Byss Shipyard, Main Hanger N~
+Name     Proxima Centauri b Shipyard, Main Hanger N~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5224,7 +5224,7 @@ Reset M 0 32001 7 32051
 
 #ROOM
 Vnum     32052
-Name     Byss Shipyard, Main Hanger NE~
+Name     Proxima Centauri b Shipyard, Main Hanger NE~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5262,7 +5262,7 @@ Reset M 0 32021 9 32052
 
 #ROOM
 Vnum     32053
-Name     Byss Shipyard, Main Hanger E~
+Name     Proxima Centauri b Shipyard, Main Hanger E~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5310,7 +5310,7 @@ Reset M 0 32007 1 32053
 
 #ROOM
 Vnum     32054
-Name     Byss Shipyard, Main Hanger SE~
+Name     Proxima Centauri b Shipyard, Main Hanger SE~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5348,7 +5348,7 @@ Reset M 0 32040 1 32054
 
 #ROOM
 Vnum     32055
-Name     Byss Shipyard, Main Hanger S~
+Name     Proxima Centauri b Shipyard, Main Hanger S~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5402,7 +5402,7 @@ Reset M 0 32001 7 32055
 
 #ROOM
 Vnum     32056
-Name     Byss Shipyard, Main Hanger SW~
+Name     Proxima Centauri b Shipyard, Main Hanger SW~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5441,7 +5441,7 @@ Reset M 0 32026 2 32056
 
 #ROOM
 Vnum     32057
-Name     Byss Shipyard, Main Hanger W~
+Name     Proxima Centauri b Shipyard, Main Hanger W~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5484,7 +5484,7 @@ Reset M 0 32041 1 32057
 
 #ROOM
 Vnum     32058
-Name     Byss Shipyard, Main Hanger NW~
+Name     Proxima Centauri b Shipyard, Main Hanger NW~
 Sector   city~
 Flags    spacecraft~
 #EXIT
@@ -5543,7 +5543,7 @@ Reset M 0 32027 2 32058
 
 #ROOM
 Vnum     32059
-Name     Byss Shipyard, East Platform~
+Name     Proxima Centauri b Shipyard, East Platform~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5580,7 +5580,7 @@ ToRoom    32054
 
 #ROOM
 Vnum     32060
-Name     Byss Shipyard, South Platform~
+Name     Proxima Centauri b Shipyard, South Platform~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5612,7 +5612,7 @@ ToRoom    32056
 
 #ROOM
 Vnum     32061
-Name     Byss Shipyard, West Platform~
+Name     Proxima Centauri b Shipyard, West Platform~
 Sector   city~
 Flags    spacecraft~
 Desc     The shipyard level of the station is one enormous hanger.  Hundreds of
@@ -5655,7 +5655,7 @@ Name     Turbolift: Platform Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5690,7 +5690,7 @@ Name     Turbolift: Command Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5715,7 +5715,7 @@ Name     Turbolift: Engineering Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5745,7 +5745,7 @@ Name     Turbolift: Comercial Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5775,7 +5775,7 @@ Name     Turbolift: Residential Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5805,7 +5805,7 @@ Name     Turbolift: Upper Military Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5835,7 +5835,7 @@ Name     Turbolift: Lower Military Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -5865,7 +5865,7 @@ Name     Turbolift: Slave Level~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large turbolift runs up adnd down through the main levels of the
-byss shipyard. The lift is octagonal in shape and is large enough to
+Proxima Centauri b shipyard. The lift is octagonal in shape and is large enough to
 hold a couple of dozen people quit comfortably. The walls and ceiling
 like most of the station are a deep grey colour. The floor is metalic
 and covered in small bumps that seem to be designed to provide
@@ -6064,7 +6064,7 @@ Name     The Residential Loop~
 Sector   city~
 Flags    spacecraft~
 Desc     The residential loop is a ring of housing units encircling this level
-of the orbiting byss shipyard. The doors are evenly spaced out along
+of the orbiting Proxima Centauri b shipyard. The doors are evenly spaced out along
 the hall and are all numbered and identical.  The walls of the
 hallway are a dull grey and the floor is polished black like the rest
 of the shipyard.
@@ -6093,7 +6093,7 @@ Name     The Residential Loop~
 Sector   city~
 Flags    spacecraft~
 Desc     The residential loop is a ring of housing units encircling this level
-of the orbiting byss shipyard. The doors are evenly spaced out along
+of the orbiting Proxima Centauri b shipyard. The doors are evenly spaced out along
 the hall and are all numbered and identical.  The walls of the
 hallway are a dull grey and the floor is polished black like the rest
 of the shipyard.
@@ -6116,7 +6116,7 @@ Name     The Residential Loop~
 Sector   city~
 Flags    spacecraft~
 Desc     The residential loop is a ring of housing units encircling this level
-of the orbiting byss shipyard. The doors are evenly spaced out along
+of the orbiting Proxima Centauri b shipyard. The doors are evenly spaced out along
 the hall and are all numbered and identical.  The walls of the
 hallway are a dull grey and the floor is polished black like the rest
 of the shipyard.
@@ -6139,7 +6139,7 @@ Name     The Residential Loop~
 Sector   city~
 Flags    spacecraft~
 Desc     The residential loop is a ring of housing units encircling this level
-of the orbiting byss shipyard. The doors are evenly spaced out along
+of the orbiting Proxima Centauri b shipyard. The doors are evenly spaced out along
 the hall and are all numbered and identical.  The walls of the
 hallway are a dull grey and the floor is polished black like the rest
 of the shipyard.
@@ -6422,7 +6422,7 @@ Vnum     32091
 Name     Commercial Deck~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     The commercial deck of the Byss orbital shipyard only of a relatively
+Desc     The commercial deck of the Proxima Centauri b orbital shipyard only of a relatively
 empty courtyard, a large store and a cantina. The courtyard is a wide
 and very clean. The floor here is a polished black synthetic marble
 and the walls are a deep grey as they are in most of the rest of the
@@ -6468,7 +6468,7 @@ Vnum     32092
 Name     The Shipyard Cantina~
 Sector   city~
 Flags    spacecraft~
-Desc     The byss cantina is clean and orderly much like the rest of the
+Desc     The Proxima Centauri b cantina is clean and orderly much like the rest of the
 shipyard. The floor is polished and all the tables that aren't in
 used are spotless and properly set. The bar is clean of empty glasses
 and and any waste trays that aren't being used are freshly polished.
@@ -6500,7 +6500,7 @@ Vnum     32093
 Name     The Cantina Bar~
 Sector   city~
 Flags    spacecraft~
-Desc     The byss cantina is clean and orderly much like the rest of the
+Desc     The Proxima Centauri b cantina is clean and orderly much like the rest of the
 shipyard. The floor is polished and all the tables that aren't in
 used are spotless and properly set. The bar is clean of empty glasses
 and and any waste trays that aren't being used are freshly polished.
@@ -6519,7 +6519,7 @@ Vnum     32094
 Name     Back of Shipyard Cantina~
 Sector   city~
 Flags    spacecraft~
-Desc     The byss cantina is clean and orderly much like the rest of the
+Desc     The Proxima Centauri b cantina is clean and orderly much like the rest of the
 shipyard. The floor is polished and all the tables that aren't in
 used are spotless and properly set. The bar is clean of empty glasses
 and and any waste trays that aren't being used are freshly polished.
@@ -6605,7 +6605,7 @@ Reset O 0 32272 1 32096
 Reset D 0 32096 0 2
 #EXDESC
 ExDescKey    recruit recruiting desk~
-ExDesc       To join the empire type ENLIST.
+ExDesc       To join Proxima Directorate type ENLIST.
 ~
 #ENDEXDESC
 
@@ -6616,7 +6616,7 @@ Vnum     32097
 Name     The Infirmiry~
 Sector   city~
 Flags    spacecraft~
-Desc     While most of the Byss Orbitting Shipyard looks clean, this room looks
+Desc     While most of the Proxima Centauri b Orbitting Shipyard looks clean, this room looks
 and smells clean. The faint smell of bacta is overpowered by the
 odour of disinfectants. The room is lined along the walls with
 several beds. Each bed has a devider inbetween offering some
@@ -6694,7 +6694,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -6858,7 +6858,7 @@ Name     Cockpit~
 Sector   city~
 Flags    hotel spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -6937,7 +6937,7 @@ used as a bomber instead.
 
 #ROOM
 Vnum     32113
-Name     Inside a New Republic B-Wing Starfighter~
+Name     Inside a Terran Union B-Wing Starfighter~
 Sector   city~
 Flags    nomob spacecraft~
 Stats    0 0 1
@@ -6950,7 +6950,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7864,7 +7864,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7883,7 +7883,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7902,7 +7902,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7921,7 +7921,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7940,7 +7940,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7959,7 +7959,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7978,7 +7978,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -7997,7 +7997,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -8016,7 +8016,7 @@ the main one halfway down during combat and tuck in along the length
 during regular flight. Although the B-wing is one of the slower
 starfighters still used it makes up in firepower and durability what
 it lacks in thrust.The B-wing is one of the most durable and heavily
-armed New Republic starfighters.
+armed Terran Union starfighters.
 ~
 #ENDROOM
 
@@ -8620,7 +8620,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8683,7 +8683,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8746,7 +8746,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8809,7 +8809,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8872,7 +8872,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8935,7 +8935,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -8998,7 +8998,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -9061,7 +9061,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -9124,7 +9124,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -9187,7 +9187,7 @@ Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both the Empire and the New
+popular lightly armed shuttle used by both Proxima Directorate and the New
 Republic for transporting small groups of people. The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
@@ -9398,7 +9398,7 @@ ToRoom    32251
 
 #ROOM
 Vnum     32251
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9425,7 +9425,7 @@ ToRoom    32254
 
 #ROOM
 Vnum     32252
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9558,7 +9558,7 @@ ToRoom    32261
 
 #ROOM
 Vnum     32261
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9585,7 +9585,7 @@ ToRoom    32264
 
 #ROOM
 Vnum     32262
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9718,7 +9718,7 @@ ToRoom    32271
 
 #ROOM
 Vnum     32271
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9745,7 +9745,7 @@ ToRoom    32274
 
 #ROOM
 Vnum     32272
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9878,7 +9878,7 @@ ToRoom    32281
 
 #ROOM
 Vnum     32281
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT
@@ -9905,7 +9905,7 @@ ToRoom    32284
 
 #ROOM
 Vnum     32282
-Name     Corridor in a Noghri Fast Attack Ship~
+Name     Corridor in a Keshari Fast Attack Ship~
 Sector   city~
 Flags    indoors spacecraft~
 #EXIT

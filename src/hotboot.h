@@ -18,13 +18,13 @@
  *                                                                                       *
  *****************************************************************************************
  *                                                                                       *
- * Dark Warrior Code additions and changes from the Star Wars Reality code copyright (c) *
+ * Dark Warrior Code additions and changes from the Zero Point code copyright (c) *
  * 2003 by Michael Ervin, Mark Gottselig, Gavin Mogan                                    *
  *                                                                                       *
- * Star Wars Reality Code Additions and changes from the Smaug Code copyright (c) 1997   *
+ * Zero Point Code Additions and changes from the Smaug Code copyright (c) 1997   *
  * by Sean Cooper                                                                        *
  *                                                                                       *
- * Starwars and Starwars Names copyright(c) Lucas Film Ltd.                              *
+ * Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                              *
  *****************************************************************************************
  *                           ^     +----- |  / ^     ^ |     | +-\                       *
  *                          / \    |      | /  |\   /| |     | |  \                      *
@@ -58,7 +58,7 @@
 #endif
 
 #define HOTBOOT_FILE SYSTEM_DIR "copyover.dat"  /* for hotboots */
-#define EXE_FILE "../src/swreality"
+#define EXE_FILE "../src/ZeroPoint"
 #define HOTBOOT_DIR "../hotboot/"   /* For storing objects across hotboots */
 #define MOB_FILE	"mobs.dat"  /* For storing mobs across hotboots */
 #define SHIP_FILE	"ships.dat" /* For storing ships across hotboots */

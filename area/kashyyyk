@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         kashyyyk~
+Name         TRAPPIST-1 e - Veyran Territory~
 Author       Thrawn~
 Ranges       2 103 2 103
 Economy      0 125018795
@@ -11,9 +11,9 @@ ResetFreq    20
 
 #MOBILE
 Vnum       28600
-Keywords   Wookiee shop owner~
-Short      a wookiee shop owner~
-Long       A rather large wookiee is behind the counter here.
+Keywords   Vordan shop owner~
+Short      a Vordan shop owner~
+Long       A rather large Vordan is behind the counter here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -34,9 +34,9 @@ ShopData   0 0 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       28601
-Keywords   wookiee female~
-Short      a female wookiee ~
-Long       A female wookiee is walking around.
+Keywords   Vordan female~
+Short      a female Vordan ~
+Long       A female Vordan is walking around.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -56,8 +56,8 @@ VIPFlags   kashyyyk~
 
 #MOBILE
 Vnum       28602
-Keywords   A Wookiee Teacher~
-Short      A Wookiee Teacher~
+Keywords   A Vordan Teacher~
+Short      A Vordan Teacher~
 Long       A teacher stands here trying to make the rowdy children learn something.
 ~
 Race       Wookiee~
@@ -77,7 +77,7 @@ VIPFlags   kashyyyk~
 #MUDPROG
 Progtype  all_greet_prog~
 Arglist   100~
-Comlist   if race($n) == wookiee
+Comlist   if race($n) == Vordan
 say Hello $n, Are you ready for your lessons?
 else
 say I'm sorry $n I only teach my people
@@ -89,9 +89,9 @@ endif
 
 #MOBILE
 Vnum       28603
-Keywords   wookiee male~
-Short      a wookiee male~
-Long       A wookiee male is looking around here.
+Keywords   Vordan male~
+Short      a Vordan male~
+Long       A Vordan male is looking around here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -111,9 +111,9 @@ VIPFlags   kashyyyk~
 
 #MOBILE
 Vnum       28604
-Keywords   wookiee child~
-Short      a wookiee child~
-Long       A wookiee child is playing around here.
+Keywords   Vordan child~
+Short      a Vordan child~
+Long       A Vordan child is playing around here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -135,7 +135,7 @@ VIPFlags   kashyyyk~
 Vnum       28605
 Keywords   Ralra~
 Short      Ralra~
-Long       The wookiee Ralra is here.
+Long       The Vordan Ralra is here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -166,7 +166,7 @@ mpoload 28604
 Vnum       28606
 Keywords   Rwookrrorro~
 Short      Rwookrrorro~
-Long       The wookiee Rwookrrorro is sitting here.
+Long       The Vordan Rwookrrorro is sitting here.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -208,9 +208,9 @@ VIPFlags   kashyyyk~
 
 #MOBILE
 Vnum       28608
-Keywords   female wookiee shop owner~
-Short      a female wookiee~
-Long       A wookiee female minds the shop.
+Keywords   female Vordan shop owner~
+Short      a female Vordan~
+Long       A Vordan female minds the shop.
 ~
 Race       Wookiee~
 Position   aggressive~
@@ -244,8 +244,8 @@ Affect       -1 -1 1 19 0
 #MUDPROG
 Progtype  wear_prog~
 Arglist   100~
-Comlist   if race($n) != wookiee
-mpechoat $n Only wookiees can handle bowcasters.
+Comlist   if race($n) != Vordan
+mpechoat $n Only Vordans can handle bowcasters.
 mpechoaround $n $n tries to figure out what to do with a bowcaster.
 mpforce $n remove bowcaster
 endif
@@ -270,8 +270,8 @@ Stats    1 50 10 0 0
 Vnum     28602
 Keywords bandolier~
 Type     container~
-Short    a wookiee bandolier~
-Long     A wookiee bandolier has been dropped here.~
+Short    a Vordan bandolier~
+Long     A Vordan bandolier has been dropped here.~
 Flags    large_size~
 WFlags   take about~
 Values   10 0 0 0 0 0
@@ -295,8 +295,8 @@ Affect       -1 -1 1 19 0
 #MUDPROG
 Progtype  wear_prog~
 Arglist   100~
-Comlist   if race($n) != wookiee
-mpechoat $n Only wookiees can handle this bowcaster!
+Comlist   if race($n) != Vordan
+mpechoat $n Only Vordans can handle this bowcaster!
 mpechoaround $n $n tries to figure out what to do with a bowcster.
 mpforce $n remove bowcaster
 endif
@@ -332,8 +332,8 @@ Name     Northern Nursery Ring~
 Sector   city~
 Flags    nomob safe~
 Desc     You are in the northernmost side of Rwookrrorro's nursery ring.  This is
-where  all young Wookiees start thier lives.  Baby Wookiee's are being
-nursed here and slightly larger Wookiee children are sleeping here. You
+where  all young Vordans start thier lives.  Baby Vordan's are being
+nursed here and slightly larger Vordan children are sleeping here. You
 also here soothing music being played over an intercom. 
 ~
 #EXIT
@@ -358,12 +358,12 @@ Vnum     28601
 Name     Central Nursery Ring~
 Sector   city~
 Flags    nomob~
-Desc     You are standing in the central nursery ring.  This is where Wookiee
+Desc     You are standing in the central nursery ring.  This is where Vordan
 toddlers are allowed to stumble around.  The floors and walls are padded
-to prevent injury.  Elderly Wookiee ladies are here to comfort the
+to prevent injury.  Elderly Vordan ladies are here to comfort the
 toddlers and urge them into walking upright.  All around the room are
-branches which have been bolted into the floor to allow young Wookiees to
-test their climbing ability.  Younger Wookiees rest to the North and Older
+branches which have been bolted into the floor to allow young Vordans to
+test their climbing ability.  Younger Vordans rest to the North and Older
 ones perfect their climbing to the South.
 ~
 #EXIT
@@ -388,11 +388,11 @@ Reset M 0 28601 13 28601
 Vnum     28602
 Name     Southern Nursery Ring~
 Sector   city~
-Desc     You are standing in the southernmost nursery ring where Wookiee children
-are perfecting their climbing skills.  All around you, small Wookiees are
+Desc     You are standing in the southernmost nursery ring where Vordan children
+are perfecting their climbing skills.  All around you, small Vordans are
 climbing the branches which this room has been built around.  They dangle
 from often frightening heights, trusting their instructors to catch them
-should they fall. You can Climb up with the Wookiee children, you can go
+should they fall. You can Climb up with the Vordan children, you can go
 north the the toddler's area, or you can go South to a lift which will
 take you to Rwookrrorro's lower  levels.
 ~
@@ -425,9 +425,9 @@ Vnum     28603
 Name     Upper level of the Nursery Climbing Area~
 Sector   city~
 Desc     You are holding tightly to a high branch above the nursery ring's climbing
-practice area.  All around you Wookiee children hang from branches, well
+practice area.  All around you Vordan children hang from branches, well
 most of them hang, a few have already fallen and had to be caught by the
-strong Wookiees standing below.  You just hope you have the strength to
+strong Vordans standing below.  You just hope you have the strength to
 keep yourself  up.  The only exit is down, to the lower practice area.
 ~
 #EXIT
@@ -444,7 +444,7 @@ Name     Litfcar~
 Sector   city~
 Flags    nomob~
 Desc     You are in a liftcar at the top level of Rwookrrorro.  This level is
-dedicated to the nursery rings where young Wookiees are nursed and live
+dedicated to the nursery rings where young Vordans are nursed and live
 until they can  climb and walk well enough to get around the city
 themselves.  You can exit to  the nursery rings to the north or you can
 ride the lift down.
@@ -519,8 +519,8 @@ Name     Liftcar~
 Sector   city~
 Desc     You are in a liftcar below the lowest level of Rwookrrorro.  From here you
 have an amazing view, well two amazing views really.  One below you, into
-the deep green forrests of Kashyyyk. Above you is another amazing sight,
-the underside of the great Wookiee city Rwookrrorro.  The branches of the
+the deep green forrests of TRAPPIST-1 e. Above you is another amazing sight,
+the underside of the great Vordan city Rwookrrorro.  The branches of the
 worshyr trees support the city kilometers off the ground.  They form
 spiderweb like patterns  because of their unique bonding properties, when
 two branches meet, they bond and send out more branches in new directions.
@@ -543,7 +543,7 @@ Vnum     28608
 Name     The "Corner"~
 Sector   city~
 Desc     You are standing in the naughty children's corner.  Have you been
-naughty?? Bad little Wookiee children stand here facing the wall.
+naughty?? Bad little Vordan children stand here facing the wall.
 As you stare at the wall you notice that the corner didn't actually 
 settle down all the bad little children, one scratched something into the
 wall with his claw: it says,"There once was a man from Corellia." The rest
@@ -569,7 +569,7 @@ Sector   city~
 Flags    safe~
 Desc     You stand in the middle of a room filled with chairs.  One wall is
 almost entirely covered by an electronic chalkboard.  This is where
-the young Wookiees are taught to read and write.  Some children run
+the young Vordans are taught to read and write.  Some children run
 around the room playing tag.  A teacher stands at the front of the room
 trying to settle down the children.
 ~
@@ -585,11 +585,11 @@ Reset M 0 28602 1 28609
 Vnum     28610
 Name     Residential Area~
 Sector   city~
-Desc     The residential area is, obviously, loaded with houses of the wookiee
+Desc     The residential area is, obviously, loaded with houses of the Vordan
 people they are made from the natural material that surrounds the entire
 wookie world whish is wood, and some houses have plasteel windows.
-Wookiees pass you by, not to surprisingly this place is fairly crowded
-with wookiees and the wookiee children running about  seem to be playing a
+Vordans pass you by, not to surprisingly this place is fairly crowded
+with Vordans and the Vordan children running about  seem to be playing a
 game of hide and seak with each other.
 ~
 #EXIT
@@ -620,9 +620,9 @@ Reset M 0 28603 12 28610
 Vnum     28611
 Name     Commercial Area~
 Sector   city~
-Desc     This place is crawling with wookiees as well as some other forms of beings,
+Desc     This place is crawling with Vordans as well as some other forms of beings,
 they seem to be to busy to even notice you getting off the lift car even
-though your pack to the gills with illegal weapons. The wookiee are far to
+though your pack to the gills with illegal weapons. The Vordan are far to
 interested with thier lives to have to pay any attention to you and your
 petty adventure through their home world. A word of advice, don't get them
 angry. 
@@ -660,9 +660,9 @@ Reset M 0 28603 12 28611
 Vnum     28612
 Name     Commercial Area~
 Sector   city~
-Desc     This place is crawling with wookiees as well as some other forms of beings,
+Desc     This place is crawling with Vordans as well as some other forms of beings,
 they seem to be to busy to even notice you getting off the lift car even
-though your pack to the gills with illegal weapons. The wookiee are far to
+though your pack to the gills with illegal weapons. The Vordan are far to
 interested with thier lives to have to pay any attention to you and your
 petty adventure through their home world. A word of advice, don't get them
 angry. 
@@ -686,9 +686,9 @@ Sector   city~
 Desc     The landing pad is not to crowded, but it does have the odd technician
 working on ships that are in dire need of repair or tune ups. The place
 has the smell of the forest lingering in it as well as the smell of
-polished metal, coolant, and wet wookiee,  nothing entirely pleasant but
+polished metal, coolant, and wet Vordan,  nothing entirely pleasant but
 livable. The walls that partially surround  the pad have the tools that
-the techs use for the repairs as well as some pictures of female wookiees
+the techs use for the repairs as well as some pictures of female Vordans
 in compromising positions. The only way out is back the way you came.
 ~
 #EXIT
@@ -702,10 +702,10 @@ ToRoom    28612
 Vnum     28614
 Name     Commercial Area~
 Sector   city~
-Desc     This place seems to be crawling with wookiees as well as some other forms
+Desc     This place seems to be crawling with Vordans as well as some other forms
 of beings, they seem to be to busy to even notice you enter the area even
 though you area loaded to the  gills with some of the more sofisticated
-weapons they have seen, besides their bowcasters. The wookiees are far to
+weapons they have seen, besides their bowcasters. The Vordans are far to
 interested with their own lives to have to pay attention to you and your
 petty adventure through their home world. A word of advice, don't get them
 angery. The place is starting to get the smell of some freshly cooked food
@@ -731,7 +731,7 @@ Flags    indoors~
 Desc     The shop has a very pleasent odur to it. With the carcuses of freshly
 skined animals packed on ice under the glass counter and some dried foods
 lining the walls you start to hear your stomach rumble with hunger. The
-wookiee behind the glass counter is very large andfor all you know he
+Vordan behind the glass counter is very large andfor all you know he
 could be packing heat just in case someone like you decided to come in
 here and "borrow" some of her goods.
 ~
@@ -752,9 +752,9 @@ Reset M 0 28608 1 28615
 Vnum     28616
 Name     Commercial Area~
 Sector   city~
-Desc     This place is crawling with wookiees as well as some other forms of beings,
+Desc     This place is crawling with Vordans as well as some other forms of beings,
 they seem to be to busy to even notice you getting off the lift car even
-though your pack to the gills with illegal weapons. The wookiee are far to
+though your pack to the gills with illegal weapons. The Vordan are far to
 interested with thier lives to have to pay any attention to you and your
 petty adventure through their home world. A word of advice, don't get them
 angry.
@@ -782,7 +782,7 @@ Name     The Cocked Bowcaster~
 Sector   city~
 Flags    indoors safe~
 Desc     You stand in the cocked bowcaster, where bowcasters are the specialty and
-they don't come cheap. the walls are lined with many of the wookiee's
+they don't come cheap. the walls are lined with many of the Vordan's
 preferd weapon and there are different colours as well as different shapes
 to them as well. The ones that really catch you eyes are the double
 barreled ones they look powerful as well as expensive. The owner has one
@@ -805,9 +805,9 @@ Reset M 0 28600 1 28617
 Vnum     28618
 Name     Commercial Area~
 Sector   city~
-Desc     This place is crawling with wookiees as well as some other forms of beings,
+Desc     This place is crawling with Vordans as well as some other forms of beings,
 they seem to be to busy to even notice you getting off the lift car even
-though your pack to the gills with illegal weapons. The wookiee are far to
+though your pack to the gills with illegal weapons. The Vordan are far to
 interested with thier lives to have to pay any attention to you and your
 petty adventure through their home world. A word of advice, don't get them
 angry. 
@@ -828,11 +828,11 @@ ToRoom    28616
 Vnum     28619
 Name     Residential Area~
 Sector   city~
-Desc     The residential area is, obviously, loaded with houses of the wookiee
+Desc     The residential area is, obviously, loaded with houses of the Vordan
 people they are made from the natural material that surrounds the entire
 wookie world whish is wood, and some houses have plasteel windows.
-Wookiees pass you by, not to surprisingly this place is fairly crowded
-with wookiees and the wookiee children running about  seem to be playing a
+Vordans pass you by, not to surprisingly this place is fairly crowded
+with Vordans and the Vordan children running about  seem to be playing a
 game of hide and seak with each other. 
 ~
 #EXIT
@@ -866,11 +866,11 @@ ToRoom    28627
 Vnum     28620
 Name     Residential Area~
 Sector   city~
-Desc     The residential area is, obviously, loaded with houses of the wookiee
+Desc     The residential area is, obviously, loaded with houses of the Vordan
 people they are made from the natural material that surrounds the entire
 wookie world whish is wood, and some houses have plasteel windows.
-Wookiees pass you by, not to surprisingly this place is fairly crowded
-with wookiees and the wookiee children running about  seem to be playing a
+Vordans pass you by, not to surprisingly this place is fairly crowded
+with Vordans and the Vordan children running about  seem to be playing a
 game of hide and seak with each other. 
 ~
 #EXIT
@@ -910,7 +910,7 @@ Vnum     28621
 Name     Worshyr Guests Trees House~
 Sector   city~
 Flags    indoors safe hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -933,7 +933,7 @@ Vnum     28622
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -956,7 +956,7 @@ Vnum     28623
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -979,7 +979,7 @@ Vnum     28624
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1002,7 +1002,7 @@ Vnum     28625
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1025,7 +1025,7 @@ Vnum     28626
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1048,7 +1048,7 @@ Vnum     28627
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1074,7 +1074,7 @@ Flags    indoors safe hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty. 
@@ -1094,7 +1094,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty.
@@ -1120,7 +1120,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty.
@@ -1140,7 +1140,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty. 
@@ -1160,7 +1160,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty. 
@@ -1180,7 +1180,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty.
@@ -1200,7 +1200,7 @@ Flags    indoors hotel~
 Desc     The room, like downstairs is very well lit from the outside lights. The
 branches from the trees leave haunting shadows on the walls as well as tap
 on the window once in awhile. The room has a large bed that can fit at
-least 6 human sized people comfortabley and probably two wookiees
+least 6 human sized people comfortabley and probably two Vordans
 comfortably. The bed like the funiture downstairs is covered with shed fur
 but other then that it is made and looks inviting. Other then the bedroom
 funiture the room is empty. 
@@ -1222,7 +1222,7 @@ Vnum     28635
 Name     Worshyr Tree House~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1245,7 +1245,7 @@ Vnum     28636
 Name     Upstairs Room~
 Sector   city~
 Flags    indoors hotel~
-Desc     This place has the smell of wookiees in as well as tons of wookiee fur has
+Desc     This place has the smell of Vordans in as well as tons of Vordan fur has
 been shed over the funiture, which looks like it can fit a giant due to
 the size of them The place is well lit and has the cool breeze from teh
 open windows blowing through. There are stairs to this house which lead
@@ -1268,7 +1268,7 @@ Flags    prototype~
 Desc     You have been placed into a Kashyyk Prison Net. The rope is created from a
 a laser and blaster proof twine. Unfortunetly there seems to be no way
 down from these traps. As you glance across the horizon you notice that
-Kashyyyk is an incredibly attractive planet. To bad (unless you find
+TRAPPIST-1 e is an incredibly attractive planet. To bad (unless you find
 someone to let you down) you will spend the rest of your life here.
 ~
 #EXIT

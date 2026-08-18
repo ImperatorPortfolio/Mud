@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -841,7 +841,7 @@ void do_look( CHAR_DATA * ch, const char *argument )
             if( IS_SET( ch->act, PLR_ROOMVNUM ) )
             {
                 set_char_color( AT_BLUE, ch );   /* Added 10/17 by Kuran of */
-                send_to_char( "{", ch );   /* SWReality */
+                send_to_char( "{", ch );   /* ZeroPoint */
                 ch_printf( ch, "%d", ch->in_room->vnum );
                 send_to_char( "}}", ch );
             }

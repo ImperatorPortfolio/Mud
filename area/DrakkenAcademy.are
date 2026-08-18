@@ -1,0 +1,2242 @@
+#FUSSAREA
+#AREADATA
+Version      1
+Name         Drakken Proxima Academy~
+Author       Scarab/Durga~
+Ranges       1 2 0 2
+Economy      0 497782131
+ResetMsg     You hear the low thrum of Drakken Proxima Academy adjusting its orbit above Proxima Centauri b~
+ResetFreq    3
+Flags        nopkill~
+#ENDAREADATA
+
+#MOBILE
+Vnum       51040
+Keywords   Domick Dom teacher~
+Short      Domick~
+Long       Domick, Lord of Knowledge, sits here reading, waiting for students.
+~
+Desc       Domick carries himself with a grace and confidence born from his
+long life and many experiences in these Realms. He is looked on
+with awe and unquestioned respect. That respect is well deserved.
+Do not attempt to kill him, for you shall surely die.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc sentinel practice~
+Affected   detect_invis detect_hidden sanctuary truesight~
+Stats1     1000 1 0 94 100 0
+Stats2     1 1 1000
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    13 13 13 13 13 13 0 0
+Saves      0 0 0 0 37
+Speaks     jawa~
+Speaking   common jawa~
+Immune     sleep charm nonmagic magic~
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   tell $n Are you ready for your lessons?
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51042
+Keywords   academy student~
+Short      a student~
+Long       An acadamy student is here taking a break from his studies.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel prototype~
+Stats1     0 1 0 0 0 0
+Stats2     0 0 0
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+Speaking   common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   no nope~
+Comlist   say You can have it anyways.
+give luke $n
+drop all
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   yes yep~
+Comlist   say Ok you can have it then.
+give luke $n
+drop all
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   hi hello~
+Comlist   say Hello.
+Say I found this toy ... is it yours?
+mpat 51099 mpoload 51020
+mpecho A student shows you a Luke Skywalker Action Figure.
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51043
+Keywords   kid child~
+Short      a small child~
+Long       A young child is sitting here.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc sentinel prototype~
+Stats1     0 1 0 0 0 0
+Stats2     0 0 0
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+Speaking   common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+#MUDPROG
+Progtype  act_prog~
+Arglist   p gives you a Luke Skywalker action figure.~
+Comlist   say thank you
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   snif
+say I lost my Luke Skywalker toy
+cry
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   key~
+Comlist   if ovnuminv (51020) >= 1
+say You want the key for this door?
+point north
+say here let me open it for you
+mpat 51099 mpoload 51123
+unlock north
+open north
+mpat 51099 drop all
+mpat 51099 purge
+else
+cry
+endif
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   door door? key?~
+Comlist   if ovnuminv (51020) >= 1
+say You want the key for this door?
+point north
+say here let me open it for you
+mpat 51099 mpoload 51123
+unlock north
+open north
+mpat 51099 drop all
+mpat 51099 purge
+else
+cry
+endif
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   door? north~
+Comlist   if ovnuminv (51020) >= 1
+say You want the key for this door?
+point north
+say here let me open it for you
+mpat 51099 mpoload 51123
+unlock north
+open north
+mpat 51099 drop all
+mpat 51099 purge
+else
+cry
+endif
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51045
+Keywords   chadoyn cage~
+Short      the chadoyn~
+Long       The chadoyn is straining its leash, attempting to attack you.
+~
+Desc       He looks back at you with his beady little eyes and a snarl on his face.
+You are pretty sure you can best him in regards to combat.
+~
+Race       r85~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel~
+Stats1     0 2 0 25 0 0
+Stats2     2 4 1
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    13 13 13 13 13 13 0 0
+Saves      0 0 0 0 44
+Speaks     jawa~
+Speaking   common jawa~
+Bodyparts  head arms~
+Immune     charm~
+#MUDPROG
+Progtype  death_prog~
+Arglist   85~
+Comlist   if level($n) >= 6
+if rand(50)
+mpechoat $n You feel an overwhelming desire for greater challenge.
+else
+mpechoat $n The chadoyn is far too easy for you to kill.
+endif
+endif
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51050
+Keywords   professor schoolmaster teacher headmaster~
+Short      the Schoolmaster~
+Long       The schoolmaster is here offering diplomas to academy graduates.
+~
+Desc       Domick carries himself with a grace and confidence born from his
+long life and many experiences in these Realms. He is looked on
+with awe and unquestioned respect. That respect is well deserved.
+Do not attempt to kill him, for you shall surely die.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_auth~
+Gender     male~
+Actflags   npc sentinel~
+Affected   detect_invis detect_hidden sanctuary truesight~
+Stats1     1000 1 0 94 100 0
+Stats2     1 1 1000
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    13 13 13 13 13 13 0 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Immune     sleep charm nonmagic magic~
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   if level($n) == 1
+mpadvance $n 2
+endif
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51055
+Keywords   pilot~
+Short      a pilot~
+Long       A Mon Calamarian pilot is here ferrying academy graduates.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_newbie_pilot~
+Gender     neuter~
+Actflags   npc sentinel~
+Stats1     0 1 0 0 0 0
+Stats2     0 0 0
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  act_prog~
+Arglist   p gives you a diploma.~
+Comlist   look diploma
+say Thank-you.
+give diploma $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   bow $n
+say May I see your diploma please.
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51060
+Keywords   practice droid~
+Short      a practice droid~
+Long       A practice droid is here waiting for combat.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Stats1     0 1 0 100 10 0
+Stats2     1 4 5
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       51065
+Keywords   service droid~
+Short      a service droid~
+Long       A service droid is here handing out canteens and rations.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Stats1     0 10 0 0 0 0
+Stats2     10 0 100
+Stats3     0 0 25
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   water canteen~
+Comlist   mpoload 51014 1
+give canteen $n
+drop all
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   food ration~
+Comlist   mpoload 51013 1
+give ration $n
+drop all
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51070
+Keywords   shopkeeper droid~
+Short      a shopkeeper~
+Long       A droid is here selling useful items to students.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Affected   detect_invis~
+Stats1     0 20 0 80 100 0
+Stats2     2 20 2
+Stats3     2 10 10
+Stats4     0 0 0 2 2
+Attribs    13 13 13 13 13 13 13 0
+Saves      0 0 0 0 0
+Speaks     common wookiee twilek hutt mon_calamari noghri ewok gamorrean jawa adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+Speaking   common wookiee twilek hutt mon_calamari noghri ewok gamorrean jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+ShopData   15 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       51094
+Keywords   Abbigayle language teacher~
+Short      abbigayle~
+Long       A beautiful lady stands here, waiting for her students.
+~
+Desc       This has to be one of the most beautiful women in these Realms, both inside
+and out. Her eyes have a sparkle of amusement and her face an easy smile.
+She knows you are admiring her, and she does not seem to mind. She is
+comfortable and confident that the picture she makes is breath taking. Her
+voice at last breaks the spell. Her voice is like satin, you can hardly
+wait for your lessons to begin. Any reason to hear her speak the tongues
+foreign to your ears.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     female~
+Actflags   npc sentinel scholar~
+Affected   detect_invis detect_hidden sanctuary truesight~
+Stats1     0 5 16 5 50 0
+Stats2     1000 1 0
+Stats3     1 6 3
+Stats4     0 0 0 0 0
+Attribs    13 13 13 13 13 13 13 0
+Saves      0 0 0 0 0
+Speaks     common wookiee twilek rodian hutt mon_calamari noghri gamorrean jawa adarian~
+Speaking   common wookiee twilek rodian hutt mon_calamari noghri gamorrean jawa adarian~
+Bodyparts  head arms~
+Immune     sleep charm nonmagic magic~
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   if ispc($n)
+wink $n
+if level($n) < 20
+tell $n My lessons start when you reach level 20. Have fun until then.
+else
+tell $n I am ready to teach you, are you prepared for the lessons?
+endif
+grin $n
+endif
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   say You know, I am really a lover, not a fighter ...
+mpslay $n
+mpat $n mpechoat $n But alas, killing me was a slaying offense.
+mpgoto 51099
+mpat 51006 mpmload 51094
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p flees head over heels!~
+Comlist   mptrans 0.$n
+mpechoat $n Abbigayle says, 'You fled, so I shall spare your life!'
+mpgoto 51099
+mpat 51006 mpmload 51094
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51095
+Keywords   sad student~
+Short      a sad student~
+Long       A sad student leans against the wall.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel prototype~
+Stats1     0 1 0 0 0 0
+Stats2     0 0 0
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+Speaking   common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian gotal devaronian droid spiritual magical gamorrean god ancient jawa clan adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
+#MUDPROG
+Progtype  all_greet_prog~
+Arglist   100~
+Comlist   close north
+say Don't let it happen to you $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   25~
+Comlist   Say My brother is dead.
+Say Killed bt a stray blaster shot.
+Say Gone forever.
+snif
+say If only he had made a clone....
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       51199
+Keywords   final mob~
+Short      a newly created final mob~
+Long       Some god abandoned a newly created final mob here.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Stats1     0 1 0 0 0 0
+Stats2     0 0 0
+Stats3     0 0 0
+Stats4     0 0 0 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#OBJECT
+Vnum     51000
+Keywords bracelet charm academy~
+Type     armor~
+Short    a charm bracelet~
+Long     A charm bracelet from the academy lies here~
+WFlags   take wrist~
+Values   2 2 0 0 0 0
+Stats    2 0 0 0 0
+Affect       -1 -1 1 31 0
+#EXDESC
+ExDescKey    bracelet charm~
+ExDesc       This is a bracelet that will bring you luck in your travels. It can
+be found at the Darkhaven Acamdemy
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51001
+Keywords combat boots academy~
+Type     armor~
+Short    a pair of black combat boots~
+Long     A pair of black combat boots from the Academy lies here~
+WFlags   take feet~
+Values   3 3 0 0 0 0
+Stats    3 0 0 0 126
+Affect       -1 -1 100 14 0
+#EXDESC
+ExDescKey    combat boots~
+ExDesc       This boots are so comfortable and light, you feel you can walk a lot
+farther. The can be found at the Darkhaven Academy.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51002
+Keywords belt leather academy~
+Type     armor~
+Short    a braided leather belt~
+Long     A braided leather belt from the Academy lies here~
+WFlags   take waist~
+Values   2 2 0 0 0 0
+Stats    2 0 0 0 0
+Affect       -1 -1 1 5 0
+#EXDESC
+ExDescKey    belt leather~
+ExDesc       This belt is made of a fine leather, braided for strength. You can get
+it at the Darkhaven Academy.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51003
+Keywords pants trousers slacks leggings~
+Type     armor~
+Short    some leggings~
+Long     A pair of academy leggings is here.~
+WFlags   take legs~
+Values   2 2 0 0 0 0
+Stats    3 0 0 0 0
+#EXDESC
+ExDescKey    leggings~
+ExDesc       These leggings will offer good protection until you can get better. They
+can be found at the Darkhaven Academy.
+~
+#ENDEXDESC
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51004
+Keywords academy cap~
+Type     armor~
+Short    an academy cap~
+Long     A Earth Academy cap is here.~
+WFlags   take head~
+Values   3 3 0 0 0 0
+Stats    2 0 0 0 0
+Affect       -1 -1 1 3 0
+#EXDESC
+ExDescKey    helmet iron~
+ExDesc       This is a helmet made of fine iron, from the Darkhaven Academy.  It will
+protect you until you can find better.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51005
+Keywords cape brocade academy~
+Type     armor~
+Short    a black brocade cape~
+Long     A black brocade cape from the academy~
+WFlags   take about~
+Values   2 2 0 0 0 0
+Stats    3 0 0 0 0
+#EXDESC
+ExDescKey    cape brocade~
+ExDesc       This cape is made from a heavy brocade. It will offer you warmth and
+protection until you can find something better. You can find it at the
+Darkhave Academy.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51006
+Keywords collar metal academy~
+Type     armor~
+Short    a strong metal collar~
+Long     A strong metal collar from the academy~
+WFlags   take neck~
+Values   3 2 0 0 0 0
+Stats    5 0 0 0 0
+#EXDESC
+ExDescKey    collar metal ~
+ExDesc       This collar fits closely around your neck. It is thick with spikes to
+protect you in battle. You can find it in the Darkhaven Academy
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51007
+Keywords visor completion academy~
+Type     armor~
+Short    a visor of completion~
+Long     A visor of completion is here, emitting a faint glow.~
+Flags    magic~
+WFlags   take eyes~
+Values   2 0 0 0 0 0
+Stats    1 0 0 0 0
+Affect       -1 -1 1 4 0
+Affect       -1 -1 1 3 0
+#EXDESC
+ExDescKey    visor completion~
+ExDesc       Congratulations! You have completed the Darkhaven Academy and can now
+wear this visor with pride! It is magic too, type WEAR VISOR to use.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  wear_prog~
+Arglist   100~
+Comlist   mpechoat $n As you wear this visor, you feel more intelligent and wise!
+mpechoaround $n As $n wears the visor of completion, $e looks more complete!
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51008
+Keywords academy vest~
+Type     armor~
+Short    an academy vest~
+Long     An academy vest was left here.~
+WFlags   take body~
+Values   2 2 0 0 0 0
+Stats    5 0 0 0 0
+#EXDESC
+ExDescKey    plate armour~
+ExDesc       This plate of armour will give you protection until you can find
+something better. 
+~
+#ENDEXDESC
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51009
+Keywords sleeves tin academy~
+Type     armor~
+Short    lightweight tin sleeves~
+Long     Lightweight tin sleeves from the academy~
+WFlags   take arms~
+Values   3 3 0 0 0 0
+Stats    1 0 0 0 0
+Affect       -1 -1 1 1 0
+#EXDESC
+ExDescKey    sleeves tin~
+ExDesc       This sleeves will protect your arms until you can find something better.
+You can find them in the Darkhaven Academy.
+~
+#ENDEXDESC
+
+#MUDPROG
+Progtype  drop_prog~
+Arglist   100~
+Comlist   mpforce $n sac $o
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51010
+Keywords forceshield energyshield shields shield~
+Type     armor~
+Short    an energy shield~
+Long     An energy shield was dropped here.~
+WFlags   take shield~
+Values   2 2 0 0 0 0
+Stats    5 0 0 0 0
+#EXDESC
+ExDescKey    shield crest~
+ExDesc       This is your first shield, it will help keep you safe until you can
+find something better.
+~
+#ENDEXDESC
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51011
+Keywords light glowrod glowstick~
+Type     light~
+Short    a glowrod~
+Long     A glowrod would make a good light source.~
+Flags    glow magic inventory~
+WFlags   take~
+Values   0 0 50 0 0 0
+Stats    1 5 0 0 0
+Affect       -1 -1 -1 24 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51012
+Keywords academy vibro blade knife dagger vibro-blade~
+Type     weapon~
+Short    a vibro-blade~
+Long     You see a finely honed vibro-blade here.~
+Flags    magic~
+WFlags   take wield~
+Values   12 5 4 2 1000 1000
+Stats    3 250 50 0 0
+Affect       -1 -1 -2 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51013
+Keywords ration standard packaged~
+Type     food~
+Short    a packaged ration~
+Long     A packaged ration is here, waiting to be eaten.~
+WFlags   take~
+Values   50 50 0 0 0 0
+Stats    2 5 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51014
+Keywords canteen water grey stock~
+Type     drinkcon~
+Short    a canteen~
+Long     A small grey canteen has been drooped here.~
+WFlags   take~
+Values   40 40 0 0 0 0
+Stats    1 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51015
+Keywords drinking fountain~
+Type     fountain~
+Short    a fountain~
+Long     A drinking fountain rests against the wall.~
+Values   1000 1000 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51016
+Keywords socks~
+Type     armor~
+Short    a pair of socks~
+Long     A pair of socks is in a ball on the floor.~
+Flags    inventory~
+WFlags   take feet~
+Values   0 1 0 0 0 0
+Stats    1 5 0 0 1
+#ENDOBJECT
+
+#OBJECT
+Vnum     51017
+Keywords academy backpack~
+Type     container~
+Short    a backpack~
+Long     An academy backpack was carelessly misplaced here.~
+WFlags   take about~
+Values   20 0 0 0 0 0
+Stats    1 5 0 0 128
+Affect       -1 -1 -5 17 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51018
+Keywords grey button~
+Type     button~
+Short    a button~
+Long     A small grey button seems out of place on the wall here.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#MUDPROG
+Progtype  push_prog~
+Arglist   100~
+Comlist   mpoload 51016 1
+mpoload 51008 1
+mpoload 51003 1
+pull button
+drop all
+mpecho A small panel opens revealing several articles of clothing.
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51019
+Keywords box~
+Type     container~
+Short    a box~
+Long     A small box .. I wonder whats inside, maybe you should open it.~
+WFlags   take~
+Values   10 1 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51020
+Keywords luke toy action figure doll~
+Type     trash~
+Short    a Luke Skywalker action figure~
+Long     A Luke Skywalker action figure was misplaced here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51021
+Keywords diploma academy Earth graduation~
+Type     paper~
+Short    a diploma~
+Long     Someone dropped their Earth academy graduation diploma here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51022
+Keywords academy shuttle~
+Type     trash~
+Short    a shuttle~
+Long     A small shuttle is docked here.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51114
+Keywords student message terminal~
+Type     furniture~
+Short    a student message terminal~
+Long     A student message terminal is here for you to play with.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51120
+Keywords prototype blaster~
+Type     weapon~
+Short    prototype blaster~
+Long     A prototype blaster is here~
+WFlags   take wield~
+Values   0 0 0 6 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51121
+Keywords prototype saber lightsaber~
+Type     weapon~
+Short    a prototype lightsaber~
+Long     A prototype lightsaber shouldn't be here~
+WFlags   take wield~
+Values   0 0 0 3 0 0
+Stats    1 0 0 0 128
+#MUDPROG
+Progtype  use_prog~
+Arglist   100~
+Comlist   mpechoat $n Your lightsaber ignites with a soft hum and a bright glow.
+mpechoaround $n $n's lightsaber seemingly jumps into $s hand.
+mpechoaround $n &WIt ignites with a hum and a bright glow.
+~
+#ENDPROG
+
+#ENDOBJECT
+
+#OBJECT
+Vnum     51122
+Keywords prototype vibro-blade~
+Type     weapon~
+Short    prototype vibro-blade~
+Long     A prototype vibro-blade shouldn't be here~
+WFlags   take wield~
+Values   0 0 0 2 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51123
+Keywords key~
+Type     key~
+Short    a key~
+Long     An old fashioned mechanical key was left on the ground here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51124
+Keywords comlink radio communicator~
+Type     comlink~
+Short    a comlink~
+Long     A small hand-held comlink.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 50 5 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51125
+Keywords prototype grenade~
+Type     grenade~
+Short    a newly created prototype grenade~
+Long     Some god dropped a newly created prototype grenade here.~
+Flags    prototype~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51126
+Keywords generic armor~
+Type     trash~
+Short    a newly created generic armor~
+Long     Some god dropped a newly created generic armor here.~
+Flags    prototype~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51127
+Keywords protoype landmine~
+Type     landmine~
+Short    a newly created protoype landmine~
+Long     Some god dropped a newly created protoype landmine here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51128
+Keywords prototype light~
+Type     light~
+Short    a newly created prototype light~
+Long     Some god dropped a newly created prototype light here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51129
+Keywords prototype shield~
+Type     armor~
+Short    a newly created prototype shield~
+Long     Some god dropped a newly created prototype shield here.~
+WFlags   take shield~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51130
+Keywords prototype comlink~
+Type     comlink~
+Short    a newly created prototype comlink~
+Long     Some god dropped a newly created prototype comlink here.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51187
+Keywords carsanum spice~
+Type     spice~
+Short    some poorly refined carsanum~
+Long     Some carsanum was dropped here.~
+WFlags   take~
+Values   1 10 0 0 0 0
+Stats    1 200 20 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51188
+Keywords ammo cell amunition cartridge~
+Type     ammo~
+Short    an ammunition cell~
+Long     An ammunition cell was carelessly left here.~
+Flags    inventory~
+WFlags   take hold~
+Values   500 500 0 0 0 0
+Stats    1 10 10 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51189
+Keywords lens~
+Type     lens~
+Short    a newly created lens~
+Long     Some god dropped a newly created lens here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51190
+Keywords test toolkit~
+Type     toolkit~
+Short    a newly created test toolkit~
+Long     Some god dropped a newly created test toolkit here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51191
+Keywords test durastuff~
+Type     duraplast~
+Short    a newly created test durastuff~
+Long     Some god dropped a newly created test durastuff here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51192
+Keywords test battery~
+Type     battery~
+Short    a newly created test battery~
+Long     Some god dropped a newly created test battery here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51193
+Keywords oven~
+Type     oven~
+Short    a newly created oven~
+Long     Some god dropped a newly created oven here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51194
+Keywords some scrap durasteel~
+Type     durasteel~
+Short    a newly created some scrap durasteel~
+Long     Some god dropped a newly created some scrap durasteel here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51195
+Keywords gem~
+Type     crystal~
+Short    a newly created gem~
+Long     Some god dropped a newly created gem here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51196
+Keywords mirror~
+Type     mirror~
+Short    a newly created mirror~
+Long     Some god dropped a newly created mirror here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51197
+Keywords circuit board~
+Type     circuit~
+Short    a newly created circuit board~
+Long     Some god dropped a newly created circuit board here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51198
+Keywords superconductor~
+Type     superconductor~
+Short    a newly created superconductor~
+Long     Some god dropped a newly created superconductor here.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51199
+Keywords final object~
+Type     trash~
+Short    a newly created final object~
+Long     Some god dropped a newly created final object here.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#ROOM
+Vnum     51000
+Name     Drakken Proxima Academy~
+Sector   inside~
+Flags    nomob indoors safe~
+Desc     You have arrived at Drakken Proxima Academy, a training station in orbit above
+Proxima Centauri b. This academy teaches the basic commands needed to survive,
+travel and interact with other people in the wider interstellar community.
+Each compartment has a specific lesson. Explore the academy in full and read
+each room carefully. The student message area is to the west; return here
+afterward and continue north when you are ready.
+
+The entrance concourse reflects its builders: armored radiation shutters,
+heat-resistant plating and compact defensible passages. Through the nearest
+observation panel you can see Proxima Centauri b below and the fierce red
+primary beyond the shielded glass.
+~
+#EXIT
+Direction north~
+ToRoom    51001
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51130
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51001
+Name     Drakken Instruction Spine~
+Sector   inside~
+Flags    indoors~
+Desc     This corridor links the academy's first instructional rooms. The language and
+communication lesson is to the west, while practical skill instruction is to
+the east. When you have finished with both rooms, return here and continue
+north.
+
+The passage is built around armored radiation shutters, heat-resistant plating
+and compact defensible passages, with deep red and neutral-white lamps chosen
+to remain clear during emergency conditions. Displays along the wall present
+Drakken survival oaths, expedition plaques and records of frontier
+settlements.
+~
+#EXIT
+Direction north~
+ToRoom    51004
+Desc      Reading Room
+~
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    51003
+Desc      The Laboratory of Skills.
+~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51000
+Desc      Entrance to Darkhaven Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51006
+Desc      Abbigayle's Language Lessons.
+~
+#ENDEXIT
+
+#MUDPROG
+Progtype  leave_prog~
+Arglist   100~
+Comlist   if isimmort($n)
+else
+  mpforce $n vis
+endif
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     51002
+Name     Drakken Navigation Success Annex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     You completed the navigation exercise successfully. Continue north to return
+to the reference room and resume the academy course.
+
+A small window in this quiet annex looks toward Proxima Centauri b, a reminder
+that the entire training complex is an orbital station.
+~
+#EXIT
+Direction north~
+ToRoom    51004
+Desc      The Reading Room
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51003
+Name     Drakken Skills Laboratory~
+Sector   inside~
+Flags    indoors safe~
+Desc     This is the academy's practical skills laboratory. Type PRACTICE to see the
+abilities currently available to you. Your list may include weapon skills,
+general skills, languages and other advanced abilities. To improve something,
+use PRACTICE <full skill name>.
+
+For example, to practice dual wield, type PRAC DUAL WIELD. Additional
+proficiency is gained through training and successful use. Type HELP PRACTICE
+or HELP <skill> whenever you need more information.
+
+Drakken instructors favor a hard Drakken survival doctrine centered on
+durability, aggression and preparedness. The room itself is equipped with
+ruggedized systems protected against radiation, thermal swings and power
+interruptions.
+~
+#EXIT
+Direction west~
+ToRoom    51001
+Desc      A Stone Corridor
+~
+#ENDEXIT
+
+Reset M 0 51040 1 51003
+#ENDROOM
+
+#ROOM
+Vnum     51004
+Name     Drakken Reference Archive~
+Sector   inside~
+Flags    indoors silence~
+Desc     This quiet reference room suppresses most public channels so that students can
+read without interruption. Type CHAN for a list of channels. You can disable a
+channel with CHAN -<channel>, enable it with CHAN +<channel>, or use CHAN -ALL
+and CHAN +ALL to silence or restore them together.
+
+When you are ready, go west for the navigation exercise. Follow the room
+descriptions until you find your way back here. If you become lost, the up
+route returns you to this room. Once you have completed the exercise, continue
+north.
+
+The archive contains Drakken survival oaths, expedition plaques and records of
+frontier settlements. deep red and neutral-white lamps chosen to remain clear
+during emergency conditions keeps the room comfortable for long periods of
+study.
+~
+#EXIT
+Direction north~
+ToRoom    51014
+Desc      A Marble Corridor
+~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51001
+Desc      A Stone Corridor
+~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51007
+Desc      Wandering the Academy
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51005
+Name     Drakken Combat Trials Control~
+Sector   inside~
+Flags    nomob indoors safe~
+Desc     This chamber is reserved for controlled combat trials. In ordinary play you
+will encounter mobiles, often shortened to MOBS. Some may be aggressive and
+attack as soon as you enter their location. Defeating opponents can provide
+experience and loot.
+
+After a fight, EXAMINE CORPSE and GET ALL CORPSE can be used to inspect and
+recover items. CONFIG +AUTOLOOT and related configuration options can automate
+parts of this process. REST, SLEEP, WAKE and STAND are useful while recovering
+between exercises.
+
+The chamber is arranged around a hard Drakken survival doctrine centered on
+durability, aggression and preparedness, with armored radiation shutters,
+heat-resistant plating and compact defensible passages protecting the rest of
+the station from the training area.
+~
+#ENDROOM
+
+#ROOM
+Vnum     51006
+Name     Drakken Language and Culture Suite~
+Sector   inside~
+Flags    indoors safe~
+Desc     This room teaches the language system. Type PRACTICE to see languages
+available to you. Your native tongue and the common language are normally
+available without additional study. To learn another language, use LANGUAGE
+LEARN <language>.
+
+For more information use HELP LANGUAGES, HELP SPEAK and HELP TONGUE. Language
+study consumes practice sessions, and capable students generally learn more
+efficiently.
+
+The walls carry Drakken survival oaths, expedition plaques and records of
+frontier settlements, giving students examples of how language, history and
+identity developed among the Drakken.
+~
+#EXIT
+Direction east~
+ToRoom    51001
+Desc      A Stone Corridor
+~
+#ENDEXIT
+
+Reset M 0 51094 1 51006
+#ENDROOM
+
+#ROOM
+Vnum     51007
+Name     Drakken Orientation Passage~
+Sector   inside~
+Flags    indoors~
+Desc     This is the beginning of the navigation exercise. Type CONFIG +AUTOEXIT if you
+want obvious exits displayed automatically. EXIT lists visible routes, and
+LOOK <direction> lets you inspect an adjoining direction before moving.
+
+Your next route is west. Try EXIT and LOOK WEST before moving on. The exercise
+uses armored radiation shutters, heat-resistant plating and compact defensible
+passages to make each section visually distinct without changing the station's
+underlying layout.
+~
+#EXIT
+Direction east~
+ToRoom    51004
+Desc      The Reading Room
+~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51009
+Desc      Wandering Darkhaven Academy, it looks safe
+~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51004
+Desc      Back to the beginning
+~
+#ENDEXIT
+
+#EXDESC
+ExDescKey    Door~
+ExDesc       You see a solid oak door.
+~
+#ENDEXDESC
+
+#ENDROOM
+
+#ROOM
+Vnum     51008
+Name     Drakken Combat Practice Bay~
+Sector   inside~
+Flags    indoors~
+Desc     This is a controlled combat practice bay. A restrained training creature is
+used here to demonstrate attacking, judging an opponent and withdrawing from a
+fight. The CONSIDER command compares your character with a potential opponent;
+elsewhere, use CON <MOBNAME> before attacking something unfamiliar.
+
+The bay follows a hard Drakken survival doctrine centered on durability,
+aggression and preparedness. Heavy barriers and ruggedized systems protected
+against radiation, thermal swings and power interruptions keep the exercise
+isolated from the inhabited sections of the station.
+~
+#EXIT
+Direction west~
+ToRoom    51016
+Desc      A Dank Pit
+~
+#ENDEXIT
+
+Reset M 0 51045 1 51008
+#ENDROOM
+
+#ROOM
+Vnum     51009
+Name     Drakken Sealed-Access Corridor~
+Sector   inside~
+Flags    indoors~
+Desc     This section teaches doors and less-obvious exits. A closed door may not be
+listed among obvious exits until you interact with it. Read the room
+description, LOOK <direction>, try moving into a direction, and use OPEN
+<direction> or OPEN DOOR when appropriate. HELP OPEN provides more detail.
+
+deep red and neutral-white lamps chosen to remain clear during emergency
+conditions and deliberately repetitive wall panels make the exercise depend on
+observation rather than decoration.
+~
+#EXIT
+Direction north~
+ToRoom    51010
+Desc      An Enclosed Room
+~
+Keywords  door~
+Flags     isdoor closed~
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    51007
+Desc      Wandering the Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51011
+Desc      Lost in Darkhaven Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51004
+Desc      Back to the beginning
+~
+#ENDEXIT
+
+Reset D 0 51009 0 1
+#EXDESC
+ExDescKey    door~
+ExDesc       You see a solid oak door.
+~
+#ENDEXDESC
+
+#ENDROOM
+
+#ROOM
+Vnum     51010
+Name     Drakken Discovery Chamber~
+Sector   inside~
+Flags    indoors~
+Desc     You found the enclosed chamber. Hidden or closed rooms like this appear
+throughout the game, sometimes with obvious clues and sometimes with very
+subtle ones. LOOK, EXIT and careful reading are your most reliable tools.
+
+The compact chamber uses armored radiation shutters, heat-resistant plating
+and compact defensible passages. Its plain construction is intentional: the
+lesson is to notice access routes rather than rely on elaborate scenery.
+~
+#EXIT
+Direction south~
+ToRoom    51009
+Desc      Wandering Darkhaven Academy
+~
+Keywords  door~
+Flags     isdoor closed~
+#ENDEXIT
+
+Reset D 0 51010 2 1
+#ENDROOM
+
+#ROOM
+Vnum     51011
+Name     Drakken Hidden-Route Passage~
+Sector   inside~
+Flags    indoors~
+Desc     This passage introduces special and hidden exits. Hidden routes may not be
+found simply by walking into every wall. Read descriptions, inspect mobiles
+and objects, and look for words that might identify a door or route.
+
+Locked exits may require a key or an appropriate skill. Directions can be
+abbreviated as N, E, W, S, NE, NW, SE, SW, U and D. Some special routes use a
+word such as LEAVE, CLIMB or ENTER. Continue north and use the next room's
+description to find the concealed route.
+
+The Drakken design language here uses armored radiation shutters,
+heat-resistant plating and compact defensible passages, making small visual
+details especially important.
+~
+#EXIT
+Direction north~
+ToRoom    51012
+Desc      Lost in Darkhaven Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    51009
+Desc      Wandering Darkhaven Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51004
+Desc      Back to the beginning
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51012
+Name     Drakken Heritage Salon~
+Sector   inside~
+Flags    indoors~
+Desc     This chamber has been furnished as a Drakken heritage salon. A broad table and
+twelve seats dominate the center while exhibits of Drakken survival oaths,
+expedition plaques and records of frontier settlements line the walls. One
+wall display appears slightly different from the others.
+
+Use LOOK <word> on details mentioned in the room. Sometimes inspecting one
+object reveals the clue needed to discover a hidden exit. The exercise is
+unchanged mechanically; only the station's cultural presentation differs.
+~
+#EXIT
+Direction south~
+ToRoom    51011
+Desc      Lost in Darkhaven Academy
+~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51013
+Desc      door
+~
+Keywords  tapestry door~
+Flags     isdoor closed secret~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51004
+Desc      Back to the beginning
+~
+#ENDEXIT
+
+Reset D 0 51012 3 1
+#EXDESC
+ExDescKey    tapestry~
+ExDesc       Upon closer inspection you realise that this is not even a tapestry, but
+a cunningly camouflaged wall! You can see the outline of a door as you
+look closer.
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    west~
+ExDesc       You see a tapestry on the wall here, something just isn't right about it.
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    w~
+ExDesc       You see a tapestry on the wall.
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    door~
+ExDesc       You see a cleverly disguised door.
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    Crystal globes~
+ExDesc       This globes cast shadows in the corners. The shadows on the west
+tapestry almost appears to be an opening.
+~
+#ENDEXDESC
+
+#ENDROOM
+
+#ROOM
+Vnum     51013
+Name     Drakken Maintenance Alcove~
+Sector   inside~
+Flags    nomob indoors~
+Desc     You found the concealed alcove. Secret rooms can contain useful items, clues
+or alternate routes, so careful reading often pays off. This room also
+demonstrates a special SOMEWHERE exit. Inspect the picture and nearby wall if
+you want to discover the intended route, or use the obvious up exit to return.
+
+The alcove exposes ruggedized systems protected against radiation, thermal
+swings and power interruptions, giving the space the feel of a hidden service
+compartment inside Drakken Proxima Academy.
+~
+#EXIT
+Direction east~
+ToRoom    51012
+Desc      Lost in Darkhaven Academy
+~
+Keywords  door~
+Flags     isdoor closed~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51004
+Desc      Back to the beginning
+~
+#ENDEXIT
+
+#EXIT
+Direction somewhere~
+ToRoom    51002
+Keywords  crack~
+Flags     hidden auto~
+#ENDEXIT
+
+Reset D 0 51013 1 1
+#EXDESC
+ExDescKey    door~
+ExDesc       You see an oak door.
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    picture~
+ExDesc       This is a picture of fresh cut flowers in a glass vase. It seems to
+be hanging here just to cover a huge crack. That crack is so large, you
+can probably squeeze through it! Perhaps you should look closer at the
+crack. HINT: type CRACK. 
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    crack~
+ExDesc       This is a huge CRACK, you could probably squeeze through it. 
+~
+#ENDEXDESC
+
+#EXDESC
+ExDescKey    wall~
+ExDesc       This is a picture of fresh cut flowers in a glass vase. It seems to
+be hanging here just to cover a huge crack. That crack is so large, you
+can probably squeeze through it! Perhaps you should look closer at the
+crack. HINT: type CRACK.
+~
+#ENDEXDESC
+
+#ENDROOM
+
+#ROOM
+Vnum     51014
+Name     Drakken Readiness Concourse~
+Sector   inside~
+Flags    indoors~
+Desc     This corridor introduces commands used to inspect your character. SCORE shows
+core statistics, EQUIPMENT lists worn items, INVENTORY shows carried items,
+and LEVEL reports advancement information. Common abbreviations include SC, EQ
+and I.
+
+Use HELP <subject> for additional information. The concourse is finished with
+armored radiation shutters, heat-resistant plating and compact defensible
+passages, and deep red and neutral-white lamps chosen to remain clear during
+emergency conditions clearly marks the route toward combat training.
+~
+#EXIT
+Direction north~
+ToRoom    51015
+Desc      Preparing for combat
+~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51004
+Desc      The Reading Room
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51015
+Name     Drakken Combat Briefing Deck~
+Sector   inside~
+Flags    indoors~
+Desc     Combat training is immediately ahead. You can begin an ordinary fight with
+KILL <mob>, while many learned skills and abilities can also initiate combat.
+Before attacking unfamiliar opponents, use CONSIDER and review the help for
+your available abilities.
+
+Remember that aggressive actions against another player can have consequences.
+The briefing deck reflects a hard Drakken survival doctrine centered on
+durability, aggression and preparedness; ruggedized systems protected against
+radiation, thermal swings and power interruptions monitors the practice bay
+below.
+~
+#EXIT
+Direction north~
+ToRoom    51017
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51014
+Desc      A Marble Corridor
+~
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    51016
+Desc      A Dank Pit
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51016
+Name     Drakken Withdrawal Training Bay~
+Sector   inside~
+Flags    nomob indoors~
+Desc     This bay explains ways to leave a dangerous fight. WIMPY can automatically
+withdraw you when your hit points fall below a chosen threshold. FLEE attempts
+an immediate manual withdrawal. Emergency recall or extraction mechanics may
+also exist, but they generally carry a greater cost and should be treated as a
+last resort.
+
+The room is intentionally austere, with armored radiation shutters,
+heat-resistant plating and compact defensible passages and clear route markers
+designed to make emergency instructions easy to understand.
+~
+#EXIT
+Direction east~
+ToRoom    51008
+Desc      A Dank Pit
+~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51015
+Desc      Preparing for combat
+~
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51017
+Name     Drakken Recovery Lounge~
+Sector   city~
+Flags    indoors safe~
+Desc     Long fights and long journeys require recovery. REST is the safest ordinary
+way to recover. SLEEP can recover more deeply but leaves you vulnerable in
+unsafe locations. Use WAKE after sleeping and STAND after resting.
+
+Characters can also become hungry or thirsty. Ask the service unit here for
+food or a canteen, then use EAT <item> or DRINK <item>. The fountain can also
+be used directly or to refill a container.
+
+This is a functional rest hall with heated seating and emergency gear built
+into every wall. Beyond the windows lies Proxima Centauri b below and the
+fierce red primary beyond the shielded glass.
+~
+#EXIT
+Direction north~
+ToRoom    51027
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51015
+#ENDEXIT
+
+Reset O 0 51015 1 51017
+Reset M 0 51065 1 51017
+#ENDROOM
+
+#ROOM
+Vnum     51018
+Name     Drakken Object Interaction Exercise~
+Sector   city~
+Flags    indoors safe~
+Desc     Some items that initially appear unimportant can become useful later. Speak
+with the student here and pay attention to what they have found.
+
+Containers can hold other objects. Use LOOK IN <container>, GET <item> FROM
+<container>, PUT <item> IN <container>, and OPEN <container> when necessary.
+
+Hint: say hello. The exercise occupies a small Drakken student annex fitted
+with ruggedized systems protected against radiation, thermal swings and power
+interruptions.
+~
+#EXIT
+Direction up~
+ToRoom    51022
+#ENDEXIT
+
+Reset M 0 51042 1 51018
+#ENDROOM
+
+#ROOM
+Vnum     51019
+Name     Drakken Fabrication Loft~
+Sector   city~
+Flags    indoors~
+Desc     Some objects are obtained by manipulating, combining or crafting other
+objects. Your character may eventually learn specialized crafting skills;
+other situations are as simple as opening a container or operating a control.
+
+This compact fabrication loft is dense with ruggedized systems protected
+against radiation, thermal swings and power interruptions. It mirrors the
+practical working style found throughout Drakken Proxima Academy.
+~
+#EXIT
+Direction down~
+ToRoom    51022
+#ENDEXIT
+
+Reset O 0 51018 1 51019
+#ENDROOM
+
+#ROOM
+Vnum     51020
+Name     Drakken Salvage Exercise~
+Sector   city~
+Flags    indoors~
+Desc     A common way to acquire equipment is to recover it from defeated mobiles.
+After defeating the training unit here, use EXAMINE CORPSE to inspect what it
+carried and GET ALL FROM CORPSE to recover the contents. Configuration options
+can automate looting or currency collection.
+
+The salvage exercise takes place in a reinforced work cell equipped with
+ruggedized systems protected against radiation, thermal swings and power
+interruptions and arranged according to a hard Drakken survival doctrine
+centered on durability, aggression and preparedness.
+~
+#EXIT
+Direction west~
+ToRoom    51022
+#ENDEXIT
+
+Reset M 0 51060 1 51020
+  Reset E 1 51001 1 8
+  Reset E 1 51002 1 13
+  Reset G 1 51004 1
+#ENDROOM
+
+#ROOM
+Vnum     51021
+Name     Drakken Academy Supply Exchange~
+Sector   city~
+Flags    indoors safe~
+Desc     Shops are useful for acquiring equipment and selling items you no longer need.
+LIST shows a merchant's stock, BUY <object> purchases something, SELL <object>
+offers an item for sale, and VALUE <object> asks what the merchant will pay.
+
+The backpack is particularly useful because it can hold spare equipment. This
+supply exchange is decorated with Drakken survival oaths, expedition plaques
+and records of frontier settlements and uses ruggedized systems protected
+against radiation, thermal swings and power interruptions for inventory and
+transaction handling.
+~
+#EXIT
+Direction east~
+ToRoom    51022
+#ENDEXIT
+
+Reset M 0 51070 1 51021
+  Reset G 1 51017 1
+  Reset G 1 51011 1
+#ENDROOM
+
+#ROOM
+Vnum     51022
+Name     Drakken Equipment Acquisition Lab~
+Sector   city~
+Flags    indoors~
+Desc     Finding better equipment is an important part of progression. Some methods
+become available only after learning the appropriate skills, including SEARCH
+and DIG. Other methods may carry legal or social consequences.
+
+The rooms east, west, above and below demonstrate different ways to obtain
+useful items. Explore all four, then continue north.
+
+This equipment lab uses armored radiation shutters, heat-resistant plating and
+compact defensible passages; lockers and work surfaces are sized and arranged
+for Drakken trainees.
+~
+#EXIT
+Direction north~
+ToRoom    51023
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    51020
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51027
+Flags     isdoor~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    51021
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51019
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    51018
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     51023
+Name     Drakken Final Navigation Challenge~
+Sector   city~
+Flags    indoors safe~
+Desc     You are almost finished. The graduation hall is immediately north, but the
+door is locked. The child here appears upset and may know how to open it.
+Finding and returning the child's lost toy should help.
+
+Hints: find the lost toy give the toy to the child ask about the key
+
+The final challenge takes place beneath displays of Drakken survival oaths,
+expedition plaques and records of frontier settlements.
+~
+#EXIT
+Direction north~
+ToRoom    51024
+Key       51123
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51022
+#ENDEXIT
+
+Reset M 0 51043 1 51023
+Reset D 0 51023 0 2
+#ENDROOM
+
+#ROOM
+Vnum     51024
+Name     Drakken Graduation Gallery~
+Sector   city~
+Desc     You completed the academy course. Proceed through the graduation gallery,
+receive your diploma and continue toward the docking bay.
+
+The gallery is a transparent orbital walkway attached to Drakken Proxima
+Academy. Instead of a city beneath you, the windows reveal Proxima Centauri b
+below and the fierce red primary beyond the shielded glass. Structural ribs
+frame the corridor while traffic lights from local shuttles move silently
+beyond the glass.
+~
+#EXIT
+Direction south~
+ToRoom    51023
+Flags     isdoor~
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    51025
+#ENDEXIT
+
+Reset M 0 51050 1 51024
+Reset O 0 51114 1 51024
+Reset D 0 51024 2 0
+#ENDROOM
+
+#ROOM
+Vnum     51025
+Name     Proxima Centauri b Orbital Dock~
+Sector   city~
+Desc     This docking bay projects from the academy station so that training shuttles
+can approach without crossing the inhabited modules. Guidance lights, docking
+clamps and service equipment line the perimeter.
+
+Beyond the bay you can see Proxima Centauri b below and the fierce red primary
+beyond the shielded glass. A small shuttle is waiting to carry graduates down
+toward Proxima Centauri b. To board it, use ENTER.
+~
+#EXIT
+Direction down~
+ToRoom    51024
+#ENDEXIT
+
+#EXIT
+Direction somewhere~
+ToRoom    51026
+Flags     hidden can_enter~
+#ENDEXIT
+
+Reset O 0 51022 1 51025
+#ENDROOM
+
+#ROOM
+Vnum     51026
+Name     Proxima Centauri b Planetfall Shuttle~
+Sector   city~
+Flags    nomob~
+Desc     You are inside a compact planetfall shuttle. Passenger seats sit directly
+behind the pilot position, with a small service compartment at the rear. The
+craft carries newly graduated students from Drakken Proxima Academy toward
+Proxima Centauri b.
+
+Give your diploma to the pilot when requested. If you do not yet have one, use
+LEAVE and return to the graduation area.
+~
+#EXIT
+Direction somewhere~
+ToRoom    51025
+Flags     hidden can_leave~
+#ENDEXIT
+
+Reset M 0 51055 1 51026
+#ENDROOM
+
+#ROOM
+Vnum     51027
+Name     Drakken Continuity Briefing~
+Sector   city~
+Flags    nomob indoors prototype~
+Desc     The final briefing concerns character continuity and recovery after death. In
+this setting death can carry severe consequences, so make use of whatever
+medical, backup or continuity services the wider game provides. Update those
+safeguards regularly rather than waiting until after a major loss.
+
+The briefing chamber uses ruggedized systems protected against radiation,
+thermal swings and power interruptions, while a status display shows the
+orbital position of Drakken Proxima Academy above Proxima Centauri b.
+~
+#EXIT
+Direction north~
+ToRoom    51022
+Flags     isdoor closed~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    51017
+#ENDEXIT
+
+Reset M 0 51095 1 51027
+Reset D 0 51027 0 1
+#ENDROOM
+
+#ROOM
+Vnum     51099
+Name     Drakken Academy Program Service Room~
+Sector   city~
+Flags    nomob~Desc     This sealed service room exists for academy mobile programs and should not be
+removed. Maintenance labels identify it as part of Drakken Proxima Academy's
+internal automation network.
+~
+
+#ENDROOM
+
+#ROOM
+Vnum     51100
+Name     Drakken Academy Test Workshop~
+Sector   city~
+Flags    nomob factory~Desc     A small test workshop used by academy staff. Benches, diagnostic ports and
+ruggedized systems protected against radiation, thermal swings and power
+interruptions fill the room.
+~
+
+#ENDROOM
+
+#ROOM
+Vnum     51101
+Name     Drakken Quiet Test Compartment~
+Sector   city~
+Flags    nomob safe silence~Desc     A deliberately quiet compartment isolated from the busier academy modules.
+deep red and neutral-white lamps chosen to remain clear during emergency
+conditions and sound-damped surfaces make it suitable for testing or study.
+~
+
+#ENDROOM
+
+#ROOM
+Vnum     51129
+Name     Drakken Isolated Test Chamber~
+Sector   city~
+Flags    nomob prototype~Desc     This isolated test chamber is intentionally featureless. Instrument panels
+from ruggedized systems protected against radiation, thermal swings and power
+interruptions are the only obvious connection to the rest of Drakken Proxima
+Academy.
+~
+
+#ENDROOM
+
+#ROOM
+Vnum     51130
+Name     Drakken Student Commons~
+Sector   inside~
+Flags    nomob safe~
+Desc     This is the academy student commons, a final safe place to rest, read and
+practice using the message system. Use NOTE LIST to list messages, NOTE READ
+<msgnum> to read one, and HELP NOTE for additional commands.
+
+The room is a functional rest hall with heated seating and emergency gear
+built into every wall. The station windows give occasional views of Proxima
+Centauri b below and the fierce red primary beyond the shielded glass.
+~
+#EXIT
+Direction east~
+ToRoom    51000
+#ENDEXIT
+
+Reset O 0 51114 1 51130
+#ENDROOM
+
+#ENDAREA

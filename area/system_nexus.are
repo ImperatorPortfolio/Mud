@@ -1,0 +1,1960 @@
+#FUSSAREA
+#AREADATA
+Version      1
+Name         System Nexus~
+Author       Legacy Foundation / Local Sphere Conversion~
+Ranges       0 103 0 103
+Economy      0 44298350
+ResetFreq    15
+#ENDAREADATA
+
+#MOBILE
+Vnum       1
+Keywords   nexus custodian system custodian~
+Short      the Nexus Custodian~
+Long       Puff the Fractal Dragon is here, contemplating a higher reality.
+~
+Race       r31~
+Position   aggressive~
+DefPos     aggressive~
+Gender     female~
+Actflags   npc sentinel~
+Affected   detect_invis detect_hidden infrared truesight~
+Stats1     0 50 0 80 10000 0
+Stats2     10 8 40
+Stats3     2 6 2
+Stats4     0 0 1 1 1
+Attribs    14 16 16 14 16 14 12 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Immune     sleep charm nonmagic magic paralysis~
+Attacks    claws~
+Defenses   parry dodge~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   test2~
+Comlist   say firstname of obj:	 	$i
+say short_desc/title of obj: 	$I
+say he/she/it of obj:	 	$j
+say him/her/it of obj:	 	$k
+say his/hers/its of obj:	$l
+say firstname of victim: 	$t
+say short_desc/title of victim:	$T
+say he/she/it of victim: 	$E
+say him/her/it of victim: 	$M
+say his/hers/its of victim:	$S
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   test~
+Comlist   say triggered by (name):	$n
+say triggered by (name&title): 	$N
+say triggerer is (he,she,it):	$e
+say triggerer is (him,her,it):	$m
+say triggerer is (his,hers,its):$s
+say random char (name):		$r
+say random char (name&title or short): 	$R
+say random char  (he,she,it):	$J
+say random char (him,her,it):	$L
+say random char (his,hers,its):	$K
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       2
+Keywords   recovery attendant emergency attendant~
+Short      an emergency recovery attendant~
+Long       A demon imp hovers nearby...drooling constantly with a fiendish grin.
+~
+Desc       This automated attendant exists to intercept unusual recovery conditions and
+stabilize characters who are routed through the system nexus.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel~
+Affected   detect_invis detect_hidden~
+Stats1     0 10 0 100 0 0
+Stats2     4 8 12
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    10 14 14 12 12 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  act_prog~
+Arglist   p is DEAD!!~
+Comlist   mptrans $n 6
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p wields~
+Comlist   c heal $n
+c heal $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p wears~
+Comlist   c heal $n
+c heal $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p shivers and~
+Comlist   cast 'cure poison' $n
+cast heal $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p bashes against~
+Comlist   cast heal $n
+cast heal $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p is starved~
+Comlist   mpoload 20
+give mushroom $n
+mpforce $n eat mushroom
+cast heal $n
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   p is dying~
+Comlist   mpforce $n drink
+c heal $n
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       3
+Keywords   supermob system agent~
+Short      the system agent~
+Long       The supermob is here.  He looks busy as hell.
+~
+Desc       This is an internal administrative actor used by scripted systems.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc polyself secretive~
+Affected   invisible detect_invis detect_hidden hide truesight~
+Stats1     0 100 0 100 0 0
+Stats2     20 10 100
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    10 18 18 10 18 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  rand_prog~
+Arglist   25~
+Comlist   mpinvis 51
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       4
+Keywords   master instructor superteacher teacher~
+Short      the master instructor~
+Long       The master of all knowledge stands here waiting.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel practice~
+Stats1     0 100 0 100 0 0
+Stats2     12 8 60
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 18 18 12 14 16 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       5
+Keywords   reanimated body animated corpse~
+Short      a reanimated body~
+Long       An animated corpse struggles with the horror of its undeath.
+~
+Desc       This body is being moved by an artificial control process rather than its
+original occupant. It is little more than a damaged biological shell.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Stats1     0 5 0 100 0 0
+Stats2     2 8 4
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 6 6 8 14 4 8 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Bodyparts  head arms legs~
+#ENDMOBILE
+
+#MOBILE
+Vnum       6
+Keywords   Keshari scout~
+Short      a Keshari scout~
+Long       A Keshari is walking ever so quietly past you.
+~
+Race       Noghri~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc prototype~
+Affected   sneak~
+Stats1     0 15 0 90 75 0
+Stats2     3 8 6
+Stats3     1 6 1
+Stats4     0 0 1 1 0
+Attribs    12 10 14 16 12 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       10
+Keywords   wolf~
+Short      a lean wolf~
+Long       A deadly wolf prowls around you with a vengeance
+~
+Desc       While this large beast circles you, you have a chance to see its large          
+fangs and its sharp claws.  The wolf's eyes are small, black and have           
+the aura of a deadly intent.  Its raggedy coat tells of a recent battle         
+with something.
+~
+Race       r69~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Stats1     0 5 0 95 0 0
+Stats2     2 8 2
+Stats3     1 6 0
+Stats4     0 0 1 0 0
+Attribs    13 6 12 14 12 6 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    bite claws~
+#ENDMOBILE
+
+#MOBILE
+Vnum       11
+Keywords   sensor mist anomalous mist~
+Short      an anomalous mist~
+Long       A thick mist plays with your senses.
+~
+Desc       A cloud of suspended particles interferes with vision and local sensors. It
+moves in patterns that make its source difficult to determine.
+~
+Race       r85~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   sneak floating~
+Stats1     0 5 0 100 0 0
+Stats2     2 6 0
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    6 8 10 16 10 4 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    r21 r25~
+#ENDMOBILE
+
+#MOBILE
+Vnum       12
+Keywords   bat~
+Short      a cave bat~
+Long       A bat hovers nearby with bloody fangs.
+~
+Desc       As this bloodsucking creature flies past you, you notice the tiny black
+eyes that stare at your jugular vein.  This little black bat has the
+intentions of drinking your blood until there is none left in your body.
+~
+Race       r23~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   flying~
+Stats1     0 3 0 95 0 0
+Stats2     1 6 1
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    6 4 12 16 8 4 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    bite claws~
+#ENDMOBILE
+
+#MOBILE
+Vnum       13
+Keywords   hawk~
+Short      a hunting hawk~
+Long       A hawk watches you with predatory eyes from its perch.
+~
+Desc       This proud creature stands upon its perch watching you with unblinking
+eyes.  Any movement made by you could make it flare its wings in disapproval
+and open its beak to scream its intent.  Its long beak open and before you
+know what has happened, it comes flying towards you.
+~
+Race       r78~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   flying~
+Stats1     0 4 0 95 0 0
+Stats2     1 8 2
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    8 6 14 16 10 6 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    claws~
+#ENDMOBILE
+
+#MOBILE
+Vnum       14
+Keywords   black cat cat~
+Short      a black cat~
+Long       A black cat has crossed your path with deadly intent.
+~
+Desc       With a furry black coat, and big yellow eyes, this cat gracefully walks
+across your path, bringing you several years of bad luck.  Its tail moves
+slowly to tell you that it is laughing at your misfortune.
+~
+Race       r29~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   detect_invis~
+Stats1     0 2 0 100 0 0
+Stats2     1 6 0
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    6 6 12 16 8 8 12 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    bite claws~
+#ENDMOBILE
+
+#MOBILE
+Vnum       15
+Keywords   dove bird~
+Short      a grey dove~
+Long       A beautiful dove sings a melancholy melody from its nest.
+~
+Desc       With feathers the colour of soft grey and soft loving black eyes, this small
+delicate creature sings you a tune full of romance.  The tune it sings comes
+from the small breast that rises and falls with every chorus it sings.  You
+are at peace as you listen to this lovable creature.
+~
+Race       r78~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   flying~
+Stats1     0 1 0 100 0 0
+Stats2     1 4 0
+Stats3     1 2 0
+Stats4     0 0 1 0 0
+Attribs    4 4 10 14 6 8 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Attacks    claws~
+#ENDMOBILE
+
+#MOBILE
+Vnum       16
+Keywords   fish~
+Short      a small fish~
+Long       A fish blows large bubbles as it quickly swims past you.
+~
+Desc       With fins, teeth and gills, this slippery little thing is hard to catch.
+It swims with a speed no beast, human or animal can compete with.  It's
+tiny eyes, move with every breath.  It blows several large bubbles as it
+quickly swims past you.
+~
+Race       r81~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Affected   aqua_breath~
+Stats1     0 1 0 100 0 0
+Stats2     1 4 0
+Stats3     1 2 0
+Stats4     0 0 1 0 0
+Attribs    4 2 8 16 8 4 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       20
+Keywords   directorate security trooper soldier~
+Short      a Directorate security trooper~
+Long       An Directorate security trooper stands at attention here.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_clan_guard~
+Gender     neuter~
+Actflags   npc guardian~
+Stats1     0 20 0 80 0 0
+Stats2     4 8 12
+Stats3     1 6 2
+Stats4     0 0 1 1 1
+Attribs    14 10 12 14 14 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       21
+Keywords   directorate guard security~
+Short      a Directorate guard~
+Long       An Directorate guard stands at attention.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_clan_guard~
+Gender     neuter~
+Actflags   npc sentinel~
+Stats1     0 30 0 70 0 0
+Stats2     6 8 18
+Stats3     1 8 2
+Stats4     0 0 1 1 1
+Attribs    15 10 13 14 15 11 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       22
+Keywords   Terran Union guard security~
+Short      a Terran Union guard~
+Long       A Terran Union guard stands at attention.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_clan_guard~
+Gender     neuter~
+Actflags   npc sentinel~
+Stats1     0 30 0 70 0 0
+Stats2     6 8 18
+Stats3     1 8 2
+Stats4     0 0 1 1 1
+Attribs    15 10 13 14 15 11 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       23
+Keywords   Terran Union trooper soldier~
+Short      a Terran Union trooper~
+Long       A Terran Union trooper is ready for battle.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_clan_guard~
+Gender     neuter~
+Actflags   npc guardian~
+Stats1     0 20 0 80 0 0
+Stats2     4 8 12
+Stats3     1 6 2
+Stats4     0 0 1 1 1
+Attribs    14 10 12 14 14 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       24
+Keywords   contractor mercenary soldier~
+Short      an armed contractor~
+Long       A mercenary stands here ready for battle.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc guardian~
+Stats1     0 20 0 85 0 0
+Stats2     4 8 10
+Stats3     1 6 2
+Stats4     0 0 1 1 1
+Attribs    14 11 11 14 13 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       25
+Keywords   security guard bouncer~
+Short      a security guard~
+Long       An alert guard stands at attention.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Specfun    spec_clan_guard~
+Gender     neuter~
+Actflags   npc sentinel~
+Stats1     0 15 0 90 0 0
+Stats2     3 8 8
+Stats3     1 6 1
+Stats4     0 0 1 1 0
+Attribs    13 10 12 13 13 11 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       50
+Keywords   veteran mentor instructor~
+Short      a veteran mentor~
+Long       An old specialist master feels at peace in the jungles here.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc practice nokill~
+Affected   detect_invis detect_hidden~
+Stats1     0 75 0 50 0 0
+Stats2     15 10 75
+Stats3     2 8 4
+Stats4     0 0 1 2 2
+Attribs    16 16 18 16 16 16 12 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Resist     fire electricity energy magic~
+Defenses   parry dodge r2 r8 r11 r13 disarm~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   shop~
+Comlist   grin $n
+' yes, the specialist equipment shop in the exchange is still operating.
+' if you are looking for a high-grade focusing crystal, the owner may have one.
+' specialized weapon components are rare, so expect them to be expensive.
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   give~
+Comlist   chuckle 
+' yes, I once gave a high-grade focusing crystal to a young trainee.
+' the trainee showed considerable technical promise, but family circumstances
+' forced a return home before the course was completed.
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   crystal focusing~
+Comlist   nod $n 
+' High-grade focusing crystals are used in several precision energy systems.
+' The best specimens are difficult to produce and correspondingly rare.
+' I have handled only a few of exceptional quality.
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  act_prog~
+Arglist   package.~
+Comlist   if ovnuminv(10208) >= 1
+say Thank you.
+mpwithdraw 2500
+give 2500 credits $n
+mpgain $n 5 100000
+else
+say hmm... Thanks, but this isn't adressed to me.
+drop all
+endif
+mpat 10299 drop all
+mpat 10299 mppurge
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       80
+Keywords   feral guardian bioengineered guardian~
+Short      a feral guardian~
+Long       A vampire is here hiding his face from your light source.
+~
+Desc       This heavily modified humanoid was engineered for endurance and close combat.
+Its heightened senses track every movement while it waits for a threat.
+~
+Race       r67~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc sentinel aggressive~
+Affected   detect_invis detect_hidden~
+Stats1     -500 25 0 80 0 0
+Stats2     5 10 25
+Stats3     1 8 3
+Stats4     0 0 1 1 1
+Attribs    16 8 12 15 16 6 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+Bodyparts  head arms legs hands feet ear eye~
+Attacks    r12 r25~
+#ENDMOBILE
+
+#MOBILE
+Vnum       98
+Keywords   maintenance automaton janitor~
+Short      a maintenance automaton~
+Long       A janitor droid is wandering around picking up trash.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc wimpy noassist droid~
+Stats1     0 10 0 95 0 0
+Stats2     3 8 10
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 12 10 12 14 6 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  entry_prog~
+Arglist   100~
+Comlist   get all
+mpat 32179 drop all
+~
+#ENDPROG
+
+#ENDMOBILE
+
+#MOBILE
+Vnum       99
+Keywords   placeholder final mob~
+Short      a dormant placeholder entity~
+Long       A dormant placeholder entity is stored here for system use.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc~
+Stats1     0 1 0 100 0 0
+Stats2     1 4 0
+Stats3     1 2 0
+Stats4     0 0 1 0 0
+Attribs    10 10 10 10 10 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#OBJECT
+Vnum     2
+Keywords credit credits~
+Type     money~
+Short    a credit~
+Long     One miserable credit.~
+WFlags   take~
+Values   1 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     3
+Keywords credits credit~
+Type     money~
+Short    %d credits~
+Long     Some credits.~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     9
+Keywords corpse remains pieces parts~
+Type     droid_corpse~
+Short    the broken parts of %s~
+Long     The shattered remains of %s are here.~
+WFlags   take~
+Values   0 0 0 1 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10
+Keywords corpse~
+Type     corpse~
+Short    the corpse of %s~
+Long     The corpse of %s lies here.~
+WFlags   take~
+Values   0 0 0 1 0 0
+Stats    100 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     11
+Keywords corpse~
+Type     corpse_pc~
+Short    the corpse of %s~
+Long     The corpse of %s is lying here.~
+Values   0 0 0 1 0 0
+Stats    100 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     12
+Keywords head~
+Type     food~
+Short    the head of %s~
+Long     The severed head of %s is lying here.~
+Action   %s gobble$q down $p with gusto... disgusting!~
+WFlags   take~
+Values   10 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     13
+Keywords heart~
+Type     food~
+Short    the heart of %s~
+Long     The torn-out heart of %s is lying here.~
+Action   %s savagely devour$q $p!~
+WFlags   take~
+Values   16 0 0 0 0 0
+Stats    2 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     14
+Keywords arm~
+Type     food~
+Short    the arm of %s~
+Long     The sliced-off arm of %s is lying here.~
+Action   %s chomp$q on $p.~
+WFlags   take~
+Values   20 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     15
+Keywords leg~
+Type     food~
+Short    the leg of %s~
+Long     The sliced-off leg of %s is lying here.~
+Action   %s chomp$q on $p.~
+WFlags   take~
+Values   20 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     16
+Keywords guts~
+Type     trash~
+Short    the spilled guts of %s~
+Long     The spilled guts of %s makes you lose your appetite.~
+Values   5 0 0 1 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     17
+Keywords blood~
+Type     _blood~
+Short    the spilled blood~
+Long     A pool of spilled blood lies here.~
+Values   5 0 0 1 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     18
+Keywords bloodstain~
+Type     _bloodstain~
+Short    the bloodstain~
+Long     Blood stains the ground.~
+Values   5 0 0 1 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     19
+Keywords scraps~
+Type     scraps~
+Short    the scraps of %s~
+Long     The scraps of %s lie here.~
+WFlags   take~
+Values   5 0 0 1 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     20
+Keywords   nutrient fungus ration~
+Type     food~
+Short      a nutrient fungus ration~
+Long       A sealed portion of nutrient fungus has been left here.~
+Action     %s eat$q $p.~
+WFlags   take~
+Values   5 0 0 0 0 0
+Stats    1 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     21
+Keywords   portable light lamp~
+Type     light~
+Short      a portable light~
+Long       A compact portable light glows steadily here.~
+WFlags   take~
+Values   0 0 50 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     22
+Keywords   water recycler fountain~
+Type     fountain~
+Short      a water recycler~
+Long       A compact water recycler provides clean drinking water.~
+Flags    magic~
+Values   100000 100000 0 0 0 0
+Stats    10 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     23
+Keywords Dud~
+Type     trash~
+Short    Dud~
+Long     Dud~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     24
+Keywords meat fresh slice~
+Type     food~
+Short    a slice of raw meat from %s~
+Long     A slice of raw meat from %s lies lies on the ground.~
+Flags    small_size~
+WFlags   take~
+Values   15 0 0 0 0 0
+Stats    2 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     25
+Keywords shopping bag~
+Type     container~
+Short    a bag~
+Long     A shopping bag lies discarded on the ground nearby.~
+Flags    inventory~
+WFlags   take~
+Values   50 0 0 0 0 0
+Stats    2 20 2 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     30
+Keywords   heater flame emergency heater~
+Type     fire~
+Short      an emergency heater~
+Long       An emergency heater radiates a steady warmth.~
+Flags    magic~
+Values   0 0 0 0 0 0
+Stats    10 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     31
+Keywords trap~
+Type     trap~
+Short    a trap~
+Long     You detect a trap.~
+Values   0 0 0 0 0 0
+Stats    100 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     32
+Keywords   transit aperture portal~
+Type     _portal~
+Short      a transit aperture~
+Long       A shimmering transit aperture hangs in the air.~
+Flags    magic~
+Values   0 0 0 0 0 0
+Stats    100 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     33
+Keywords   toxin powder chemical~
+Type     trash~
+Short      a container of powdered toxin~
+Long       A sealed container of powdered toxin rests here.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 48000 4800 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     34
+Keywords   blank data wafer record wafer~
+Type     _scroll~
+Short      a blank data wafer~
+Long       A blank data wafer lies here ready for recording.~
+WFlags   take hold~
+Values   0 -1 -1 -1 0 0
+Stats    2 10000 1000 0 0
+Spells   'NONE' 'NONE' 'NONE'
+#ENDOBJECT
+
+#OBJECT
+Vnum     35
+Keywords   empty laboratory vial vial~
+Type     potion~
+Short      an empty laboratory vial~
+Long       An empty laboratory vial has been left here.~
+WFlags   take hold~
+Values   1 -1 -1 -1 0 0
+Stats    1 15000 1500 0 0
+Spells   'NONE' 'NONE' 'NONE'
+#ENDOBJECT
+
+#OBJECT
+Vnum     36
+Keywords   paper note data wafer message~
+Type     paper~
+Short      a message wafer~
+Long       A message wafer has been discarded here.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 1500 150 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     37
+Keywords   stylus recorder datapad~
+Type     pen~
+Short      a handheld datapad~
+Long       A handheld datapad used for recording messages is here.~
+WFlags   take~
+Values   15 15 0 0 0 0
+Stats    2 2000 200 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     38
+Keywords   mail terminal network terminal~
+Type     furniture~
+Short      a communications terminal~
+Long       A standard interstellar communications terminal has been installed here.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     43
+Keywords   keepsake medallion symbol~
+Type     armor~
+Short      a personal medallion~
+Long       A small personal medallion rests here.~
+WFlags   take hold~
+Values     10 10 0 0 0 0
+Stats    5 0 0 0 0
+Affect       -1 -1 2 4 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     45
+Keywords   grenade fragmentation grenade~
+Type     grenade~
+Short      a fragmentation grenade~
+Long       A fragmentation grenade lies here.~
+WFlags   take hold~
+Values     8 16 0 0 0 0
+Stats    1 1200 120 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     46
+Keywords   landmine mine proximity mine~
+Type     landmine~
+Short      a proximity mine~
+Long       A compact proximity mine lies here.~
+WFlags   take hold~
+Values     10 20 0 0 0 0
+Stats    1 1000 100 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     50
+Keywords   pulse rifle service rifle~
+Type     weapon~
+Short      a standard pulse rifle~
+Long       A standard pulse rifle has been left here.~
+WFlags   take wield~
+Values     0 3 10 6 2000 2000
+Stats      10 3250 750 0 0
+Affect       -1 -1 2 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     51
+Keywords   pulse pistol service pistol~
+Type     weapon~
+Short      a standard pulse pistol~
+Long       A standard pulse pistol has been left here.~
+WFlags   take wield~
+Values     0 2 8 6 2000 2000
+Stats      6 3000 300 0 0
+Affect       -1 -1 1 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     52
+Keywords   heavy pulse pistol heavy pistol~
+Type     weapon~
+Short      a heavy pulse pistol~
+Long       A heavy pulse pistol was left here.~
+WFlags   take wield~
+Values     0 3 10 6 2000 2000
+Stats      8 3600 360 0 0
+Affect       -1 -1 1 19 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     53
+Keywords   assault pulse rifle assault rifle~
+Type     weapon~
+Short      an assault pulse rifle~
+Long       An assault pulse rifle was left here.~
+WFlags   take wield~
+Values     0 4 12 6 2000 2000
+Stats      12 3750 375 0 0
+Affect       -1 -1 2 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     54
+Keywords   repeating pulse rifle repeater~
+Type     weapon~
+Short      a repeating pulse rifle~
+Long       A repeating pulse rifle is collecting dust.~
+WFlags   take wield~
+Values     0 4 14 6 2000 2000
+Stats      10 3900 390 0 0
+Affect       -1 -1 3 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     55
+Keywords   heavy sidearm pulse pistol~
+Type     weapon~
+Short      a heavy civilian pulse pistol~
+Long       A heavy civilian pulse pistol could come in handy.~
+WFlags   take wield~
+Values     0 3 10 6 0 0
+Stats      8 3700 370 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     56
+Keywords   holdout pulse pistol compact~
+Type     weapon~
+Short      a compact holdout pistol~
+Long       A cheap compact pulse pistol is here.~
+WFlags   take wield~
+Values     0 1 6 6 300 300
+Stats      4 900 90 0 0
+Affect       -1 -1 -3 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     57
+Keywords   holdout pistol compact sidearm~
+Type     weapon~
+Short      a compact holdout sidearm~
+Long       A compact holdout sidearm was dropped here.~
+Flags    inventory~
+WFlags   take wield~
+Values     0 1 6 6 1000 1000
+Stats      4 2800 280 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     58
+Keywords   mini pulse pistol emergency sidearm~
+Type     weapon~
+Short      a miniature emergency sidearm~
+Long       A very small emergency sidearm was dropped here.~
+Flags    inventory~
+WFlags   take wield~
+Values     0 1 4 6 0 0
+Stats      3 2000 200 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     59
+Keywords   long monoblade blade~
+Type     weapon~
+Short      a long monoblade~
+Long       A long precision-edged blade lies here.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 2 8 2 100 110
+Stats      4 350 120 0 0
+Affect       -1 -1 -1 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     60
+Keywords   pulse rifle civilian rifle~
+Type     weapon~
+Short      a civilian pulse rifle~
+Long       A civilian pulse rifle was dropped here.~
+WFlags   take wield~
+Values     0 3 10 6 0 0
+Stats      10 3000 300 0 0
+Affect       -1 -1 1 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     99
+Keywords   placeholder final object~
+Type     trash~
+Short      a dormant placeholder object~
+Long       A dormant placeholder object is stored here for system use.~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#ENDOBJECT
+
+#ROOM
+Vnum     1
+Name       System Nullspace~
+Sector   city~
+Flags    nomob indoors plr_home empty_home~
+Desc       You are suspended in a sealed administrative nullspace used by the game
+systems for temporary character storage and scripted operations.
+~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   test2~
+Comlist   say firstname of room:	 	$i
+say short_desc/title of room: 	$I
+say he/she/it of room:	 	$j
+say him/her/it of room:	 	$k
+say his/hers/its of room:	$l
+say firstname of victim: 	$t
+say short_desc/title of victim:	$T
+say he/she/it of victim: 	$E
+say him/her/it of victim: 	$M
+say his/hers/its of victim:	$S
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  speech_prog~
+Arglist   test~
+Comlist   say triggered by (name):	$n
+say triggered by (name&title): 	$N
+say triggerer is (he,she,it):	$e
+say triggerer is (him,her,it):	$m
+say triggerer is (his,hers,its):$s
+say random char (name):		$r
+say random char (name&title or short): 	$R
+say random char  (he,she,it):	$J
+say random char (him,her,it):	$K
+say random char (his,hers,its):	$L
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     2
+Name       System Nexus~
+Sector   city~
+Flags    nomob indoors safe plr_home empty_home~
+Desc       You stand in a quiet transfer chamber isolated from ordinary inhabited space.
+Soft status lights mark the room as part of the system's recovery and routing
+infrastructure rather than a normal destination.
+~
+#EXIT
+Direction up~
+ToRoom    32145
+#ENDEXIT
+
+Reset M 0 1 1 2
+#ENDROOM
+
+#ROOM
+Vnum     3
+Name       Transformation Storage~
+Sector   city~
+Flags    reserved nomob private remove_this_flag norecall plr_home empty_home~
+Desc       This secured room is reserved for temporary storage of transformed characters.
+~
+#ENDROOM
+
+#ROOM
+Vnum     4
+Name       Reserved System Storage~
+Sector   inside~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       This sealed chamber is reserved for future system use.
+~
+#ENDROOM
+
+#ROOM
+Vnum     6
+Name       Administrative Detention~
+Sector   city~
+Flags    nomob indoors no_drive safe norecall logspeech~
+Desc       You have been routed to a secure administrative holding chamber. There is no
+normal route out; remain here until a moderator or automated process resolves
+the condition that sent you here.
+~
+Reset M 0 2 1 6
+#ENDROOM
+
+#ROOM
+Vnum     7
+Name       Script Purge Chamber~
+Sector   city~
+Flags    nomob prototype~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   purge~
+Comlist   mppurge
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     12
+Name       Isolated Test Space~
+Sector   city~
+Flags    nomob prototype~
+#ENDROOM
+
+#ROOM
+Vnum     29
+Name       Combat Arena - West Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the western edge of a purpose-built combat arena. Tiered spectator
+galleries rise beyond reinforced barriers while the arena floor opens toward
+multiple attack routes.
+~
+#EXIT
+Direction north~
+ToRoom    30
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    37
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    36
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     30
+Name       Combat Arena - Northwest Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the northwestern section of the combat arena. Reinforced walls,
+elevated routes and open sightlines make positioning as important as raw power.
+~
+#EXIT
+Direction east~
+ToRoom    31
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    29
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    34
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction southeast~
+ToRoom    37
+#ENDEXIT
+
+Reset M 0 6 1 30
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     31
+Name       Combat Arena - North Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the northern section of the combat arena. The central floor lies
+close by, exposed to attacks from several directions.
+~
+#EXIT
+Direction east~
+ToRoom    32
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    37
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    30
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     32
+Name       Combat Arena - Northeast Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the northeastern section of the combat arena, where raised access
+routes connect the floor to the upper combat level.
+~
+#EXIT
+Direction south~
+ToRoom    33
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    31
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    36
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction southwest~
+ToRoom    37
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     33
+Name       Combat Arena - East Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the eastern edge of the combat arena. Scoring sensors and armored
+barriers line the walls around the open fighting space.
+~
+#EXIT
+Direction north~
+ToRoom    32
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    34
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    37
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     34
+Name       Combat Arena - Southeast Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the southeastern section of the combat arena. A climbable route
+connects this position with the arena's raised structure.
+~
+#EXIT
+Direction north~
+ToRoom    33
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    35
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    30
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction northwest~
+ToRoom    37
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     35
+Name       Combat Arena - South Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the southern section of the combat arena. Multiple lanes converge
+nearby, making this a dangerous place to remain stationary.
+~
+#EXIT
+Direction north~
+ToRoom    37
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    34
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    36
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     36
+Name       Combat Arena - Southwest Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand on the southwestern section of the combat arena. The central floor
+and upper routes are both accessible from nearby positions.
+~
+#EXIT
+Direction north~
+ToRoom    29
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    35
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    32
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction northeast~
+ToRoom    37
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     37
+Name       Combat Arena - Central Floor~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand at the exposed center of the combat arena. Routes approach from every
+horizontal direction, while climbable structures extend both above and below.
+~
+#EXIT
+Direction north~
+ToRoom    31
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    33
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    35
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    29
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    39
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    38
+Flags     climb~
+#ENDEXIT
+
+#EXIT
+Direction northeast~
+ToRoom    32
+#ENDEXIT
+
+#EXIT
+Direction northwest~
+ToRoom    30
+#ENDEXIT
+
+#EXIT
+Direction southeast~
+ToRoom    34
+#ENDEXIT
+
+#EXIT
+Direction southwest~
+ToRoom    36
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     38
+Name       Combat Arena - Lower Level~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand beneath the main arena floor in a reinforced lower combat level. The
+noise of movement above carries through the structural supports.
+~
+#EXIT
+Direction north~
+ToRoom    40
+#ENDEXIT
+
+#EXIT
+Direction up~
+ToRoom    37
+Flags     climb~
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     39
+Name       Combat Arena - Upper Level~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       You stand above the main arena floor on a reinforced upper combat level. From
+here movement across the lower arena can be heard through the structure.
+~
+#EXIT
+Direction south~
+ToRoom    40
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    37
+Flags     climb~
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     40
+Name       Combat Arena - Vertical Link~
+Sector   city~
+Flags    nomob indoors norecall plr_home empty_home~
+Desc       This compact vertical combat section connects the upper and lower arena levels.
+~
+#EXIT
+Direction north~
+ToRoom    39
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    38
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   15~
+Comlist   mpecho A measured chant rolls across the arena: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#MUDPROG
+Progtype  death_prog~
+Arglist   100~
+Comlist   mpecho A deafening clamor of gleeful shouts rain down from above!
+mpechoaround $n Trinkets, spittle and half-eaten food pelt down on your head.
+mpechoaround $n Tokens of favor from an appreciative crowd.
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     41
+Name       Combat Staging Hall~
+Sector   city~
+Flags    indoors private safe norecall plr_home empty_home~
+Desc       This broad staging hall serves competitors waiting to enter the arena. Secure
+doors lead toward separate preparation chambers, while status displays report
+the state of active matches.
+~
+#EXIT
+Direction up~
+ToRoom    42
+#ENDEXIT
+
+#EXIT
+Direction down~
+ToRoom    43
+#ENDEXIT
+
+#MUDPROG
+Progtype  rand_prog~
+Arglist   20~
+Comlist   mpecho A measured chant rolls through the staging hall: "Enter prepared. Leave proven."
+~
+#ENDPROG
+
+#ENDROOM
+
+#ROOM
+Vnum     42
+Name       Combatant One Staging Chamber~
+Sector   city~
+Flags    indoors safe norecall plr_home empty_home~
+Desc       This preparation chamber leads directly into the arena. Storage racks and armor
+stands provide space for competitors to check equipment before entering.
+~
+#EXIT
+Direction north~
+ToRoom    30
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    32
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    34
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    36
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     43
+Name       Combatant Two Staging Chamber~
+Sector   city~
+Flags    indoors safe norecall plr_home empty_home~
+Desc       This preparation chamber leads directly into the arena. Storage racks and armor
+stands provide space for competitors to check equipment before entering.
+~
+#EXIT
+Direction north~
+ToRoom    31
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    33
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    35
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    29
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     44
+Name       Unassigned Transit Space~
+Sector   city~
+Flags    reserved nomob~
+#ENDROOM
+
+#ROOM
+Vnum     45
+Name       System Vehicle Storage~
+Sector   city~
+Flags    nomob spacecraft~
+Desc       A thin grey maintenance haze hangs over a secured storage yard used for vessels
+that are inactive, unassigned or awaiting system maintenance.
+~
+#ENDROOM
+
+#ENDAREA

@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -1518,7 +1518,7 @@ void do_mpapplyb( CHAR_DATA * ch, const char *argument )
          break;
 
       case 3:
-         send_to_char( "The gods permit you to enter the Star Wars Reality.\r\n", victim );
+         send_to_char( "The gods permit you to enter the Zero Point.\r\n", victim );
          REMOVE_BIT( victim->pcdata->flags, PCFLAG_UNAUTHED );
          if( victim->fighting )
             stop_fighting( victim, TRUE );

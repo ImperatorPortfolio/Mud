@@ -1,0 +1,14 @@
+#PLANET
+Name         Proxima Centauri b~
+Filename     ProximaCentauriB~
+BaseValue    200000
+Flags        1
+PopSupport   0.000000
+Starsystem   Proxima Centauri System~
+GovernedBy   Proxima Directorate~
+Area         a.byss.city~
+Area         throne.city~
+Area         byss.jail~
+End
+
+#END

@@ -1,10 +1,10 @@
 /***************************************************************************
-*                           STAR WARS REALITY 1.0                          *
+*                           Zero Point 1.0                          *
 *--------------------------------------------------------------------------*
-* Star Wars Reality Code Additions and changes from the Smaug Code         *
+* Zero Point Code Additions and changes from the Smaug Code         *
 * copyright (c) 1997 by Sean Cooper                                        *
 * -------------------------------------------------------------------------*
-* Starwars and Starwars Names copyright(c) Lucas Film Ltd.                 *
+* Zero Point and Zero Point Names copyright(c) Lucas Film Ltd.                 *
 *--------------------------------------------------------------------------*
 * SMAUG 1.0 (C) 1994, 1995, 1996 by Derek Snider                           *
 * SMAUG code team: Thoric, Altrag, Blodkai, Narn, Haus,                    *
@@ -609,132 +609,197 @@ int dice_parse( CHAR_DATA * ch, int level, const char *texp )
    return rd_parse( ch, level, buf );
 }
 
+static int get_save_progression( CHAR_DATA *ch )
+{
+   if( !ch )
+      return 0;
+
+   /*
+    * SWR levels currently run approximately 0-100.
+    *
+    * This gives a neutral save progression:
+    *
+    * Level 25  = +2
+    * Level 50  = +5
+    * Level 75  = +7
+    * Level 100 = +10
+    */
+   return URANGE(
+      0,
+      ch->top_level / 10,
+      10 );
+}
+
+int get_save_bonus(
+   CHAR_DATA *ch,
+   int save_type )
+{
+   int base_save;
+   int ability_modifier;
+
+   if( !ch )
+      return 0;
+
+   base_save =
+      get_save_progression( ch );
+
+   switch( save_type )
+   {
+      case SAVE_FORTITUDE:
+         ability_modifier =
+            get_character_ability_modifier(
+               ch,
+               ABILITY_SCORE_CON );
+         break;
+
+      case SAVE_REFLEX:
+         ability_modifier =
+            get_character_ability_modifier(
+               ch,
+               ABILITY_SCORE_DEX );
+         break;
+
+      case SAVE_WILL:
+         ability_modifier =
+            get_character_ability_modifier(
+               ch,
+               ABILITY_SCORE_WIS );
+         break;
+
+      default:
+         return 0;
+   }
+
+   return
+      base_save
+      + ability_modifier;
+}
+
+bool saving_throw(
+   CHAR_DATA *ch,
+   int save_type,
+   int difficulty,
+   int trait_effect_id,
+   int misc_bonus )
+{
+   int roll;
+   int bonus;
+
+   if( !ch )
+      return FALSE;
+
+   bonus =
+      get_save_bonus(
+         ch,
+         save_type );
+
+   if( trait_effect_id > 0 )
+   {
+      bonus +=
+         get_trait_modifier(
+            ch,
+            trait_effect_id );
+   }
+
+   bonus += misc_bonus;
+
+   roll =
+      number_range( 1, 20 );
+
+   if( roll == 1 )
+      return FALSE;
+
+   if( roll == 20 )
+      return TRUE;
+
+   return
+      roll + bonus >= difficulty;
+}
+
+static int get_legacy_save_difficulty( int level )
+{
+   /*
+    * Existing SWR effect levels are approximately 0-100.
+    *
+    * 0   = DC 10
+    * 25  = DC 15
+    * 50  = DC 20
+    * 75  = DC 25
+    * 100 = DC 30
+    */
+   return
+      10
+      + (
+           URANGE(
+              0,
+              level,
+              100 )
+           / 5
+        );
+}
+
 /*
  * Compute a saving throw.
  * Negative apply's make saving throw better.
  */
-bool saves_poison_death( int level, CHAR_DATA *victim )
+bool saves_poison_death(
+   int level,
+   CHAR_DATA *victim )
 {
-   int save;
-   int trait_bonus;
-
-   trait_bonus =
-      get_trait_modifier(
-         victim,
-         TRAIT_EFFECT_SAVE_POISON );
-
-   save =
-      50
-      + (
-           victim->top_level
-           - level
-           - ( victim->saving_poison_death - trait_bonus )
-        ) * 2;
-
-   save = URANGE( 5, save, 95 );
-
-   return chance( victim, save );
+   return saving_throw(
+      victim,
+      SAVE_FORTITUDE,
+      get_legacy_save_difficulty( level ),
+      TRAIT_EFFECT_SAVE_POISON,
+      -victim->saving_poison_death );
 }
 
-bool saves_wands( int level, CHAR_DATA *victim )
+bool saves_wands(
+   int level,
+   CHAR_DATA *victim )
 {
-   int save;
-   int trait_bonus;
-
-   if( IS_SET( victim->immune, RIS_MAGIC ) )
-      return TRUE;
-
-   trait_bonus =
-      get_trait_modifier(
-         victim,
-         TRAIT_EFFECT_SAVE_WAND );
-
-   save =
-      50
-      + (
-           victim->top_level
-           - level
-           - ( victim->saving_wand - trait_bonus )
-        ) * 2;
-
-   save = URANGE( 5, save, 95 );
-
-   return chance( victim, save );
+   return saving_throw(
+      victim,
+      SAVE_REFLEX,
+      get_legacy_save_difficulty( level ),
+      TRAIT_EFFECT_SAVE_WAND,
+      -victim->saving_wand );
 }
 
-bool saves_para_petri( int level, CHAR_DATA *victim )
+bool saves_para_petri(
+   int level,
+   CHAR_DATA *victim )
 {
-   int save;
-   int trait_bonus;
-
-   trait_bonus =
-      get_trait_modifier(
-         victim,
-         TRAIT_EFFECT_SAVE_PARA );
-
-   save =
-      50
-      + (
-           victim->top_level
-           - level
-           - ( victim->saving_para_petri - trait_bonus )
-        ) * 2;
-
-   save = URANGE( 5, save, 95 );
-
-   return chance( victim, save );
+   return saving_throw(
+      victim,
+      SAVE_FORTITUDE,
+      get_legacy_save_difficulty( level ),
+      TRAIT_EFFECT_SAVE_PARA,
+      -victim->saving_para_petri );
 }
 
-bool saves_breath( int level, CHAR_DATA *victim )
+bool saves_breath(
+   int level,
+   CHAR_DATA *victim )
 {
-   int save;
-   int trait_bonus;
-
-   trait_bonus =
-      get_trait_modifier(
-         victim,
-         TRAIT_EFFECT_SAVE_BREATH );
-
-   save =
-      50
-      + (
-           victim->top_level
-           - level
-           - ( victim->saving_breath - trait_bonus )
-        ) * 2;
-
-   save = URANGE( 5, save, 95 );
-
-   return chance( victim, save );
+   return saving_throw(
+      victim,
+      SAVE_REFLEX,
+      get_legacy_save_difficulty( level ),
+      TRAIT_EFFECT_SAVE_BREATH,
+      -victim->saving_breath );
 }
 
-bool saves_spell_staff( int level, CHAR_DATA *victim )
+bool saves_spell_staff(
+   int level,
+   CHAR_DATA *victim )
 {
-   int save;
-   int trait_bonus;
-
-   if( IS_SET( victim->immune, RIS_MAGIC ) )
-      return TRUE;
-
-   if( IS_NPC( victim ) && level > 10 )
-      level -= 5;
-
-   trait_bonus =
-      get_trait_modifier(
-         victim,
-         TRAIT_EFFECT_SAVE_FORCE );
-
-   save =
-      50
-      + (
-           victim->top_level
-           - level
-           - ( victim->saving_spell_staff - trait_bonus )
-        ) * 2;
-
-   save = URANGE( 5, save, 95 );
-
-   return chance( victim, save );
+   return saving_throw(
+      victim,
+      SAVE_WILL,
+      get_legacy_save_difficulty( level ),
+      TRAIT_EFFECT_SAVE_FORCE,
+      -victim->saving_spell_staff );
 }
 /*
  * Process the spell's required components, if any		-Thoric

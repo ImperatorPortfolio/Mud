@@ -28,7 +28,7 @@ if "%MUD_HOST%"=="" (
     exit /b 1
 )
 
-echo Starting SWRFUSS on port %PORT%...
+echo Starting ZeroPoint on port %PORT%...
 echo Connect Mudlet to %MUD_HOST%:%PORT% with Secure disabled.
 echo Streaming the active log file below.
 echo Press Ctrl+C in this window to stop monitoring.
@@ -37,6 +37,6 @@ wsl.exe -d Ubuntu -- bash -lc "cd \"%WSL_ROOT%/src\" && ./startup.sh %PORT% & ST
 set "EXIT_CODE=%ERRORLEVEL%"
 
 echo.
-echo SWRFUSS exited with code %EXIT_CODE%.
+echo ZeroPoint exited with code %EXIT_CODE%.
 pause
 exit /b %EXIT_CODE%

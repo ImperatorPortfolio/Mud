@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Honoghr~
+Name         Ross 128 b - Keshari Territory~
 Author       Thrawn~
 Ranges       5 103 5 103
 Economy      0 9928240
@@ -11,9 +11,9 @@ ResetFreq    15
 
 #MOBILE
 Vnum       1000
-Keywords   Noghri male Khabarakh~
+Keywords   Keshari male Khabarakh~
 Short      Khabarakh, clan Kihm'bar~
-Long       A noghri male is standing here.
+Long       A Keshari male is standing here.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -65,9 +65,9 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1002
-Keywords   noghri ~
-Short      a noghri~
-Long       A noghri is walking ever so quietly past you.
+Keywords   Keshari ~
+Short      a Keshari~
+Long       A Keshari is walking ever so quietly past you.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -88,9 +88,9 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1003
-Keywords   noghri child~
-Short      a noghri child~
-Long       A noghri child is playing ball here.
+Keywords   Keshari child~
+Short      a Keshari child~
+Long       A Keshari child is playing ball here.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -111,9 +111,9 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1004
-Keywords   noghri female~
-Short      a noghri female~
-Long       A noghri female is silently walking aound the village.
+Keywords   Keshari female~
+Short      a Keshari female~
+Long       A Keshari female is silently walking aound the village.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -161,9 +161,9 @@ Speaking   droid~
 
 #MOBILE
 Vnum       1006
-Keywords   noghri honor guard~
-Short      a noghri honor guard~
-Long       A noghri honor guard is standing here on duty.
+Keywords   Keshari honor guard~
+Short      a Keshari honor guard~
+Long       A Keshari honor guard is standing here on duty.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -184,7 +184,7 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1007
-Keywords   Vor'corkh noghri dynast~
+Keywords   Vor'corkh Keshari dynast~
 Short      Vork'Corkh ~
 Long       Vork'Corkh, First Dynast is here.
 ~
@@ -207,7 +207,7 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1008
-Keywords   Ir'Khanim noghri dynast~
+Keywords   Ir'Khanim Keshari dynast~
 Short      Ir'Khanim~
 Long       Ir'Khanim, Second Dynast is here.
 ~
@@ -230,7 +230,7 @@ VIPFlags   honoghr~
 
 #MOBILE
 Vnum       1009
-Keywords   Maitrakh matiark noghri leader~
+Keywords   Maitrakh matiark Keshari leader~
 Short      Maitrakh, clan Kihm'bar~
 Long       Maitrakh, clan Kihm'bar is looking at her clan history.
 ~
@@ -252,7 +252,7 @@ Speaking   common noghri~
 
 #MOBILE
 Vnum       1010
-Keywords   Rukh noghri assassin~
+Keywords   Rukh Keshari assassin~
 Short      Rukh~
 Long       Rukh, ex-imperial death commando is here watching you.
 ~
@@ -282,9 +282,9 @@ wield dagger
 
 #MOBILE
 Vnum       1011
-Keywords   noghri cook ~
-Short      a noghri cook~
-Long       A noghri cook is here ready to serve you.
+Keywords   Keshari cook ~
+Short      a Keshari cook~
+Long       A Keshari cook is here ready to serve you.
 ~
 Race       Noghri~
 Position   aggressive~
@@ -305,9 +305,9 @@ ShopData   0 19 0 0 0 120 90 0 23
 
 #MOBILE
 Vnum       1099
-Keywords   noghri ~
-Short      a newly created noghri ~
-Long       Some god abandoned a newly created noghri  here.
+Keywords   Keshari ~
+Short      a newly created Keshari ~
+Long       Some god abandoned a newly created Keshari  here.
 ~
 Race       Human~
 Position   aggressive~
@@ -366,9 +366,9 @@ Stats    1 0 0 0 2
 
 #OBJECT
 Vnum     1003
-Keywords robe noghri brown~
+Keywords robe Keshari brown~
 Type     armor~
-Short    brown noghri robe~
+Short    brown Keshari robe~
 Long     A small brown robe has been dumped here.~
 Flags    small_size~
 WFlags   take about~
@@ -468,13 +468,13 @@ Desc     You are standing in the Nystao Port. At one point in history
 this port would have had imperial troopers standing guard here, 
 or the Grand Admiral Thrawn makeing his presence felt, or even
 The Dark Lord himself, Darth vader would be here letting the
-people of honoghr feel safe, but those time are gone vader long
-dead and the Noghri people have paid their debt to the empire
+people of Ross 128 b feel safe, but those time are gone vader long
+dead and the Keshari people have paid their debt to Proxima Directorate
 the are now a free people who are finally getting their lives
 in order as well as their destroyed land. The Port has very 
 few ships docked in its bays, but it does have a husk of what
 used to be an Imperial shuttle sitting here as a reminder to
-the people of Honoghr of their struggles in life as well
+the people of Ross 128 b of their struggles in life as well
 as with themselves.
 ~
 #EXIT
@@ -511,13 +511,13 @@ Desc     You are standing in the Nystao Port. At one point in history
 this port would have had imperial troopers standing guard here, 
 or the Grand Admiral Thrawn makeing his presence felt, or even
 The Dark Lord himself, Darth vader would be here letting the
-people of honoghr feel safe, but those time are gone vader long
-dead and the Noghri people have paid their debt to the empire
+people of Ross 128 b feel safe, but those time are gone vader long
+dead and the Keshari people have paid their debt to Proxima Directorate
 the are now a free people who are finally getting their lives
 in order as well as their destroyed land. The Port has very 
 few ships docked in its bays, but it does have a husk of what
 used to be an Imperial shuttle sitting here as a reminder to
-the people of Honoghr of their struggles in life as well
+the people of Ross 128 b of their struggles in life as well
 as with themselves.
 ~
 #EXIT
@@ -538,11 +538,11 @@ Name     Road Way~
 Sector   city~
 Flags    nomob~
 Desc     With Nystao Port to the south you see to the east the Grand Dukha,
-where all the noghri hold meetings of great importance wether
+where all the Keshari hold meetings of great importance wether
 it be for punishment of a clan member or for farming news
 it all get told in that building. Farther off to the northeast 
 it looks like a small village made of huts speard around in no
-specific pattern. Without a sound, the people of Honoghr pass by
+specific pattern. Without a sound, the people of Ross 128 b pass by
 you looking at you and some of the children giggle at you as you
 look at them. Some of the young adults look at you as though you
 had two heads, since they very rarely get visitors here.
@@ -565,11 +565,11 @@ Name     Road Way~
 Sector   city~
 Flags    nomob~
 Desc     With Nystao Port to the southeast you see to the east the Grand Dukha,
-where all the noghri hold meetings of great importance wether
+where all the Keshari hold meetings of great importance wether
 it be for punishment of a clan member or for farming news
 it all get told in that building. Farther off to the northeast 
 it looks like a small village made of huts speard around in no
-specific pattern. Without a sound, the people of Honoghr pass by
+specific pattern. Without a sound, the people of Ross 128 b pass by
 you looking at you and some of the children giggle at you as you
 look at them. Some of the young adults look at you as though you
 had two heads, since they very rarely get visitors here.
@@ -592,11 +592,11 @@ Name     Road Way~
 Sector   city~
 Flags    nomob~
 Desc     With Nystao Port to the southeast you see to the east the Grand Dukha,
-where all the noghri hold meetings of great importance wether
+where all the Keshari hold meetings of great importance wether
 it be for punishment of a clan member or for farming news
 it all get told in that building. Farther off to the northeast 
 it looks like a small village made of huts speard around in no
-specific pattern. Without a sound, the people of Honoghr pass by
+specific pattern. Without a sound, the people of Ross 128 b pass by
 you looking at you and some of the children giggle at you as you
 look at them. Some of the young adults look at you as though you
 had two heads, since they very rarely get visitors here.
@@ -618,12 +618,12 @@ Vnum     1005
 Name     Road Way~
 Sector   city~
 Desc     With Nystao to the southeast you see to the distant east
-the Grand Dukha, where all the noghri hold mettings of great
+the Grand Dukha, where all the Keshari hold mettings of great
 importance wether it be for punishment of a clan member
 or for farming news it all gets told in that building. 
 Farther to the northeast looks like a small village made
 of huts speard in no specific pattern. Without a sound 
-the people of honoghr pass by you, looking at you and some
+the people of Ross 128 b pass by you, looking at you and some
 of the children giggle at you as you look at them. Some of the 
 younge adults look at you as though you had two heads, since 
 they rarely get visitors here anyone new is going to get
@@ -647,12 +647,12 @@ Vnum     1006
 Name     Road Way~
 Sector   city~
 Desc     With Nystao to the southeast you see to the distant east
-the Grand Dukha, where all the noghri hold mettings of great
+the Grand Dukha, where all the Keshari hold mettings of great
 importance wether it be for punishment of a clan member
 or for farming news it all gets told in that building. 
 Farther to the northeast looks like a small village made
 of huts speard in no specific pattern. Without a sound 
-the people of honoghr pass by you, looking at you and some
+the people of Ross 128 b pass by you, looking at you and some
 of the children giggle at you as you look at them. Some of the 
 younge adults look at you as though you had two heads, since 
 they rarely get visitors here anyone new is going to get
@@ -675,7 +675,7 @@ Vnum     1007
 Name     Road Way~
 Sector   city~
 Desc     You have finaly reached the entrance to the Grand Dukha, doesn't seem to
-be in use at the moment, but, the Noghri are a very sneaky race
+be in use at the moment, but, the Keshari are a very sneaky race
 and as far as you know, the place could be crawling with them.
 You see that the Grand Dukha is much bigger then all the other buildings 
 that make up the villages.
@@ -828,10 +828,10 @@ Desc     With the Grand Dukha to the south and the port to the southwest, you
 start to head into the village. Its nothing really special, since 
 its made up of mostly huts and nothing else except for the 
 bakery and a supply hut there is nothing in this village that
-makes it really stand out. Since the Noghri were basicly
+makes it really stand out. Since the Keshari were basicly
 forced into a technology they had no use for before, they
 have only partialy adopted it into their farming and for their
-guarding of they Grand Dukha and the port, other then that the Noghri
+guarding of they Grand Dukha and the port, other then that the Keshari
 are a very low-tech race of people.
 ~
 #EXIT
@@ -867,10 +867,10 @@ Desc     With the Grand Dukha to the south and the port to the southwest, you
 start to head into the village. Its nothing really special, since 
 its made up of mostly huts and nothing else except for the 
 bakery and a supply hut there is nothing in this village that
-makes it really stand out. Since the Noghri were basicly
+makes it really stand out. Since the Keshari were basicly
 forced into a technology they had no use for before, they
 have only partialy adopted it into their farming and for their
-guarding of they Grand Dukha and the port, other then that the Noghri
+guarding of they Grand Dukha and the port, other then that the Keshari
 are a very low-tech race of people.
 ~
 #EXIT
@@ -903,10 +903,10 @@ Desc     With the Grand Dukha to the south and the port to the southwest, you
 start to head into the village. Its nothing really special, since 
 its made up of mostly huts and nothing else except for the 
 bakery and a supply hut there is nothing in this village that
-makes it really stand out. Since the Noghri were basicly
+makes it really stand out. Since the Keshari were basicly
 forced into a technology they had no use for before, they
 have only partialy adopted it into their farming and for their
-guarding of they Grand Dukha and the port, other then that the Noghri
+guarding of they Grand Dukha and the port, other then that the Keshari
 are a very low-tech race of people.
 ~
 #EXIT
@@ -928,7 +928,7 @@ ToRoom    1013
 
 #ROOM
 Vnum     1015
-Name     Noghri Guest House~
+Name     Keshari Guest House~
 Sector   city~
 Flags    safe hotel~
 Desc     The hut is very small, but it is, at the same time, very cozy. 
@@ -977,10 +977,10 @@ Desc     The cook hous is almost exactly the same as the huts except for one
 difference it sells food. Just like the other huts it has a small fire
 burning in a fire pit and a cauldron of sorts hanging in the middle. No
 Hamocks line this hut, but it is lined with the carcasus of the local live
-stock and other wild animals the noghri cook happend to have had the luck
+stock and other wild animals the Keshari cook happend to have had the luck
 of stumbling across. Strangly enough though it also has some imported
-foods, from Coruscant, the New Republic must be willing to send some food
-to the noghri who wished to stay with their roots 
+foods, from Earth, Terran Union must be willing to send some food
+to the Keshari who wished to stay with their roots 
 ~
 #EXIT
 Direction east~
@@ -1349,7 +1349,7 @@ Vnum     1033
 Name     The Village Dukha~
 Sector   city~
 Flags    indoors~
-Desc     The Dukha is covered with the history of the noghri people, hard to
+Desc     The Dukha is covered with the history of the Keshari people, hard to
 understand how to read it but it looks very beautiful, like
 hyroglyphs from an ancient city this one gives the entire history
 from further back then the clone wars. In the corner of the Dukha 
@@ -1718,10 +1718,10 @@ Flags    indoors~
 Desc     The booth is very small and very cramped. It has a bench and a mesh
 screen that you can see into the Dukha from. You notice a very odd
 thing, on the floor of the booth is what looks to be dried and now
-grey and hard wookiee hairs. very odd indeed, you heard rumours 
+grey and hard Vordan hairs. very odd indeed, you heard rumours 
 that the infamous Chewbacca and Princess Leia where hiden here when
 the Grand Admiral came here to visit but you only thought those to
-be rumors and fabrications, besides maybe it was a different wookiee
+be rumors and fabrications, besides maybe it was a different Vordan
 or some animal of some sort, who kows...
 ~
 #EXIT
