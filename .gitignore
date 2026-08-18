@@ -15,3 +15,7 @@ Desktop.ini
 
 # Machine-specific runtime DNS cache
 /system/dns.dat
+
+# Source header module, not a crash dump directory.
+!/src/core/
+!/src/core/*.h
