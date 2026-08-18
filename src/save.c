@@ -1035,6 +1035,30 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                break;
             }
 
+            if( !str_cmp( word, "AttrProgress" ) )
+{
+   int i;
+
+   for( i = 0; i < 6; ++i )
+      ch->pcdata->attribute_progress[i] =
+         UMAX( 0, fread_number( fp ) );
+
+   fMatch = TRUE;
+   break;
+}
+
+if( !str_cmp( word, "AttrLastUsed" ) )
+{
+   int i;
+
+   for( i = 0; i < 6; ++i )
+      ch->pcdata->attribute_last_used[i] =
+         (time_t)fread_number( fp );
+
+   fMatch = TRUE;
+   break;
+}
+
             if( !str_cmp( word, "AttrMod" ) )
             {
                line = fread_line( fp );
@@ -1335,6 +1359,26 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
 
       ch->pcdata->nutrition[NUTRITION_HYDRATION] =
          URANGE( 0, x6, 100 );
+
+fprintf(
+   fp,
+   "AttrProgress  %d %d %d %d %d %d\n",
+   ch->pcdata->attribute_progress[ABILITY_SCORE_STR],
+   ch->pcdata->attribute_progress[ABILITY_SCORE_DEX],
+   ch->pcdata->attribute_progress[ABILITY_SCORE_CON],
+   ch->pcdata->attribute_progress[ABILITY_SCORE_INT],
+   ch->pcdata->attribute_progress[ABILITY_SCORE_WIS],
+   ch->pcdata->attribute_progress[ABILITY_SCORE_CHA] );
+
+fprintf(
+   fp,
+   "AttrLastUsed  %ld %ld %ld %ld %ld %ld\n",
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_STR],
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_DEX],
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_CON],
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_INT],
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_WIS],
+   (long)ch->pcdata->attribute_last_used[ABILITY_SCORE_CHA] );
 
       fMatch = TRUE;
       break;

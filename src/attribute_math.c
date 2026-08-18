@@ -116,6 +116,149 @@ int get_nutrition_training_modifier( CHAR_DATA *ch, int ability )
    return 50;
 }
 
+static int get_training_ability_score(
+   CHAR_DATA *ch,
+   int ability )
+{
+   if( !ch )
+      return 0;
+
+   switch( ability )
+   {
+      case ABILITY_SCORE_STR:
+         return ch->perm_str;
+
+      case ABILITY_SCORE_DEX:
+         return ch->perm_dex;
+
+      case ABILITY_SCORE_CON:
+         return ch->perm_con;
+
+      case ABILITY_SCORE_INT:
+         return ch->perm_int;
+
+      case ABILITY_SCORE_WIS:
+         return ch->perm_wis;
+
+      case ABILITY_SCORE_CHA:
+         return ch->perm_cha;
+
+      default:
+         return 0;
+   }
+}
+
+
+int get_ability_training_progress_required(
+   CHAR_DATA *ch,
+   int ability )
+{
+   int score;
+
+   score = get_training_ability_score(
+      ch,
+      ability );
+
+   if( score <= 10 )
+      return 100;
+
+   return 100 + ( ( score - 10 ) * 50 );
+}
+
+bool gain_ability_training_progress(
+   CHAR_DATA *ch,
+   int ability,
+   int base_progress,
+   int equipment_modifier,
+   int trainer_modifier )
+{
+   int nutrition_modifier;
+   int progress;
+   int required;
+
+   if( !ch
+       || IS_NPC( ch )
+       || !ch->pcdata )
+      return FALSE;
+
+   if( ability < ABILITY_SCORE_STR
+       || ability > ABILITY_SCORE_CHA )
+      return FALSE;
+
+   if( base_progress <= 0 )
+      return FALSE;
+
+   equipment_modifier =
+      URANGE( 50, equipment_modifier, 150 );
+
+   trainer_modifier =
+      URANGE( 50, trainer_modifier, 150 );
+
+   nutrition_modifier =
+      get_nutrition_training_modifier(
+         ch,
+         ability );
+
+   progress =
+      base_progress
+      * nutrition_modifier
+      * equipment_modifier
+      * trainer_modifier
+      / 1000000;
+
+   progress = UMAX( 1, progress );
+
+   ch->pcdata->attribute_progress[ability] +=
+      progress;
+
+   ch->pcdata->attribute_last_used[ability] =
+      current_time;
+
+   required =
+      get_ability_training_progress_required(
+         ch,
+         ability );
+
+   if( ch->pcdata->attribute_progress[ability]
+       < required )
+      return FALSE;
+
+   ch->pcdata->attribute_progress[ability] -=
+      required;
+
+   switch( ability )
+   {
+      case ABILITY_SCORE_STR:
+         ++ch->perm_str;
+         break;
+
+      case ABILITY_SCORE_DEX:
+         ++ch->perm_dex;
+         break;
+
+      case ABILITY_SCORE_CON:
+         ++ch->perm_con;
+         break;
+
+      case ABILITY_SCORE_INT:
+         ++ch->perm_int;
+         break;
+
+      case ABILITY_SCORE_WIS:
+         ++ch->perm_wis;
+         break;
+
+      case ABILITY_SCORE_CHA:
+         ++ch->perm_cha;
+         break;
+
+      default:
+         return FALSE;
+   }
+
+   return TRUE;
+}
+
 extern const struct str_app_type ability_str_app[] =
 {
    { -5, -5, 0, 0 }, /*   0 */
