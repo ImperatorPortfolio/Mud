@@ -85,6 +85,66 @@ Stats    1 5 0 0 128
 Affect       -1 -1 -5 17 0
 #ENDOBJECT
 
+#OBJECT
+Vnum     10320
+Keywords weights weight resistance frame strength~
+Type     furniture~
+Short    a resistance-weight frame~
+Long     A modular resistance-weight frame is anchored to the floor here.~
+Values   0 100 6 3 0 1414680135
+Stats    20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10321
+Keywords reaction trainer agility reflex dexterity~
+Type     furniture~
+Short    a reaction training rig~
+Long     A reaction training rig flashes targets around its articulated frame.~
+Values   1 100 6 2 0 1414680135
+Stats    15 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10322
+Keywords treadmill endurance cardio constitution~
+Type     furniture~
+Short    an endurance treadmill~
+Long     A heavy-duty endurance treadmill waits for its next training session.~
+Values   2 100 6 3 0 1414680135
+Stats    25 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10323
+Keywords study terminal analysis intelligence trainer~
+Type     furniture~
+Short    a cognitive analysis terminal~
+Long     A cognitive analysis terminal presents an endless sequence of technical exercises.~
+Values   3 100 6 1 0 1414680135
+Stats    10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10324
+Keywords focus station meditation sensory wisdom trainer~
+Type     furniture~
+Short    a sensory focus station~
+Long     A quiet sensory focus station is arranged for concentration and awareness drills.~
+Values   4 100 6 1 0 1414680135
+Stats    10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10325
+Keywords negotiation simulator speech charisma trainer~
+Type     furniture~
+Short    a negotiation simulator~
+Long     A negotiation simulator waits to challenge another student's social instincts.~
+Values   5 100 6 1 0 1414680135
+Stats    10 0 0 0 0
+#ENDOBJECT
+
 
 #OBJECT
 Vnum     10424
