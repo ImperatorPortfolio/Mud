@@ -36,7 +36,7 @@ int get_nutrition_training_modifier( CHAR_DATA *ch, int ability );
 void apply_exertion_nutrition(
    CHAR_DATA *ch,
    int exertion );
-void consume_nutrition(
+void consume_nutrition_values(
    CHAR_DATA *ch,
    int protein,
    int carbs,
