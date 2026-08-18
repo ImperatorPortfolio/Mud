@@ -23,7 +23,6 @@ Stats    1 5 0 0 0
 Affect       -1 -1 -1 24 0
 #ENDOBJECT
 
-
 #OBJECT
 Vnum     10312
 Keywords academy vibro blade knife dagger vibro-blade~
@@ -37,7 +36,6 @@ Stats    3 250 50 0 0
 Affect       -1 -1 -2 18 0
 #ENDOBJECT
 
-
 #OBJECT
 Vnum     10313
 Keywords ration standard packaged~
@@ -48,7 +46,6 @@ WFlags   take~
 Values   50 50 0 0 0 0
 Stats    2 5 0 0 0
 #ENDOBJECT
-
 
 #OBJECT
 Vnum     10314
@@ -61,7 +58,6 @@ Values   40 40 0 0 0 0
 Stats    1 10 1 0 0
 #ENDOBJECT
 
-
 #OBJECT
 Vnum     10315
 Keywords drinking fountain~
@@ -71,7 +67,6 @@ Long     A drinking fountain rests against the wall.~
 Values   1000 1000 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
-
 
 #OBJECT
 Vnum     10317
@@ -145,7 +140,6 @@ Values   5 100 6 1 0 1414680135
 Stats    10 0 0 0 0
 #ENDOBJECT
 
-
 #OBJECT
 Vnum     10424
 Keywords comlink radio communicator~
@@ -157,7 +151,6 @@ Values   0 0 0 0 0 0
 Stats    1 50 5 0 0
 #ENDOBJECT
 
-
 #OBJECT
 Vnum     10487
 Keywords carsanum spice~
@@ -168,7 +161,6 @@ WFlags   take~
 Values   1 10 0 0 0 0
 Stats    1 200 20 0 0
 #ENDOBJECT
-
 
 #OBJECT
 Vnum     10488
@@ -203,5 +195,23 @@ WFlags   take~
 Values   2 2 12 0 0 0
 Stats    1 3 0 0 0
 #ENDOBJECT
+
+#ROOM
+Vnum     10399
+Name     Shared Training Equipment Reset Service~
+Sector   inside~
+Flags    nomob prototype~
+Desc     This sealed service room exists only to attach reusable training-equipment
+resets to established trainer rooms. It is not part of the playable world.
+~
+
+Reset O 0 10320 1 10227
+Reset O 0 10322 1 10227
+Reset O 0 10321 1 10228
+Reset O 0 10322 1 10228
+Reset O 0 10320 1 488
+Reset O 0 10321 1 488
+Reset O 0 10324 1 488
+#ENDROOM
 
 #ENDAREA
