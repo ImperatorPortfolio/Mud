@@ -1853,6 +1853,7 @@ void nanny_confirm_new_name( DESCRIPTOR_DATA *d, const char *argument )
     {
     case 'y':
     case 'Y':
+      SET_BIT( ch->act, PLR_ANSI );
       buffer_printf( d, "\r\nMake sure to use a password that won't be easily guessed by someone else."
 	       "\r\nPick a good password for %s: %s", ch->name, (const char *)echo_off_str );
       d->connected = CON_GET_NEW_PASSWORD;
@@ -1946,7 +1947,7 @@ void nanny_get_new_sex( DESCRIPTOR_DATA *d, const char *argument )
       return;
     }
 
-  write_to_buffer( d, "\r\nYou may choose from the following races, or type help [race] to learn more:\r\n[", 0 );
+  send_to_desc_color( "\r\n&WChoose your origin&z - &wtype &Chelp <origin>&w for details.\r\n&C[", d );
   buf[0] = '\0';
 
   for( iRace = 0; iRace < MAX_RACE; iRace++ )
@@ -1969,8 +1970,8 @@ void nanny_get_new_sex( DESCRIPTOR_DATA *d, const char *argument )
 	  strlcat( buf, race_table[iRace].race_name, MAX_STRING_LENGTH );
 	}
     }
-  strlcat( buf, "]\r\n: ", MAX_STRING_LENGTH );
-  write_to_buffer( d, buf, 0 );
+  strlcat( buf, "&w]\r\n&WOrigin:&w ", MAX_STRING_LENGTH );
+  send_to_desc_color( buf, d );
   d->connected = CON_GET_NEW_RACE;
 }
 
@@ -2034,7 +2035,7 @@ void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument )
       return;
     }
 
-  write_to_buffer( d, "\r\nPlease choose a main ability from the folowing classes:\r\n[", 0 );
+  send_to_desc_color( "\r\n&WChoose your primary discipline:\r\n&C[", d );
   buf[0] = '\0';
 
   for( iClass = 0; iClass < MAX_ABILITY; iClass++ )
@@ -2056,8 +2057,8 @@ void nanny_get_new_race( DESCRIPTOR_DATA *d, const char *argument )
 	}
     }
 
-  strlcat( buf, "]\r\n: ", MAX_STRING_LENGTH );
-  write_to_buffer( d, buf, 0 );
+  strlcat( buf, "&w]\r\n&WDiscipline:&w ", MAX_STRING_LENGTH );
+  send_to_desc_color( buf, d );
   d->connected = CON_GET_NEW_CLASS;
 }
 
@@ -2091,7 +2092,7 @@ void nanny_get_new_class( DESCRIPTOR_DATA *d, const char *argument )
       return;
     }
 
-  write_to_buffer( d, "\r\nRolling stats....\r\n", 0 );
+  send_to_desc_color( "\r\n&WCalibrating aptitude profile...&w\r\n", d );
   d->connected = CON_ROLL_STATS;
 
   /* The reason we're calling nanny_roll_stats() here is because otherwise
@@ -2144,9 +2145,9 @@ void nanny_roll_stats( DESCRIPTOR_DATA *d, const char *argument )
 
    generate_character_traits( ch );
 
-   buffer_printf(
-      d,
-      "\r\nSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\r\n",
+   ch_printf(
+      ch,
+      "\r\n&W+---------------- ATTRIBUTE PROFILE ----------------+&w\r\n&CSTR&w: %d  &CINT&w: %d  &CWIS&w: %d  &CDEX&w: %d  &CCON&w: %d  &CCHA&w: %d\r\n",
       ch->perm_str,
       ch->perm_int,
       ch->perm_wis,
@@ -2156,7 +2157,7 @@ void nanny_roll_stats( DESCRIPTOR_DATA *d, const char *argument )
 
    show_character_traits( ch );
 
-   write_to_buffer( d, "\r\nAre these stats and traits OK? ", 0 );
+   send_to_desc_color( "\r\n&WAccept this profile? &G[Y]&w / &R[N]&w ", d );
 
    d->connected = CON_STATS_OK;
 }
@@ -2183,7 +2184,7 @@ void nanny_stats_ok( DESCRIPTOR_DATA *d, const char *argument )
    }
 
    SET_BIT( d->character->act, PLR_ANSI );
-   write_to_buffer( d, "Does your mud client have the Mud Sound Protocol? ", 0 );
+   send_to_desc_color( "&WEnable Mud Sound Protocol? &G[Y]&w / &R[N]&w ", d );
    d->connected = CON_GET_MSP;
 }
 
