@@ -1973,7 +1973,7 @@ Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
-Vnum     302
+Vnum     50090
 Keywords wholegrain toast avocado~
 Type     food~
 Short    wholegrain toast with avocado~
@@ -1985,7 +1985,7 @@ Nutrition   4 11 9 8 7 4
 Stats    1 8 0 0 0
 #ENDOBJECT
 #OBJECT
-Vnum     304
+Vnum     50091
 Keywords grilled chicken vegetables plate~
 Type     food~
 Short    grilled chicken with vegetables~
@@ -6256,9 +6256,9 @@ ToRoom    300
 
 Reset M 0 302 1 420
   Reset G 1 301 1
-  Reset G 1 302 1
+  Reset G 1 50090 1
   Reset G 1 303 1
-  Reset G 1 304 1
+  Reset G 1 50091 1
   Reset G 1 305 1
   Reset G 1 343 1
   Reset G 1 344 1
