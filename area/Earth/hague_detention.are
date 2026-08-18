@@ -10,9 +10,13 @@ ResetFreq    15
 
 #MOBILE
 Vnum       9000
-Keywords   dude~
-Short      a newly created dude~
-Long       Some god abandoned a newly created dude here.
+Keywords   dude officer intake detention~
+Short      a detention intake officer~
+Long       A detention intake officer reviews a prisoner's processing record here.
+~
+Desc       The officer wears the dark, practical uniform of the Hague detention service.
+A compact terminal at one wrist displays identity records, custody orders and
+medical restrictions while a body camera continuously records the processing area.
 ~
 Race       Human~Position   aggressive~
 DefPos     aggressive~
@@ -30,9 +34,13 @@ Speaking   common~
 
 #MOBILE
 Vnum       9049
-Keywords   dude~
-Short      a newly created dude~
-Long       Some god abandoned a newly created dude here.
+Keywords   dude technician detention security~
+Short      a detention security technician~
+Long       A detention security technician monitors a bank of diagnostic displays.
+~
+Desc       This technician is surrounded by quiet status panels showing locks, cameras,
+life-support circuits and internal alarms throughout the detention complex. Their
+attention remains fixed on the facility's systems rather than its prisoners.
 ~
 Race       Human~Position   aggressive~
 DefPos     aggressive~
@@ -50,20 +58,20 @@ Speaking   common~
 
 #OBJECT
 Vnum     9000
-Keywords dud~
+Keywords dud processing tag restraint~
 Type     trash~
-Short    a dud~
-Long     A dud is here.~
+Short    a discarded processing tag~
+Long     A discarded prisoner-processing tag lies on the floor.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
 Vnum     9001
-Keywords sink~
+Keywords sink washbasin basin~
 Type     fountain~
-Short    a sink~
-Long     A sink is here.~
+Short    an institutional washbasin~
+Long     A stainless institutional washbasin is fixed securely to the wall.~
 Flags    prototype~
 Values   1000 1000 0 0 0 0
 Stats    1 0 0 0 0
@@ -71,10 +79,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     9002
-Keywords mush~
+Keywords mush ration nutrient mash~
 Type     food~
-Short    some mush~
-Long     Some day old mush is here for you to eat.~
+Short    a tray of prison nutrient mash~
+Long     A sealed tray of bland prison nutrient mash waits to be eaten.~
 WFlags   take~
 Values   20 0 0 0 0 0
 Nutrition   3 10 2 2 3 4
@@ -83,10 +91,10 @@ Stats    2 5 0 0 0
 
 #OBJECT
 Vnum     9049
-Keywords dud~
+Keywords dud access card damaged security~
 Type     trash~
-Short    a dud~
-Long     A dud is here.~
+Short    a damaged security access card~
+Long     A damaged detention-complex access card has been discarded here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -95,6 +103,11 @@ Stats    1 0 0 0 0
 Vnum     9000
 Name     New Prisoner Processing~
 Sector   city~
+Desc     A brightly lit processing bay is divided into marked standing positions,
+scanner arches and compact administrative terminals. New arrivals are photographed,
+searched and entered into the detention network before being transferred deeper into
+the secure complex. Every surface is deliberately plain, durable and easy to clean.
+~
 #EXIT
 Direction southeast~
 ToRoom    9018
@@ -107,11 +120,11 @@ Vnum     9001
 Name     Earth Penitentiary~
 Sector   city~
 Flags    nomob prototype~
-Desc     The main public concourse serves both the penitentiary entrance and a small
-municipal wellness annex. Visitors bound for the secure complex continue to
-the southeast or southwest, while the public training centre lies east.
-
-The detention complex uses reinforced composite walls, controlled lighting and unobtrusive surveillance.
+Desc     The public entrance to the Hague detention complex is austere but orderly.
+Reinforced composite walls frame security doors, visitor information displays and
+a staffed reception point beneath the seal of the Terran authorities. Secure routes
+lead toward prisoner processing and visitor screening, while a municipal training
+annex occupies a separate public wing.
 ~
 #EXIT
 Direction north~
@@ -140,6 +153,11 @@ Vnum     9002
 Name     Prisoner Entrance~
 Sector   city~
 Flags    prototype~
+Desc     This controlled entrance is reserved for prisoners, escorts and secure
+transports. Heavy doors, floor markings and recessed surveillance units funnel each
+arrival toward the first checkpoint. Beyond the public entrance, the atmosphere
+changes immediately from civic administration to tightly managed custody.
+~
 #EXIT
 Direction northeast~
 ToRoom    9001
@@ -154,9 +172,14 @@ ToRoom    9004
 
 #ROOM
 Vnum     9003
-Name     Vistor Entrance~
+Name     Visitor Entrance~
 Sector   city~
 Flags    prototype~
+Desc     Visitors enter through a separate screening corridor lined with identity
+scanners, prohibited-item notices and secure storage lockers. Clear panels allow
+staff to observe the route without giving visitors any view into restricted parts
+of the prison. The passage continues toward the visitors checkpoint.
+~
 #EXIT
 Direction northwest~
 ToRoom    9001
@@ -174,6 +197,11 @@ Vnum     9004
 Name     Outside Checkpoint A~
 Sector   city~
 Flags    prototype~
+Desc     A reinforced security door blocks the way south. Cameras cover every angle
+of the narrow approach while a wall display instructs escorts to present custody
+credentials before proceeding. The checkpoint is designed to prevent an arriving
+prisoner from reaching the secure interior without positive authorization.
+~
 #EXIT
 Direction south~
 ToRoom    9005
@@ -193,6 +221,11 @@ Vnum     9005
 Name     Inside Checkpoint A~
 Sector   city~
 Flags    prototype~
+Desc     The inner side of Checkpoint A forms a compact security vestibule between
+independently controlled doors. Status lights show the outer barrier sealed before
+the route south can be cleared. Reinforced walls and ceiling-mounted sensors make
+this space intentionally difficult to bypass or damage.
+~
 #EXIT
 Direction north~
 ToRoom    9004
@@ -212,6 +245,11 @@ Vnum     9006
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     A broad institutional corridor runs through the processing wing. Pale wall
+panels, anti-slip flooring and continuous lighting leave few shadows, while sealed
+service conduits disappear behind tamper-resistant access plates. Surveillance
+cameras track movement between the nearby checkpoints and staff station.
+~
 #EXIT
 Direction north~
 ToRoom    9005
@@ -234,6 +272,11 @@ Vnum     9007
 Name     Outside Check Point B~
 Sector   city~
 Flags    prototype~
+Desc     Checkpoint B divides prisoner processing from the main secure circulation
+route. A pair of recessed scanners flank the southern doorway and a red status band
+runs around the frame whenever access is denied. There is nowhere to wait except
+inside the direct view of the facility's cameras.
+~
 #EXIT
 Direction north~
 ToRoom    9006
@@ -251,6 +294,11 @@ Vnum     9008
 Name     Inside Check Point B~
 Sector   city~
 Flags    prototype~
+Desc     The inner checkpoint opens onto the prison's controlled circulation network.
+Directional markings identify processing, accommodation and staff-only routes, and
+a ceiling strip displays current lockdown status. The construction is functional,
+severe and clearly intended to survive years of hard institutional use.
+~
 #EXIT
 Direction north~
 ToRoom    9007
@@ -273,6 +321,11 @@ Vnum     9009
 Name     Staff Check Point~
 Sector   city~
 Flags    prototype~
+Desc     This staff checkpoint is little more than a hardened control alcove built
+into the corridor wall. Secure terminals display camera feeds, door states and
+prisoner movements while lockers hold emergency equipment. Access beyond the station
+is intended for authorized detention personnel only.
+~
 #EXIT
 Direction west~
 ToRoom    9006
@@ -285,6 +338,11 @@ Vnum     9010
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     The corridor angles through the secure interior beneath evenly spaced light
+panels. Numbered door markings and discreet floor guides replace decoration, and the
+quiet hum of ventilation is broken only by distant doors opening and sealing again.
+Every junction remains under visible surveillance.
+~
 #EXIT
 Direction east~
 ToRoom    9011
@@ -302,6 +360,11 @@ Vnum     9011
 Name     Outside Checkpoint C~
 Sector   city~
 Flags    prototype~
+Desc     A third controlled checkpoint stands at a junction leading toward the cell
+and service wings. The doorway is framed by identification sensors and hardened
+shutters capable of sealing the passage during an incident. Floor markings keep
+staff traffic separated from escorted prisoners.
+~
 #EXIT
 Direction east~
 ToRoom    9012
@@ -324,6 +387,11 @@ Vnum     9012
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     This narrower corridor leads toward the visitor-control section. Smooth
+composite walls contain no exposed fixtures beyond lights, cameras and emergency
+call points. The air carries the faint antiseptic smell common to the rest of the
+facility.
+~
 #EXIT
 Direction west~
 ToRoom    9011
@@ -341,6 +409,11 @@ Vnum     9013
 Name     Viewing Room Checkpoint~
 Sector   city~
 Flags    prototype~
+Desc     Visitors and prisoners are separated here before entering the controlled
+visitation suite. Identity readers, a small guard console and a secure intercom are
+built into the wall. Beyond the checkpoint, reinforced observation glazing ensures
+that contact can be monitored without compromising the secure perimeter.
+~
 #EXIT
 Direction north~
 ToRoom    9014
@@ -358,6 +431,11 @@ Vnum     9014
 Name     Viewing Room~
 Sector   city~
 Flags    prototype~
+Desc     A row of fixed seats faces a broad panel of reinforced transparent composite.
+The adjoining visiting room can be seen clearly through it, while directional audio
+and recording systems allow conversations to be monitored. Nothing in the room is
+loose enough to be removed or used as a weapon.
+~
 #EXIT
 Direction north~
 ToRoom    9015
@@ -376,6 +454,11 @@ Vnum     9015
 Name     Visiting Room~
 Sector   city~
 Flags    prototype~
+Desc     The visiting room contains fixed tables and chairs arranged beneath bright,
+neutral lighting. Reinforced glazing separates portions of the suite, and unobtrusive
+cameras cover every seat. The space is less severe than the cell blocks, but every
+detail still makes its custodial purpose unmistakable.
+~
 #EXIT
 Direction north~
 ToRoom    9016
@@ -394,6 +477,11 @@ Vnum     9016
 Name     Inside Visitors Checkpoint~
 Sector   city~
 Flags    prototype~
+Desc     This secure vestibule controls movement between the visiting suite and the
+public side of the complex. Staff can isolate either doorway from a recessed console,
+and a narrow inspection strip in the wall provides a clear view of anyone waiting
+to pass through.
+~
 #EXIT
 Direction north~
 ToRoom    9017
@@ -411,6 +499,11 @@ Vnum     9017
 Name     Outside Visitors Checkpoint~
 Sector   city~
 Flags    prototype~
+Desc     The public side of the visitors checkpoint contains queue markings, identity
+terminals and lockers for restricted belongings. Posted notices explain visitation
+rules in several common languages. A controlled passage south leads into the secure
+visiting suite.
+~
 #EXIT
 Direction south~
 ToRoom    9016
@@ -428,6 +521,11 @@ Vnum     9018
 Name     Strip Search~
 Sector   city~
 Flags    prototype~
+Desc     Privacy screens divide this stark search room into several inspection bays.
+Wall lockers hold scanners, gloves and sealed evidence containers, while floor drains
+and washable surfaces make the room easy to sanitize. Prisoners are searched here
+before being issued detention clothing.
+~
 #EXIT
 Direction east~
 ToRoom    9019
@@ -440,6 +538,11 @@ Vnum     9019
 Name     Prison Garments~
 Sector   city~
 Flags    prototype~
+Desc     Shelving units hold standardized detention clothing, footwear and sealed
+personal-property bags. Each set is tagged to a prisoner record before issue, and a
+small return chute carries civilian belongings into secure storage elsewhere in the
+complex.
+~
 #EXIT
 Direction northeast~
 ToRoom    9010
@@ -452,6 +555,11 @@ Vnum     9020
 Name     Inside Checkpoint C~
 Sector   city~
 Flags    prototype~
+Desc     Beyond Checkpoint C, the architecture becomes more restrictive. Heavy doors
+sit flush with reinforced walls and the floor is marked with routes toward housing,
+visitation and dining. A status panel overhead can turn the entire junction into a
+sealed containment point within seconds.
+~
 #EXIT
 Direction north~
 ToRoom    9011
@@ -469,6 +577,11 @@ Vnum     9021
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     This main corridor serves the accommodation and dining sections. Recessed
+lights cast an even white glow over doors, cameras and numbered wall panels. The
+smell of institutional food drifts faintly from the east while the cell blocks lie
+further south.
+~
 #EXIT
 Direction north~
 ToRoom    9020
@@ -491,6 +604,10 @@ Vnum     9022
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     The corridor continues toward the cell-block checkpoints beneath the constant
+hum of filtered air. Directional numbers are stencilled directly onto the wall panels,
+and every few metres a recessed emergency station sits behind a sealed cover.
+~
 #EXIT
 Direction north~
 ToRoom    9021
@@ -508,6 +625,10 @@ Vnum     9023
 Name     A Prison Corridor~
 Sector   city~
 Flags    prototype~
+Desc     The passage reaches a controlled junction between two cell-block approaches.
+Reinforced doors stand east and west, each watched by independent camera clusters.
+The open route north leads back toward the service and dining sections of the complex.
+~
 #EXIT
 Direction north~
 ToRoom    9022
@@ -530,6 +651,11 @@ Vnum     9024
 Name     CellBlock Checkpoint~
 Sector   city~
 Flags    prototype~
+Desc     This checkpoint controls entry to Cellblock A. A compact guard station is
+protected behind reinforced transparent composite, with door controls and prisoner
+movement records displayed on its internal screens. The heavy eastern barrier leads
+into the housing block itself.
+~
 #EXIT
 Direction east~
 ToRoom    9026
@@ -547,6 +673,11 @@ Vnum     9025
 Name     CellBlock Checkpoint~
 Sector   city~
 Flags    prototype~
+Desc     A second cell-block checkpoint occupies the western branch of the junction.
+Its reinforced access door is presently inactive, but the camera housings, security
+console and emergency shutters remain operational. The main prison corridor lies back
+to the east.
+~
 #EXIT
 Direction east~
 ToRoom    9023
@@ -559,6 +690,11 @@ Vnum     9026
 Name     Cellblock A~
 Sector   city~
 Flags    prototype~
+Desc     Cellblock A is built around a stark central passage with sealed cell doors
+set into reinforced walls. Numbers and status lights identify each compartment while
+ceiling cameras watch the entire block. The hard surfaces amplify footsteps and the
+metallic sound of doors cycling open and shut.
+~
 #EXIT
 Direction north~
 ToRoom    9029
@@ -582,6 +718,11 @@ Vnum     9027
 Name     Cellblock A~
 Sector   city~
 Flags    prototype~
+Desc     The cellblock passage continues between identical reinforced doors and narrow
+inspection panels. A continuous strip of white light follows the ceiling while the
+walls carry only cell numbers, emergency instructions and the occasional maintenance
+access plate.
+~
 #EXIT
 Direction east~
 ToRoom    9028
@@ -599,6 +740,11 @@ Vnum     9028
 Name     Cellblock A~
 Sector   city~
 Flags    prototype~
+Desc     This end of Cellblock A terminates in a blank reinforced wall beneath a pair
+of surveillance cameras. The cell doors here are spaced closely together, each with
+a small status panel showing occupancy and lock state. The only open route returns
+west along the block.
+~
 #EXIT
 Direction west~
 ToRoom    9027
@@ -611,9 +757,11 @@ Vnum     9029
 Name     A Cell~
 Sector   city~
 Flags    safe hotel prototype~
-Desc     You may safely quit and reenter the game from here.
+Desc     A narrow detention cell contains a fixed bunk, compact sanitation unit and a
+small recessed shelf. The furnishings are moulded or anchored directly into the room,
+leaving almost nothing loose. A reinforced door separates the cell from Cellblock A.
 
-The detention complex uses reinforced composite walls, controlled lighting and unobtrusive surveillance.
+You may safely quit and reenter the game from here.
 ~
 #EXIT
 Direction south~
@@ -628,6 +776,10 @@ Vnum     9030
 Name     Outside the Dining Area~
 Sector   city~
 Flags    prototype~
+Desc     The prison corridor widens outside the dining section. Painted queue lines
+lead north toward the main room while a secured service route runs east toward the
+kitchen. The smell of hot nutrient rations and cleaning agents hangs in the air.
+~
 #EXIT
 Direction north~
 ToRoom    9031
@@ -650,6 +802,11 @@ Vnum     9031
 Name     Prison Dining Room~
 Sector   city~
 Flags    prototype~
+Desc     Rows of fixed tables and benches fill this supervised dining room. The
+furniture is rounded, heavy and bolted to the floor, with clear sightlines from every
+seat to the entrances. A service opening to the east connects the room to the food
+line while cameras watch from the ceiling corners.
+~
 #EXIT
 Direction east~
 ToRoom    9032
@@ -667,6 +824,11 @@ Vnum     9032
 Name     Food Line~
 Sector   city~
 Flags    prototype~
+Desc     A stainless serving counter separates prisoners from the kitchen beyond.
+Heated dispensers issue standardized meals in sealed trays, and floor markings keep
+the queue moving in a single direction. The equipment is designed for speed,
+hygiene and minimal physical contact between staff and inmates.
+~
 #EXIT
 Direction south~
 ToRoom    9033
@@ -686,6 +848,11 @@ Vnum     9033
 Name     The Prison Kitchen~
 Sector   city~
 Flags    prototype~
+Desc     Industrial cookers, chilled storage units and sealed preparation benches fill
+this compact institutional kitchen. Everything is arranged for high-volume meals and
+easy sanitation. A secure serving window opens north toward the food line, while the
+western door leads back to the controlled dining corridor.
+~
 #EXIT
 Direction north~
 ToRoom    9032
@@ -707,12 +874,9 @@ Sector   inside~
 Flags    indoors safe~
 Desc     This municipal training centre provides basic physical, cognitive and social
 conditioning for residents, academy students and public-service personnel. Six
-standardized stations line the room. Use EXERCISE <equipment> to complete a
-training session; regular activity and good nutrition improve development over
-time.
-
-The equipment here is deliberately ordinary rather than elite. More advanced
-facilities elsewhere can provide higher-quality training as characters progress.
+standardized training stations line the room beneath simple instructional displays.
+The equipment is deliberately practical rather than elite, providing a reliable
+place to TRAIN an attribute before seeking more specialized facilities elsewhere.
 ~
 #EXIT
 Direction west~
