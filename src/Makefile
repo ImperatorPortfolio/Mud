@@ -51,7 +51,7 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c 
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c player.c reset.c save.c sha256.c shops.c \
-	  skills.c space.c special.c swskills.c tables.c track.c traits.c update.c
+	  skills.c space.c special.c swskills.c tables.c track.c training.c traits.c update.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
 
@@ -86,6 +86,20 @@ $(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
 # source slice has been integrated upstream.
 #
 o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense
+
+#
+# Attribute training migration
+#
+# misc.c still contains the inherited binary do_train implementation. Keep it
+# link-safe under a legacy symbol while training.c provides the authoritative
+# progress-based command without forcing an unrelated wholesale misc.c rewrite.
+#
+o/misc.o: C_FLAGS += -Ddo_train=legacy_do_train
+
+# The long-term nutrition drain API takes explicit nutrient values. The old
+# misc.c food helper intentionally keeps its local consume_nutrition name, so
+# only the translation units using the global value-based API are renamed.
+o/attribute_math.o o/act_move.o o/update.o: C_FLAGS += -Dconsume_nutrition=consume_nutrition_values
 
 all:
 	$(info    Using flags: $(C_FLAGS))
