@@ -6160,6 +6160,28 @@ void fread_fuss_object( FILE * fp, AREA_DATA * tarea )
             KEY( "Long", pObjIndex->description, fread_string( fp ) );
             break;
 
+         case 'N':
+            if( !str_cmp( word, "Nutrition" ) )
+            {
+               char *ln = fread_line( fp );
+               int protein, carbs, fats, vitamins, minerals, hydration;
+
+               protein = carbs = fats = vitamins = minerals = hydration = 0;
+               sscanf( ln, "%d %d %d %d %d %d",
+                       &protein, &carbs, &fats, &vitamins, &minerals, &hydration );
+
+               pObjIndex->nutrition[NUTRITION_PROTEIN] = URANGE( 0, protein, 100 );
+               pObjIndex->nutrition[NUTRITION_CARBS] = URANGE( 0, carbs, 100 );
+               pObjIndex->nutrition[NUTRITION_FATS] = URANGE( 0, fats, 100 );
+               pObjIndex->nutrition[NUTRITION_VITAMINS] = URANGE( 0, vitamins, 100 );
+               pObjIndex->nutrition[NUTRITION_MINERALS] = URANGE( 0, minerals, 100 );
+               pObjIndex->nutrition[NUTRITION_HYDRATION] = URANGE( 0, hydration, 100 );
+
+               fMatch = TRUE;
+               break;
+            }
+            break;
+
          case 'S':
             KEY( "Short", pObjIndex->short_descr, fread_string( fp ) );
             if( !str_cmp( word, "Spells" ) )

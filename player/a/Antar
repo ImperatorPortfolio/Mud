@@ -6,7 +6,7 @@ Race         0
 MainAbility  0
 Languages    1 1
 Toplevel     1
-Played       323
+Played       1528
 Room         206
 HpManaMove   500 500 0 0 1000 1000
 Force        0 0 0 0
@@ -29,9 +29,9 @@ MGlory       0
 Hitroll      0
 Damroll      0
 Armor        100
-Mentalstate  -1
+Mentalstate  0
 Password     b4c66a4d4c59489ff37a2b94065cf65be4d97a9575e155b2922b45121b35f495~
-Lastplayed   1787087948
+Lastplayed   1787089153
 Title         Antar the Human~
 AuthedBy     professor schoolmaster teacher headmaster~
 Addiction    0 0 0 0 0 0 0 0 0 0
@@ -42,7 +42,7 @@ MDeaths      0
 AttrPerm     9 16 14 7 13 14 13
 AttrMod      0 0 0 0 0 0 0
 Traits       5 3 67 2 49 1 13 1 70 3 20 3 
-Condition    0 47 47 10
+Condition    0 30 30 10
 Nutrition    60 60 60 60 60 60
 Site         ATHENA.mshome.net
 Tongue       100 'common'
@@ -53,13 +53,13 @@ End
 #OBJECT
 Vnum         10311
 WearLoc      0
-Values       0 0 46 0 0 0
+Values       0 0 29 0 0 0
 End
 
 #OBJECT
 Vnum         10312
 WearLoc      16
-Values       12 5 20 2 997 1000
+Values       12 5 20 2 980 1000
 End
 
 #OBJECT
