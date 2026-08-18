@@ -1726,7 +1726,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
                if( !can_dual( ch ) )
                   return;
 
-               if( get_obj_weight( obj ) + get_obj_weight( tmpobj ) > str_app[get_curr_str( ch )].wield )
+               if( get_obj_weight( obj ) + get_obj_weight( tmpobj ) > get_str_wield_bonus( get_curr_str( ch ) ) )
                {
                   send_to_char( "It is too heavy for you to wield.\r\n", ch );
                   return;
@@ -1768,7 +1768,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
                   return;
                }
 
-               if( get_obj_weight( obj ) + get_obj_weight( mw ) > str_app[get_curr_str( ch )].wield )
+               if( get_obj_weight( obj ) + get_obj_weight( mw ) > get_str_wield_bonus( get_curr_str( ch ) ) )
                {
                   send_to_char( "It is too heavy for you to wield.\r\n", ch );
                   return;
@@ -1797,7 +1797,7 @@ void wear_obj( CHAR_DATA * ch, OBJ_DATA * obj, bool fReplace, short wear_bit )
             }
          }
 
-         if( get_obj_weight( obj ) > str_app[get_curr_str( ch )].wield )
+         if( get_obj_weight( obj ) > get_str_wield_bonus( get_curr_str( ch ) ) )
          {
             send_to_char( "It is too heavy for you to wield.\r\n", ch );
             return;

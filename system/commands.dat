@@ -3143,6 +3143,14 @@ Log         0
 End
 
 #COMMAND
+Name        traits~
+Code        do_traits
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
 Name        trajectory~
 Code        do_trajectory
 Position    5

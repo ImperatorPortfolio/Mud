@@ -1172,56 +1172,131 @@ void do_sset( CHAR_DATA * ch, const char *argument )
       victim->pcdata->learned[sn] = value;
 }
 
-void learn_from_success( CHAR_DATA * ch, int sn )
+void learn_from_success( CHAR_DATA *ch, int sn )
 {
-   int adept, gain, sklvl, learn, percent, schance;
+   int adept;
+   int gain;
+   int sklvl;
+   int learn;
+   int percent;
+   int schance;
+   int aptitude;
 
-   if( IS_NPC( ch ) || ch->pcdata->learned[sn] == 0 )
+   if( IS_NPC( ch )
+       || ch->pcdata->learned[sn] == 0 )
       return;
 
-   if( sn == skill_lookup( "meditate" ) && ch->skill_level[FORCE_ABILITY] < 2 )
-      gain_exp( ch, 25, FORCE_ABILITY );
+   if( sn == skill_lookup( "meditate" )
+       && ch->skill_level[FORCE_ABILITY] < 2 )
+   {
+      gain_exp(
+         ch,
+         25,
+         FORCE_ABILITY );
+   }
 
    sklvl = skill_table[sn]->min_level;
 
-   if( skill_table[sn]->guild < 0 || skill_table[sn]->guild >= MAX_ABILITY )
+   if( skill_table[sn]->guild < 0
+       || skill_table[sn]->guild >= MAX_ABILITY )
       return;
 
-   adept = ( ch->skill_level[skill_table[sn]->guild] - skill_table[sn]->min_level ) * 5 + 50;
+   adept =
+      (
+         ch->skill_level[skill_table[sn]->guild]
+         - skill_table[sn]->min_level
+      ) * 5 + 50;
+
    adept = UMIN( adept, 100 );
 
    if( ch->pcdata->learned[sn] >= adept )
       return;
 
-   if( sklvl == 0 || sklvl > ch->skill_level[skill_table[sn]->guild] )
-      sklvl = ch->skill_level[skill_table[sn]->guild];
+   if( sklvl == 0
+       || sklvl
+          > ch->skill_level[skill_table[sn]->guild] )
+   {
+      sklvl =
+         ch->skill_level[skill_table[sn]->guild];
+   }
+
    if( ch->pcdata->learned[sn] < 100 )
    {
-      schance = ch->pcdata->learned[sn] + ( 5 * skill_table[sn]->difficulty );
-      percent = number_percent(  );
+      aptitude =
+         get_trait_skill_modifier(
+            ch,
+            sn );
+
+      schance =
+         ch->pcdata->learned[sn]
+         + ( 5 * skill_table[sn]->difficulty )
+         - ( aptitude * 4 );
+
+      schance =
+         URANGE(
+            1,
+            schance,
+            100 );
+
+      percent = number_percent();
+
       if( percent >= schance )
+      {
          learn = 2;
+      }
       else if( schance - percent > 25 )
+      {
          return;
+      }
       else
+      {
          learn = 1;
-      ch->pcdata->learned[sn] = UMIN( adept, ch->pcdata->learned[sn] + learn );
-      if( ch->pcdata->learned[sn] == 100 )   /* fully learned! */
+      }
+
+      ch->pcdata->learned[sn] =
+         UMIN(
+            adept,
+            ch->pcdata->learned[sn] + learn );
+
+      if( ch->pcdata->learned[sn] == 100 )
       {
          gain = 50 * sklvl;
-         set_char_color( AT_WHITE, ch );
-         ch_printf( ch, "You are now an adept of %s!  You gain %d bonus experience!\r\n", skill_table[sn]->name, gain );
+
+         set_char_color(
+            AT_WHITE,
+            ch );
+
+         ch_printf(
+            ch,
+            "You are now an adept of %s!  "
+            "You gain %d bonus experience!\r\n",
+            skill_table[sn]->name,
+            gain );
       }
       else
       {
          gain = 10 * sklvl;
-         if( !ch->fighting && sn != gsn_hide && sn != gsn_sneak )
+
+         if( !ch->fighting
+             && sn != gsn_hide
+             && sn != gsn_sneak )
          {
-            set_char_color( AT_WHITE, ch );
-            ch_printf( ch, "You gain %d experience points from your success!\r\n", gain );
+            set_char_color(
+               AT_WHITE,
+               ch );
+
+            ch_printf(
+               ch,
+               "You gain %d experience points "
+               "from your success!\r\n",
+               gain );
          }
       }
-      gain_exp( ch, gain, skill_table[sn]->guild );
+
+      gain_exp(
+         ch,
+         gain,
+         skill_table[sn]->guild );
    }
 }
 

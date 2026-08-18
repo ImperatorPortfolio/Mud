@@ -36,4 +36,5 @@ o/special.o: special.c mud.h hotboot.h dns.h color.h
 o/swskills.o: swskills.c mud.h hotboot.h dns.h color.h
 o/tables.o: tables.c mud.h hotboot.h dns.h color.h
 o/track.o: track.c mud.h hotboot.h dns.h color.h
+o/traits.o: traits.c mud.h hotboot.h dns.h color.h
 o/update.o: update.c mud.h hotboot.h dns.h color.h

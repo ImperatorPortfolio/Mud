@@ -326,101 +326,121 @@ short get_age( CHAR_DATA * ch )
 /*
  * Retrieve character's current strength.
  */
-short get_curr_str( CHAR_DATA * ch )
+short get_curr_str( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].str_plus;
-   max = UMIN( max, 25 );
-   return URANGE( 3, ch->perm_str + ch->mod_str, max );
+   return UMAX(
+      3,
+      ch->perm_str + ch->mod_str );
 }
 
-/*
- * Retrieve character's current intelligence.
- */
-short get_curr_int( CHAR_DATA * ch )
+short get_curr_int( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].int_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_int + ch->mod_int, max );
+   return UMAX(
+      3,
+      ch->perm_int + ch->mod_int );
 }
 
-/*
- * Retrieve character's current wisdom.
- */
-short get_curr_wis( CHAR_DATA * ch )
+short get_curr_wis( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].wis_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_wis + ch->mod_wis, max );
+   return UMAX(
+      3,
+      ch->perm_wis + ch->mod_wis );
 }
 
-/*
- * Retrieve character's current dexterity.
- */
-short get_curr_dex( CHAR_DATA * ch )
+short get_curr_dex( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].dex_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_dex + ch->mod_dex, max );
+   return UMAX(
+      3,
+      ch->perm_dex + ch->mod_dex );
 }
 
-/*
- * Retrieve character's current constitution.
- */
-short get_curr_con( CHAR_DATA * ch )
+short get_curr_con( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].con_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_con + ch->mod_con, max );
+   return UMAX(
+      3,
+      ch->perm_con + ch->mod_con );
 }
 
-/*
- * Retrieve character's current charisma.
- */
-short get_curr_cha( CHAR_DATA * ch )
+short get_curr_cha( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].cha_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_cha + ch->mod_cha, max );
+   return UMAX(
+      3,
+      ch->perm_cha + ch->mod_cha );
 }
 
-/*
- * Retrieve character's current luck.
- */
-short get_curr_lck( CHAR_DATA * ch )
+short get_curr_lck( CHAR_DATA *ch )
 {
-   short max;
-
-   max = 20 + race_table[ch->race].lck_plus;
-   max = UMIN( max, 25 );
-
-   return URANGE( 3, ch->perm_lck + ch->mod_lck, max );
+   return UMAX(
+      3,
+      ch->perm_lck
+      + ch->mod_lck
+      + get_trait_modifier(
+           ch,
+           TRAIT_EFFECT_LCK_POTENTIAL ) );
 }
 
-short get_curr_frc( CHAR_DATA * ch )
+short get_curr_frc( CHAR_DATA *ch )
 {
-   short max;
+   return UMAX(
+      0,
+      ch->perm_frc
+      + ch->mod_frc
+      + get_trait_modifier(
+           ch,
+           TRAIT_EFFECT_FRC_POTENTIAL ) );
+}
 
-   max = 20 + race_table[ch->race].frc_plus;
-   max = UMIN( max, 25 );
+int get_str_tohit_bonus( int strength )
+{
+   if( strength <= 25 )
+      return str_app[URANGE( 0, strength, 25 )].tohit;
 
-   return URANGE( 0, ch->perm_frc + ch->mod_frc, max );
+   return str_app[25].tohit
+      + ( ( strength - 25 ) * 2 );
+}
+
+int get_str_todam_bonus( int strength )
+{
+   if( strength <= 25 )
+      return str_app[URANGE( 0, strength, 25 )].todam;
+
+   return str_app[25].todam
+      + ( ( strength - 25 ) * 2 );
+}
+
+int get_str_carry_bonus( int strength )
+{
+   if( strength <= 25 )
+      return str_app[URANGE( 0, strength, 25 )].carry;
+
+   return str_app[25].carry
+      + ( ( strength - 25 ) * 100 );
+}
+
+int get_str_wield_bonus( int strength )
+{
+   if( strength <= 25 )
+      return str_app[URANGE( 0, strength, 25 )].wield;
+
+   return str_app[25].wield
+      + ( ( strength - 25 ) * 5 );
+}
+
+int get_dex_defensive_bonus( int dexterity )
+{
+   if( dexterity <= 25 )
+      return dex_app[URANGE( 0, dexterity, 25 )].defensive;
+
+   return dex_app[25].defensive
+      - ( ( dexterity - 25 ) * 15 );
+}
+
+int get_int_learn_bonus( int intelligence )
+{
+   if( intelligence <= 25 )
+      return int_app[URANGE( 0, intelligence, 25 )].learn;
+
+   return 100;
 }
 
 /*

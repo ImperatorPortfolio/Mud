@@ -2078,67 +2078,91 @@ void nanny_get_new_class( DESCRIPTOR_DATA *d, const char *argument )
 
 void nanny_roll_stats( DESCRIPTOR_DATA *d, const char *argument )
 {
-  CHAR_DATA *ch = d->character;
+   CHAR_DATA *ch = d->character;
 
-  ch->perm_str = number_range( 1, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-  ch->perm_int = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-  ch->perm_wis = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-  ch->perm_dex = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-  ch->perm_con = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-  ch->perm_cha = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
+   ch->perm_str =
+      number_range( 1, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
 
-  ch->perm_str += race_table[ch->race].str_plus;
-  ch->perm_int += race_table[ch->race].int_plus;
-  ch->perm_wis += race_table[ch->race].wis_plus;
-  ch->perm_dex += race_table[ch->race].dex_plus;
-  ch->perm_con += race_table[ch->race].con_plus;
-  ch->perm_cha += race_table[ch->race].cha_plus;
+   ch->perm_int =
+      number_range( 3, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
 
-  buffer_printf( d, "\r\nSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\r\n",
-	   ch->perm_str, ch->perm_int, ch->perm_wis, ch->perm_dex, ch->perm_con, ch->perm_cha );
+   ch->perm_wis =
+      number_range( 3, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
 
-  write_to_buffer( d, "\r\nAre these stats OK? ", 0 );
-  d->connected = CON_STATS_OK;
+   ch->perm_dex =
+      number_range( 3, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
+
+   ch->perm_con =
+      number_range( 3, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
+
+   ch->perm_cha =
+      number_range( 3, 6 )
+      + number_range( 1, 6 )
+      + number_range( 1, 6 );
+
+   ch->perm_str += race_table[ch->race].str_plus;
+   ch->perm_int += race_table[ch->race].int_plus;
+   ch->perm_wis += race_table[ch->race].wis_plus;
+   ch->perm_dex += race_table[ch->race].dex_plus;
+   ch->perm_con += race_table[ch->race].con_plus;
+   ch->perm_cha += race_table[ch->race].cha_plus;
+
+   generate_character_traits( ch );
+
+   buffer_printf(
+      d,
+      "\r\nSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\r\n",
+      ch->perm_str,
+      ch->perm_int,
+      ch->perm_wis,
+      ch->perm_dex,
+      ch->perm_con,
+      ch->perm_cha );
+
+   show_character_traits( ch );
+
+   write_to_buffer( d, "\r\nAre these stats and traits OK? ", 0 );
+
+   d->connected = CON_STATS_OK;
 }
 
 void nanny_stats_ok( DESCRIPTOR_DATA *d, const char *argument )
 {
-  CHAR_DATA *ch = d->character;
+   switch( argument[0] )
+   {
+      case 'y':
+      case 'Y':
+         break;
 
-  switch( argument[0] )
-    {
-    case 'y':
-    case 'Y':
-      break;
-    case 'n':
-    case 'N':
-      ch->perm_str = number_range( 1, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-      ch->perm_int = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-      ch->perm_wis = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-      ch->perm_dex = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-      ch->perm_con = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
-      ch->perm_cha = number_range( 3, 6 ) + number_range( 1, 6 ) + number_range( 1, 6 );
+      case 'n':
+      case 'N':
+         nanny_roll_stats( d, "" );
+         return;
 
-      ch->perm_str += race_table[ch->race].str_plus;
-      ch->perm_int += race_table[ch->race].int_plus;
-      ch->perm_wis += race_table[ch->race].wis_plus;
-      ch->perm_dex += race_table[ch->race].dex_plus;
-      ch->perm_con += race_table[ch->race].con_plus;
-      ch->perm_cha += race_table[ch->race].cha_plus;
+      default:
+         write_to_buffer(
+            d,
+            "Invalid selection.\r\nYES or NO? ",
+            0 );
+         return;
+   }
 
-      buffer_printf( d, "\r\nSTR: %d  INT: %d  WIS: %d  DEX: %d  CON: %d  CHA: %d\r\n",
-	       ch->perm_str, ch->perm_int, ch->perm_wis, ch->perm_dex,
-	       ch->perm_con, ch->perm_cha );
+   write_to_buffer(
+      d,
+      "\r\nWould you like ANSI or no graphic/color support, (R/A/N)? ",
+      0 );
 
-      write_to_buffer( d, "\r\nOK? ", 0 );
-      return;
-    default:
-      write_to_buffer( d, "Invalid selection.\r\nYES or NO? ", 0 );
-      return;
-    }
-
-  write_to_buffer( d, "\r\nWould you like ANSI or no graphic/color support, (R/A/N)? ", 0 );
-  d->connected = CON_GET_WANT_RIPANSI;
+   d->connected = CON_GET_WANT_RIPANSI;
 }
 
 void nanny_get_want_ripansi( DESCRIPTOR_DATA *d, const char *argument )

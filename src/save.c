@@ -31,7 +31,7 @@
 /*
  * Increment with every major format change.
  */
-#define SAVEVERSION 4
+#define SAVEVERSION 5
 
 /*
  * Array to keep track of equipment temporarily.		-Thoric
@@ -433,7 +433,25 @@ void fwrite_char( CHAR_DATA * ch, FILE * fp )
 
       fprintf( fp, "AttrMod      %d %d %d %d %d %d %d\n",
                ch->mod_str, ch->mod_int, ch->mod_wis, ch->mod_dex, ch->mod_con, ch->mod_cha, ch->mod_lck );
+if( ch->pcdata->traits_initialized )
+      {
+         int trait_index;
 
+         fprintf( fp, "Traits       " );
+
+         for( trait_index = 0;
+              trait_index < MAX_CHARACTER_TRAITS;
+              ++trait_index )
+         {
+            fprintf(
+               fp,
+               "%d %d ",
+               ch->pcdata->traits[trait_index].id,
+               ch->pcdata->traits[trait_index].rank );
+         }
+
+         fprintf( fp, "\n" );
+      }
       fprintf( fp, "Condition    %d %d %d %d\n",
                ch->pcdata->condition[0], ch->pcdata->condition[1], ch->pcdata->condition[2], ch->pcdata->condition[3] );
       if( ch->desc && ch->desc->host )
@@ -1510,6 +1528,13 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                   if( ch->pcdata->learned[sn] > 0 && ch->skill_level[skill_table[sn]->guild] < skill_table[sn]->min_level )
                      ch->pcdata->learned[sn] = 0;
                }
+               if( !preload
+                   && !IS_NPC( ch )
+                   && ch->pcdata
+                   && !ch->pcdata->traits_initialized )
+               {
+                  generate_character_traits( ch );
+               }
                return;
             }
             KEY( "Email", ch->pcdata->email, fread_string_nohash( fp ) );
@@ -1536,6 +1561,29 @@ void fread_char( CHAR_DATA * ch, FILE * fp, bool preload, bool copyover )
                   }
                   fMatch = TRUE;
                }
+               break;
+            }
+            if( !str_cmp( word, "Traits" ) )
+            {
+               int trait_index;
+
+               for( trait_index = 0;
+                    trait_index < MAX_CHARACTER_TRAITS;
+                    ++trait_index )
+               {
+                  ch->pcdata->traits[trait_index].id =
+                     fread_number( fp );
+
+                  ch->pcdata->traits[trait_index].rank =
+                     fread_number( fp );
+               }
+
+               ch->pcdata->traits_initialized = TRUE;
+
+               if( !validate_character_traits( ch ) )
+                  generate_character_traits( ch );
+
+               fMatch = TRUE;
                break;
             }
             KEY( "Trust", ch->trust, fread_number( fp ) );

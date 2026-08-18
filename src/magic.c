@@ -613,59 +613,129 @@ int dice_parse( CHAR_DATA * ch, int level, const char *texp )
  * Compute a saving throw.
  * Negative apply's make saving throw better.
  */
-bool saves_poison_death( int level, CHAR_DATA * victim )
+bool saves_poison_death( int level, CHAR_DATA *victim )
 {
    int save;
+   int trait_bonus;
 
-   save = 50 + ( victim->top_level - level - victim->saving_poison_death ) * 2;
+   trait_bonus =
+      get_trait_modifier(
+         victim,
+         TRAIT_EFFECT_SAVE_POISON );
+
+   save =
+      50
+      + (
+           victim->top_level
+           - level
+           - ( victim->saving_poison_death - trait_bonus )
+        ) * 2;
+
    save = URANGE( 5, save, 95 );
+
    return chance( victim, save );
 }
 
-bool saves_wands( int level, CHAR_DATA * victim )
+bool saves_wands( int level, CHAR_DATA *victim )
 {
    int save;
+   int trait_bonus;
 
    if( IS_SET( victim->immune, RIS_MAGIC ) )
       return TRUE;
 
-   save = 50 + ( victim->top_level - level - victim->saving_wand ) * 2;
+   trait_bonus =
+      get_trait_modifier(
+         victim,
+         TRAIT_EFFECT_SAVE_WAND );
+
+   save =
+      50
+      + (
+           victim->top_level
+           - level
+           - ( victim->saving_wand - trait_bonus )
+        ) * 2;
+
    save = URANGE( 5, save, 95 );
+
    return chance( victim, save );
 }
 
-bool saves_para_petri( int level, CHAR_DATA * victim )
+bool saves_para_petri( int level, CHAR_DATA *victim )
 {
    int save;
+   int trait_bonus;
 
-   save = 50 + ( victim->top_level - level - victim->saving_para_petri ) * 2;
+   trait_bonus =
+      get_trait_modifier(
+         victim,
+         TRAIT_EFFECT_SAVE_PARA );
+
+   save =
+      50
+      + (
+           victim->top_level
+           - level
+           - ( victim->saving_para_petri - trait_bonus )
+        ) * 2;
+
    save = URANGE( 5, save, 95 );
+
    return chance( victim, save );
 }
 
-bool saves_breath( int level, CHAR_DATA * victim )
+bool saves_breath( int level, CHAR_DATA *victim )
 {
    int save;
+   int trait_bonus;
 
-   save = 50 + ( victim->top_level - level - victim->saving_breath ) * 2;
+   trait_bonus =
+      get_trait_modifier(
+         victim,
+         TRAIT_EFFECT_SAVE_BREATH );
+
+   save =
+      50
+      + (
+           victim->top_level
+           - level
+           - ( victim->saving_breath - trait_bonus )
+        ) * 2;
+
    save = URANGE( 5, save, 95 );
+
    return chance( victim, save );
 }
 
-bool saves_spell_staff( int level, CHAR_DATA * victim )
+bool saves_spell_staff( int level, CHAR_DATA *victim )
 {
    int save;
+   int trait_bonus;
 
    if( IS_SET( victim->immune, RIS_MAGIC ) )
       return TRUE;
 
    if( IS_NPC( victim ) && level > 10 )
       level -= 5;
-   save = 50 + ( victim->top_level - level - victim->saving_spell_staff ) * 2;
+
+   trait_bonus =
+      get_trait_modifier(
+         victim,
+         TRAIT_EFFECT_SAVE_FORCE );
+
+   save =
+      50
+      + (
+           victim->top_level
+           - level
+           - ( victim->saving_spell_staff - trait_bonus )
+        ) * 2;
+
    save = URANGE( 5, save, 95 );
+
    return chance( victim, save );
 }
-
 /*
  * Process the spell's required components, if any		-Thoric
  * -----------------------------------------------

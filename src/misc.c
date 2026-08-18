@@ -2581,26 +2581,38 @@ void do_hail( CHAR_DATA * ch, const char *argument )
    do_look( ch, "auto" );
 }
 
-void do_train( CHAR_DATA * ch, const char *argument )
+struct training_session_data
+{
+   char attribute[16];
+   short success_chance;
+};
+
+void do_train( CHAR_DATA *ch, const char *argument )
 {
    char arg[MAX_INPUT_LENGTH];
    CHAR_DATA *mob;
-   bool tfound = FALSE;
-   bool successful = FALSE;
+   int effect;
+   int success_chance;
+   bool successful;
 
-   if( IS_NPC( ch ) )
+   if( IS_NPC( ch ) || !ch->pcdata )
       return;
 
    strlcpy( arg, argument, MAX_INPUT_LENGTH );
 
-   switch ( ch->substate )
+   switch( ch->substate )
    {
       default:
+      {
+         struct training_session_data *session;
 
          if( arg[0] == '\0' )
          {
             send_to_char( "Train what?\r\n", ch );
-            send_to_char( "\r\nChoices: strength, intelligence, wisdom, dexterity, constitution or charisma\r\n", ch );
+            send_to_char(
+               "\r\nChoices: strength, intelligence, wisdom, "
+               "dexterity, constitution or charisma\r\n",
+               ch );
             return;
          }
 
@@ -2610,191 +2622,278 @@ void do_train( CHAR_DATA * ch, const char *argument )
             return;
          }
 
-         for( mob = ch->in_room->first_person; mob; mob = mob->next_in_room )
-            if( IS_NPC( mob ) && IS_SET( mob->act, ACT_TRAIN ) )
-            {
-               tfound = TRUE;
-               break;
-            }
+         mob = NULL;
 
-         if( ( !mob ) || ( !tfound ) )
+         for( mob = ch->in_room->first_person;
+              mob;
+              mob = mob->next_in_room )
+         {
+            if( IS_NPC( mob )
+                && IS_SET( mob->act, ACT_TRAIN ) )
+               break;
+         }
+
+         if( !mob )
          {
             send_to_char( "You can't do that here.\r\n", ch );
             return;
          }
 
-         if( str_cmp( arg, "str" ) && str_cmp( arg, "strength" )
-             && str_cmp( arg, "dex" ) && str_cmp( arg, "dexterity" )
-             && str_cmp( arg, "con" ) && str_cmp( arg, "constitution" )
-             && str_cmp( arg, "cha" ) && str_cmp( arg, "charisma" )
-             && str_cmp( arg, "wis" ) && str_cmp( arg, "wisdom" )
-             && str_cmp( arg, "int" ) && str_cmp( arg, "intelligence" ) )
+         effect = TRAIT_EFFECT_NONE;
+
+         if( !str_cmp( arg, "str" )
+             || !str_cmp( arg, "strength" ) )
+         {
+            effect = TRAIT_EFFECT_STR_POTENTIAL;
+            strlcpy( arg, "strength", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin your weight training.\r\n",
+               ch );
+         }
+         else if( !str_cmp( arg, "dex" )
+                  || !str_cmp( arg, "dexterity" ) )
+         {
+            effect = TRAIT_EFFECT_DEX_POTENTIAL;
+            strlcpy( arg, "dexterity", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin to work at some challenging tests "
+               "of coordination.\r\n",
+               ch );
+         }
+         else if( !str_cmp( arg, "int" )
+                  || !str_cmp( arg, "intelligence" ) )
+         {
+            effect = TRAIT_EFFECT_INT_POTENTIAL;
+            strlcpy( arg, "intelligence", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin your studies.\r\n",
+               ch );
+         }
+         else if( !str_cmp( arg, "wis" )
+                  || !str_cmp( arg, "wisdom" ) )
+         {
+            effect = TRAIT_EFFECT_WIS_POTENTIAL;
+            strlcpy( arg, "wisdom", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin contemplating several ancient texts "
+               "in an effort to gain wisdom.\r\n",
+               ch );
+         }
+         else if( !str_cmp( arg, "con" )
+                  || !str_cmp( arg, "constitution" ) )
+         {
+            effect = TRAIT_EFFECT_CON_POTENTIAL;
+            strlcpy( arg, "constitution", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin your endurance training.\r\n",
+               ch );
+         }
+         else if( !str_cmp( arg, "cha" )
+                  || !str_cmp( arg, "charisma" ) )
+         {
+            effect = TRAIT_EFFECT_CHA_POTENTIAL;
+            strlcpy( arg, "charisma", MAX_INPUT_LENGTH );
+
+            send_to_char(
+               "&GYou begin lessons in manners and etiquette.\r\n",
+               ch );
+         }
+         else
          {
             do_train( ch, "" );
             return;
          }
 
-         if( !str_cmp( arg, "str" ) || !str_cmp( arg, "strength" ) )
-         {
-            if( mob->perm_str <= ch->perm_str || ch->perm_str >= 20 + race_table[ch->race].str_plus || ch->perm_str >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you are already stronger than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin your weight training.\r\n", ch );
-         }
-         if( !str_cmp( arg, "dex" ) || !str_cmp( arg, "dexterity" ) )
-         {
-            if( mob->perm_dex <= ch->perm_dex || ch->perm_dex >= 20 + race_table[ch->race].dex_plus || ch->perm_dex >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you are already more dextrous than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin to work at some challenging tests of coordination.\r\n", ch );
-         }
-         if( !str_cmp( arg, "int" ) || !str_cmp( arg, "intelligence" ) )
-         {
-            if( mob->perm_int <= ch->perm_int || ch->perm_int >= 20 + race_table[ch->race].int_plus || ch->perm_int >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you are already more educated than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin your studies.\r\n", ch );
-         }
-         if( !str_cmp( arg, "wis" ) || !str_cmp( arg, "wisdom" ) )
-         {
-            if( mob->perm_wis <= ch->perm_wis || ch->perm_wis >= 20 + race_table[ch->race].wis_plus || ch->perm_wis >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you are already far wiser than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin contemplating several ancient texts in an effort to gain wisdom.\r\n", ch );
-         }
-         if( !str_cmp( arg, "con" ) || !str_cmp( arg, "constitution" ) )
-         {
-            if( mob->perm_con <= ch->perm_con || ch->perm_con >= 20 + race_table[ch->race].con_plus || ch->perm_con >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you are already healthier than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin your endurance training.\r\n", ch );
-         }
-         if( !str_cmp( arg, "cha" ) || !str_cmp( arg, "charisma" ) )
-         {
-            if( mob->perm_cha <= ch->perm_cha || ch->perm_cha >= 20 + race_table[ch->race].cha_plus || ch->perm_cha >= 25 )
-            {
-               act( AT_TELL, "$n tells you 'I cannot help you... you already are more charming than I.'",
-                    mob, NULL, ch, TO_VICT );
-               return;
-            }
-            send_to_char( "&GYou begin lessons in maners and ettiquite.\r\n", ch );
-         }
-         add_timer( ch, TIMER_DO_FUN, 10, do_train, 1 );
-         ch->dest_buf = strdup( arg );
+         success_chance =
+            get_trait_training_chance(
+               ch,
+               mob,
+               effect );
+
+         CREATE(
+            session,
+            struct training_session_data,
+            1 );
+
+         strlcpy(
+            session->attribute,
+            arg,
+            sizeof( session->attribute ) );
+
+         session->success_chance = success_chance;
+
+         ch->dest_buf = session;
+
+         add_timer(
+            ch,
+            TIMER_DO_FUN,
+            10,
+            do_train,
+            1 );
+
          return;
+      }
 
       case 1:
+      {
+         struct training_session_data *session;
+
          if( !ch->dest_buf )
             return;
-         strlcpy( arg, ( const char* ) ch->dest_buf, MAX_INPUT_LENGTH );
+
+         session =
+            ( struct training_session_data * )ch->dest_buf;
+
+         strlcpy(
+            arg,
+            session->attribute,
+            MAX_INPUT_LENGTH );
+
+         success_chance =
+            session->success_chance;
+
          DISPOSE( ch->dest_buf );
+
          break;
+      }
 
       case SUB_TIMER_DO_ABORT:
          DISPOSE( ch->dest_buf );
          ch->substate = SUB_NONE;
-         send_to_char( "&RYou fail to complete your training.\r\n", ch );
+
+         send_to_char(
+            "&RYou fail to complete your training.\r\n",
+            ch );
+
          return;
    }
 
    ch->substate = SUB_NONE;
 
-   if( number_bits( 2 ) == 0 )
-   {
-      successful = TRUE;
-   }
+   successful =
+      number_percent() <= success_chance;
 
-   if( !str_cmp( arg, "str" ) || !str_cmp( arg, "strength" ) )
+   if( !str_cmp( arg, "strength" ) )
    {
       if( !successful )
       {
-         send_to_char( "&RYou feel that you have wasted alot of energy for nothing...\r\n", ch );
+         send_to_char(
+            "&RYou feel that you have wasted a lot of energy "
+            "for nothing...\r\n",
+            ch );
          return;
       }
-      send_to_char( "&GAfter much of excercise you feel a little stronger.\r\n", ch );
-      ch->perm_str++;
+
+      send_to_char(
+         "&GAfter much exercise you feel a little stronger.\r\n",
+         ch );
+
+      ++ch->perm_str;
       return;
    }
 
-   if( !str_cmp( arg, "dex" ) || !str_cmp( arg, "dexterity" ) )
+   if( !str_cmp( arg, "dexterity" ) )
    {
       if( !successful )
       {
-         send_to_char( "&RAfter all that training you still feel like a clutz...\r\n", ch );
+         send_to_char(
+            "&RAfter all that training you still feel like "
+            "a clutz...\r\n",
+            ch );
          return;
       }
-      send_to_char( "&GAfter working hard at many challenging tasks you feel a bit more coordinated.\r\n", ch );
-      ch->perm_dex++;
+
+      send_to_char(
+         "&GAfter working hard at many challenging tasks you "
+         "feel a bit more coordinated.\r\n",
+         ch );
+
+      ++ch->perm_dex;
       return;
    }
 
-   if( !str_cmp( arg, "int" ) || !str_cmp( arg, "intelligence" ) )
+   if( !str_cmp( arg, "intelligence" ) )
    {
       if( !successful )
       {
-         send_to_char( "&RHitting the books leaves you only with sore eyes...\r\n", ch );
+         send_to_char(
+            "&RHitting the books leaves you only with sore eyes...\r\n",
+            ch );
          return;
       }
-      send_to_char( "&GAfter much study you feel alot more knowledgeable.\r\n", ch );
-      ch->perm_int++;
+
+      send_to_char(
+         "&GAfter much study you feel a lot more knowledgeable.\r\n",
+         ch );
+
+      ++ch->perm_int;
       return;
    }
 
-   if( !str_cmp( arg, "wis" ) || !str_cmp( arg, "wisdom" ) )
+   if( !str_cmp( arg, "wisdom" ) )
    {
       if( !successful )
       {
-         send_to_char( "&RStudying the ancient texts has left you more confused than wise...\r\n", ch );
+         send_to_char(
+            "&RStudying the ancient texts has left you more "
+            "confused than wise...\r\n",
+            ch );
          return;
       }
-      send_to_char
-         ( "&GAfter contemplating several seemingly meaningless events you suddenly \r\nreceive a flash of insight into the workings of the universe.\r\n",
-           ch );
-      ch->perm_wis++;
+
+      send_to_char(
+         "&GAfter contemplating several seemingly meaningless "
+         "events you suddenly receive a flash of insight into "
+         "the workings of the universe.\r\n",
+         ch );
+
+      ++ch->perm_wis;
       return;
    }
 
-   if( !str_cmp( arg, "con" ) || !str_cmp( arg, "constitution" ) )
+   if( !str_cmp( arg, "constitution" ) )
    {
       if( !successful )
       {
-         send_to_char
-            ( "&RYou spend long a long arobics session ecersising very hard but finish \r\nfeeling only tired and out of breath....\r\n",
-              ch );
+         send_to_char(
+            "&RYou spend a long aerobic session exercising very "
+            "hard but finish feeling only tired and out of breath.\r\n",
+            ch );
          return;
       }
-      send_to_char( "&GAfter a long tiring excersise session you feel much healthier than before.\r\n", ch );
-      ch->perm_con++;
+
+      send_to_char(
+         "&GAfter a long tiring exercise session you feel much "
+         "healthier than before.\r\n",
+         ch );
+
+      ++ch->perm_con;
       return;
    }
 
-
-   if( !str_cmp( arg, "cha" ) || !str_cmp( arg, "charisma" ) )
+   if( !str_cmp( arg, "charisma" ) )
    {
       if( !successful )
       {
-         send_to_char( "&RYou finish your self improvement session feeling a little depressed.\r\n", ch );
+         send_to_char(
+            "&RYou finish your self-improvement session feeling "
+            "a little depressed.\r\n",
+            ch );
          return;
       }
-      send_to_char
-         ( "&GYou spend some time focusing on how to improve your personality and feel \r\nmuch better about yourself and the ways others see you.\r\n",
-           ch );
-      ch->perm_cha++;
+
+      send_to_char(
+         "&GYou spend some time focusing on how to improve your "
+         "personality and feel much better about yourself and "
+         "the ways others see you.\r\n",
+         ch );
+
+      ++ch->perm_cha;
       return;
    }
 }

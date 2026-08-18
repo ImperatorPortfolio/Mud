@@ -2610,7 +2610,7 @@ void do_consider( CHAR_DATA * ch, const char *argument )
  */
 #define CANT_PRAC "Tongue"
 
-void do_practice( CHAR_DATA * ch, const char *argument )
+void do_practice( CHAR_DATA *ch, const char *argument )
 {
    char buf[MAX_STRING_LENGTH];
    int sn;
@@ -2621,50 +2621,90 @@ void do_practice( CHAR_DATA * ch, const char *argument )
    if( argument[0] == '\0' )
    {
       int col;
-      short lasttype, cnt;
+      short lasttype;
+      short cnt;
 
-      col = cnt = 0;
+      col = 0;
+      cnt = 0;
       lasttype = SKILL_SPELL;
-      set_pager_color( AT_MAGIC, ch );
-      for( sn = 0; sn < top_sn; sn++ )
+
+      set_pager_color(
+         AT_MAGIC,
+         ch );
+
+      for( sn = 0; sn < top_sn; ++sn )
       {
          if( !skill_table[sn]->name )
             break;
 
-         if( skill_table[sn]->guild < 0 || skill_table[sn]->guild >= MAX_ABILITY )
+         if( skill_table[sn]->guild < 0
+             || skill_table[sn]->guild >= MAX_ABILITY )
             continue;
 
-         if( strcmp( skill_table[sn]->name, "reserved" ) == 0 && ( IS_IMMORTAL( ch ) ) )
+         if( strcmp(
+                skill_table[sn]->name,
+                "reserved" ) == 0
+             && IS_IMMORTAL( ch ) )
          {
             if( col % 3 != 0 )
                send_to_pager( "\r\n", ch );
-            send_to_pager( "--------------------------------[Spells]---------------------------------\r\n", ch );
+
+            send_to_pager(
+               "--------------------------------[Spells]---------------------------------\r\n",
+               ch );
+
             col = 0;
          }
+
          if( skill_table[sn]->type != lasttype )
          {
             if( !cnt )
-               send_to_pager( "                                (none)\r\n", ch );
+            {
+               send_to_pager(
+                  "                                (none)\r\n",
+                  ch );
+            }
             else if( col % 3 != 0 )
+            {
                send_to_pager( "\r\n", ch );
-            pager_printf( ch,
-                          "--------------------------------%ss---------------------------------\r\n",
-                          skill_tname[skill_table[sn]->type] );
-            col = cnt = 0;
+            }
+
+            pager_printf(
+               ch,
+               "--------------------------------%ss---------------------------------\r\n",
+               skill_tname[skill_table[sn]->type] );
+
+            col = 0;
+            cnt = 0;
          }
-         lasttype = skill_table[sn]->type;
 
-         if( skill_table[sn]->guild < 0 || skill_table[sn]->guild >= MAX_ABILITY )
-            continue;
+         lasttype =
+            skill_table[sn]->type;
 
-         if( ch->pcdata->learned[sn] <= 0 && ch->skill_level[skill_table[sn]->guild] < skill_table[sn]->min_level )
+         if( ch->pcdata->learned[sn] <= 0
+             && ch->skill_level[
+                   skill_table[sn]->guild]
+                < skill_table[sn]->min_level )
+         {
             continue;
+         }
 
-         if( ch->pcdata->learned[sn] == 0 && SPELL_FLAG( skill_table[sn], SF_SECRETSKILL ) )
+         if( ch->pcdata->learned[sn] == 0
+             && SPELL_FLAG(
+                   skill_table[sn],
+                   SF_SECRETSKILL ) )
+         {
             continue;
+         }
 
          ++cnt;
-         pager_printf( ch, "%18s %3d%%  ", skill_table[sn]->name, ch->pcdata->learned[sn] );
+
+         pager_printf(
+            ch,
+            "%18s %3d%%  ",
+            skill_table[sn]->name,
+            ch->pcdata->learned[sn] );
+
          if( ++col % 3 == 0 )
             send_to_pager( "\r\n", ch );
       }
@@ -2672,191 +2712,430 @@ void do_practice( CHAR_DATA * ch, const char *argument )
       if( col % 3 != 0 )
          send_to_pager( "\r\n", ch );
 
+      return;
    }
-   else
+
    {
       CHAR_DATA *mob;
       int adept;
-      bool can_prac = TRUE;
+      int learn_gain;
+      bool can_prac;
+
+      can_prac = TRUE;
 
       if( !IS_AWAKE( ch ) )
       {
-         send_to_char( "In your dreams, or what?\r\n", ch );
+         send_to_char(
+            "In your dreams, or what?\r\n",
+            ch );
+
          return;
       }
 
-      for( mob = ch->in_room->first_person; mob; mob = mob->next_in_room )
-         if( IS_NPC( mob ) && IS_SET( mob->act, ACT_PRACTICE ) )
+      for( mob = ch->in_room->first_person;
+           mob;
+           mob = mob->next_in_room )
+      {
+         if( IS_NPC( mob )
+             && IS_SET( mob->act, ACT_PRACTICE ) )
             break;
+      }
 
       if( !mob )
       {
-         send_to_char( "You can't do that here.\r\n", ch );
+         send_to_char(
+            "You can't do that here.\r\n",
+            ch );
+
          return;
       }
-
 
       sn = skill_lookup( argument );
 
       if( sn == -1 )
       {
-         act( AT_TELL, "$n tells you 'I've never heard of that one...'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you 'I've never heard of that one...'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
-      if( skill_table[sn]->guild < 0 || skill_table[sn]->guild >= MAX_ABILITY )
+      if( skill_table[sn]->guild < 0
+          || skill_table[sn]->guild >= MAX_ABILITY )
       {
-         act( AT_TELL, "$n tells you 'I cannot teach you that...'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you 'I cannot teach you that...'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
-      if( can_prac && !IS_NPC( ch ) && ch->skill_level[skill_table[sn]->guild] < skill_table[sn]->min_level )
+      if( can_prac
+          && ch->skill_level[
+                skill_table[sn]->guild]
+             < skill_table[sn]->min_level )
       {
-         act( AT_TELL, "$n tells you 'You're not ready to learn that yet...'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you 'You're not ready to learn that yet...'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
-      if( is_name( skill_tname[skill_table[sn]->type], CANT_PRAC ) )
+      if( is_name(
+             skill_tname[skill_table[sn]->type],
+             CANT_PRAC ) )
       {
-         act( AT_TELL, "$n tells you 'I do not know how to teach that.'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you 'I do not know how to teach that.'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
-      /*
-       * Skill requires a special teacher
-       */
-      if( skill_table[sn]->teachers && skill_table[sn]->teachers[0] != '\0' )
+      if( skill_table[sn]->teachers
+          && skill_table[sn]->teachers[0] != '\0' )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "%d", mob->pIndexData->vnum );
-         if( !is_name( buf, skill_table[sn]->teachers ) )
+         snprintf(
+            buf,
+            MAX_STRING_LENGTH,
+            "%d",
+            mob->pIndexData->vnum );
+
+         if( !is_name(
+                buf,
+                skill_table[sn]->teachers ) )
          {
-            act( AT_TELL, "$n tells you, 'I know not know how to teach that.'", mob, NULL, ch, TO_VICT );
+            act(
+               AT_TELL,
+               "$n tells you, 'I do not know how to teach that.'",
+               mob,
+               NULL,
+               ch,
+               TO_VICT );
+
             return;
          }
       }
       else
       {
-         act( AT_TELL, "$n tells you, 'I know not know how to teach that.'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you, 'I do not know how to teach that.'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
       adept = 20;
 
-      if( ch->gold < skill_table[sn]->min_level * 10 )
+      if( ch->gold
+          < skill_table[sn]->min_level * 10 )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "$n tells you, 'I charge %d credits to teach that. You don't have enough.'",
-                  skill_table[sn]->min_level * 10 );
-         act( AT_TELL, "$n tells you 'You don't have enough credits.'", mob, NULL, ch, TO_VICT );
+         act(
+            AT_TELL,
+            "$n tells you 'You don't have enough credits.'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
          return;
       }
 
       if( ch->pcdata->learned[sn] >= adept )
       {
-         snprintf( buf, MAX_STRING_LENGTH, "$n tells you, 'I've taught you everything I can about %s.'", skill_table[sn]->name );
-         act( AT_TELL, buf, mob, NULL, ch, TO_VICT );
-         act( AT_TELL, "$n tells you, 'You'll have to practice it on your own now...'", mob, NULL, ch, TO_VICT );
+         snprintf(
+            buf,
+            MAX_STRING_LENGTH,
+            "$n tells you, 'I've taught you everything "
+            "I can about %s.'",
+            skill_table[sn]->name );
+
+         act(
+            AT_TELL,
+            buf,
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
+         act(
+            AT_TELL,
+            "$n tells you, 'You'll have to practice it "
+            "on your own now...'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
+
+         return;
       }
-      else
+
+      ch->gold -=
+         skill_table[sn]->min_level * 10;
+
+      learn_gain =
+         get_int_learn_bonus(
+            get_curr_int( ch ) )
+         + get_trait_skill_modifier(
+              ch,
+              sn );
+
+      learn_gain =
+         UMAX(
+            1,
+            learn_gain );
+
+      ch->pcdata->learned[sn] +=
+         learn_gain;
+
+      act(
+         AT_ACTION,
+         "You practice $T.",
+         ch,
+         NULL,
+         skill_table[sn]->name,
+         TO_CHAR );
+
+      act(
+         AT_ACTION,
+         "$n practices $T.",
+         ch,
+         NULL,
+         skill_table[sn]->name,
+         TO_ROOM );
+
+      if( ch->pcdata->learned[sn] >= adept )
       {
-         ch->gold -= skill_table[sn]->min_level * 10;
-         ch->pcdata->learned[sn] += int_app[get_curr_int( ch )].learn;
-         act( AT_ACTION, "You practice $T.", ch, NULL, skill_table[sn]->name, TO_CHAR );
-         act( AT_ACTION, "$n practices $T.", ch, NULL, skill_table[sn]->name, TO_ROOM );
-         if( ch->pcdata->learned[sn] >= adept )
-         {
-            ch->pcdata->learned[sn] = adept;
-            act( AT_TELL, "$n tells you. 'You'll have to practice it on your own now...'", mob, NULL, ch, TO_VICT );
-         }
+         ch->pcdata->learned[sn] =
+            adept;
+
+         act(
+            AT_TELL,
+            "$n tells you, 'You'll have to practice it "
+            "on your own now...'",
+            mob,
+            NULL,
+            ch,
+            TO_VICT );
       }
    }
 }
 
-void do_teach( CHAR_DATA * ch, const char *argument )
+void do_teach( CHAR_DATA *ch, const char *argument )
 {
    char buf[MAX_STRING_LENGTH];
-   int sn;
    char arg[MAX_INPUT_LENGTH];
+   CHAR_DATA *victim;
+   int sn;
+   int adept;
+   int learn_gain;
 
    if( IS_NPC( ch ) )
       return;
 
-   argument = one_argument( argument, arg );
+   argument =
+      one_argument(
+         argument,
+         arg );
 
    if( argument[0] == '\0' )
    {
-      send_to_char( "Teach who, what?\r\n", ch );
+      send_to_char(
+         "Teach who, what?\r\n",
+         ch );
+
       return;
    }
-   else
+
+   if( !IS_AWAKE( ch ) )
    {
-      CHAR_DATA *victim;
-      int adept;
+      send_to_char(
+         "In your dreams, or what?\r\n",
+         ch );
 
-      if( !IS_AWAKE( ch ) )
-      {
-         send_to_char( "In your dreams, or what?\r\n", ch );
-         return;
-      }
-
-      if( ( victim = get_char_room( ch, arg ) ) == NULL )
-      {
-         send_to_char( "They don't seem to be here...\r\n", ch );
-         return;
-      }
-
-      if( IS_NPC( victim ) )
-      {
-         send_to_char( "You can't teach that to them!\r\n", ch );
-         return;
-      }
-
-      sn = skill_lookup( argument );
-
-      if( sn == -1 )
-      {
-         act( AT_TELL, "You have no idea what that is.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-
-      if( skill_table[sn]->guild < 0 || skill_table[sn]->guild >= MAX_ABILITY )
-      {
-         act( AT_TELL, "Thats just not going to happen.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-
-      if( victim->skill_level[skill_table[sn]->guild] < skill_table[sn]->min_level )
-      {
-         act( AT_TELL, "$n isn't ready to learn that yet.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-
-      if( is_name( skill_tname[skill_table[sn]->type], CANT_PRAC ) )
-      {
-         act( AT_TELL, "You are unable to teach that skill.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-
-      adept = 20;
-
-      if( victim->pcdata->learned[sn] >= adept )
-      {
-         act( AT_TELL, "$n must practice that on their own.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-      if( ch->pcdata->learned[sn] < 100 )
-      {
-         act( AT_TELL, "You must perfect that yourself before teaching others.", victim, NULL, ch, TO_VICT );
-         return;
-      }
-      else
-      {
-         victim->pcdata->learned[sn] += int_app[get_curr_int( ch )].learn;
-         snprintf( buf, MAX_STRING_LENGTH, "You teach %s $T.", victim->name );
-         act( AT_ACTION, buf, ch, NULL, skill_table[sn]->name, TO_CHAR );
-         snprintf( buf, MAX_STRING_LENGTH, "%s teaches you $T.", ch->name );
-         act( AT_ACTION, buf, victim, NULL, skill_table[sn]->name, TO_CHAR );
-      }
+      return;
    }
+
+   victim =
+      get_char_room(
+         ch,
+         arg );
+
+   if( !victim )
+   {
+      send_to_char(
+         "They don't seem to be here...\r\n",
+         ch );
+
+      return;
+   }
+
+   if( IS_NPC( victim ) )
+   {
+      send_to_char(
+         "You can't teach that to them!\r\n",
+         ch );
+
+      return;
+   }
+
+   sn =
+      skill_lookup(
+         argument );
+
+   if( sn == -1 )
+   {
+      act(
+         AT_TELL,
+         "You have no idea what that is.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   if( skill_table[sn]->guild < 0
+       || skill_table[sn]->guild >= MAX_ABILITY )
+   {
+      act(
+         AT_TELL,
+         "That's just not going to happen.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   if( victim->skill_level[
+          skill_table[sn]->guild]
+       < skill_table[sn]->min_level )
+   {
+      act(
+         AT_TELL,
+         "$n isn't ready to learn that yet.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   if( is_name(
+          skill_tname[skill_table[sn]->type],
+          CANT_PRAC ) )
+   {
+      act(
+         AT_TELL,
+         "You are unable to teach that skill.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   adept = 20;
+
+   if( victim->pcdata->learned[sn] >= adept )
+   {
+      act(
+         AT_TELL,
+         "$n must practice that on their own.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   if( ch->pcdata->learned[sn] < 100 )
+   {
+      act(
+         AT_TELL,
+         "You must perfect that yourself before "
+         "teaching others.",
+         victim,
+         NULL,
+         ch,
+         TO_VICT );
+
+      return;
+   }
+
+   learn_gain =
+      get_int_learn_bonus(
+         get_curr_int( ch ) )
+      + get_trait_skill_modifier(
+           victim,
+           sn );
+
+   learn_gain =
+      UMAX(
+         1,
+         learn_gain );
+
+   victim->pcdata->learned[sn] +=
+      learn_gain;
+
+   if( victim->pcdata->learned[sn] > adept )
+      victim->pcdata->learned[sn] = adept;
+
+   snprintf(
+      buf,
+      MAX_STRING_LENGTH,
+      "You teach %s $T.",
+      victim->name );
+
+   act(
+      AT_ACTION,
+      buf,
+      ch,
+      NULL,
+      skill_table[sn]->name,
+      TO_CHAR );
+
+   snprintf(
+      buf,
+      MAX_STRING_LENGTH,
+      "%s teaches you $T.",
+      ch->name );
+
+   act(
+      AT_ACTION,
+      buf,
+      victim,
+      NULL,
+      skill_table[sn]->name,
+      TO_CHAR );
 }
 
 void do_wimpy( CHAR_DATA * ch, const char *argument )
