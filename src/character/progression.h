@@ -1,6 +1,13 @@
 #ifndef ZEROPOINT_CHARACTER_PROGRESSION_H
 #define ZEROPOINT_CHARACTER_PROGRESSION_H
 
+typedef enum
+{
+   EXERTION_LIGHT,
+   EXERTION_MODERATE,
+   EXERTION_HEAVY,
+   EXERTION_EXTREME
+} exertion_level;
 
 int get_trait_rank_value( int rank );
 int get_trait_modifier( CHAR_DATA *ch, int effect );
@@ -26,6 +33,17 @@ int get_str_wield_bonus( int strength );
 int get_dex_defensive_bonus( int dexterity );
 int get_int_learn_bonus( int intelligence );
 int get_nutrition_training_modifier( CHAR_DATA *ch, int ability );
+void apply_exertion_nutrition(
+   CHAR_DATA *ch,
+   int exertion );
+void consume_nutrition(
+   CHAR_DATA *ch,
+   int protein,
+   int carbs,
+   int fats,
+   int vitamins,
+   int minerals,
+   int hydration );
 
 typedef enum
 {
@@ -36,6 +54,17 @@ typedef enum
    ABILITY_SCORE_WIS,
    ABILITY_SCORE_CHA
 } ability_score_type;
+
+int get_ability_training_progress_required(
+   CHAR_DATA *ch,
+   int ability );
+
+bool gain_ability_training_progress(
+   CHAR_DATA *ch,
+   int ability,
+   int base_progress,
+   int equipment_modifier,
+   int trainer_modifier );
 
 typedef enum
 {
