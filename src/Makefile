@@ -50,7 +50,7 @@ D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c boards.c bounty.c \
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c exercise.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
-	  misc.c mssp.c mud_comm.c mud_prog.c player.c reset.c save.c sha256.c shops.c \
+	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
@@ -110,6 +110,10 @@ o/act_move.o o/update.o: C_FLAGS += -Dconsume_nutrition=consume_nutrition_values
 # the character was already at or above natural potential. Keep that inherited
 # implementation link-safe while training_guard.c supplies the guarded version.
 o/traits.o: C_FLAGS += -Dget_trait_training_chance=legacy_get_trait_training_chance
+
+# update.c keeps the inherited scheduler under a legacy symbol while
+# natural_progress.c layers bounded passive attribute development after it.
+o/update.o: C_FLAGS += -Dupdate_handler=legacy_update_handler
 
 all:
 	$(info    Using flags: $(C_FLAGS))
