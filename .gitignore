@@ -1,0 +1,14 @@
+# Local build output
+/src/o/
+/src/*.o
+/src/swreality
+/src/resolver
+
+# Runtime output
+/log/*.log
+core
+core.*
+
+# Windows metadata
+Thumbs.db
+Desktop.ini
