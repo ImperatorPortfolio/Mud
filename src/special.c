@@ -25,6 +25,28 @@
 #include <dlfcn.h>
 #include "mud.h"
 
+/* Each Local Sphere academy owns its diploma object range. */
+static int academy_diploma_vnum( CHAR_DATA *ch )
+{
+   if( !ch )
+      return 0;
+
+   switch( ch->race )
+   {
+      case RACE_HUMAN:        return 50021;
+      case RACE_WOOKIEE:      return 50221;
+      case RACE_TWI_LEK:      return 50421;
+      case RACE_NOGHRI:       return 50621;
+      case RACE_MON_CALAMARI: return 50821;
+      case RACE_TRANDOSHAN:   return 51021;
+      case RACE_VERPINE:      return 51221;
+      case RACE_DEFEL:        return 51421;
+      default:                return 0;
+   }
+}
+
+
+
 /* jails for wanted flags */
 
 #define ROOM_JAIL_MON_CALAMARI_1   21148
@@ -155,17 +177,19 @@ bool spec_newbie_pilot( CHAR_DATA * ch )
    CHAR_DATA *v_next;
    OBJ_DATA *obj;
    char buf[MAX_STRING_LENGTH];
-   bool diploma = FALSE;
-
    for( victim = ch->in_room->first_person; victim; victim = v_next )
    {
+      int diploma_vnum;
+      bool diploma = FALSE;
+
       v_next = victim->next_in_room;
 
       if( IS_NPC( victim ) || victim->position == POS_FIGHTING )
          continue;
 
+      diploma_vnum = academy_diploma_vnum( victim );
       for( obj = victim->last_carrying; obj; obj = obj->prev_content )
-         if( obj->pIndexData->vnum == OBJ_VNUM_SCHOOL_DIPLOMA )
+         if( obj->pIndexData->vnum == diploma_vnum )
             diploma = TRUE;
 
       if( !diploma )
@@ -1229,17 +1253,20 @@ bool spec_auth( CHAR_DATA * ch )
    OBJ_INDEX_DATA *pObjIndex;
    OBJ_DATA *obj;
    bool hasdiploma;
+   int diploma_vnum;
 
    for( victim = ch->in_room->first_person; victim; victim = v_next )
    {
       v_next = victim->next_in_room;
 
-      if( !IS_NPC( victim ) && ( pObjIndex = get_obj_index( OBJ_VNUM_SCHOOL_DIPLOMA ) ) != NULL )
+      diploma_vnum = academy_diploma_vnum( victim );
+      if( !IS_NPC( victim ) && diploma_vnum > 0
+          && ( pObjIndex = get_obj_index( diploma_vnum ) ) != NULL )
       {
          hasdiploma = FALSE;
 
          for( obj = victim->last_carrying; obj; obj = obj->prev_content )
-            if( obj->pIndexData == get_obj_index( OBJ_VNUM_SCHOOL_DIPLOMA ) )
+            if( obj->pIndexData == pObjIndex )
                hasdiploma = TRUE;
 
          if( !hasdiploma )
