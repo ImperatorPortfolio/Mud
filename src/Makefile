@@ -51,7 +51,7 @@ C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c 
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c player.c reset.c save.c sha256.c shops.c \
-	  skills.c space.c special.c swskills.c tables.c track.c training.c traits.c update.c
+	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
 
@@ -99,7 +99,17 @@ o/misc.o: C_FLAGS += -Ddo_train=legacy_do_train
 # The long-term nutrition drain API takes explicit nutrient values. The old
 # misc.c food helper intentionally keeps its local consume_nutrition name, so
 # only the translation units using the global value-based API are renamed.
-o/attribute_math.o o/act_move.o o/update.o: C_FLAGS += -Dconsume_nutrition=consume_nutrition_values
+# The old progress function is also retained under a legacy name while
+# training_guard.c provides the hard natural-potential boundary.
+o/attribute_math.o: C_FLAGS += \
+	-Dconsume_nutrition=consume_nutrition_values \
+	-Dgain_ability_training_progress=legacy_gain_ability_training_progress
+o/act_move.o o/update.o: C_FLAGS += -Dconsume_nutrition=consume_nutrition_values
+
+# get_trait_training_chance() previously clamped to a minimum of 1 even when
+# the character was already at or above natural potential. Keep that inherited
+# implementation link-safe while training_guard.c supplies the guarded version.
+o/traits.o: C_FLAGS += -Dget_trait_training_chance=legacy_get_trait_training_chance
 
 all:
 	$(info    Using flags: $(C_FLAGS))
