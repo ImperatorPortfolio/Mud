@@ -132,7 +132,7 @@ cry
 #MUDPROG
 Progtype  speech_prog~
 Arglist   key~
-Comlist   if ovnuminv (50820) >= 1
+Comlist   if ovnuminv(50820) >= 1
 say You want the key for this door?
 point north
 say here let me open it for you
@@ -150,7 +150,7 @@ endif
 #MUDPROG
 Progtype  speech_prog~
 Arglist   door door? key?~
-Comlist   if ovnuminv (50820) >= 1
+Comlist   if ovnuminv(50820) >= 1
 say You want the key for this door?
 point north
 say here let me open it for you
@@ -168,7 +168,7 @@ endif
 #MUDPROG
 Progtype  speech_prog~
 Arglist   door? north~
-Comlist   if ovnuminv (50820) >= 1
+Comlist   if ovnuminv(50820) >= 1
 say You want the key for this door?
 point north
 say here let me open it for you

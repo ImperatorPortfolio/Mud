@@ -35,6 +35,8 @@
 #include <ctype.h>
 #include "mud.h"
 
+#define MAX_MUDPROG_VNUM 999999
+
 bool MOBtrigger;
 
 void uphold_supermob( int *curr_serial, int serial, ROOM_INDEX_DATA **supermob_room, OBJ_DATA *true_supermob_obj )
@@ -350,7 +352,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       int vnum = atoi( cvar );
       CHAR_DATA *oMob;
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "Bad vnum to 'mobinroom'", mob );
          return BERR;
@@ -384,7 +386,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       OBJ_DATA *pObj;
       int vnum = atoi( cvar );
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "OvnumHere: bad vnum", mob );
          return BERR;
@@ -436,7 +438,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       OBJ_DATA *pObj;
       int vnum = atoi( cvar );
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "OvnumRoom: bad vnum", mob );
          return BERR;
@@ -482,7 +484,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       OBJ_DATA *pObj;
       int vnum = atoi( cvar );
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "OvnumCarry: bad vnum", mob );
          return BERR;
@@ -528,7 +530,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       OBJ_DATA *pObj;
       int vnum = atoi( cvar );
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "OvnumWear: bad vnum", mob );
          return BERR;
@@ -574,7 +576,7 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       OBJ_DATA *pObj;
       int vnum = atoi( cvar );
 
-      if( vnum < 1 || vnum > 32767 )
+      if( vnum < 1 || vnum > MAX_MUDPROG_VNUM )
       {
          progbug( "OvnumInv: bad vnum", mob );
          return BERR;

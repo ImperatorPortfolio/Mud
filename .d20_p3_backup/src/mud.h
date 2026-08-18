@@ -301,7 +301,6 @@ typedef enum
 #define WT_AVATAR 1
 #define WT_NEWBIE 3
 
-#include <stdio.h>
 #include "dns.h"
 #include "color.h"
 
@@ -2412,9 +2411,6 @@ int get_character_ability_modifier(
    CHAR_DATA *ch,
    int ability );
 
-int get_skill_ability( int sn );
-int get_skill_difficulty_class( int sn );
-
 int get_skill_bonus(
    CHAR_DATA *ch,
    int sn,
@@ -2846,6 +2842,7 @@ extern short gsn_spacecombat3;
 extern short gsn_reinforcements;
 extern short gsn_postguard;
 
+extern short gsn_addpatrol;
 extern short gsn_eliteguard;
 extern short gsn_specialforces;
 extern short gsn_jail;

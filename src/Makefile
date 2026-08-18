@@ -47,15 +47,45 @@ L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
 #D_FLAGS : For the DNS Slave process. No need in linking all the extra libs for this.
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
-C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c boards.c bounty.c \
-	  build.c clans.c color.c comm.c comments.c const.c db.c dns.c fight.c \
+C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c boards.c bounty.c \
+	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c player.c reset.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c traits.c update.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
 
-H_FILES = $(wildcard *.h) 
+H_FILES = $(wildcard *.h)
+
+#
+# D20-P4 — Legacy Attribute Math Removal
+#
+ATTRIBUTE_MATH_DEFINES = \
+	-Dstr_app=ability_str_app \
+	-Dint_app=ability_int_app \
+	-Dwis_app=ability_wis_app \
+	-Ddex_app=ability_dex_app \
+	-Dcon_app=ability_con_app \
+	-Dcha_app=ability_cha_app \
+	-Dlck_app=ability_lck_app \
+	-Dfrc_app=ability_frc_app
+
+ATTRIBUTE_MATH_OBJECTS := $(filter-out o/const.o o/attribute_math.o,$(O_FILES))
+$(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
+
+#
+# D20-P5 — Proper Armor & Defense
+#
+# handler.c still contains the old Stage-2 get_defense implementation.
+# Rename that one translation-unit-local exported symbol at compile time so
+# defense_rules.c can provide the authoritative get_defense() without forcing
+# a giant unrelated handler.c replacement into this copy-over package.
+#
+# This is intentionally bounded compatibility scaffolding.  The old function
+# can be physically deleted from handler.c in a later cleanup pass once this
+# source slice has been integrated upstream.
+#
+o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense
 
 all:
 	$(info    Using flags: $(C_FLAGS))

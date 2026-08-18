@@ -107,7 +107,7 @@ void do_makeblade( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeblade] );
-         if( skill_check( ch, gsn_makeblade, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of crafting a vibroblade.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and a small oven and begins to work on something.", ch,
@@ -177,7 +177,7 @@ void do_makeblade( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeblade] );
 
-   if( !skill_check( ch, gsn_makeblade, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven ) )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven ) )
    {
       send_to_char( "&RYou activate your newly created vibroblade.\r\n", ch );
       send_to_char( "&RIt hums softly for a few seconds then begins to shake violently.\r\n", ch );
@@ -337,7 +337,7 @@ void do_makeblaster( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeblaster] );
-         if( skill_check( ch, gsn_makeblaster, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of making a blaster.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and a small oven and begins to work on something.", ch,
@@ -442,7 +442,7 @@ void do_makeblaster( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeblaster] );
 
-   if( !skill_check( ch, gsn_makeblaster, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )
        || ( !checkcond ) || ( !checkcirc ) )
    {
       send_to_char( "&RYou hold up your new blaster and aim at a leftover piece of plastic.\r\n", ch );
@@ -629,7 +629,7 @@ void do_makelightsaber( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_lightsaber_crafting] );
-         if( skill_check( ch, gsn_lightsaber_crafting, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of crafting a lightsaber.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and a small oven and begins to work on something.", ch,
@@ -752,7 +752,7 @@ void do_makelightsaber( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_lightsaber_crafting] );
 
-   if( !skill_check( ch, gsn_lightsaber_crafting, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkdura ) || ( !checkbatt ) || ( !checkoven )
        || ( !checkmirr ) || ( !checklens ) || ( !checkgems ) || ( !checkcond ) || ( !checkcirc ) )
 
    {
@@ -870,7 +870,7 @@ void do_makespice( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_spice_refining] );
-         if( skill_check( ch, gsn_spice_refining, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of refining spice into a drug.\r\n", ch );
             act( AT_PLAIN, "$n begins working on something.", ch, NULL, argument, TO_ROOM );
@@ -1020,7 +1020,7 @@ void do_makegrenade( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makegrenade] );
-         if( skill_check( ch, gsn_makegrenade, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of making a grenade.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and a drink container and begins to work on something.", ch,
@@ -1104,7 +1104,7 @@ void do_makegrenade( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makegrenade] );
 
-   if( !skill_check( ch, gsn_makegrenade, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkdrink ) || ( !checkbatt ) || ( !checkchem )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkdrink ) || ( !checkbatt ) || ( !checkchem )
        || ( !checkcirc ) )
    {
       send_to_char
@@ -1231,7 +1231,7 @@ void do_makelandmine( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makelandmine] );
-         if( skill_check( ch, gsn_makelandmine, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of making a landmine.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and a drink container and begins to work on something.", ch,
@@ -1315,7 +1315,7 @@ void do_makelandmine( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makelandmine] );
 
-   if( !skill_check( ch, gsn_makelandmine, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkdrink ) || ( !checkbatt ) || ( !checkchem )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkdrink ) || ( !checkbatt ) || ( !checkchem )
        || ( !checkcirc ) )
    {
       send_to_char
@@ -1442,7 +1442,7 @@ void do_makelight( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makelight] );
-         if( skill_check( ch, gsn_makelight, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of making a light.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and begins to work on something.", ch, NULL, argument, TO_ROOM );
@@ -1524,7 +1524,7 @@ void do_makelight( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makelight] );
 
-   if( !skill_check( ch, gsn_makelight, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checklens ) || ( !checkbatt ) || ( !checkchem )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checklens ) || ( !checkbatt ) || ( !checkchem )
        || ( !checkcirc ) )
    {
       send_to_char
@@ -1659,7 +1659,7 @@ void do_makejewelry( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makejewelry] );
-         if( skill_check( ch, gsn_makejewelry, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of creating some jewelry.\r\n", ch );
             act( AT_PLAIN, "$n takes $s toolkit and some metal and begins to work.", ch, NULL, argument, TO_ROOM );
@@ -1725,7 +1725,7 @@ void do_makejewelry( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makejewelry] );
 
-   if( !skill_check( ch, gsn_makejewelry, ABILITY_SCORE_INT, 20 ) || ( !checkoven ) || ( !checktool ) || ( !checkmetal ) )
+   if( number_percent(  ) > schance * 2 || ( !checkoven ) || ( !checktool ) || ( !checkmetal ) )
    {
       send_to_char( "&RYou hold up your newly created jewelry.\r\n", ch );
       send_to_char( "&RIt suddenly dawns upon you that you have created the most useless\r\n", ch );
@@ -1849,7 +1849,7 @@ void do_makearmor( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makearmor] );
-         if( skill_check( ch, gsn_makearmor, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of creating some armor.\r\n", ch );
             act( AT_PLAIN, "$n takes $s sewing kit and some material and begins to work.", ch, NULL, argument, TO_ROOM );
@@ -1903,7 +1903,7 @@ void do_makearmor( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makearmor] );
 
-   if( !skill_check( ch, gsn_makearmor, ABILITY_SCORE_INT, 20 ) || ( !checkfab ) || ( !checksew ) )
+   if( number_percent(  ) > schance * 2 || ( !checkfab ) || ( !checksew ) )
    {
       send_to_char( "&RYou hold up your newly created armor.\r\n", ch );
       send_to_char( "&RIt suddenly dawns upon you that you have created the most useless\r\n", ch );
@@ -2022,7 +2022,7 @@ void do_makecomlink( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makecomlink] );
-         if( skill_check( ch, gsn_makecomlink, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of making a comlink.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and begins to work on something.", ch, NULL, argument, TO_ROOM );
@@ -2094,7 +2094,7 @@ void do_makecomlink( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makecomlink] );
 
-   if( !skill_check( ch, gsn_makecomlink, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkcirc ) || ( !checkbatt ) || ( !checkgem ) )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkcirc ) || ( !checkbatt ) || ( !checkgem ) )
    {
       send_to_char( "&RYou hold up your newly created comlink....\r\n", ch );
       send_to_char( "&Rand it falls apart in your hands.\r\n", ch );
@@ -2216,7 +2216,7 @@ void do_makeshield( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeshield] );
-         if( skill_check( ch, gsn_makeshield, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of crafting an energy shield.\r\n", ch );
             act( AT_PLAIN, "$n takes $s tools and begins to work on something.", ch, NULL, argument, TO_ROOM );
@@ -2301,7 +2301,7 @@ void do_makeshield( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makeshield] );
 
-   if( !skill_check( ch, gsn_makeshield, ABILITY_SCORE_INT, 20 ) || ( !checktool ) || ( !checkbatt )
+   if( number_percent(  ) > schance * 2 || ( !checktool ) || ( !checkbatt )
        || ( !checkgems ) || ( !checkcond ) || ( !checkcirc ) )
 
    {
@@ -2431,7 +2431,7 @@ void do_makecontainer( CHAR_DATA * ch, const char *argument )
          }
 
          schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makecontainer] );
-         if( skill_check( ch, gsn_makecontainer, ABILITY_SCORE_INT, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin the long process of creating a bag.\r\n", ch );
             act( AT_PLAIN, "$n takes $s sewing kit and some material and begins to work.", ch, NULL, argument, TO_ROOM );
@@ -2485,7 +2485,7 @@ void do_makecontainer( CHAR_DATA * ch, const char *argument )
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_makecontainer] );
 
-   if( !skill_check( ch, gsn_makecontainer, ABILITY_SCORE_INT, 20 ) || ( !checkfab ) || ( !checksew ) )
+   if( number_percent(  ) > schance * 2 || ( !checkfab ) || ( !checksew ) )
    {
       send_to_char( "&RYou hold up your newly created container.\r\n", ch );
       send_to_char( "&RIt suddenly dawns upon you that you have created the most useless\r\n", ch );
@@ -2574,7 +2574,7 @@ void do_reinforcements( CHAR_DATA * ch, const char *argument )
          }
 
          schance = ( int )( ch->pcdata->learned[gsn_reinforcements] );
-         if( skill_check( ch, gsn_reinforcements, ABILITY_SCORE_CHA, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin making the call for reinforcements.\r\n", ch );
             act( AT_PLAIN, "$n begins issuing orders int $s comlink.", ch, NULL, argument, TO_ROOM );
@@ -2651,7 +2651,7 @@ void do_postguard( CHAR_DATA * ch, const char *argument )
          }
 
          schance = ( int )( ch->pcdata->learned[gsn_postguard] );
-         if( skill_check( ch, gsn_postguard, ABILITY_SCORE_CHA, 15 ) )
+         if( number_percent(  ) < schance )
          {
             send_to_char( "&GYou begin making the call for reinforcements.\r\n", ch );
             act( AT_PLAIN, "$n begins issuing orders int $s comlink.", ch, NULL, argument, TO_ROOM );
@@ -2910,7 +2910,7 @@ void do_disguise( CHAR_DATA * ch, const char *argument )
 
    schance = ( int )( ch->pcdata->learned[gsn_disguise] );
 
-   if( !skill_check( ch, gsn_disguise, ABILITY_SCORE_CHA, 15 ) )
+   if( number_percent(  ) > schance )
    {
       send_to_char( "You try to disguise yourself but fail.\r\n", ch );
       return;
@@ -3572,7 +3572,7 @@ void do_throw( CHAR_DATA * ch, const char *argument )
    {
 
       WAIT_STATE( ch, skill_table[gsn_throw]->beats );
-      if( IS_NPC( ch ) || skill_check( ch, gsn_throw, ABILITY_SCORE_DEX, 15 ) )
+      if( IS_NPC( ch ) || number_percent(  ) < ch->pcdata->learned[gsn_throw] )
       {
          learn_from_success( ch, gsn_throw );
          global_retcode =
@@ -3795,7 +3795,7 @@ void do_hijack( CHAR_DATA * ch, const char *argument )
    }
 
    schance = IS_NPC( ch ) ? ch->top_level : ( int )( ch->pcdata->learned[gsn_hijack] );
-   if( !skill_check( ch, gsn_hijack, ABILITY_SCORE_INT, 20 ) )
+   if( number_percent(  ) > schance )
    {
       send_to_char( "You fail to figure out the correct launch code.\r\n", ch );
       learn_from_failure( ch, gsn_hijack );

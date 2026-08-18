@@ -190,7 +190,7 @@ bool check_skill( CHAR_DATA * ch, const char *command, const char *argument )
 
       if( !IS_NPC( ch ) && ch->mana < mana )
       {
-         send_to_char( "You need to rest before using that ability again.\r\n", ch );
+         send_to_char( "You need to rest before using the Force any more.\r\n", ch );
          return TRUE;
       }
    }
@@ -275,14 +275,9 @@ bool check_skill( CHAR_DATA * ch, const char *command, const char *argument )
        */
       WAIT_STATE( ch, skill_table[sn]->beats );
       /*
-       * Shared d20 skill resolution:
-       * d20 + skill bonus + governing ability + trait vs DC.
+       * check for failure 
        */
-      if( !skill_check(
-             ch,
-             sn,
-             get_skill_ability( sn ),
-             get_skill_difficulty_class( sn ) ) )
+      if( ( number_percent(  ) + skill_table[sn]->difficulty * 5 ) > ( IS_NPC( ch ) ? 75 : ch->pcdata->learned[sn] ) )
       {
          failed_casting( skill_table[sn], ch, ( CHAR_DATA* ) vo, obj );
          learn_from_failure( ch, sn );
@@ -1175,62 +1170,6 @@ void do_sset( CHAR_DATA * ch, const char *argument )
    }
    else
       victim->pcdata->learned[sn] = value;
-}
-
-int get_skill_ability( int sn )
-{
-   if( sn == gsn_starfighters || sn == gsn_midships
-       || sn == gsn_weaponsystems || sn == gsn_spacecombat
-       || sn == gsn_spacecombat2 || sn == gsn_spacecombat3
-       || sn == gsn_snipe || sn == gsn_throw
-       || sn == gsn_mine || sn == gsn_grenades
-       || sn == gsn_dodge || sn == gsn_hide
-       || sn == gsn_peek || sn == gsn_pick_lock
-       || sn == gsn_sneak || sn == gsn_steal
-       || sn == gsn_mount || sn == gsn_climb
-       || sn == gsn_backstab || sn == gsn_circle
-       || sn == gsn_parry )
-      return ABILITY_SCORE_DEX;
-
-   if( sn == gsn_navigation || sn == gsn_shipsystems
-       || sn == gsn_tractorbeams || sn == gsn_shipmaintenance
-       || sn == gsn_gather_intelligence
-       || sn == gsn_makeblade || sn == gsn_makejewelry
-       || sn == gsn_makeblaster || sn == gsn_makelight
-       || sn == gsn_makecomlink || sn == gsn_makegrenade
-       || sn == gsn_makelandmine || sn == gsn_makearmor
-       || sn == gsn_makeshield || sn == gsn_makecontainer
-       || sn == gsn_gemcutting || sn == gsn_lightsaber_crafting
-       || sn == gsn_spice_refining || sn == gsn_detrap
-       || sn == gsn_scan || sn == gsn_search || sn == gsn_dig
-       || sn == gsn_pickshiplock || sn == gsn_hijack )
-      return ABILITY_SCORE_INT;
-
-   if( sn == gsn_reinforcements || sn == gsn_postguard || sn == gsn_eliteguard
-       || sn == gsn_specialforces || sn == gsn_smalltalk
-       || sn == gsn_propeganda || sn == gsn_bribe
-       || sn == gsn_seduce || sn == gsn_masspropeganda
-       || sn == gsn_beg || sn == gsn_disguise
-       || sn == gsn_torture )
-      return ABILITY_SCORE_CHA;
-
-   if( sn == gsn_bashdoor || sn == gsn_hitall
-       || sn == gsn_disarm || sn == gsn_kick
-       || sn == gsn_punch || sn == gsn_bash )
-      return ABILITY_SCORE_STR;
-
-   if( sn == gsn_berserk )
-      return ABILITY_SCORE_CON;
-
-   return ABILITY_SCORE_WIS;
-}
-
-int get_skill_difficulty_class( int sn )
-{
-   if( !IS_VALID_SN( sn ) || !skill_table[sn] )
-      return 15;
-
-   return URANGE( 5, 10 + ( skill_table[sn]->difficulty * 5 ), 35 );
 }
 
 int get_skill_bonus(

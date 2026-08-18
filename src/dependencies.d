@@ -3,6 +3,7 @@ o/act_info.o: act_info.c mud.h hotboot.h dns.h color.h sha256.h
 o/act_move.o: act_move.c mud.h hotboot.h dns.h color.h
 o/act_obj.o: act_obj.c mud.h hotboot.h dns.h color.h bet.h
 o/act_wiz.o: act_wiz.c mud.h hotboot.h dns.h color.h sha256.h
+o/attribute_math.o: attribute_math.c mud.h hotboot.h dns.h color.h
 o/boards.o: boards.c mud.h hotboot.h dns.h color.h
 o/bounty.o: bounty.c mud.h hotboot.h dns.h color.h
 o/build.o: build.c mud.h hotboot.h dns.h color.h sha256.h
@@ -12,6 +13,7 @@ o/comm.o: comm.c mud.h hotboot.h dns.h color.h mccp.h mssp.h sha256.h
 o/comments.o: comments.c mud.h hotboot.h dns.h color.h
 o/const.o: const.c mud.h hotboot.h dns.h color.h
 o/db.o: db.c mud.h hotboot.h dns.h color.h mssp.h
+o/defense_rules.o: defense_rules.c mud.h hotboot.h dns.h color.h
 o/dns.o: dns.c mud.h hotboot.h dns.h color.h
 o/fight.o: fight.c mud.h hotboot.h dns.h color.h
 o/handler.o: handler.c mud.h hotboot.h dns.h color.h
