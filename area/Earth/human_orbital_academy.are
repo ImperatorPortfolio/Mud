@@ -799,6 +799,7 @@ Short    a packaged ration~
 Long     A packaged ration is here, waiting to be eaten.~
 WFlags   take~
 Values   50 50 0 0 0 0
+Nutrition   12 12 6 8 8 8
 Stats    2 5 0 0 0
 #ENDOBJECT
 
@@ -810,6 +811,7 @@ Short    a canteen~
 Long     A small grey canteen has been drooped here.~
 WFlags   take~
 Values   40 40 0 0 0 0
+Nutrition   0 0 0 0 1 18
 Stats    1 10 1 0 0
 #ENDOBJECT
 

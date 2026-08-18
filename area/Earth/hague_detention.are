@@ -77,6 +77,7 @@ Short    some mush~
 Long     Some day old mush is here for you to eat.~
 WFlags   take~
 Values   20 0 0 0 0 0
+Nutrition   3 10 2 2 3 4
 Stats    2 5 0 0 0
 #ENDOBJECT
 

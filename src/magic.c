@@ -608,16 +608,13 @@ int dice_parse( CHAR_DATA * ch, int level, const char *texp )
    strlcpy( buf, texp, MAX_INPUT_LENGTH );
    return rd_parse( ch, level, buf );
 }
-
 static int get_save_progression( CHAR_DATA *ch )
 {
    if( !ch )
       return 0;
 
    /*
-    * SWR levels currently run approximately 0-100.
-    *
-    * This gives a neutral save progression:
+    * Character progression currently runs approximately 0-100.
     *
     * Level 25  = +2
     * Level 50  = +5
@@ -706,6 +703,9 @@ bool saving_throw(
    roll =
       number_range( 1, 20 );
 
+   /*
+    * Saving throws use the normal d20 natural-result rules.
+    */
    if( roll == 1 )
       return FALSE;
 
@@ -716,17 +716,23 @@ bool saving_throw(
       roll + bonus >= difficulty;
 }
 
-static int get_legacy_save_difficulty( int level )
+/*
+ * Convert the existing effect-power scale into a d20 Difficulty Class.
+ *
+ * Existing content generally supplies effect levels in the 0-100 range:
+ *
+ *   0   -> DC 10
+ *   25  -> DC 15
+ *   50  -> DC 20
+ *   75  -> DC 25
+ *   100 -> DC 30
+ *
+ * Existing callers therefore remain usable while the world data is
+ * progressively converted to explicit d20 DCs.
+ */
+static int get_condition_save_dc(
+   int level )
 {
-   /*
-    * Existing SWR effect levels are approximately 0-100.
-    *
-    * 0   = DC 10
-    * 25  = DC 15
-    * 50  = DC 20
-    * 75  = DC 25
-    * 100 = DC 30
-    */
    return
       10
       + (
@@ -738,18 +744,87 @@ static int get_legacy_save_difficulty( int level )
         );
 }
 
+static bool fortitude_save(
+   CHAR_DATA *victim,
+   int difficulty,
+   int trait_effect_id,
+   int misc_bonus )
+{
+   if( !victim )
+      return FALSE;
+
+   return saving_throw(
+      victim,
+      SAVE_FORTITUDE,
+      difficulty,
+      trait_effect_id,
+      misc_bonus );
+}
+
+static bool reflex_save(
+   CHAR_DATA *victim,
+   int difficulty,
+   int trait_effect_id,
+   int misc_bonus )
+{
+   if( !victim )
+      return FALSE;
+
+   return saving_throw(
+      victim,
+      SAVE_REFLEX,
+      difficulty,
+      trait_effect_id,
+      misc_bonus );
+}
+
+static bool will_save(
+   CHAR_DATA *victim,
+   int difficulty,
+   int trait_effect_id,
+   int misc_bonus )
+{
+   if( !victim )
+      return FALSE;
+
+   return saving_throw(
+      victim,
+      SAVE_WILL,
+      difficulty,
+      trait_effect_id,
+      misc_bonus );
+}
+
 /*
- * Compute a saving throw.
- * Negative apply's make saving throw better.
+ * Legacy five-save compatibility.
+ *
+ * Existing pfiles, objects and area data still contain the inherited five
+ * saving-throw modifiers.  Keep those fields intact during the conversion,
+ * but resolve them through the three authoritative d20 saves.
+ *
+ * Old category       New save
+ * ---------------------------------
+ * poison/death       Fortitude
+ * wand               Reflex
+ * paralysis/petri    Fortitude
+ * breath             Reflex
+ * spell/staff        Will
+ *
+ * The inherited values used negative numbers to represent stronger saves.
+ * Negating the stored modifier converts that convention into the positive
+ * bonus expected by saving_throw().
  */
+
 bool saves_poison_death(
    int level,
    CHAR_DATA *victim )
 {
-   return saving_throw(
+   if( !victim )
+      return FALSE;
+
+   return fortitude_save(
       victim,
-      SAVE_FORTITUDE,
-      get_legacy_save_difficulty( level ),
+      get_condition_save_dc( level ),
       TRAIT_EFFECT_SAVE_POISON,
       -victim->saving_poison_death );
 }
@@ -758,10 +833,12 @@ bool saves_wands(
    int level,
    CHAR_DATA *victim )
 {
-   return saving_throw(
+   if( !victim )
+      return FALSE;
+
+   return reflex_save(
       victim,
-      SAVE_REFLEX,
-      get_legacy_save_difficulty( level ),
+      get_condition_save_dc( level ),
       TRAIT_EFFECT_SAVE_WAND,
       -victim->saving_wand );
 }
@@ -770,10 +847,12 @@ bool saves_para_petri(
    int level,
    CHAR_DATA *victim )
 {
-   return saving_throw(
+   if( !victim )
+      return FALSE;
+
+   return fortitude_save(
       victim,
-      SAVE_FORTITUDE,
-      get_legacy_save_difficulty( level ),
+      get_condition_save_dc( level ),
       TRAIT_EFFECT_SAVE_PARA,
       -victim->saving_para_petri );
 }
@@ -782,10 +861,12 @@ bool saves_breath(
    int level,
    CHAR_DATA *victim )
 {
-   return saving_throw(
+   if( !victim )
+      return FALSE;
+
+   return reflex_save(
       victim,
-      SAVE_REFLEX,
-      get_legacy_save_difficulty( level ),
+      get_condition_save_dc( level ),
       TRAIT_EFFECT_SAVE_BREATH,
       -victim->saving_breath );
 }
@@ -794,10 +875,12 @@ bool saves_spell_staff(
    int level,
    CHAR_DATA *victim )
 {
-   return saving_throw(
+   if( !victim )
+      return FALSE;
+
+   return will_save(
       victim,
-      SAVE_WILL,
-      get_legacy_save_difficulty( level ),
+      get_condition_save_dc( level ),
       TRAIT_EFFECT_SAVE_FORCE,
       -victim->saving_spell_staff );
 }

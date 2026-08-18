@@ -463,6 +463,31 @@ Speaks     common~
 Speaking   common~
 #ENDMOBILE
 
+#MOBILE
+Vnum       10210
+Keywords   health bar attendant nutrition clerk~
+Short      a health bar attendant~
+Long       A health bar attendant prepares fresh meals and drinks behind the counter.
+~
+Desc       The attendant works behind a clean preparation counter surrounded by fresh
+produce, grains, chilled drinks and compact cooking equipment.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel prototype~
+Stats1     0 10 0 100 0 0
+Stats2     2 6 0
+Stats3     1 4 0
+Stats4     0 0 0 0 0
+Attribs    10 14 13 11 12 15 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   19 17 0 0 0 120 90 0 23
+#ENDMOBILE
+
 #OBJECT
 Vnum     10200
 Keywords dud~
@@ -691,6 +716,79 @@ Long     Mordecai is looking really hard for this broken plasma blade.~
 Flags    hidden prototype~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     10217
+Keywords protein grain bowl chicken~
+Type     food~
+Short    a protein grain bowl~
+Long     A bowl of grilled protein, whole grains and greens is ready to eat.~
+Flags    inventory prototype~
+WFlags   take~
+Values   24 0 0 0 0 0
+Nutrition   16 13 5 10 10 6
+Stats    2 18 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     10218
+Keywords wholegrain chicken wrap~
+Type     food~
+Short    a wholegrain chicken wrap~
+Long     A wholegrain wrap packed with chicken and fresh salad is ready to eat.~
+Flags    inventory prototype~
+WFlags   take~
+Values   20 0 0 0 0 0
+Nutrition   14 12 4 7 7 5
+Stats    1 14 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     10219
+Keywords fruit yoghurt yogurt pot~
+Type     food~
+Short    a fruit and yoghurt pot~
+Long     Fresh fruit and yoghurt are layered together in a chilled pot.~
+Flags    inventory prototype~
+WFlags   take~
+Values   12 0 0 0 0 0
+Nutrition   7 10 4 12 7 6
+Stats    1 9 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     10220
+Keywords nut oat bar~
+Type     food~
+Short    a nut and oat bar~
+Long     A compact bar of oats, nuts and seeds is wrapped for easy eating.~
+Flags    inventory prototype~
+WFlags   take~
+Values   10 0 0 0 0 0
+Nutrition   6 12 8 5 6 3
+Stats    1 6 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     10221
+Keywords green smoothie~
+Type     drinkcon~
+Short    a green smoothie~
+Long     A chilled green smoothie blends fruit, leafy vegetables and yoghurt.~
+Flags    inventory prototype~
+WFlags   take~
+Values   10 10 0 0 0 0
+Nutrition   4 10 2 14 6 14
+Stats    1 8 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     10222
+Keywords mineral water~
+Type     drinkcon~
+Short    a bottle of mineral water~
+Long     A cold bottle of mineral-rich water is ready to drink.~
+Flags    inventory prototype~
+WFlags   take~
+Values   10 10 0 0 0 0
+Nutrition   0 0 0 0 4 20
+Stats    1 4 0 0 0
 #ENDOBJECT
 
 #ROOM
@@ -1286,6 +1384,13 @@ Direction east~
 ToRoom    10220
 #ENDEXIT
 
+Reset M 0 10210 1 10222
+  Reset G 1 10217 1
+  Reset G 1 10218 1
+  Reset G 1 10219 1
+  Reset G 1 10220 1
+  Reset G 1 10221 1
+  Reset G 1 10222 1
 #ENDROOM
 
 #ROOM

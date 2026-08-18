@@ -334,6 +334,7 @@ Long     Don't step on that sandwich...~
 Flags    inventory~
 WFlags   take~
 Values   5 0 0 0 0 0
+Nutrition   9 10 4 4 5 4
 Stats    1 2 0 0 0
 #ENDOBJECT
 
@@ -377,6 +378,67 @@ Short    a maglev car~
 Long     A maglev car is here, board it quickly before it leaves.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     204
+Keywords chicken salad sandwich~
+Type     food~
+Short    a chicken salad sandwich~
+Long     A fresh chicken salad sandwich is sealed in a travel wrapper.~
+Flags    inventory~
+WFlags   take~
+Values   10 0 0 0 0 0
+Nutrition   10 11 4 7 6 4
+Stats    1 6 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     205
+Keywords fruit cup~
+Type     food~
+Short    a fresh fruit cup~
+Long     A chilled cup contains a mix of freshly cut fruit.~
+Flags    inventory~
+WFlags   take~
+Values   8 0 0 0 0 0
+Nutrition   2 11 1 13 5 9
+Stats    1 5 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     206
+Keywords grain vegetable bowl~
+Type     food~
+Short    a grain and vegetable bowl~
+Long     A compact hot meal combines whole grains, vegetables and pulses.~
+Flags    inventory~
+WFlags   take~
+Values   18 0 0 0 0 0
+Nutrition   8 14 3 12 9 6
+Stats    2 10 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     207
+Keywords yoghurt oats breakfast pot~
+Type     food~
+Short    a yoghurt and oat breakfast pot~
+Long     Oats, yoghurt and berries are packed together in a convenient breakfast pot.~
+Flags    inventory~
+WFlags   take~
+Values   14 0 0 0 0 0
+Nutrition   7 13 5 10 7 5
+Stats    1 8 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     208
+Keywords electrolyte water~
+Type     drinkcon~
+Short    a bottle of electrolyte water~
+Long     A chilled bottle of lightly mineralised water is ready to drink.~
+Flags    inventory~
+WFlags   take~
+Values   10 10 0 0 0 0
+Nutrition   0 2 0 0 6 18
+Stats    1 5 0 0 0
 #ENDOBJECT
 
 #ROOM
@@ -611,6 +673,11 @@ Reset M 0 202 1 207
   Reset G 1 304 1
   Reset G 1 32207 1
   Reset G 1 201 1
+  Reset G 1 204 1
+  Reset G 1 205 1
+  Reset G 1 206 1
+  Reset G 1 207 1
+  Reset G 1 208 1
 #ENDROOM
 
 #ROOM

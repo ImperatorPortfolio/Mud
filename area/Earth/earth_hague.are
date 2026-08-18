@@ -1439,6 +1439,7 @@ Long     A glass of water is a good cheap drink.~
 Flags    inventory~
 WFlags   take~
 Values   2 2 0 0 0 0
+Nutrition   0 0 0 0 0 14
 Stats    1 2 0 0 0
 #ENDOBJECT
 
@@ -1451,6 +1452,7 @@ Long     Some poached hawk-bat eggs are a bit chewy.~
 Flags    inventory~
 WFlags   take~
 Values   20 20 0 0 0 0
+Nutrition   12 2 8 5 6 2
 Stats    1 5 0 0 0
 #ENDOBJECT
 
@@ -1462,6 +1464,7 @@ Short    some fruit salad~
 Long     Some fruit salad is delicious.~
 WFlags   take~
 Values   10 0 0 0 0 0
+Nutrition   2 12 1 14 5 10
 Stats    1 7 0 0 0
 #ENDOBJECT
 
@@ -1967,6 +1970,79 @@ Short    a newly created bookend~
 Long     Some god dropped a newly created bookend here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     302
+Keywords wholegrain toast avocado~
+Type     food~
+Short    wholegrain toast with avocado~
+Long     Wholegrain toast topped with fresh avocado is ready to eat.~
+Flags    inventory~
+WFlags   take~
+Values   12 0 0 0 0 0
+Nutrition   4 11 9 8 7 4
+Stats    1 8 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     304
+Keywords grilled chicken vegetables plate~
+Type     food~
+Short    grilled chicken with vegetables~
+Long     A plate of grilled chicken and colourful vegetables looks freshly prepared.~
+Flags    inventory~
+WFlags   take~
+Values   24 0 0 0 0 0
+Nutrition   16 5 5 11 10 5
+Stats    2 16 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     343
+Keywords lentil vegetable stew~
+Type     food~
+Short    a bowl of lentil and vegetable stew~
+Long     A warm bowl of lentils and vegetables gives off a rich, savoury aroma.~
+Flags    inventory~
+WFlags   take~
+Values   20 0 0 0 0 0
+Nutrition   9 13 3 13 10 7
+Stats    2 14 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     344
+Keywords berry yoghurt yogurt pot~
+Type     food~
+Short    a berry yoghurt pot~
+Long     A chilled pot of yoghurt is topped with fresh berries.~
+Flags    inventory~
+WFlags   take~
+Values   12 0 0 0 0 0
+Nutrition   7 9 4 11 7 5
+Stats    1 9 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     345
+Keywords brown rice chicken bowl~
+Type     food~
+Short    a chicken and brown rice bowl~
+Long     A balanced bowl combines grilled chicken, brown rice and fresh vegetables.~
+Flags    inventory~
+WFlags   take~
+Values   26 0 0 0 0 0
+Nutrition   15 14 5 10 10 6
+Stats    2 18 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     346
+Keywords mineral water bottle~
+Type     drinkcon~
+Short    a bottle of mineral water~
+Long     A chilled bottle of mineral water is ready to drink.~
+Flags    inventory~
+WFlags   take~
+Values   8 8 0 0 0 0
+Nutrition   0 0 0 0 4 20
+Stats    1 4 0 0 0
 #ENDOBJECT
 
 #ROOM
@@ -6184,6 +6260,10 @@ Reset M 0 302 1 420
   Reset G 1 303 1
   Reset G 1 304 1
   Reset G 1 305 1
+  Reset G 1 343 1
+  Reset G 1 344 1
+  Reset G 1 345 1
+  Reset G 1 346 1
 #ENDROOM
 
 #ROOM

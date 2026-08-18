@@ -327,6 +327,31 @@ Speaks     common~
 Speaking   common~
 #ENDMOBILE
 
+#MOBILE
+Vnum       26014
+Keywords   Chat fast food proprietor cashier~
+Short      Chat~
+Long       Chat stands behind the counter greeting customers and taking orders.
+~
+Desc       Chat is an energetic human restaurateur who moves quickly between the
+credit scanner, order terminal and serving counter.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     male~
+Actflags   npc sentinel prototype~
+Stats1     0 12 0 100 0 0
+Stats2     2 8 2
+Stats3     1 4 0
+Stats4     0 0 0 0 0
+Attribs    10 13 12 12 12 16 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   19 17 0 0 0 125 90 0 23
+#ENDMOBILE
+
 #OBJECT
 Vnum     26000
 Keywords map-pad pad tablet blinking~
@@ -690,6 +715,79 @@ Short    a newly created dud~
 Long     Some god dropped a newly created dud here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     26030
+Keywords burger beef salad~
+Type     food~
+Short    a loaded beef burger~
+Long     A large beef burger with salad and sauce is wrapped in paper.~
+Flags    inventory prototype~
+WFlags   take~
+Values   18 0 0 0 0 0
+Nutrition   13 12 12 4 7 3
+Stats    2 9 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     26031
+Keywords chicken wrap fast~
+Type     food~
+Short    a grilled chicken wrap~
+Long     A grilled chicken wrap with salad is packed for takeaway.~
+Flags    inventory prototype~
+WFlags   take~
+Values   16 0 0 0 0 0
+Nutrition   12 12 5 7 7 4
+Stats    1 8 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     26032
+Keywords vegetable grain bowl fast~
+Type     food~
+Short    a vegetable grain bowl~
+Long     A fast-service bowl combines grains, vegetables and beans.~
+Flags    inventory prototype~
+WFlags   take~
+Values   16 0 0 0 0 0
+Nutrition   7 14 4 11 9 6
+Stats    2 8 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     26033
+Keywords fruit cup fast~
+Type     food~
+Short    a fruit cup~
+Long     A small cup of chilled mixed fruit is ready to eat.~
+Flags    inventory prototype~
+WFlags   take~
+Values   7 0 0 0 0 0
+Nutrition   2 10 1 12 5 9
+Stats    1 4 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     26034
+Keywords fizzy drink soda~
+Type     drinkcon~
+Short    a fizzy soft drink~
+Long     A cold cup of sweet fizzy drink is capped with a lid.~
+Flags    inventory prototype~
+WFlags   take~
+Values   10 10 0 0 0 0
+Nutrition   0 10 0 0 0 8
+Stats    1 3 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     26035
+Keywords bottled water~
+Type     drinkcon~
+Short    a bottle of water~
+Long     A sealed bottle of cold water is ready to drink.~
+Flags    inventory prototype~
+WFlags   take~
+Values   10 10 0 0 0 0
+Nutrition   0 0 0 0 1 20
+Stats    1 3 0 0 0
 #ENDOBJECT
 
 #ROOM
@@ -2268,6 +2366,13 @@ Direction south~
 ToRoom    26035
 #ENDEXIT
 
+Reset M 0 26014 1 26047
+  Reset G 1 26030 1
+  Reset G 1 26031 1
+  Reset G 1 26032 1
+  Reset G 1 26033 1
+  Reset G 1 26034 1
+  Reset G 1 26035 1
 #ENDROOM
 
 #ROOM

@@ -36,7 +36,7 @@ void do_gold( CHAR_DATA * ch, const char *argument )
    ch_printf( ch, "You have %d credits.\r\n", ch->gold );
 }
 
-/*
+ /*
  * New score command by Haus
  */
 void do_score( CHAR_DATA * ch, const char *argument )
