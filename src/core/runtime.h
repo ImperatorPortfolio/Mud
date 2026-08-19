@@ -74,7 +74,6 @@ struct ban_data
    const char *ban_time;
 };
 
-
 /*
 * Time and weather stuff.
 */
@@ -150,7 +149,7 @@ typedef enum
    SUB_ROOM_EXIT_DESC, SUB_WRITING_NOTE, SUB_MPROG_EDIT, SUB_HELP_EDIT,
    SUB_WRITING_MAP, SUB_PERSONAL_BIO, SUB_REPEATCMD, SUB_RESTRICTED,
    /*
-   * timer types ONLY below this point 
+   * timer types ONLY below this point
    */
    SUB_TIMER_DO_ABORT = 128, SUB_TIMER_CANT_ABORT
 } char_substates;
@@ -158,6 +157,8 @@ typedef enum
 /*
 * Descriptor (channel) structure.
 */
+#define MSDP_INPUT_MAX 512
+
 struct descriptor_data
 {
    DESCRIPTOR_DATA *next;
@@ -168,6 +169,13 @@ struct descriptor_data
    struct mccp_data *mccp; /* Mud Client Compression Protocol */
    bool can_compress;
    bool msdp_announced; /* MSDP option has been offered for this connection */
+   bool msdp_enabled; /* Client accepted WILL MSDP with DO MSDP */
+   bool msdp_report_room; /* Client subscribed to REPORT ROOM */
+   unsigned char telnet_state; /* Incremental telnet parser state */
+   unsigned char telnet_command;
+   unsigned char telnet_option;
+   unsigned short msdp_input_length;
+   unsigned char msdp_input[MSDP_INPUT_MAX];
    const char *host;
    const char *hostip;
    int port;
