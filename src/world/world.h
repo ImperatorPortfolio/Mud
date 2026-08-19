@@ -31,6 +31,7 @@ struct obj_index_data
    AFFECT_DATA *first_affect;
    AFFECT_DATA *last_affect;
    MPROG_DATA *mudprogs;   /* objprogs */
+   AREA_DATA *area;
    int progtypes; /* objprogs */
    const char *name;
    const char *short_descr;

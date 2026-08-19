@@ -3445,7 +3445,7 @@ void do_vassign( CHAR_DATA * ch, const char *argument )
    /*
     * Initialize first mob in range 
     */
-   if( !( pMobIndex = make_mobile( lo, 0, "first mob" ) ) )
+   if( !( pMobIndex = make_mobile( lo, 0, "first mob", tarea ) ) )
    {
       bug( "%s: make_mobile failed to initialize first mob.", __func__ );
       return;
@@ -3456,7 +3456,7 @@ void do_vassign( CHAR_DATA * ch, const char *argument )
    /*
     * Initialize last mob in range 
     */
-   if( !( pMobIndex = make_mobile( hi, 0, "last mob" ) ) )
+   if( !( pMobIndex = make_mobile( hi, 0, "last mob", tarea ) ) )
    {
       bug( "%s: make_mobile failed to initialize last mob.", __func__ );
       return;
@@ -3467,7 +3467,7 @@ void do_vassign( CHAR_DATA * ch, const char *argument )
    /*
     * Initialize first obj in range 
     */
-   if( !( pObjIndex = make_object( lo, 0, "first obj" ) ) )
+   if( !( pObjIndex = make_object( lo, 0, "first obj", tarea ) ) )
    {
       bug( "%s: make_object failed to initialize first obj.", __func__ );
       return;
@@ -3478,7 +3478,7 @@ void do_vassign( CHAR_DATA * ch, const char *argument )
    /*
     * Initialize last obj in range 
     */
-   if( !( pObjIndex = make_object( hi, 0, "last obj" ) ) )
+   if( !( pObjIndex = make_object( hi, 0, "last obj", tarea ) ) )
    {
       bug( "%s: make_object failed to initialize last obj.", __func__ );
       return;

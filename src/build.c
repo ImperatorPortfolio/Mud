@@ -4762,7 +4762,7 @@ void do_ocreate( CHAR_DATA * ch, const char *argument )
       return;
    }
 
-   pObjIndex = make_object( vnum, cvnum, argument );
+   pObjIndex = make_object( vnum, cvnum, argument, ch->pcdata && ch->pcdata->area ? ch->pcdata->area : ch->in_room ? ch->in_room->area : NULL );
    if( !pObjIndex )
    {
       send_to_char( "Error.\r\n", ch );
@@ -4841,7 +4841,7 @@ void do_mcreate( CHAR_DATA * ch, const char *argument )
       return;
    }
 
-   pMobIndex = make_mobile( vnum, cvnum, argument );
+   pMobIndex = make_mobile( vnum, cvnum, argument, ch->pcdata && ch->pcdata->area ? ch->pcdata->area : ch->in_room ? ch->in_room->area : NULL );
    if( !pMobIndex )
    {
       send_to_char( "Error.\r\n", ch );
@@ -5864,21 +5864,21 @@ void fold_area( AREA_DATA * tarea, const char *fname, bool install )
 
    for( vnum = tarea->low_m_vnum; vnum <= tarea->hi_m_vnum; ++vnum )
    {
-      if( !( pMobIndex = get_mob_index( vnum ) ) )
+      if( !( pMobIndex = get_mob_index( vnum ) ) || pMobIndex->area != tarea )
          continue;
       fwrite_fuss_mobile( fpout, pMobIndex, install );
    }
 
    for( vnum = tarea->low_o_vnum; vnum <= tarea->hi_o_vnum; ++vnum )
    {
-      if( !( pObjIndex = get_obj_index( vnum ) ) )
+      if( !( pObjIndex = get_obj_index( vnum ) ) || pObjIndex->area != tarea )
          continue;
       fwrite_fuss_object( fpout, pObjIndex, install );
    }
 
    for( vnum = tarea->low_r_vnum; vnum <= tarea->hi_r_vnum; ++vnum )
    {
-      if( !( pRoomIndex = get_room_index( vnum ) ) )
+      if( !( pRoomIndex = get_room_index( vnum ) ) || pRoomIndex->area != tarea )
          continue;
       fwrite_fuss_room( fpout, pRoomIndex, install );
    }

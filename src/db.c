@@ -1004,6 +1004,7 @@ void load_mobiles( AREA_DATA * tarea, FILE * fp )
       fBootDb = tmpBootDb;
 
       pMobIndex->vnum = vnum;
+      pMobIndex->area = tarea;
       if( fBootDb )
       {
          if( !tarea->low_m_vnum )
@@ -1224,6 +1225,7 @@ void load_objects( AREA_DATA * tarea, FILE * fp )
       fBootDb = tmpBootDb;
 
       pObjIndex->vnum = vnum;
+      pObjIndex->area = tarea;
       if( fBootDb )
       {
          if( !tarea->low_o_vnum )
@@ -4941,7 +4943,7 @@ ROOM_INDEX_DATA *make_room( int vnum, AREA_DATA *area )
  * Create a new INDEX object (for online building)		-Thoric
  * Option to clone an existing index object.
  */
-OBJ_INDEX_DATA *make_object( int vnum, int cvnum, const char *name )
+OBJ_INDEX_DATA *make_object( int vnum, int cvnum, const char *name, AREA_DATA *area )
 {
    OBJ_INDEX_DATA *pObjIndex, *cObjIndex;
    char buf[MAX_STRING_LENGTH];
@@ -4953,6 +4955,7 @@ OBJ_INDEX_DATA *make_object( int vnum, int cvnum, const char *name )
       cObjIndex = NULL;
    CREATE( pObjIndex, OBJ_INDEX_DATA, 1 );
    pObjIndex->vnum = vnum;
+   pObjIndex->area = area;
    pObjIndex->name = STRALLOC( name );
    pObjIndex->first_affect = NULL;
    pObjIndex->last_affect = NULL;
@@ -5032,7 +5035,7 @@ OBJ_INDEX_DATA *make_object( int vnum, int cvnum, const char *name )
  * Create a new INDEX mobile (for online building)		-Thoric
  * Option to clone an existing index mobile.
  */
-MOB_INDEX_DATA *make_mobile( int vnum, int cvnum, const char *name )
+MOB_INDEX_DATA *make_mobile( int vnum, int cvnum, const char *name, AREA_DATA *area )
 {
    MOB_INDEX_DATA *pMobIndex, *cMobIndex;
    char buf[MAX_STRING_LENGTH];
@@ -5044,6 +5047,7 @@ MOB_INDEX_DATA *make_mobile( int vnum, int cvnum, const char *name )
       cMobIndex = NULL;
    CREATE( pMobIndex, MOB_INDEX_DATA, 1 );
    pMobIndex->vnum = vnum;
+   pMobIndex->area = area;
    pMobIndex->count = 0;
    pMobIndex->killed = 0;
    pMobIndex->player_name = STRALLOC( name );
@@ -6305,6 +6309,7 @@ void fread_fuss_object( FILE * fp, AREA_DATA * tarea )
                   oldobj = false;
                }
                pObjIndex->vnum = vnum;
+               pObjIndex->area = tarea;
                fBootDb = tmpBootDb;
 
                if( fBootDb )
@@ -7095,6 +7100,7 @@ void fread_fuss_mobile( FILE * fp, AREA_DATA * tarea )
                   oldmob = false;
                }
                pMobIndex->vnum = vnum;
+               pMobIndex->area = tarea;
                fBootDb = tmpBootDb;
 
                if( fBootDb )

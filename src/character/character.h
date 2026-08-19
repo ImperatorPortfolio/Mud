@@ -10,6 +10,7 @@ struct mob_index_data
    SHOP_DATA *pShop;
    REPAIR_DATA *rShop;
    MPROG_DATA *mudprogs;
+   AREA_DATA *area;
    int progtypes;
    const char *player_name;
    const char *short_descr;
