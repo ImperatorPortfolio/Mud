@@ -178,7 +178,6 @@ dns: resolver.o
 
 indent:
 	@indent -ts3 -nut -nsaf -nsai -nsaw -npcs -npsl -ncs -nbc -bls -prs -bap -cbi0 -cli3 -bli0 -l125 -lp -i3 -cdb -c1 -cd1 -sc -pmt $(C_FILES)
-	@indent -ts3 -nut -nsaf -nsai -nsaw -npcs -npsl -ncs -nbc -bls -prs -bap -cbi0 -cli3 -bli0 -l125 -lp -i3 -cdb -c1 -cd1 -sc -pmt $(H_FILES)
 
 indentclean:
 	@rm *.c~ *.h~
@@ -186,6 +185,6 @@ indentclean:
 o:
 	@mkdir -p $@
 
-o/%.o: %.c | o
+o/%.o: %.c Makefile | o
 	@echo "  Compiling $@...";
 	$(CC) -c $(C_FLAGS) $< -o $@
