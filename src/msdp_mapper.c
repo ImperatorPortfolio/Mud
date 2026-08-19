@@ -352,10 +352,18 @@ void msdp_send_room( CHAR_DATA *ch )
    msdp_room_ships( packet, room );
 
    msdp_table_end( packet );
+   msdp_append_byte( packet, 255 );
+   msdp_append_byte( packet, 240 );
+   write_to_buffer( d, packet.data(), packet.size() );
+
+   /* Mudlet dispatches scalar MSDP events after a complete subnegotiation. */
+   packet.clear();
+   msdp_append_byte( packet, 255 );
+   msdp_append_byte( packet, 250 );
+   msdp_append_byte( packet, ZP_TELOPT_MSDP );
    msdp_pair_number( packet, "ROOM_VNUM", room->vnum );
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 240 );
-
    write_to_buffer( d, packet.data(), packet.size() );
 }
 
