@@ -352,6 +352,7 @@ void msdp_send_room( CHAR_DATA *ch )
    msdp_room_ships( packet, room );
 
    msdp_table_end( packet );
+   msdp_pair_number( packet, "ROOM_VNUM", room->vnum );
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 240 );
 
