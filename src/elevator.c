@@ -3,13 +3,14 @@
  *
  * Elevators are persistent car rooms with dynamic door exits. Calls and car
  * selections are queued; an elevator never reverses while an outstanding
- * request remains ahead in its current direction. Coordinates/topology are
- * not inferred: floor rooms and directions are explicit configuration.
+ * request remains ahead in its current direction. Floor rooms and exit
+ * directions are explicit configuration; no topology is inferred.
  ***************************************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <time.h>
 #include "mud.h"
 
 enum elevator_state
@@ -44,9 +45,13 @@ struct elevator_data
    time_t next_action;
 };
 
-/* Existing implementations retained for non-elevator commands. */
-extern void legacy_do_push( CHAR_DATA *ch, const char *argument );
-extern void legacy_do_look( CHAR_DATA *ch, const char *argument );
+/* do_* declarations in mud.h have C linkage when built as C++. */
+extern "C"
+{
+   void legacy_do_push( CHAR_DATA *ch, const char *argument );
+   void legacy_do_look( CHAR_DATA *ch, const char *argument );
+}
+
 extern void natural_update_handler( void );
 extern void msdp_send_room( CHAR_DATA *ch );
 
@@ -54,8 +59,9 @@ extern void msdp_send_room( CHAR_DATA *ch );
 #define ELEVATOR_DOOR_SECONDS   4
 
 /*
- * First live installation: the three street levels previously represented by
- * static turbolift rooms 409/410/411. Room 427 becomes the persistent car.
+ * First installation: one of Directorate City's existing three-level street
+ * turbolifts. Static shaft rooms 409/410/411 are replaced by one persistent
+ * car (427) serving the three street rooms below.
  */
 static elevator_stop hague_stops[] =
 {
@@ -89,6 +95,7 @@ static const int elevator_count = sizeof( all_elevators ) / sizeof( all_elevator
 static void elevator_room_echo( ROOM_INDEX_DATA *room, const char *text )
 {
    CHAR_DATA *ch;
+
    if( !room || !text )
       return;
 
@@ -99,6 +106,7 @@ static void elevator_room_echo( ROOM_INDEX_DATA *room, const char *text )
 static void elevator_refresh_msdp( ROOM_INDEX_DATA *room )
 {
    CHAR_DATA *ch;
+
    if( !room )
       return;
 
@@ -110,6 +118,7 @@ static void elevator_refresh_msdp( ROOM_INDEX_DATA *room )
 static int elevator_stop_index_for_room( elevator_data *lift, int room_vnum )
 {
    int i;
+
    if( !lift )
       return -1;
 
@@ -123,6 +132,7 @@ static int elevator_stop_index_for_room( elevator_data *lift, int room_vnum )
 static elevator_data *elevator_for_room( ROOM_INDEX_DATA *room, int *stop_index, bool *inside_car )
 {
    int e;
+
    if( stop_index )
       *stop_index = -1;
    if( inside_car )
@@ -156,22 +166,26 @@ static elevator_data *elevator_for_room( ROOM_INDEX_DATA *room, int *stop_index,
    return NULL;
 }
 
-static void elevator_remove_exit_if_to( ROOM_INDEX_DATA *room, short dir, int destination_vnum )
+static bool elevator_remove_exit_if_to( ROOM_INDEX_DATA *room, short dir, int destination_vnum )
 {
    EXIT_DATA *exit;
+
    if( !room )
-      return;
+      return false;
 
    exit = get_exit( room, dir );
-   if( exit && exit->to_room && exit->to_room->vnum == destination_vnum )
-      extract_exit( room, exit );
+   if( !exit || !exit->to_room || exit->to_room->vnum != destination_vnum )
+      return false;
+
+   extract_exit( room, exit );
+   return true;
 }
 
-static void elevator_close_doors( elevator_data *lift )
+static void elevator_disconnect_current_floor( elevator_data *lift, bool announce )
 {
    ROOM_INDEX_DATA *car;
    ROOM_INDEX_DATA *floor;
-   EXIT_DATA *exit;
+   bool removed = false;
 
    if( !lift || lift->current_index < 0 || lift->current_index >= lift->stop_count )
       return;
@@ -181,18 +195,22 @@ static void elevator_close_doors( elevator_data *lift )
    if( !car || !floor )
       return;
 
-   exit = get_exit( car, lift->car_door_dir );
-   if( exit && exit->to_room == floor )
-      extract_exit( car, exit );
+   if( elevator_remove_exit_if_to( car, lift->car_door_dir, floor->vnum ) )
+      removed = true;
+   if( elevator_remove_exit_if_to( floor, lift->stops[lift->current_index].floor_door_dir, car->vnum ) )
+      removed = true;
 
-   exit = get_exit( floor, lift->stops[lift->current_index].floor_door_dir );
-   if( exit && exit->to_room == car )
-      extract_exit( floor, exit );
+   if( removed && announce )
+   {
+      elevator_room_echo( car, "&wThe turbolift doors slide shut.\r\n" );
+      elevator_room_echo( floor, "&wThe turbolift doors slide shut.\r\n" );
+   }
 
-   elevator_room_echo( car, "&wThe turbolift doors slide shut.\r\n" );
-   elevator_room_echo( floor, "&wThe turbolift doors slide shut.\r\n" );
-   elevator_refresh_msdp( car );
-   elevator_refresh_msdp( floor );
+   if( removed )
+   {
+      elevator_refresh_msdp( car );
+      elevator_refresh_msdp( floor );
+   }
 }
 
 static void elevator_open_doors( elevator_data *lift )
@@ -211,16 +229,26 @@ static void elevator_open_doors( elevator_data *lift )
    if( !car || !floor )
       return;
 
-   /* Defensive reconciliation: only the current floor may be connected. */
-   elevator_close_doors( lift );
+   /* Reconcile silently so a stale edge can never survive at this stop. */
+   elevator_disconnect_current_floor( lift, false );
 
    car_exit = make_exit( car, floor, lift->car_door_dir );
    floor_exit = make_exit( floor, car, lift->stops[lift->current_index].floor_door_dir );
-   if( car_exit && floor_exit )
+
+   if( !car_exit || !floor_exit )
    {
-      car_exit->rexit = floor_exit;
-      floor_exit->rexit = car_exit;
+      if( car_exit )
+         extract_exit( car, car_exit );
+      if( floor_exit )
+         extract_exit( floor, floor_exit );
+      bug( "%s: unable to create both door exits for %s floor %d", __func__, lift->name,
+           lift->stops[lift->current_index].floor );
+      lift->state = ELEVATOR_IDLE;
+      return;
    }
+
+   car_exit->rexit = floor_exit;
+   floor_exit->rexit = car_exit;
 
    snprintf( buf, sizeof( buf ),
              "&WA soft chime sounds. The turbolift doors open at floor %d, %s.\r\n",
@@ -240,15 +268,18 @@ static void elevator_open_doors( elevator_data *lift )
 static bool elevator_has_requests( elevator_data *lift )
 {
    int i;
+
    for( i = 0; lift && i < lift->stop_count; ++i )
       if( lift->requests[i] )
          return true;
+
    return false;
 }
 
 static bool elevator_has_ahead( elevator_data *lift, bool rising )
 {
    int i;
+
    if( !lift )
       return false;
 
@@ -264,15 +295,15 @@ static bool elevator_has_ahead( elevator_data *lift, bool rising )
          if( lift->requests[i] )
             return true;
    }
+
    return false;
 }
 
 static void elevator_choose_direction( elevator_data *lift )
 {
-   int distance;
-   int i;
    int best = -1;
    int best_distance = 9999;
+   int i;
 
    if( !lift || !elevator_has_requests( lift ) )
    {
@@ -287,7 +318,7 @@ static void elevator_choose_direction( elevator_data *lift )
       return;
    }
 
-   /* Preserve directional inertia where possible. */
+   /* Preserve directional inertia while any requested stop remains ahead. */
    if( elevator_has_ahead( lift, lift->isRising ) )
    {
       lift->state = lift->isRising ? ELEVATOR_MOVING_UP : ELEVATOR_MOVING_DOWN;
@@ -297,8 +328,11 @@ static void elevator_choose_direction( elevator_data *lift )
 
    for( i = 0; i < lift->stop_count; ++i )
    {
+      int distance;
+
       if( !lift->requests[i] )
          continue;
+
       distance = abs( i - lift->current_index );
       if( distance < best_distance )
       {
@@ -323,7 +357,7 @@ static void elevator_begin_after_doors( elevator_data *lift )
    if( !lift )
       return;
 
-   elevator_close_doors( lift );
+   elevator_disconnect_current_floor( lift, true );
 
    if( !elevator_has_requests( lift ) )
    {
@@ -381,6 +415,7 @@ static void elevator_move_one_floor( elevator_data *lift )
              lift->isRising ? "upward" : "downward" );
    elevator_room_echo( car, buf );
 
+   /* Requests encountered in the current sweep are served immediately. */
    if( lift->requests[lift->current_index] )
    {
       elevator_open_doors( lift );
@@ -418,28 +453,29 @@ static bool elevator_initialize( elevator_data *lift )
       return false;
 
    for( i = 0; i < lift->stop_count; ++i )
-   {
-      ROOM_INDEX_DATA *floor = get_room_index( lift->stops[i].room_vnum );
-      if( !floor )
+      if( !get_room_index( lift->stops[i].room_vnum ) )
          return false;
-   }
 
-   /* Retire only the old static street->turbolift edges this lift replaces. */
+   /* Retire only the legacy floor->shaft edges this installation replaces. */
    for( i = 0; i < lift->stop_count; ++i )
    {
       ROOM_INDEX_DATA *floor = get_room_index( lift->stops[i].room_vnum );
-      elevator_remove_exit_if_to( floor,
-                                  lift->stops[i].floor_door_dir,
-                                  lift->stops[i].legacy_car_vnum );
+      if( elevator_remove_exit_if_to( floor,
+                                      lift->stops[i].floor_door_dir,
+                                      lift->stops[i].legacy_car_vnum ) )
+         elevator_refresh_msdp( floor );
    }
 
-   /* Room 427 was a legacy shaft segment and is now the persistent car. */
+   /* Isolate room 427 from the inherited shaft before making it the car. */
+   elevator_remove_exit_if_to( get_room_index( 411 ), DIR_DOWN, lift->car_room_vnum );
+   elevator_remove_exit_if_to( get_room_index( 428 ), DIR_UP, lift->car_room_vnum );
    while( car->first_exit )
       extract_exit( car, car->first_exit );
 
    if( car->name )
       STRFREE( car->name );
    car->name = STRALLOC( "Inside a Directorate City Turbolift" );
+
    if( car->description )
       STRFREE( car->description );
    car->description = STRALLOC(
@@ -450,6 +486,7 @@ static bool elevator_initialize( elevator_data *lift )
    lift->current_index = 0;
    lift->isRising = true;
    lift->next_action = 0;
+   elevator_refresh_msdp( car );
    return true;
 }
 
@@ -473,6 +510,7 @@ static void elevator_request( elevator_data *lift, int stop_index )
 static void elevator_show_panel( CHAR_DATA *ch, elevator_data *lift, bool inside_car )
 {
    int i;
+
    if( !ch || !lift )
       return;
 
@@ -493,16 +531,20 @@ static void elevator_show_panel( CHAR_DATA *ch, elevator_data *lift, bool inside
                     lift->requests[i] ? "&YREQUESTED&w" :
                     i == lift->current_index ? "&GCURRENT&w" : "" );
       }
+
       send_to_char( "\r\n&wUse &Wpush <floor>&w, &Wpush open&w or &Wpush close&w.\r\n", ch );
+      return;
    }
-   else
-   {
-      ch_printf( ch,
-                 "&wA recessed turbolift call panel shows floor &W%d&w. The indicator currently reads &W%d&w%s.\r\nUse &Wpush call&w to summon the car.\r\n",
-                 lift->stops[elevator_stop_index_for_room( lift, ch->in_room->vnum )].floor,
-                 lift->stops[lift->current_index].floor,
-                 lift->isRising ? " with an upward arrow" : " with a downward arrow" );
-   }
+
+   i = elevator_stop_index_for_room( lift, ch->in_room->vnum );
+   if( i < 0 )
+      return;
+
+   ch_printf( ch,
+              "&wA recessed turbolift call panel marks this as floor &W%d&w. The indicator currently reads &W%d&w%s.\r\nUse &Wpush call&w to summon the car.\r\n",
+              lift->stops[i].floor,
+              lift->stops[lift->current_index].floor,
+              lift->isRising ? " with an upward arrow" : " with a downward arrow" );
 }
 
 static bool elevator_handle_push( CHAR_DATA *ch, const char *argument )
@@ -528,7 +570,9 @@ static bool elevator_handle_push( CHAR_DATA *ch, const char *argument )
 
    if( !inside_car )
    {
-      if( str_cmp( arg, "call" ) && str_cmp( arg, "button" ) && str_cmp( arg, "elevator" ) && str_cmp( arg, "lift" ) )
+      if( str_cmp( arg, "call" ) && str_cmp( arg, "button" )
+          && str_cmp( arg, "elevator" ) && str_cmp( arg, "lift" )
+          && str_cmp( arg, "turbolift" ) )
          return false;
 
       if( lift->state == ELEVATOR_DOORS_OPEN && lift->current_index == stop_index )
@@ -553,6 +597,7 @@ static bool elevator_handle_push( CHAR_DATA *ch, const char *argument )
          send_to_char( "The door control refuses to respond while the turbolift is moving.\r\n", ch );
          return true;
       }
+
       elevator_open_doors( lift );
       return true;
    }
@@ -564,6 +609,7 @@ static bool elevator_handle_push( CHAR_DATA *ch, const char *argument )
          send_to_char( "The doors are already closed.\r\n", ch );
          return true;
       }
+
       elevator_begin_after_doors( lift );
       return true;
    }
@@ -611,7 +657,8 @@ static bool elevator_handle_look( CHAR_DATA *ch, const char *argument )
       return false;
 
    one_argument( argument, arg );
-   if( str_cmp( arg, "panel" ) && str_cmp( arg, "controls" ) && str_cmp( arg, "button" ) && str_cmp( arg, "buttons" ) )
+   if( str_cmp( arg, "panel" ) && str_cmp( arg, "controls" )
+       && str_cmp( arg, "button" ) && str_cmp( arg, "buttons" ) )
       return false;
 
    lift = elevator_for_room( ch->in_room, &stop_index, &inside_car );
@@ -625,9 +672,11 @@ static bool elevator_handle_look( CHAR_DATA *ch, const char *argument )
 void elevator_update( void )
 {
    int e;
+
    for( e = 0; e < elevator_count; ++e )
    {
       elevator_data *lift = all_elevators[e];
+
       if( !elevator_initialize( lift ) )
          continue;
 
@@ -648,17 +697,19 @@ void elevator_update( void )
    }
 }
 
-void do_push( CHAR_DATA *ch, const char *argument )
+extern "C" void do_push( CHAR_DATA *ch, const char *argument )
 {
    if( elevator_handle_push( ch, argument ) )
       return;
+
    legacy_do_push( ch, argument );
 }
 
-void do_look( CHAR_DATA *ch, const char *argument )
+extern "C" void do_look( CHAR_DATA *ch, const char *argument )
 {
    if( elevator_handle_look( ch, argument ) )
       return;
+
    legacy_do_look( ch, argument );
 }
 
