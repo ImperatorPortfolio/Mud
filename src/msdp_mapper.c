@@ -2,9 +2,9 @@
  * Zero Point - MSDP authoritative room publication
  *
  * Publishes the standard MSDP ROOM table whenever a character enters a
- * room.  handler.c remains the owner of room membership; this translation
- * unit wraps char_to_room() so every movement path (walking, transfer,
- * teleport, recall, scripted movement) shares one publication boundary.
+ * room. handler.c remains the owner of room membership; this translation
+ * unit wraps char_to_room() so every movement path shares one publication
+ * boundary.
  ***************************************************************************/
 
 #include <stdio.h>
@@ -59,6 +59,27 @@ static const char *msdp_terrain_name( int sector )
    }
 }
 
+static bool msdp_mapper_exit_visible( const EXIT_DATA *exit )
+{
+   if( !exit || !exit->to_room )
+      return false;
+
+   if( IS_SET( exit->exit_info, EX_HIDDEN ) )
+      return false;
+
+   /* Windows are visible room features, not traversable mapper edges. */
+   if( IS_SET( exit->exit_info, EX_WINDOW ) )
+      return false;
+
+   /* xAUTO exits are keyword/special exits; do not misrepresent them as a
+    * normal cardinal edge until they have a dedicated MSDP special-exit
+    * contract. */
+   if( IS_SET( exit->exit_info, EX_xAUTO ) )
+      return false;
+
+   return msdp_direction_name( exit->vdir ) != NULL;
+}
+
 static void msdp_append_byte( std::string &packet, unsigned char value )
 {
    packet.push_back( ( char )value );
@@ -67,7 +88,6 @@ static void msdp_append_byte( std::string &packet, unsigned char value )
 static void msdp_append_text( std::string &packet, const char *text )
 {
    const unsigned char *p;
-
    if( !text )
       return;
 
@@ -97,7 +117,6 @@ static void msdp_pair_number( std::string &packet, const char *name, int value )
 static void msdp_offer( DESCRIPTOR_DATA *d )
 {
    const char offer[] = { ( char )255, ( char )251, ( char )ZP_TELOPT_MSDP };
-
    if( !d || d->msdp_announced )
       return;
 
@@ -117,8 +136,8 @@ void msdp_send_room( CHAR_DATA *ch )
 
    msdp_offer( d );
 
-   msdp_append_byte( packet, 255 ); /* IAC */
-   msdp_append_byte( packet, 250 ); /* SB */
+   msdp_append_byte( packet, 255 );
+   msdp_append_byte( packet, 250 );
    msdp_append_byte( packet, ZP_TELOPT_MSDP );
 
    msdp_append_byte( packet, MSDP_VAR );
@@ -139,21 +158,18 @@ void msdp_send_room( CHAR_DATA *ch )
    for( exit = room->first_exit; exit; exit = exit->next )
    {
       const char *direction;
-      int destination;
 
-      direction = msdp_direction_name( exit->vdir );
-      destination = exit->to_room ? exit->to_room->vnum : exit->vnum;
-
-      if( !direction || destination <= 0 )
+      if( !msdp_mapper_exit_visible( exit ) )
          continue;
 
-      msdp_pair_number( packet, direction, destination );
+      direction = msdp_direction_name( exit->vdir );
+      msdp_pair_number( packet, direction, exit->to_room->vnum );
    }
 
    msdp_append_byte( packet, MSDP_TABLE_CLOSE );
    msdp_append_byte( packet, MSDP_TABLE_CLOSE );
-   msdp_append_byte( packet, 255 ); /* IAC */
-   msdp_append_byte( packet, 240 ); /* SE */
+   msdp_append_byte( packet, 255 );
+   msdp_append_byte( packet, 240 );
 
    write_to_buffer( d, packet.data(), packet.size() );
 }
@@ -161,7 +177,6 @@ void msdp_send_room( CHAR_DATA *ch )
 void char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *room )
 {
    legacy_char_to_room( ch, room );
-
    if( ch && ch->in_room == room )
       msdp_send_room( ch );
 }
