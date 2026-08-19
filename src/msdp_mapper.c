@@ -7,6 +7,7 @@
  * boundary.
  ***************************************************************************/
 
+#include <ctype.h>
 #include <stdio.h>
 #include <string>
 #include "mud.h"
@@ -67,13 +68,9 @@ static bool msdp_mapper_exit_visible( const EXIT_DATA *exit )
    if( IS_SET( exit->exit_info, EX_HIDDEN ) )
       return false;
 
-   /* Windows are visible room features, not traversable mapper edges. */
    if( IS_SET( exit->exit_info, EX_WINDOW ) )
       return false;
 
-   /* xAUTO exits are keyword/special exits; do not misrepresent them as a
-    * normal cardinal edge until they have a dedicated MSDP special-exit
-    * contract. */
    if( IS_SET( exit->exit_info, EX_xAUTO ) )
       return false;
 
@@ -141,7 +138,96 @@ static void msdp_offer( DESCRIPTOR_DATA *d )
       return;
 
    write_to_buffer( d, offer, sizeof( offer ) );
-   d->msdp_announced = TRUE;
+   d->msdp_announced = true;
+}
+
+static bool msdp_token_equal( const unsigned char *data, size_t length, const char *text )
+{
+   size_t text_length = strlen( text );
+   if( length != text_length )
+      return false;
+
+   for( size_t i = 0; i < length; ++i )
+      if( toupper( data[i] ) != toupper( ( unsigned char )text[i] ) )
+         return false;
+
+   return true;
+}
+
+void msdp_send_room( CHAR_DATA *ch );
+
+void msdp_set_enabled( DESCRIPTOR_DATA *d, bool enabled )
+{
+   if( !d )
+      return;
+
+   d->msdp_enabled = enabled;
+   if( !enabled )
+   {
+      d->msdp_report_room = false;
+      return;
+   }
+
+   if( d->msdp_report_room && d->character )
+      msdp_send_room( d->character );
+}
+
+void msdp_handle_subnegotiation( DESCRIPTOR_DATA *d, const unsigned char *data, size_t length )
+{
+   size_t i = 0;
+
+   if( !d || !data || length == 0 )
+      return;
+
+   while( i < length )
+   {
+      const unsigned char *name;
+      const unsigned char *value;
+      size_t name_length = 0;
+      size_t value_length = 0;
+
+      if( data[i] != MSDP_VAR )
+      {
+         ++i;
+         continue;
+      }
+
+      ++i;
+      name = data + i;
+      while( i < length && data[i] != MSDP_VAL && data[i] != MSDP_VAR )
+      {
+         ++name_length;
+         ++i;
+      }
+
+      if( i >= length || data[i] != MSDP_VAL )
+         continue;
+
+      ++i;
+      value = data + i;
+      while( i < length && data[i] != MSDP_VAR )
+      {
+         ++value_length;
+         ++i;
+      }
+
+      if( !msdp_token_equal( value, value_length, "ROOM" ) )
+         continue;
+
+      if( msdp_token_equal( name, name_length, "REPORT" ) )
+      {
+         d->msdp_report_room = true;
+         if( d->msdp_enabled && d->character )
+            msdp_send_room( d->character );
+      }
+      else if( msdp_token_equal( name, name_length, "UNREPORT" ) )
+         d->msdp_report_room = false;
+      else if( msdp_token_equal( name, name_length, "SEND" ) )
+      {
+         if( d->msdp_enabled && d->character )
+            msdp_send_room( d->character );
+      }
+   }
 }
 
 static void msdp_room_windows( std::string &packet, ROOM_INDEX_DATA *room )
@@ -229,6 +315,9 @@ void msdp_send_room( CHAR_DATA *ch )
       return;
 
    msdp_offer( d );
+
+   if( !d->msdp_enabled || !d->msdp_report_room )
+      return;
 
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 250 );
