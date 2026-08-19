@@ -19,3 +19,10 @@ Desktop.ini
 # Source header module, not a crash dump directory.
 !/src/core/
 !/src/core/*.h
+
+# Editor and recovery backups
+/area/**/*.bak
+/area/boot.txt
+/player/a/Admin
+/src/dependencies.d
+/system/usage.txt
