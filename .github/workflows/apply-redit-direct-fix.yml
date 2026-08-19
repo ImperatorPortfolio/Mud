@@ -29,25 +29,12 @@ jobs:
 
           build = Path('src/build.c')
           text = build.read_text()
-
-          start_marker = '''   /*
-           * Twisted and evil, but works           -Thoric
-           * Makes an exit, and the reverse in one shot.
-           */
-          '''
-          end_marker = '''   if( !str_cmp( arg, "exdistance" ) )
-          '''
-
+          start_marker = '   if( !str_cmp( arg, "bexit" ) )\n'
+          end_marker = '   if( !str_cmp( arg, "exdistance" ) )\n'
           start = text.index(start_marker)
           end = text.index(end_marker, start)
 
-          replacement = r'''   /*
-           * Create, change or remove a bidirectional exit.
-           * Deletion is handled directly so each EXIT_DATA is removed from
-           * the room that actually owns it. The reverse edge is matched by
-           * both direction and source VNUM, never by direction alone.
-           */
-          if( !str_cmp( arg, "bexit" ) )
+          replacement = r'''   if( !str_cmp( arg, "bexit" ) )
           {
              EXIT_DATA *nxit, *rxit;
              char tmpcmd[MAX_STRING_LENGTH];
@@ -91,6 +78,7 @@ jobs:
              else
                 nxit = get_exit( tmploc, edir );
 
+             /* Deleting a bexit is direct and ownership-safe. */
              if( arg3[0] == '\0' )
              {
                 if( !nxit )
@@ -109,13 +97,15 @@ jobs:
 
                 if( rxit && rxit != nxit )
                    extract_exit( destroom, rxit );
-
                 extract_exit( tmploc, nxit );
+
                 send_to_char( rxit ? "Two-way exit removed.\r\n"
                                    : "Exit removed; no matching reverse exit existed.\r\n", ch );
                 return;
              }
 
+             /* Creation/change retains the existing editor behaviour, while
+              * reverse lookup is exact rather than direction-only. */
              rxit = NULL;
              vnum = 0;
              rvnum[0] = '\0';
@@ -129,7 +119,6 @@ jobs:
 
              snprintf( tmpcmd, MAX_STRING_LENGTH, "exit %s %s %s", arg2, arg3, argument );
              do_redit( ch, tmpcmd );
-
              if( numnotdir )
                 nxit = get_exit_num( tmploc, exnum );
              else
@@ -142,7 +131,6 @@ jobs:
                 if( nxit->to_room )
                    rxit = get_exit_to( nxit->to_room, rev_dir[edir], tmploc->vnum );
              }
-
              if( vnum )
              {
                 snprintf( tmpcmd, MAX_STRING_LENGTH, "%d redit exit %d %s %s",
@@ -152,30 +140,24 @@ jobs:
              return;
           }
 
-          '''
-
+'''
           build.write_text(text[:start] + replacement + text[end:])
 
           makefile = Path('src/Makefile')
           make = makefile.read_text()
           make = make.replace('player.c redit_safe.c reset.c', 'player.c reset.c')
-          make = make.replace('''#
-          # Safe online room editing
-          #
-          # build.c retains the inherited editor behind a legacy symbol. redit_safe.c
-          # intercepts only no-destination `bexit` removal so the reverse edge is matched
-          # by destination VNUM and deleted from its actual owning room.
-          o/build.o: C_FLAGS += -Ddo_redit=legacy_do_redit
-
-          ''', '')
+          block_start = make.find('#\n# Safe online room editing\n#')
+          if block_start != -1:
+              block_end = make.find('\n#\n#', block_start + 3)
+              if block_end == -1:
+                  raise RuntimeError('could not locate end of redit Makefile block')
+              make = make[:block_start] + make[block_end + 1:]
           makefile.write_text(make)
 
           wrapper = Path('src/redit_safe.c')
           if wrapper.exists():
               wrapper.unlink()
-
-          workflow = Path('.github/workflows/apply-redit-direct-fix.yml')
-          workflow.unlink()
+          Path('.github/workflows/apply-redit-direct-fix.yml').unlink()
           PY
 
       - name: Clean build
