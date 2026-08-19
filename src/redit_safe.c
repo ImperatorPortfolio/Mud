@@ -9,6 +9,7 @@
  * in build.c under legacy_do_redit().
  ***************************************************************************/
 
+#include <stdlib.h>
 #include <string.h>
 #include "mud.h"
 
@@ -21,8 +22,6 @@ static void safe_remove_bexit( CHAR_DATA *ch, const char *direction_arg )
    EXIT_DATA *forward;
    EXIT_DATA *reverse;
    short direction;
-   bool by_number = false;
-   int exit_number = 0;
 
    if( !ch || !ch->desc || !( source = ch->in_room ) )
       return;
@@ -32,9 +31,7 @@ static void safe_remove_bexit( CHAR_DATA *ch, const char *direction_arg )
 
    if( direction_arg[0] == '#' )
    {
-      by_number = true;
-      exit_number = atoi( direction_arg + 1 );
-      forward = get_exit_num( source, exit_number );
+      forward = get_exit_num( source, atoi( direction_arg + 1 ) );
       if( !forward )
       {
          send_to_char( "No exit with that number.\r\n", ch );
@@ -53,9 +50,6 @@ static void safe_remove_bexit( CHAR_DATA *ch, const char *direction_arg )
          return;
       }
    }
-
-   ( void )by_number;
-   ( void )exit_number;
 
    destination = forward->to_room;
    reverse = NULL;
