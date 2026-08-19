@@ -167,6 +167,7 @@ struct descriptor_data
    CHAR_DATA *original;
    struct mccp_data *mccp; /* Mud Client Compression Protocol */
    bool can_compress;
+   bool msdp_announced; /* MSDP option has been offered for this connection */
    const char *host;
    const char *hostip;
    int port;
