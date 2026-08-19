@@ -1,0 +1,151 @@
+name: Apply direct redit fix v2
+
+on:
+  push:
+    branches: [simplify-redit-bexit-fix]
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: simplify-redit-bexit-fix
+          fetch-depth: 0
+      - name: Directly patch do_redit
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          build = Path('src/build.c')
+          text = build.read_text()
+          start = text.index('   if( !str_cmp( arg, "bexit" ) )\n')
+          end = text.index('   if( !str_cmp( arg, "exdistance" ) )\n', start)
+          replacement = r'''   if( !str_cmp( arg, "bexit" ) )
+          {
+             EXIT_DATA *nxit, *rxit;
+             char tmpcmd[MAX_STRING_LENGTH];
+             ROOM_INDEX_DATA *tmploc, *destroom;
+             int vnum, exnum;
+             char rvnum[MAX_INPUT_LENGTH];
+             bool numnotdir;
+
+             argument = one_argument( argument, arg2 );
+             argument = one_argument( argument, arg3 );
+             if( arg2[0] == '\0' )
+             {
+                send_to_char( "Create, change or remove a two-way exit.\r\n", ch );
+                send_to_char( "Usage: redit bexit <dir> [room] [flags] [key] [keywords]\r\n", ch );
+                return;
+             }
+
+             numnotdir = FALSE;
+             switch ( arg2[0] )
+             {
+                default:
+                   edir = get_dir( arg2 );
+                   break;
+                case '#':
+                   numnotdir = TRUE;
+                   edir = atoi( arg2 + 1 );
+                   break;
+                case '+':
+                   edir = get_dir( arg2 + 1 );
+                   break;
+             }
+
+             tmploc = location;
+             exnum = edir;
+             if( numnotdir )
+             {
+                nxit = get_exit_num( tmploc, edir );
+                if( nxit )
+                   edir = nxit->vdir;
+             }
+             else
+                nxit = get_exit( tmploc, edir );
+
+             if( arg3[0] == '\0' )
+             {
+                if( !nxit )
+                {
+                   send_to_char( "No exit in that direction.\r\n", ch );
+                   return;
+                }
+
+                destroom = nxit->to_room;
+                rxit = destroom ? get_exit_to( destroom, rev_dir[edir], tmploc->vnum ) : NULL;
+                if( rxit && !can_rmodify( ch, destroom ) )
+                   return;
+                if( rxit && rxit != nxit )
+                   extract_exit( destroom, rxit );
+                extract_exit( tmploc, nxit );
+                send_to_char( rxit ? "Two-way exit removed.\r\n"
+                                   : "Exit removed; no matching reverse exit existed.\r\n", ch );
+                return;
+             }
+
+             rxit = NULL;
+             vnum = 0;
+             rvnum[0] = '\0';
+             if( nxit )
+             {
+                vnum = nxit->vnum;
+                snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+                if( nxit->to_room )
+                   rxit = get_exit_to( nxit->to_room, rev_dir[edir], tmploc->vnum );
+             }
+
+             snprintf( tmpcmd, MAX_STRING_LENGTH, "exit %s %s %s", arg2, arg3, argument );
+             do_redit( ch, tmpcmd );
+             nxit = numnotdir ? get_exit_num( tmploc, exnum ) : get_exit( tmploc, edir );
+             if( !rxit && nxit )
+             {
+                vnum = nxit->vnum;
+                snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+                if( nxit->to_room )
+                   rxit = get_exit_to( nxit->to_room, rev_dir[edir], tmploc->vnum );
+             }
+             if( vnum )
+             {
+                snprintf( tmpcmd, MAX_STRING_LENGTH, "%d redit exit %d %s %s",
+                          vnum, rev_dir[edir], rvnum, argument );
+                do_at( ch, tmpcmd );
+             }
+             return;
+          }
+
+'''
+          build.write_text(text[:start] + replacement + text[end:])
+
+          mf = Path('src/Makefile')
+          make = mf.read_text()
+          make = make.replace('player.c redit_safe.c reset.c', 'player.c reset.c')
+          marker = '#\n# Safe online room editing\n#'
+          s = make.find(marker)
+          if s != -1:
+              e = make.find('#\n# Attribute training migration', s)
+              if e == -1:
+                  raise RuntimeError('Makefile redit block end not found')
+              make = make[:s] + make[e:]
+          mf.write_text(make)
+
+          for p in [Path('src/redit_safe.c'), Path('.redit-fix-trigger'),
+                    Path('.github/workflows/apply-redit-direct-fix.yml'),
+                    Path('.github/workflows/apply-redit-direct-fix-v2.yml')]:
+              if p.exists(): p.unlink()
+          PY
+      - name: Clean build
+        run: |
+          make -C src clean
+          make -C src -j2
+      - name: Commit result
+        run: |
+          git config user.name "ZeroPoint Build Fix"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          git commit -m "Simplify redit bexit safety fix"
+          git push origin HEAD:simplify-redit-bexit-fix
