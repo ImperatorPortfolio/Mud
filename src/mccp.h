@@ -26,6 +26,16 @@ extern const unsigned char start_compress2_str[];
 bool compressStart( DESCRIPTOR_DATA * d );
 bool compressEnd( DESCRIPTOR_DATA * d );
 
+/*
+ * comm.c is compiled with ZEROPOINT_TELNET_INPUT so socket reads pass through
+ * the incremental telnet parser before canonical command processing. Other
+ * translation units keep the native POSIX read() symbol unchanged.
+ */
+#ifdef ZEROPOINT_TELNET_INPUT
+ssize_t zeropoint_telnet_read( int fd, void *buf, size_t count );
+#define read zeropoint_telnet_read
+#endif
+
 typedef struct mccp_data MCCP;
 
 struct mccp_data
