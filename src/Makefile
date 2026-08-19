@@ -7,12 +7,10 @@
 CC      = g++
 #CC      = clang++
 
-# Automatically detect if we are running in a Cygwin environment
 ifeq ($(findstring CYGWIN, $(shell uname -s)), CYGWIN)
     IS_CYGWIN = 1
 endif
 
-# Check if libdl is available on the system
 HAS_DL := $(shell echo 'int main(){}' | $(CC) -x c - -ldl -o /dev/null 2>/dev/null && echo yes)
 
 ifeq ($(HAS_DL),yes)
@@ -21,45 +19,31 @@ else
     NEED_DL =
 endif
 
-#OS Detection. Used to check for MacOS below.
 UNAME_S := $(shell uname -s)
 
-# Set EXPORT_SYMBOLS only if not on Darwin (MacOS)
 ifneq ($(UNAME_S), Darwin)
     EXPORT_SYMBOLS = -export-dynamic
 endif
 
-#GCC 4.8+ memory checking option. https://github.com/google/sanitizers Does not work in Cygwin.
-#These should only be enabled for testing environments. Disable for a live environment.
 ifndef IS_CYGWIN
    M_FLAGS = -fsanitize=address -fsanitize=leak -fno-omit-frame-pointer
 endif
 
-# These protect against stack smashing and buffer overflows in production.
-# We add -D_FORTIFY_SOURCE=2 to perform runtime checks on string/memory functions.
 HARDENING_FLAGS = -fstack-protector-strong -D_FORTIFY_SOURCE=2
-
 W_FLAGS = -std=c++20 -Wall -Wshadow -Wformat-security -Wpointer-arith -Wcast-align -Wredundant-decls
-
 C_FLAGS = -g2 $(W_FLAGS) $(M_FLAGS) $(HARDENING_FLAGS) $(EXPORT_SYMBOLS)
 L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
-
-#D_FLAGS : For the DNS Slave process. No need in linking all the extra libs for this.
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c boards.c bounty.c \
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c exercise.c fight.c \
-	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c \
+	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
 
 O_FILES := $(patsubst %.c,o/%.o,$(C_FILES))
-
 H_FILES = $(wildcard *.h)
 
-#
-# D20-P4 — Legacy Attribute Math Removal
-#
 ATTRIBUTE_MATH_DEFINES = \
 	-Dstr_app=ability_str_app \
 	-Dint_app=ability_int_app \
@@ -73,46 +57,14 @@ ATTRIBUTE_MATH_DEFINES = \
 ATTRIBUTE_MATH_OBJECTS := $(filter-out o/const.o o/attribute_math.o,$(O_FILES))
 $(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
 
-#
-# D20-P5 — Proper Armor & Defense
-#
-# handler.c still contains the old Stage-2 get_defense implementation.
-# Rename that one translation-unit-local exported symbol at compile time so
-# defense_rules.c can provide the authoritative get_defense() without forcing
-# a giant unrelated handler.c replacement into this copy-over package.
-#
-# This is intentionally bounded compatibility scaffolding.  The old function
-# can be physically deleted from handler.c in a later cleanup pass once this
-# source slice has been integrated upstream.
-#
-o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense
-
-#
-# Attribute training migration
-#
-# misc.c still contains the inherited binary do_train implementation. Keep it
-# link-safe under a legacy symbol while training.c provides the authoritative
-# progress-based command without forcing an unrelated wholesale misc.c rewrite.
-#
+o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense -Dchar_to_room=legacy_char_to_room
 o/misc.o: C_FLAGS += -Ddo_train=legacy_do_train
 
-# The long-term nutrition drain API takes explicit nutrient values. The old
-# misc.c food helper intentionally keeps its local consume_nutrition name, so
-# only the translation units using the global value-based API are renamed.
-# The old progress function is also retained under a legacy name while
-# training_guard.c provides the hard natural-potential boundary.
 o/attribute_math.o: C_FLAGS += \
 	-Dconsume_nutrition=consume_nutrition_values \
 	-Dgain_ability_training_progress=legacy_gain_ability_training_progress
 o/act_move.o o/update.o: C_FLAGS += -Dconsume_nutrition=consume_nutrition_values
-
-# get_trait_training_chance() previously clamped to a minimum of 1 even when
-# the character was already at or above natural potential. Keep that inherited
-# implementation link-safe while training_guard.c supplies the guarded version.
 o/traits.o: C_FLAGS += -Dget_trait_training_chance=legacy_get_trait_training_chance
-
-# update.c keeps the inherited scheduler under a legacy symbol while
-# natural_progress.c layers bounded passive attribute development after it.
 o/update.o: C_FLAGS += -Dupdate_handler=legacy_update_handler
 
 all:
@@ -120,7 +72,6 @@ all:
 	$(MAKE) -s ZeroPoint
 	$(MAKE) -s dns
 
-# pull in dependency info for *existing* .o files
 -include dependencies.d
 
 ifdef IS_CYGWIN
