@@ -15,10 +15,10 @@
 #define MSDP_VAR              1
 #define MSDP_VAL              2
 #define MSDP_TABLE_OPEN       3
-define MSDP_TABLE_CLOSE      4
+#define MSDP_TABLE_CLOSE      4
 
 extern void legacy_char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *room );
-extern void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, int length );
+extern void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, size_t length );
 
 static const char *msdp_direction_name( int direction )
 {
@@ -133,7 +133,7 @@ void msdp_send_room( CHAR_DATA *ch )
 
    msdp_append_byte( packet, MSDP_VAR );
    msdp_append_text( packet, "EXITS" );
-   msdp_append_byte( packet, MSDP_VAL);
+   msdp_append_byte( packet, MSDP_VAL );
    msdp_append_byte( packet, MSDP_TABLE_OPEN );
 
    for( exit = room->first_exit; exit; exit = exit->next )
@@ -155,7 +155,7 @@ void msdp_send_room( CHAR_DATA *ch )
    msdp_append_byte( packet, 255 ); /* IAC */
    msdp_append_byte( packet, 240 ); /* SE */
 
-   write_to_buffer( d, packet.data(), ( int )packet.size() );
+   write_to_buffer( d, packet.data(), packet.size() );
 }
 
 void char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *room )
