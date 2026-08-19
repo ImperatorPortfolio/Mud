@@ -3973,63 +3973,6 @@ int get_dir( const char *txt )
    }
    return edir;
 }
-/* Remove only the paired exits that connect the selected two rooms. */
-static void safe_remove_bexit( CHAR_DATA *ch, const char *direction_arg )
-{
-   ROOM_INDEX_DATA *source;
-   ROOM_INDEX_DATA *destination;
-   EXIT_DATA *forward;
-   EXIT_DATA *reverse;
-   short direction;
-
-   if( !ch || !ch->desc || !( source = ch->in_room ) )
-      return;
-
-   if( !can_rmodify( ch, source ) )
-      return;
-
-   if( direction_arg[0] == '#' )
-   {
-      forward = get_exit_num( source, atoi( direction_arg + 1 ) );
-      if( !forward )
-      {
-         send_to_char( "No exit with that number.\r\n", ch );
-         return;
-      }
-      direction = forward->vdir;
-   }
-   else
-   {
-      const char *dir_text = direction_arg[0] == '+' ? direction_arg + 1 : direction_arg;
-
-      direction = get_dir( dir_text );
-      forward = get_exit( source, direction );
-      if( !forward )
-      {
-         send_to_char( "No exit in that direction.\r\n", ch );
-         return;
-      }
-   }
-
-   destination = forward->to_room;
-   reverse = NULL;
-
-   if( destination )
-      reverse = get_exit_to( destination, rev_dir[direction], source->vnum );
-
-   if( reverse && !can_rmodify( ch, destination ) )
-      return;
-
-   if( reverse && reverse != forward )
-      extract_exit( destination, reverse );
-
-   extract_exit( source, forward );
-
-   if( reverse )
-      send_to_char( "Two-way exit removed.\r\n", ch );
-   else
-      send_to_char( "Exit removed; no matching reverse exit existed.\r\n", ch );
-}
 void do_redit( CHAR_DATA * ch, const char *argument )
 {
    char arg[MAX_INPUT_LENGTH];
@@ -4084,18 +4027,6 @@ void do_redit( CHAR_DATA * ch, const char *argument )
 
    argument = smash_tilde_static( argument );
    argument = one_argument( argument, arg );
-   if( !str_cmp( arg, "bexit" ) )
-   {
-      const char *rest;
-
-      rest = one_argument( argument, arg2 );
-      one_argument( rest, arg3 );
-      if( arg2[0] != '\0' && arg3[0] == '\0' )
-      {
-         safe_remove_bexit( ch, arg2 );
-         return;
-      }
-   }
    if( ch->substate == SUB_REPEATCMD )
    {
       if( arg[0] == '\0' )
@@ -4596,40 +4527,93 @@ void do_redit( CHAR_DATA * ch, const char *argument )
       }
       else
          nxit = get_exit( tmploc, edir );
+      /*
+       * Removing a bidirectional exit.
+       *
+       * Do not route deletion back through do_redit/do_at. Resolve the exact
+       * reverse exit by destination VNUM and remove each EXIT_DATA from the
+       * room that actually owns it.
+       */
+      if( arg3[0] == '\0' )
+      {
+         ROOM_INDEX_DATA *destination;
+         EXIT_DATA *reverse;
+
+         if( !nxit )
+         {
+            send_to_char( "No exit in that direction.\r\n", ch );
+            return;
+         }
+
+         destination = nxit->to_room;
+         reverse = NULL;
+
+         if( destination )
+            reverse = get_exit_to( destination, rev_dir[edir], tmploc->vnum );
+
+         if( reverse && !can_rmodify( ch, destination ) )
+            return;
+
+         if( reverse && reverse != nxit )
+         {
+            /* Removing the forward edge clears reverse->rexit while both
+             * allocations are still valid. */
+            extract_exit( tmploc, nxit );
+            extract_exit( destination, reverse );
+         }
+         else
+            extract_exit( tmploc, nxit );
+
+         if( reverse )
+            send_to_char( "Two-way exit removed.\r\n", ch );
+         else
+            send_to_char( "Exit removed; no matching reverse exit existed.\r\n", ch );
+
+         return;
+      }
+
+      /*
+       * Creating or changing a bidirectional exit keeps the inherited
+       * behaviour below.
+       */
       rxit = NULL;
       vnum = 0;
       rvnum[0] = '\0';
+
       if( nxit )
       {
          vnum = nxit->vnum;
-         if( arg3[0] != '\0' )
-            snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+         snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+
          if( nxit->to_room )
-            rxit = get_exit( nxit->to_room, rev_dir[edir] );
-         else
-            rxit = NULL;
+            rxit = get_exit_to( nxit->to_room, rev_dir[edir], tmploc->vnum );
       }
+
       snprintf( tmpcmd, MAX_STRING_LENGTH, "exit %s %s %s", arg2, arg3, argument );
       do_redit( ch, tmpcmd );
+
       if( numnotdir )
          nxit = get_exit_num( tmploc, exnum );
       else
          nxit = get_exit( tmploc, edir );
+
       if( !rxit && nxit )
       {
          vnum = nxit->vnum;
-         if( arg3[0] != '\0' )
-            snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+         snprintf( rvnum, MAX_INPUT_LENGTH, "%d", tmploc->vnum );
+
          if( nxit->to_room )
-            rxit = get_exit( nxit->to_room, rev_dir[edir] );
-         else
-            rxit = NULL;
+            rxit = get_exit_to( nxit->to_room, rev_dir[edir], tmploc->vnum );
       }
+
       if( vnum )
       {
-         snprintf( tmpcmd, MAX_STRING_LENGTH, "%d redit exit %d %s %s", vnum, rev_dir[edir], rvnum, argument );
+         snprintf( tmpcmd, MAX_STRING_LENGTH,
+                   "%d redit exit %d %s %s",
+                   vnum, rev_dir[edir], rvnum, argument );
          do_at( ch, tmpcmd );
       }
+
       return;
    }
 
