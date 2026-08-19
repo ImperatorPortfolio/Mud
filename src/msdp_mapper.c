@@ -20,8 +20,6 @@
 #define MSDP_TABLE_CLOSE      4
 
 extern void legacy_char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *room );
-extern void write_to_buffer( DESCRIPTOR_DATA *d, const char *txt, size_t length );
-
 static const char *msdp_direction_name( int direction )
 {
    switch( direction )
@@ -86,14 +84,47 @@ static void msdp_append_byte( std::string &packet, unsigned char value )
 static void msdp_append_text( std::string &packet, const char *text )
 {
    const unsigned char *p;
+   char escaped[8];
+
    if( !text )
       return;
 
    for( p = ( const unsigned char * )text; *p; ++p )
    {
-      packet.push_back( ( char )*p );
-      if( *p == 255 )
-         packet.push_back( ( char )255 );
+      switch( *p )
+      {
+         case '\\':
+            packet.append( "\\\\" );
+            break;
+         case '\b':
+            packet.append( "\\b" );
+            break;
+         case '\f':
+            packet.append( "\\f" );
+            break;
+         case '\n':
+            packet.append( "\\n" );
+            break;
+         case '\r':
+            packet.append( "\\r" );
+            break;
+         case '\t':
+            packet.append( "\\t" );
+            break;
+         default:
+            if( *p < 32 )
+            {
+               snprintf( escaped, sizeof( escaped ), "\\u%04x", *p );
+               packet.append( escaped );
+            }
+            else
+            {
+               packet.push_back( ( char )*p );
+               if( *p == 255 )
+                  packet.push_back( ( char )255 );
+            }
+            break;
+      }
    }
 }
 
