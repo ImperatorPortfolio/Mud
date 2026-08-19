@@ -48,7 +48,7 @@ L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c boards.c bounty.c \
-	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c exercise.c fight.c \
+	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
@@ -88,13 +88,21 @@ $(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
 o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense -Dchar_to_room=legacy_char_to_room
 
 #
+# Elevator command integration
+#
+# The elevator subsystem layers contextual controls over the inherited look
+# and push commands. Everything outside an elevator continues through these
+# renamed legacy implementations.
+o/act_info.o: C_FLAGS += -Ddo_look=legacy_do_look
+
+#
 # Attribute training migration
 #
 # misc.c still contains the inherited binary do_train implementation. Keep it
 # link-safe under a legacy symbol while training.c provides the authoritative
-# progress-based command without forcing an unrelated wholesale misc.c rewrite.
+# progress-based command. do_push is similarly retained behind elevator.c.
 #
-o/misc.o: C_FLAGS += -Ddo_train=legacy_do_train
+o/misc.o: C_FLAGS += -Ddo_train=legacy_do_train -Ddo_push=legacy_do_push
 
 # The long-term nutrition drain API takes explicit nutrient values. The old
 # misc.c food helper intentionally keeps its local consume_nutrition name, so
@@ -114,6 +122,10 @@ o/traits.o: C_FLAGS += -Dget_trait_training_chance=legacy_get_trait_training_cha
 # update.c keeps the inherited scheduler under a legacy symbol while
 # natural_progress.c layers bounded passive attribute development after it.
 o/update.o: C_FLAGS += -Dupdate_handler=legacy_update_handler
+
+# elevator.c becomes the final update-handler layer. It calls the existing
+# natural-progress wrapper first, then advances timed elevator state.
+o/natural_progress.o: C_FLAGS += -Dupdate_handler=natural_update_handler
 
 all:
 	$(info    Using flags: $(C_FLAGS))
