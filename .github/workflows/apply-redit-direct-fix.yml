@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - simplify-redit-bexit-fix
+  pull_request:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -11,6 +14,7 @@ permissions:
 jobs:
   apply-fix:
     runs-on: ubuntu-latest
+    if: github.head_ref == 'simplify-redit-bexit-fix' || github.ref_name == 'simplify-redit-bexit-fix'
     steps:
       - uses: actions/checkout@v4
         with:
@@ -87,7 +91,6 @@ jobs:
              else
                 nxit = get_exit( tmploc, edir );
 
-             /* No destination means delete the existing two-way exit. */
              if( arg3[0] == '\0' )
              {
                 if( !nxit )
@@ -113,7 +116,6 @@ jobs:
                 return;
              }
 
-             /* Creation/change keeps the established editor behaviour. */
              rxit = NULL;
              vnum = 0;
              rvnum[0] = '\0';
