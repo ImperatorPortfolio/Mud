@@ -8,6 +8,7 @@
  ***************************************************************************/
 
 #include <ctype.h>
+#include <cstring>
 #include <stdio.h>
 #include <string>
 #include "mud.h"
