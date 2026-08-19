@@ -1,7 +1,7 @@
 ZeroPointRoomUI = ZeroPointRoomUI or {}
 local UI = ZeroPointRoomUI
 
-UI.version = "0.4.0"
+UI.version = "0.4.1"
 UI.eventIDs = UI.eventIDs or {}
 UI.aliasIDs = UI.aliasIDs or {}
 UI.visible = UI.visible ~= false
@@ -53,25 +53,23 @@ end
 
 function UI.build()
   if UI.built then return true end
-  if type(Geyser) ~= "table" or not Geyser.UserWindow or not Geyser.Mapper or not Geyser.MiniConsole then
-    cecho("\n<red>[ZeroPoint UI] Geyser UserWindow/Mapper/MiniConsole support is required.<reset>\n")
+  if type(Geyser) ~= "table" or not Geyser.UserWindow or not Geyser.Label or not Geyser.MiniConsole then
+    cecho("\n<red>[ZeroPoint UI] Geyser UserWindow/Label/MiniConsole support is required.<reset>\n")
     return false
   end
 
+  -- The normal Mudlet mapper already displays the ZeroPoint map. Do not create
+  -- a second embedded Mapper here: that produces an empty black map region in
+  -- the room inspector while the real mapper remains visible above it.
   UI.window = Geyser.UserWindow:new({
     name = "ZeroPointRoomInspector",
-    title = "ZeroPoint",
-    x = 0, y = 0, width = "100%", height = "100%"
+    titleText = "ZeroPoint Room Inspector",
+    restoreLayout = true
   })
-
-  UI.map = Geyser.Mapper:new({
-    name = "ZeroPointRoomInspectorMap",
-    x = 0, y = 0, width = "100%", height = "45%"
-  }, UI.window)
 
   UI.header = Geyser.Label:new({
     name = "ZeroPointRoomInspectorHeader",
-    x = 0, y = "45%", width = "100%", height = "5%"
+    x = 0, y = 0, width = "100%", height = "7%"
   }, UI.window)
   UI.header:setStyleSheet([[
     QLabel {
@@ -79,7 +77,6 @@ function UI.build()
       color: rgb(235, 235, 235);
       padding-left: 8px;
       font-weight: bold;
-      border-top: 1px solid rgb(60, 65, 72);
       border-bottom: 1px solid rgb(60, 65, 72);
     }
   ]])
@@ -87,7 +84,7 @@ function UI.build()
 
   UI.details = Geyser.MiniConsole:new({
     name = "ZeroPointRoomInspectorDetails",
-    x = 0, y = "50%", width = "100%", height = "20%"
+    x = 0, y = "7%", width = "100%", height = "33%"
   }, UI.window)
   UI.details:setColor("black")
   UI.details:setFontSize(10)
@@ -96,7 +93,7 @@ function UI.build()
 
   UI.contents = Geyser.MiniConsole:new({
     name = "ZeroPointRoomInspectorContents",
-    x = 0, y = "70%", width = "100%", height = "30%"
+    x = 0, y = "40%", width = "100%", height = "60%"
   }, UI.window)
   UI.contents:setColor("black")
   UI.contents:setFontSize(10)
