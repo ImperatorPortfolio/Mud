@@ -1,30 +1,23 @@
 # ZeroPoint Mudlet Mapper
 
-Version 0.2.0 adds server-authoritative MSDP mapping.
+## Version 0.2.1
 
-## Recommended setup
-1. Install `ZeroPoint.mpackage` in Mudlet (`Alt+O`).
-2. In Mudlet Preferences, enable **MSDP** for the profile.
-3. Reconnect so Mudlet can negotiate MSDP with Zero Point.
-4. Type `zpmap start`.
+The mapper prefers authoritative MSDP `ROOM` data from the Zero Point server.
 
-## Commands
-- `zpmap start [area]`
+### Fix in 0.2.1
+- Server `ROOM.EXITS` is treated as the only authority for normal outgoing exits.
+- The mapper no longer invents reverse exits.
+- When a room is revisited, stale local cardinal exits that are absent from MSDP are deleted.
+- Existing destination VNUMs remain the Mudlet room IDs.
+- Text parsing remains fallback-only when MSDP has not been received.
+
+### Use
+- `zpmap start`
 - `zpmap stop`
 - `zpmap status`
 - `zpmap here`
 - `zpmap help`
 
-## Mapping model
-When MSDP is available the server publishes the standard `ROOM` table with:
-- `VNUM` — authoritative unique room identity
-- `NAME`
-- `AREA`
-- `TERRAIN`
-- `EXITS` — abbreviated direction -> destination VNUM
+Enable MSDP in the Mudlet profile and reconnect before starting the mapper.
 
-The package uses server VNUMs as Mudlet room IDs. This prevents drift from failed movement,
-teleports, scripted transfers, loops and repeated room names. Coordinates remain client-side
-and are laid out as rooms are discovered.
-
-If MSDP is unavailable, the v0.1 text parser remains as a fallback.
+Existing incorrect links from v0.2.0 are repaired as their source rooms are revisited and receive authoritative MSDP data.
