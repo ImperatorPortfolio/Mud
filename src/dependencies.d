@@ -100,6 +100,18 @@ o/dns.o: dns.c mud.h core/base.h core/types.h core/flags.h core/limits.h \
  space/ship.h game/social.h world/affect.h world/definitions.h \
  character/character.h character/player.h character/progression.h \
  world/world.h game/skills.h game/api.h
+o/elevator.o: elevator.c mud.h core/base.h core/types.h core/flags.h \
+ core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
+ core/../color.h character/race.h world/services.h space/space.h \
+ space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
+o/exercise.o: exercise.c mud.h core/base.h core/types.h core/flags.h \
+ core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
+ core/../color.h character/race.h world/services.h space/space.h \
+ space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
 o/fight.o: fight.c mud.h core/base.h core/types.h core/flags.h \
  core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
  core/../color.h character/race.h world/services.h space/space.h \
@@ -143,6 +155,12 @@ o/mccp.o: mccp.c mud.h core/base.h core/types.h core/flags.h core/limits.h \
  space/ship.h game/social.h world/affect.h world/definitions.h \
  character/character.h character/player.h character/progression.h \
  world/world.h game/skills.h game/api.h mccp.h
+o/msdp_mapper.o: msdp_mapper.c mud.h core/base.h core/types.h core/flags.h \
+ core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
+ core/../color.h character/race.h world/services.h space/space.h \
+ space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
 o/misc.o: misc.c mud.h core/base.h core/types.h core/flags.h core/limits.h \
  core/../hotboot.h core/runtime.h core/../dns.h core/../color.h \
  character/race.h world/services.h space/space.h space/planet.h \
@@ -165,6 +183,12 @@ o/mud_prog.o: mud_prog.c mud.h core/base.h core/types.h core/flags.h \
  core/limits.h core/../hotboot.h core/runtime.h core/../dns.h \
  core/../color.h character/race.h world/services.h space/space.h \
  space/planet.h space/ship.h game/social.h world/affect.h \
+ world/definitions.h character/character.h character/player.h \
+ character/progression.h world/world.h game/skills.h game/api.h
+o/natural_progress.o: natural_progress.c mud.h core/base.h core/types.h \
+ core/flags.h core/limits.h core/../hotboot.h core/runtime.h \
+ core/../dns.h core/../color.h character/race.h world/services.h \
+ space/space.h space/planet.h space/ship.h game/social.h world/affect.h \
  world/definitions.h character/character.h character/player.h \
  character/progression.h world/world.h game/skills.h game/api.h
 o/player.o: player.c mud.h core/base.h core/types.h core/flags.h \
