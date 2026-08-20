@@ -138,6 +138,35 @@ const char *const valid_color[] = {
    "dgrey", "red", "green", "yellow", "blue", "pink", "lblue", "white", "\0"
 };
 
+static bool parse_hex_rgb( const char *hex, unsigned int *red, unsigned int *green, unsigned int *blue )
+{
+   unsigned int components[3] = { 0, 0, 0 };
+   unsigned int nibble;
+   int i;
+
+   if( !hex || !red || !green || !blue )
+      return FALSE;
+
+   for( i = 0; i < 6; ++i )
+   {
+      if( hex[i] >= '0' && hex[i] <= '9' )
+         nibble = ( unsigned int )( hex[i] - '0' );
+      else if( hex[i] >= 'a' && hex[i] <= 'f' )
+         nibble = ( unsigned int )( hex[i] - 'a' + 10 );
+      else if( hex[i] >= 'A' && hex[i] <= 'F' )
+         nibble = ( unsigned int )( hex[i] - 'A' + 10 );
+      else
+         return FALSE;
+
+      components[i / 2] = ( components[i / 2] << 4 ) | nibble;
+   }
+
+   *red = components[0];
+   *green = components[1];
+   *blue = components[2];
+   return TRUE;
+}
+
 void show_colorthemes( CHAR_DATA * ch )
 {
    DIR *dp;
@@ -185,6 +214,7 @@ void show_colors( CHAR_DATA * ch )
    send_to_pager( "&BSyntax: color _reset_ (Resets all colors to default set)\r\n", ch );
    send_to_pager( "&BSyntax: color _all_ [color] (Sets all color types to [color])\r\n\r\n", ch );
    send_to_pager( "&BSyntax: color theme [name] (Sets all color types to a defined theme)\r\n\r\n", ch );
+   send_to_pager( "&WHex text tokens: &#RRGGBB foreground, ^#RRGGBB background.&D\r\n\r\n", ch );
 
    send_to_pager( "&W********************************[ COLORS ]*********************************\r\n", ch );
 
@@ -793,6 +823,7 @@ int colorcode( const char *src, char *dst, DESCRIPTOR_DATA * d, int dstlen, int 
    CHAR_DATA *ch = NULL;
    bool ansi = FALSE;
    const char *sympos = NULL;
+   unsigned int red = 0, green = 0, blue = 0;
 
    /*
     * No descriptor, assume ANSI conversion can't be done. 
@@ -826,6 +857,15 @@ int colorcode( const char *src, char *dst, DESCRIPTOR_DATA * d, int dstlen, int 
    switch ( *src )
    {
       case '&':  /* NORMAL, Foreground colour */
+         if( src[1] == '#' && parse_hex_rgb( src + 2, &red, &green, &blue ) )
+         {
+            if( ansi )
+               snprintf( dst, dstlen, "\033[38;2;%u;%u;%um", red, green, blue );
+            if( vislen )
+               *vislen = 0;
+            return 8;
+         }
+
          switch ( src[1] )
          {
             case '&':  /* Escaped self, return one of us */
@@ -1008,6 +1048,15 @@ int colorcode( const char *src, char *dst, DESCRIPTOR_DATA * d, int dstlen, int 
          break;
 
       case '^':  /* BACKGROUND colour */
+         if( src[1] == '#' && parse_hex_rgb( src + 2, &red, &green, &blue ) )
+         {
+            if( ansi )
+               snprintf( dst, dstlen, "\033[48;2;%u;%u;%um", red, green, blue );
+            if( vislen )
+               *vislen = 0;
+            return 8;
+         }
+
          switch ( src[1] )
          {
             case '^':  /* Escaped self, return one of us */
