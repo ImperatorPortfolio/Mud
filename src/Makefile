@@ -1,7 +1,6 @@
 #This is the ZeroPoint Makefile.
 #This should be usable on pretty much any Linux system.
 #Refer to your 'man gcc' for explanations of these options
-#To compile in FreeBSD or OpenBSD, use the gmake compiler.
 
 #Change this to reflect whichever compiler you want to use.
 CC      = g++
@@ -95,12 +94,16 @@ o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense -Dchar_to_room=legacy_c
 o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
 
 #
-# Elevator command integration
+# Room metadata command layering
 #
-# The elevator subsystem layers contextual controls over the inherited look
-# and push commands. Everything outside an elevator continues through these
-# renamed legacy implementations.
+# Keep the inherited command implementations intact behind compatibility
+# symbols. room_metadata.c owns the final exported look/redit/rstat boundary so
+# room tags, authoritative coordinates and immediate MSDP refresh are applied
+# consistently without duplicating the original command implementations.
 o/act_info.o: C_FLAGS += -Ddo_look=legacy_do_look
+o/elevator.o: C_FLAGS += -Ddo_look=elevator_do_look
+o/build.o: C_FLAGS += -Ddo_redit=legacy_do_redit
+o/act_wiz.o: C_FLAGS += -Ddo_rstat=legacy_do_rstat
 
 #
 # Attribute training migration
