@@ -291,6 +291,10 @@ struct room_index_data
    int tele_vnum;
    short tele_delay;
    short tunnel;  /* max people that will fit */
+   int map_x;
+   int map_y;
+   int map_z;
+   bool map_coords_set;
 };
 
 /*
