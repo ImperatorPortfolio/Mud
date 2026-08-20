@@ -20,6 +20,7 @@
 #define MSDP_TABLE_CLOSE      4
 
 extern void legacy_char_to_room( CHAR_DATA *ch, ROOM_INDEX_DATA *room );
+
 static const char *msdp_direction_name( int direction )
 {
    switch( direction )
@@ -262,6 +263,17 @@ void msdp_handle_subnegotiation( DESCRIPTOR_DATA *d, const unsigned char *data, 
    }
 }
 
+static void msdp_room_tags( std::string &packet, ROOM_INDEX_DATA *room )
+{
+   ROOM_ACTION_TAG tags[ROOM_ACTION_TAG_MAX];
+   const int count = room_collect_action_tags( room, tags, ROOM_ACTION_TAG_MAX );
+
+   msdp_table_begin( packet, "TAGS" );
+   for( int i = 0; i < count; ++i )
+      msdp_pair( packet, tags[i].label, tags[i].color );
+   msdp_table_end( packet );
+}
+
 static void msdp_room_windows( std::string &packet, ROOM_INDEX_DATA *room )
 {
    EXIT_DATA *exit;
@@ -342,6 +354,7 @@ void msdp_send_room( CHAR_DATA *ch )
    ROOM_INDEX_DATA *room;
    EXIT_DATA *exit;
    std::string packet;
+   const char *room_color;
 
    if( !ch || IS_NPC( ch ) || !( d = ch->desc ) || !( room = ch->in_room ) )
       return;
@@ -350,6 +363,8 @@ void msdp_send_room( CHAR_DATA *ch )
 
    if( !d->msdp_enabled || !d->msdp_report_room )
       return;
+
+   room_color = room_primary_action_color( room );
 
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 250 );
@@ -362,6 +377,12 @@ void msdp_send_room( CHAR_DATA *ch )
    msdp_pair( packet, "AREA", room->area && room->area->name ? room->area->name : "" );
    msdp_pair( packet, "TERRAIN", msdp_terrain_name( room->sector_type ) );
    msdp_pair( packet, "DESCRIPTION", room->description ? room->description : "" );
+   msdp_pair_number( packet, "X", room->map_x );
+   msdp_pair_number( packet, "Y", room->map_y );
+   msdp_pair_number( packet, "Z", room->map_z );
+   msdp_pair_number( packet, "COORDS_SET", room->map_coords_set ? 1 : 0 );
+   msdp_pair( packet, "COLOR", room_color );
+   msdp_room_tags( packet, room );
 
    msdp_table_begin( packet, "EXITS" );
    for( exit = room->first_exit; exit; exit = exit->next )
@@ -387,12 +408,20 @@ void msdp_send_room( CHAR_DATA *ch )
    msdp_append_byte( packet, 240 );
    write_to_buffer( d, packet.data(), packet.size() );
 
-   /* Mudlet dispatches scalar MSDP events after a complete subnegotiation. */
+   /* Scalar events keep Mudlet integrations simple while ROOM remains the
+    * authoritative structured document. */
    packet.clear();
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 250 );
    msdp_append_byte( packet, ZP_TELOPT_MSDP );
    msdp_pair_number( packet, "ROOM_VNUM", room->vnum );
+   msdp_pair_number( packet, "ROOM_X", room->map_x );
+   msdp_pair_number( packet, "ROOM_Y", room->map_y );
+   msdp_pair_number( packet, "ROOM_Z", room->map_z );
+   msdp_pair_number( packet, "ROOM_COORDS_SET", room->map_coords_set ? 1 : 0 );
+   msdp_pair( packet, "ROOM_COLOR", room_color );
+   msdp_pair_number( packet, "IS_IMMORTAL", IS_IMMORTAL( ch ) ? 1 : 0 );
+   msdp_pair_number( packet, "BUILD_LEVEL", get_trust( ch ) );
    msdp_append_byte( packet, 255 );
    msdp_append_byte( packet, 240 );
    write_to_buffer( d, packet.data(), packet.size() );
