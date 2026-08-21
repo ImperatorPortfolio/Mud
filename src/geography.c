@@ -95,32 +95,9 @@ SECTOR_DATA *sector_from_planet( const PLANET_DATA *planet )
    return planet ? planet->sector : NULL;
 }
 
-static bool zone_contains_area( const ZONE_DATA *zone, const AREA_DATA *area )
-{
-   ZONE_AREA_DATA *entry;
-
-   if( !zone || !area )
-      return FALSE;
-
-   for( entry = zone->first_area; entry; entry = entry->next )
-      if( entry->area == area )
-         return TRUE;
-
-   return FALSE;
-}
-
 ZONE_DATA *zone_from_area( const AREA_DATA *area )
 {
-   ZONE_DATA *zone;
-
-   if( !area )
-      return NULL;
-
-   for( zone = first_zone; zone; zone = zone->next )
-      if( zone_contains_area( zone, area ) )
-         return zone;
-
-   return NULL;
+   return area ? area->zone : NULL;
 }
 
 void write_sector_list( void )
@@ -205,7 +182,7 @@ void save_sector( SECTOR_DATA *sector )
 
 void save_zone( ZONE_DATA *zone )
 {
-   ZONE_AREA_DATA *entry;
+   AREA_DATA *area;
    FILE *fp;
    char filename[256];
 
@@ -235,9 +212,9 @@ void save_zone( ZONE_DATA *zone )
    fprintf( fp, "Flags        %d\n", zone->flags );
    if( zone->planet && zone->planet->name )
       fprintf( fp, "Planet       %s~\n", zone->planet->name );
-   for( entry = zone->first_area; entry; entry = entry->next )
-      if( entry->area && entry->area->filename )
-         fprintf( fp, "Area         %s~\n", entry->area->filename );
+   for( area = zone->first_area; area; area = area->next_on_zone )
+      if( area->filename )
+         fprintf( fp, "Area         %s~\n", area->filename );
    fprintf( fp, "End\n\n" );
    fprintf( fp, "#END\n" );
    FCLOSE( fp );
@@ -351,20 +328,15 @@ static void fread_zone( ZONE_DATA *zone, FILE *fp )
                const char *area_name = fread_string( fp );
                AREA_DATA *area = geography_area_from_filename( area_name );
 
-               if( area && !zone_contains_area( zone, area ) )
+               if( area )
                {
-                  ZONE_DATA *owner = zone_from_area( area );
-
-                  if( owner && owner != zone )
+                  if( area->zone && area->zone != zone )
                      bug( "%s: area %s already belongs to zone %s", __func__, area->filename,
-                          owner->name ? owner->name : "(unnamed)" );
-                  else
+                          area->zone->name ? area->zone->name : "(unnamed)" );
+                  else if( !area->zone )
                   {
-                     ZONE_AREA_DATA *entry;
-
-                     CREATE( entry, ZONE_AREA_DATA, 1 );
-                     entry->area = area;
-                     LINK( entry, zone->first_area, zone->last_area, next, prev );
+                     area->zone = zone;
+                     LINK( area, zone->first_area, zone->last_area, next_on_zone, prev_on_zone );
                   }
                }
                fMatch = TRUE;
@@ -579,6 +551,7 @@ void load_zones( void )
    const char *filename;
    char zonelist[256];
    PLANET_DATA *planet;
+   AREA_DATA *area;
 
    first_zone = NULL;
    last_zone = NULL;
@@ -587,6 +560,13 @@ void load_zones( void )
    {
       planet->first_zone = NULL;
       planet->last_zone = NULL;
+   }
+
+   for( area = first_area; area; area = area->next )
+   {
+      area->next_on_zone = NULL;
+      area->prev_on_zone = NULL;
+      area->zone = NULL;
    }
 
    log_string( "Loading zones..." );
