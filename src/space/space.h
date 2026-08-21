@@ -35,6 +35,8 @@ struct space_data
    SHIP_DATA *last_ship;
    MISSILE_DATA *first_missile;
    MISSILE_DATA *last_missile;
+   struct sector_data *first_sector;
+   struct sector_data *last_sector;
    PLANET_DATA *first_planet;
    PLANET_DATA *last_planet;
    const char *filename;

@@ -48,7 +48,7 @@ L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c attribute_math.c boards.c bounty.c \
-	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c \
+	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c geography.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c room_metadata.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
@@ -86,6 +86,14 @@ $(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
 # source slice has been integrated upstream.
 #
 o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense -Dchar_to_room=legacy_char_to_room
+
+#
+# Hierarchical geography bootstrap
+#
+# Keep the inherited planet loader intact behind a compatibility symbol.
+# geography.c owns the exported load_planets() boundary so sectors and zones
+# load immediately after the existing planets have resolved systems and areas.
+o/clans.o: C_FLAGS += -Dload_planets=legacy_load_planets
 
 #
 # Telnet/MSDP input filtering

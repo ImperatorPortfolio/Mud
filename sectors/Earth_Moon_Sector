@@ -1,0 +1,9 @@
+#SECTOR
+Name         Earth Moon Sector~
+Filename     Earth_Moon_Sector~
+Flags        0
+Starsystem   Sol System~
+Planet       Earth~
+End
+
+#END

@@ -182,6 +182,9 @@ struct area_data
    PLANET_DATA *planet;
    AREA_DATA *next_on_planet;
    AREA_DATA *prev_on_planet;
+   struct zone_data *zone;
+   AREA_DATA *next_on_zone;
+   AREA_DATA *prev_on_zone;
    ROOM_INDEX_DATA *first_room;
    ROOM_INDEX_DATA *last_room;
    const char *name;
@@ -229,7 +232,7 @@ struct system_data
    short read_all_mail; /* Read all player mail(was 54) */
    short read_mail_free;   /* Read mail for free (was 51) */
    short write_mail_free;  /* Write mail for free(was 51) */
-   short take_others_mail; /* Take others mail (was 54)   */
+   short take_others_mail; /* Take others mail(was 54)   */
    short muse_level; /* Level of muse channel */
    short think_level;   /* Level of think channel LEVEL_HIGOD */
    short build_level;   /* Level of build channel LEVEL_BUILD */
@@ -241,8 +244,8 @@ struct system_data
    short stun_regular;  /* Stun difficult */
    short dam_plr_vs_plr;   /* Damage mod player vs. player */
    short dam_plr_vs_mob;   /* Damage mod player vs. mobile */
-   short dam_mob_vs_plr;   /* Damage mod mobile vs. player */
-   short dam_mob_vs_mob;   /* Damage mod mobile vs. mobile */
+   short dam_mob_vs_plr;   /* Damage mod mob vs. player */
+   short dam_mob_vs_mob;   /* Damage mod mob vs. mob */
    short level_getobjnotake;  /* Get objects without take flag */
    short level_forcepc; /* The level at which you can use force on players. */
    short max_sn;  /* Max skills */
@@ -316,7 +319,7 @@ struct teleport_data
 #define TYPE_UNDEFINED               -1
 #define TYPE_HIT                     1000 /* allows for 1000 skills/spells */
 #define TYPE_HERB		     2000   /* allows for 1000 attack types  */
-#define TYPE_PERSONAL		     3000   /* allows for 1000 herb types    */
+#define TYPE_PERSONAL		     3000 /* allows for 1000 herb types    */
 
 /*
 *  Target types.

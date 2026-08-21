@@ -24,6 +24,7 @@
 #include "character/player.h"
 #include "character/progression.h"
 #include "world/world.h"
+#include "space/geography.h"
 #include "world/room_metadata.h"
 #include "game/skills.h"
 #include "game/api.h"

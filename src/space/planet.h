@@ -34,9 +34,14 @@ struct planet_data
    PLANET_DATA *prev;
    PLANET_DATA *next_in_system;
    PLANET_DATA *prev_in_system;
+   PLANET_DATA *next_in_sector;
+   PLANET_DATA *prev_in_sector;
    GUARD_DATA *first_guard;
    GUARD_DATA *last_guard;
    SPACE_DATA *starsystem;
+   struct sector_data *sector;
+   struct zone_data *first_zone;
+   struct zone_data *last_zone;
    AREA_DATA *first_area;
    AREA_DATA *last_area;
    const char *name;

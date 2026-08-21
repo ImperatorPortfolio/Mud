@@ -1,0 +1,13 @@
+#ZONE
+Name         The Hague~
+Filename     The_Hague~
+Flags        0
+Planet       Earth~
+Area         Earth/earth_hague.are~
+Area         Earth/earth_hague_2.are~
+Area         Earth/hague_civic.are~
+Area         Earth/hague_detention.are~
+Area         Earth/hague_interstellar.are~
+End
+
+#END
