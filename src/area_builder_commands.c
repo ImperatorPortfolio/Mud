@@ -133,7 +133,7 @@ static void area_resolve_target_path( const char *current, const char *requested
 
    memcpy( target, current, prefix );
    target[prefix] = '\0';
-   strlcat( target, requested, size );
+   snprintf( target + prefix, size - prefix, "%s", requested );
 }
 
 void do_aset( CHAR_DATA *ch, const char *argument )
