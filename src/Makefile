@@ -49,7 +49,7 @@ D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c area_builder_commands.c attribute_math.c boards.c bounty.c \
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
-	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
+	  handler.c hashstr.c hotboot.c input_line.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c room_metadata.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
 
@@ -103,11 +103,13 @@ o/tables.o: C_FLAGS += -Dload_commands=legacy_load_commands
 o/geography_commands.o: C_FLAGS += -Dload_commands=geography_load_commands
 
 #
-# Telnet/MSDP input filtering
+# Telnet/MSDP input filtering and canonical command capacity
 #
 # Only comm.c owns socket reads. Route its POSIX read() calls through the
-# bounded telnet parser so protocol control bytes never leak into commands.
-o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
+# bounded telnet parser. Its inherited 254-byte canonical line parser remains
+# as a weak fallback while input_line.c provides the buffer-sized authority.
+o/comm.o: comm_input_weak.h
+o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT -include comm_input_weak.h
 
 #
 # Room metadata and area-builder command layering
