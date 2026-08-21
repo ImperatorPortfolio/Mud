@@ -54,4 +54,13 @@ void write_zone_list( void );
 void load_sectors( void );
 void load_zones( void );
 
+DECLARE_DO_FUN( do_sectors );
+DECLARE_DO_FUN( do_showsector );
+DECLARE_DO_FUN( do_makesector );
+DECLARE_DO_FUN( do_setsector );
+DECLARE_DO_FUN( do_zones );
+DECLARE_DO_FUN( do_showzone );
+DECLARE_DO_FUN( do_makezone );
+DECLARE_DO_FUN( do_setzone );
+
 #endif /* ZEROPOINT_SPACE_GEOGRAPHY_H */
