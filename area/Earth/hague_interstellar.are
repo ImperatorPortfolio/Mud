@@ -453,19 +453,6 @@ Nutrition   0 2 0 0 6 18
 Stats    1 5 0 0 0
 #ENDOBJECT
 
-#OBJECT
-Vnum     209
-Keywords protein wrap cafe meal~
-Type     food~
-Short    a protein-and-vegetable wrap~
-Long     A fresh protein-and-vegetable wrap is sealed for travellers.~
-Flags    inventory~
-WFlags   take~
-Values   12 0 0 0 0 0
-Nutrition   10 12 4 9 7 5
-Stats    1 7 0 0 0
-#ENDOBJECT
-
 #ROOM
 Vnum     199
 Name     &RDO NOT FLY THIS SHIP~
@@ -695,7 +682,7 @@ ToRoom    206
 
 Reset M 0 202 1 207
   Reset G 1 305 1
-  Reset G 1 209 1
+  Reset G 1 304 1
   Reset G 1 32207 1
   Reset G 1 201 1
   Reset G 1 204 1
