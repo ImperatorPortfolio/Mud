@@ -18,7 +18,8 @@ Desc       This is a plain looking robot whos only purpose day in and day out is
 collect credits and tokens for entrance into the transit system. It
 doesn't apear that it would be useful in any other capacity.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -51,7 +52,8 @@ Long       A robot is here scanning your purchaces.
 Desc       This robot is a very rudimentry humanoid shape. Its voice synthesyser is
 worn out and makes a slight hissing sound when it speaks.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid~
@@ -77,7 +79,8 @@ Desc       The retail robot is similar in apearance to a standard proticol robot
 It is fittened however with a crdit exchange terminal in its hip and
 is programmed to be an expert salesperson.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid~
@@ -99,7 +102,8 @@ Keywords   spaceport security guard~
 Short      a spaceport security guard~
 Long       A spaceport security guard looks around the entrance.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -119,7 +123,8 @@ Keywords   spaceport security guard~
 Short      a spaceport security guard~
 Long       A spaceport security guard watches the docking bays.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -139,7 +144,8 @@ Keywords   technician~
 Short      a newly created technician~
 Long       Some god abandoned a newly created technician here.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
@@ -163,7 +169,8 @@ Desc       This is a young human tecnician. He is dressed in a grey worksuit tha
 is smuged with greasea. Several tools hang from a belt around his
 waist.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc practice noassist~
@@ -186,7 +193,8 @@ Long       A human is sitting here waiting for his shuttle to arrive.
 Desc       This young human man is in his early twenties. He is dressed in the latest
 fashions and is clean cut. He is probably a student at the university.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist~
@@ -212,7 +220,8 @@ repair. It has an interface apendage to plug into a ships computer as
 well as several other tools hidden within its domed frame that it
 uses to preform various functions.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc wimpy noassist droid~
@@ -238,7 +247,8 @@ repair. It has an interface apendage to plug into a ships computer as
 well as several other tools hidden within its domed frame that it
 uses to preform various functions.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc wimpy noassist droid~
@@ -258,7 +268,8 @@ Keywords   begger~
 Short      a begger~
 Long       A small child begs for money.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel practice~
@@ -301,7 +312,8 @@ Keywords   mobmarker~
 Short      a newly created mobmarker~
 Long       Some god abandoned a newly created mobmarker here.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
