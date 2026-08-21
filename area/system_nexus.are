@@ -58,8 +58,8 @@ say triggerer is (his,hers,its):$s
 say random char (name):		$r
 say random char (name&title or short): 	$R
 say random char  (he,she,it):	$J
-say random char (him,her,it):	$L
-say random char (his,hers,its):	$K
+say random char (him/her/it):	$L
+say random char (his/hers/its):	$K
 ~
 #ENDPROG
 
@@ -725,8 +725,8 @@ Desc       This standardized training machine represents a D20 level-one combata
 Its statistics are deliberately plain so builders can compare low-level encounters.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid nocorpse~
 Stats1     0 5 0 100 0 0
@@ -748,8 +748,8 @@ Long       A Mark V calibration drone waits for an intermediate combat test.
 Desc       This standardized training machine represents a D20 level-five combatant.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid nocorpse~
 Stats1     0 25 0 100 0 0
@@ -771,8 +771,8 @@ Long       A Mark X calibration drone waits for a veteran combat test.
 Desc       This standardized training machine represents a D20 level-ten combatant.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid nocorpse~
 Stats1     0 50 0 100 0 0
@@ -794,8 +794,8 @@ Long       A Mark XV calibration drone waits for an elite combat test.
 Desc       This standardized training machine represents a D20 level-fifteen combatant.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid nocorpse~
 Stats1     0 75 0 100 0 0
@@ -817,8 +817,8 @@ Long       A Mark XX calibration drone waits for a pinnacle combat test.
 Desc       This standardized training machine represents a D20 level-twenty combatant.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel droid nocorpse~
 Stats1     0 100 0 100 0 0
@@ -841,8 +841,8 @@ Desc       The quartermaster maintains baseline exploration and utility equipmen
 by trainers, builders and new content designers.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     female~
 Actflags   npc sentinel nokill~
 Stats1     0 5 0 100 0 0
@@ -863,8 +863,8 @@ Short      the foundation weapons officer~
 Long       A weapons officer maintains a rack of standardized arms.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel nokill~
 Stats1     0 10 0 100 0 0
@@ -885,8 +885,8 @@ Short      the foundation armor specialist~
 Long       An armor specialist waits beside several calibrated protective rigs.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     female~
 Actflags   npc sentinel nokill~
 Stats1     0 10 0 100 0 0
@@ -907,8 +907,8 @@ Short      the foundation medic~
 Long       A foundation medic checks a cabinet of field treatment supplies.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel nokill~
 Stats1     0 10 0 100 0 0
@@ -929,8 +929,8 @@ Short      the foundation technician~
 Long       A foundation technician inventories standardized fabrication supplies.
 ~
 Race       Human~
-Position   standing~
-DefPos     standing~
+Position   aggressive~
+DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel nokill~
 Stats1     0 10 0 100 0 0
@@ -2007,13 +2007,13 @@ Arglist   test~
 Comlist   say triggered by (name):	$n
 say triggered by (name&title): 	$N
 say triggerer is (he,she,it):	$e
-say triggerer is (him,her,it):	$m
-say triggerer is (his,hers,its):$s
+say triggerer is (him/her/it):	$m
+say triggerer is (his/hers/its):$s
 say random char (name):		$r
 say random char (name&title or short): 	$R
 say random char  (he,she,it):	$J
-say random char (him,her,it):	$K
-say random char (his,hers,its):	$L
+say random char (him/her/it):	$K
+say random char (his/hers/its):	$L
 ~
 #ENDPROG
 
