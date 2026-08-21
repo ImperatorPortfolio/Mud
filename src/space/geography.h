@@ -8,7 +8,6 @@
 
 typedef struct sector_data SECTOR_DATA;
 typedef struct zone_data ZONE_DATA;
-typedef struct zone_area_data ZONE_AREA_DATA;
 
 struct sector_data
 {
@@ -24,21 +23,14 @@ struct sector_data
    int flags;
 };
 
-struct zone_area_data
-{
-   ZONE_AREA_DATA *next;
-   ZONE_AREA_DATA *prev;
-   AREA_DATA *area;
-};
-
 struct zone_data
 {
    ZONE_DATA *next;
    ZONE_DATA *prev;
    ZONE_DATA *next_in_planet;
    ZONE_DATA *prev_in_planet;
-   ZONE_AREA_DATA *first_area;
-   ZONE_AREA_DATA *last_area;
+   AREA_DATA *first_area;
+   AREA_DATA *last_area;
    PLANET_DATA *planet;
    const char *name;
    const char *filename;
