@@ -821,7 +821,7 @@ Desc     The spaceport store seems to carry mostly only useless souveniers.
 There are however a few nice garments for sale and one or two of the
 things on display could come in handy if the prices weren't so high.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal walls.
+Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
 Direction west~
@@ -1112,7 +1112,8 @@ Sector   city~
 Flags    nomob~
 Desc     Do not fly this ship it is controlled automaticly by the code. Do not
 fly this ship it is controlled automaticly by the code. Do not fly
-this ship it is controlled automaticly by the code. Do not fly this ship it is controlled automaticly by the code.
+this ship it is controlled automaticly by the code. Do not fly this
+ship it is controlled automaticly by the code.
 
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
