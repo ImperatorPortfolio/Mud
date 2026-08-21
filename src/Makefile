@@ -49,7 +49,7 @@ D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c area_builder_commands.c attribute_math.c boards.c bounty.c \
 	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
-	  handler.c hashstr.c hotboot.c input_line.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
+	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c reset.c room_metadata.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
 
@@ -105,11 +105,19 @@ o/geography_commands.o: C_FLAGS += -Dload_commands=geography_load_commands
 #
 # Telnet/MSDP input filtering and canonical command capacity
 #
-# Only comm.c owns socket reads. Route its POSIX read() calls through the
-# bounded telnet parser. Its inherited 254-byte canonical line parser remains
-# as a weak fallback while input_line.c provides the buffer-sized authority.
-o/comm.o: comm_input_weak.h
-o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT -include comm_input_weak.h
+# comm.c owns both the game-loop call site and the canonical parser, so patch
+# that translation unit directly at compile time rather than relying on symbol
+# interposition. The source guard must match exactly once or the build fails.
+o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
+o/comm.o: comm.c Makefile | o
+	@echo "  Compiling $@..."
+	@count=$$(grep -c 'if( k >= 254 )' comm.c); \
+	if [ "$$count" -ne 1 ]; then \
+	   echo "ERROR: expected exactly one legacy 254-byte input guard in comm.c; found $$count"; \
+	   exit 1; \
+	fi
+	@sed 's/if( k >= 254 )/if( k >= ( int )sizeof( d->incomm ) - 2 )/' comm.c > .comm_extended.c
+	@$(CC) -c $(C_FLAGS) .comm_extended.c -o $@; status=$$?; rm -f .comm_extended.c; exit $$status
 
 #
 # Room metadata and area-builder command layering
@@ -178,7 +186,7 @@ ZeroPoint: $(O_FILES)
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o ZeroPoint.exe dependencies.d resolver.exe resolver.o *~
+	@rm -f o/*.o ZeroPoint.exe dependencies.d resolver.exe resolver.o *~ .comm_extended.c
 
 else
 ZeroPoint: $(O_FILES)
@@ -193,7 +201,7 @@ ZeroPoint: $(O_FILES)
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o ZeroPoint dependencies.d resolver resolver.o *~
+	@rm -f o/*.o ZeroPoint dependencies.d resolver resolver.o *~ .comm_extended.c
 endif
 
 dns: resolver.o
