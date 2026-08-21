@@ -14,34 +14,195 @@
 /* tables.c retains the inherited loader behind this compatibility symbol. */
 void legacy_load_commands( void );
 
+/*
+ * Builder selectors should be pleasant to use at the prompt. Normalize case,
+ * spaces, separators and a leading "The", then permit one-character typos.
+ * Exact matches always outrank normalized/fuzzy matches, and tied fuzzy
+ * matches are rejected so a shorthand can never select an arbitrary object.
+ */
+static void geography_normalize_selector( const char *source, char *target, size_t size )
+{
+   const unsigned char *p;
+   size_t out = 0;
+
+   if( !target || size == 0 )
+      return;
+
+   target[0] = '\0';
+   if( !source )
+      return;
+
+   for( p = ( const unsigned char * )source; *p && out + 1 < size; ++p )
+      if( isalnum( *p ) )
+         target[out++] = ( char )tolower( *p );
+   target[out] = '\0';
+
+   if( out > 3 && target[0] == 't' && target[1] == 'h' && target[2] == 'e' )
+      memmove( target, target + 3, out - 2 );
+}
+
+static bool geography_one_edit_match( const char *left, const char *right )
+{
+   size_t llen;
+   size_t rlen;
+   size_t i = 0;
+   size_t j = 0;
+   int edits = 0;
+
+   if( !left || !right )
+      return FALSE;
+
+   llen = strlen( left );
+   rlen = strlen( right );
+   if( llen < 4 || rlen < 4 )
+      return FALSE;
+   if( llen > rlen + 1 || rlen > llen + 1 )
+      return FALSE;
+
+   while( i < llen && j < rlen )
+   {
+      if( left[i] == right[j] )
+      {
+         ++i;
+         ++j;
+         continue;
+      }
+
+      if( ++edits > 1 )
+         return FALSE;
+
+      if( llen > rlen )
+         ++i;
+      else if( rlen > llen )
+         ++j;
+      else
+      {
+         ++i;
+         ++j;
+      }
+   }
+
+   if( i < llen || j < rlen )
+      ++edits;
+
+   return edits <= 1;
+}
+
+static int geography_selector_rank( const char *selector, const char *candidate )
+{
+   char normalized_selector[MAX_INPUT_LENGTH];
+   char normalized_candidate[MAX_INPUT_LENGTH];
+
+   if( !selector || !candidate || selector[0] == '\0' || candidate[0] == '\0' )
+      return 0;
+
+   if( !str_cmp( selector, candidate ) )
+      return 3;
+
+   geography_normalize_selector( selector, normalized_selector, sizeof( normalized_selector ) );
+   geography_normalize_selector( candidate, normalized_candidate, sizeof( normalized_candidate ) );
+
+   if( normalized_selector[0] == '\0' || normalized_candidate[0] == '\0' )
+      return 0;
+   if( !strcmp( normalized_selector, normalized_candidate ) )
+      return 2;
+   if( geography_one_edit_match( normalized_selector, normalized_candidate ) )
+      return 1;
+
+   return 0;
+}
+
 static SECTOR_DATA *find_sector_selector( const char *selector )
 {
    SECTOR_DATA *sector;
+   SECTOR_DATA *best = NULL;
+   int best_rank = 0;
+   bool ambiguous = FALSE;
 
    if( !selector || selector[0] == '\0' )
       return NULL;
 
    for( sector = first_sector; sector; sector = sector->next )
-      if( ( sector->name && !str_cmp( selector, sector->name ) )
-          || ( sector->filename && !str_cmp( selector, sector->filename ) ) )
-         return sector;
+   {
+      int rank = geography_selector_rank( selector, sector->name );
+      int filename_rank = geography_selector_rank( selector, sector->filename );
 
-   return NULL;
+      if( filename_rank > rank )
+         rank = filename_rank;
+
+      if( rank > best_rank )
+      {
+         best = sector;
+         best_rank = rank;
+         ambiguous = FALSE;
+      }
+      else if( rank > 0 && rank == best_rank && sector != best )
+         ambiguous = TRUE;
+   }
+
+   return ambiguous ? NULL : best;
 }
 
 static ZONE_DATA *find_zone_selector( const char *selector )
 {
    ZONE_DATA *zone;
+   ZONE_DATA *best = NULL;
+   int best_rank = 0;
+   bool ambiguous = FALSE;
 
    if( !selector || selector[0] == '\0' )
       return NULL;
 
    for( zone = first_zone; zone; zone = zone->next )
-      if( ( zone->name && !str_cmp( selector, zone->name ) )
-          || ( zone->filename && !str_cmp( selector, zone->filename ) ) )
-         return zone;
+   {
+      int rank = geography_selector_rank( selector, zone->name );
+      int filename_rank = geography_selector_rank( selector, zone->filename );
 
-   return NULL;
+      if( filename_rank > rank )
+         rank = filename_rank;
+
+      if( rank > best_rank )
+      {
+         best = zone;
+         best_rank = rank;
+         ambiguous = FALSE;
+      }
+      else if( rank > 0 && rank == best_rank && zone != best )
+         ambiguous = TRUE;
+   }
+
+   return ambiguous ? NULL : best;
+}
+
+static PLANET_DATA *find_planet_selector( const char *selector )
+{
+   PLANET_DATA *planet;
+   PLANET_DATA *best = NULL;
+   int best_rank = 0;
+   bool ambiguous = FALSE;
+
+   if( !selector || selector[0] == '\0' )
+      return NULL;
+
+   for( planet = first_planet; planet; planet = planet->next )
+   {
+      int rank = geography_selector_rank( selector, planet->name );
+      int filename_rank = geography_selector_rank( selector, planet->filename );
+
+      if( filename_rank > rank )
+         rank = filename_rank;
+
+      if( rank > best_rank )
+      {
+         best = planet;
+         best_rank = rank;
+         ambiguous = FALSE;
+      }
+      else if( rank > 0 && rank == best_rank && planet != best )
+         ambiguous = TRUE;
+   }
+
+   return ambiguous ? NULL : best;
 }
 
 static AREA_DATA *find_area_selector( const char *selector )
@@ -241,7 +402,7 @@ void do_showsector( CHAR_DATA *ch, const char *argument )
    sector = find_sector_selector( argument );
    if( !sector )
    {
-      send_to_char( "No such sector.\r\n", ch );
+      send_to_char( "No unique sector matched that name.\r\n", ch );
       return;
    }
 
@@ -312,7 +473,7 @@ void do_setsector( CHAR_DATA *ch, const char *argument )
    sector = find_sector_selector( selector );
    if( !sector )
    {
-      send_to_char( "No such sector.\r\n", ch );
+      send_to_char( "No unique sector matched that name.\r\n", ch );
       return;
    }
 
@@ -487,6 +648,53 @@ void do_setsector( CHAR_DATA *ch, const char *argument )
    send_to_char( "Unknown sector field.\r\n", ch );
 }
 
+void do_showplanet( CHAR_DATA *ch, const char *argument )
+{
+   PLANET_DATA *planet;
+   ZONE_DATA *zone;
+   AREA_DATA *area;
+
+   if( !argument || argument[0] == '\0' )
+   {
+      send_to_char( "Usage: showplanet <name|filename>\r\n", ch );
+      return;
+   }
+
+   planet = find_planet_selector( argument );
+   if( !planet )
+   {
+      send_to_char( "No unique planet matched that name.\r\n", ch );
+      return;
+   }
+
+   ch_printf( ch, "&WPlanet: &w%s\r\n", planet->name ? planet->name : "" );
+   ch_printf( ch, "&WFilename: &w%s\r\n", planet->filename ? planet->filename : "" );
+   ch_printf( ch, "&WStarsystem: &w%s\r\n",
+              planet->starsystem && planet->starsystem->name ? planet->starsystem->name : "(none)" );
+   ch_printf( ch, "&WSector: &w%s\r\n",
+              planet->sector && planet->sector->name ? planet->sector->name : "(none)" );
+   ch_printf( ch, "&WGoverned by: &w%s\r\n",
+              planet->governed_by && planet->governed_by->name ? planet->governed_by->name : "(none)" );
+   ch_printf( ch, "&WBase value: &w%ld\r\n", planet->base_value );
+   ch_printf( ch, "&WPopulation: &w%d\r\n", planet->population );
+   ch_printf( ch, "&WPopular support: &w%.2f\r\n", planet->pop_support );
+   ch_printf( ch, "&WFlags: &w%d\r\n", ( int )planet->flags );
+
+   send_to_char( "&WZones:\r\n", ch );
+   for( zone = planet->first_zone; zone; zone = zone->next_in_planet )
+      ch_printf( ch, "  &w%s (%s)\r\n",
+                 zone->name ? zone->name : "",
+                 zone->filename ? zone->filename : "" );
+
+   send_to_char( "&WAreas:\r\n", ch );
+   for( area = planet->first_area; area; area = area->next_on_planet )
+      ch_printf( ch, "  &w%s (%s)%s%s\r\n",
+                 area->name ? area->name : "",
+                 area->filename ? area->filename : "",
+                 area->zone && area->zone->name ? " - " : "",
+                 area->zone && area->zone->name ? area->zone->name : "" );
+}
+
 void do_geozones( CHAR_DATA *ch, const char *argument )
 {
    ZONE_DATA *zone;
@@ -517,7 +725,7 @@ void do_showzone( CHAR_DATA *ch, const char *argument )
    zone = find_zone_selector( argument );
    if( !zone )
    {
-      send_to_char( "No such zone.\r\n", ch );
+      send_to_char( "No unique zone matched that name.\r\n", ch );
       return;
    }
 
@@ -589,7 +797,7 @@ void do_setzone( CHAR_DATA *ch, const char *argument )
    zone = find_zone_selector( selector );
    if( !zone )
    {
-      send_to_char( "No such zone.\r\n", ch );
+      send_to_char( "No unique zone matched that name.\r\n", ch );
       return;
    }
 
@@ -810,6 +1018,7 @@ void load_commands( void )
    geography_add_command( "showsector", do_showsector, "do_showsector", 1 );
    geography_add_command( "makesector", do_makesector, "do_makesector", LEVEL_SUPREME );
    geography_add_command( "setsector", do_setsector, "do_setsector", LEVEL_SUPREME );
+   geography_add_command( "showplanet", do_showplanet, "do_showplanet", 1 );
    geography_add_command( "geozones", do_geozones, "do_geozones", 1 );
    geography_add_command( "showzone", do_showzone, "do_showzone", 1 );
    geography_add_command( "makezone", do_makezone, "do_makezone", LEVEL_SUPREME );
