@@ -58,8 +58,8 @@ say triggerer is (his,hers,its):$s
 say random char (name):		$r
 say random char (name&title or short): 	$R
 say random char  (he,she,it):	$J
-say random char (him/her/it):	$L
-say random char (his/hers/its):	$K
+say random char (him,her,it):	$L
+say random char (his,hers,its):	$K
 ~
 #ENDPROG
 
@@ -2007,13 +2007,13 @@ Arglist   test~
 Comlist   say triggered by (name):	$n
 say triggered by (name&title): 	$N
 say triggerer is (he,she,it):	$e
-say triggerer is (him/her/it):	$m
-say triggerer is (his/hers/its):$s
+say triggerer is (him,her,it):	$m
+say triggerer is (his,hers,its):$s
 say random char (name):		$r
 say random char (name&title or short): 	$R
 say random char  (he,she,it):	$J
-say random char (him/her/it):	$K
-say random char (his/hers/its):	$L
+say random char (him,her,it):	$K
+say random char (his,hers,its):	$L
 ~
 #ENDPROG
 
