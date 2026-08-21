@@ -13,6 +13,8 @@
 #include "mud.h"
 
 DECLARE_DO_FUN( legacy_do_aset );
+void write_area_list( void );
+void save_planet( PLANET_DATA *planet );
 
 static bool area_filename_component_valid( const char *component )
 {
