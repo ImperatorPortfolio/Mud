@@ -58,7 +58,7 @@ DECLARE_DO_FUN( do_sectors );
 DECLARE_DO_FUN( do_showsector );
 DECLARE_DO_FUN( do_makesector );
 DECLARE_DO_FUN( do_setsector );
-DECLARE_DO_FUN( do_zones );
+DECLARE_DO_FUN( do_geozones );
 DECLARE_DO_FUN( do_showzone );
 DECLARE_DO_FUN( do_makezone );
 DECLARE_DO_FUN( do_setzone );

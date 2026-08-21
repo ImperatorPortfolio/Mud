@@ -487,7 +487,7 @@ void do_setsector( CHAR_DATA *ch, const char *argument )
    send_to_char( "Unknown sector field.\r\n", ch );
 }
 
-void do_zones( CHAR_DATA *ch, const char *argument )
+void do_geozones( CHAR_DATA *ch, const char *argument )
 {
    ZONE_DATA *zone;
 
@@ -810,7 +810,7 @@ void load_commands( void )
    geography_add_command( "showsector", do_showsector, "do_showsector", 1 );
    geography_add_command( "makesector", do_makesector, "do_makesector", LEVEL_SUPREME );
    geography_add_command( "setsector", do_setsector, "do_setsector", LEVEL_SUPREME );
-   geography_add_command( "zones", do_zones, "do_zones", 1 );
+   geography_add_command( "geozones", do_geozones, "do_geozones", 1 );
    geography_add_command( "showzone", do_showzone, "do_showzone", 1 );
    geography_add_command( "makezone", do_makezone, "do_makezone", LEVEL_SUPREME );
    geography_add_command( "setzone", do_setzone, "do_setzone", LEVEL_SUPREME );
