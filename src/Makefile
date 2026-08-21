@@ -1,6 +1,7 @@
 #This is the ZeroPoint Makefile.
 #This should be usable on pretty much any Linux system.
 #Refer to your 'man gcc' for explanations of these options
+#To compile in FreeBSD or OpenBSD, use the gmake compiler.
 
 #Change this to reflect whichever compiler you want to use.
 CC      = g++
