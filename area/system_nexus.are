@@ -2,7 +2,7 @@
 #AREADATA
 Version      1
 Name         System Nexus~
-Author       Legacy Foundation / Local Sphere Conversion~
+Author       Legacy Foundation / Local Sphere D20 Foundation~
 Ranges       0 103 0 103
 Economy      0 44298350
 ResetFreq    15
@@ -20,7 +20,7 @@ DefPos     aggressive~
 Gender     female~
 Actflags   npc sentinel~
 Affected   detect_invis detect_hidden infrared truesight~
-Stats1     0 50 0 80 10000 0
+Stats1     0 50 0 100 10000 0
 Stats2     10 8 40
 Stats3     2 6 2
 Stats4     0 0 1 1 1
@@ -34,7 +34,7 @@ Defenses   parry dodge~
 #MUDPROG
 Progtype  speech_prog~
 Arglist   test2~
-Comlist   say firstname of obj:	 	$i
+Comlist   say firstname of obj: 	 	$i
 say short_desc/title of obj: 	$I
 say he/she/it of obj:	 	$j
 say him/her/it of obj:	 	$k
@@ -188,7 +188,7 @@ Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc sentinel practice~
+Actflags   npc sentinel train practice nokill~
 Stats1     0 100 0 100 0 0
 Stats2     12 8 60
 Stats3     1 4 0
@@ -236,7 +236,7 @@ DefPos     aggressive~
 Gender     male~
 Actflags   npc prototype~
 Affected   sneak~
-Stats1     0 15 0 90 75 0
+Stats1     0 15 0 100 75 0
 Stats2     3 8 6
 Stats3     1 6 1
 Stats4     0 0 1 1 0
@@ -262,7 +262,7 @@ Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
-Stats1     0 5 0 95 0 0
+Stats1     0 5 0 100 0 0
 Stats2     2 8 2
 Stats3     1 6 0
 Stats4     0 0 1 0 0
@@ -315,7 +315,7 @@ DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
 Affected   flying~
-Stats1     0 3 0 95 0 0
+Stats1     0 3 0 100 0 0
 Stats2     1 6 1
 Stats3     1 3 0
 Stats4     0 0 1 0 0
@@ -343,7 +343,7 @@ DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
 Affected   flying~
-Stats1     0 4 0 95 0 0
+Stats1     0 4 0 100 0 0
 Stats2     1 8 2
 Stats3     1 4 0
 Stats4     0 0 1 0 0
@@ -653,7 +653,7 @@ DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel aggressive~
 Affected   detect_invis detect_hidden~
-Stats1     -500 25 0 80 0 0
+Stats1     -500 25 0 100 0 0
 Stats2     5 10 25
 Stats3     1 8 3
 Stats4     0 0 1 1 1
@@ -676,7 +676,7 @@ Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc wimpy noassist droid~
-Stats1     0 10 0 95 0 0
+Stats1     0 10 0 100 0 0
 Stats2     3 8 10
 Stats3     1 4 0
 Stats4     0 0 1 0 0
@@ -713,6 +713,235 @@ Attribs    10 10 10 10 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       81
+Keywords   calibration drone one training droid~
+Short      a Mark I calibration drone~
+Long       A Mark I calibration drone waits for a basic combat test.
+~
+Desc       This standardized training machine represents a D20 level-one combatant.
+Its statistics are deliberately plain so builders can compare low-level encounters.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel droid nocorpse~
+Stats1     0 5 0 100 0 0
+Stats2     1 10 2
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 10 10 12 12 8 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       82
+Keywords   calibration drone five training droid~
+Short      a Mark V calibration drone~
+Long       A Mark V calibration drone waits for an intermediate combat test.
+~
+Desc       This standardized training machine represents a D20 level-five combatant.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel droid nocorpse~
+Stats1     0 25 0 100 0 0
+Stats2     5 10 15
+Stats3     1 8 2
+Stats4     0 0 1 0 0
+Attribs    14 10 10 14 14 8 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       83
+Keywords   calibration drone ten training droid~
+Short      a Mark X calibration drone~
+Long       A Mark X calibration drone waits for a veteran combat test.
+~
+Desc       This standardized training machine represents a D20 level-ten combatant.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel droid nocorpse~
+Stats1     0 50 0 100 0 0
+Stats2     10 10 30
+Stats3     2 6 2
+Stats4     0 0 1 0 0
+Attribs    16 12 12 16 16 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       84
+Keywords   calibration drone fifteen training droid~
+Short      a Mark XV calibration drone~
+Long       A Mark XV calibration drone waits for an elite combat test.
+~
+Desc       This standardized training machine represents a D20 level-fifteen combatant.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel droid nocorpse~
+Stats1     0 75 0 100 0 0
+Stats2     15 10 60
+Stats3     2 8 3
+Stats4     0 0 1 0 0
+Attribs    18 12 12 16 18 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       85
+Keywords   calibration drone twenty training droid~
+Short      a Mark XX calibration drone~
+Long       A Mark XX calibration drone waits for a pinnacle combat test.
+~
+Desc       This standardized training machine represents a D20 level-twenty combatant.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel droid nocorpse~
+Stats1     0 100 0 100 0 0
+Stats2     20 10 100
+Stats3     3 8 4
+Stats4     0 0 1 0 0
+Attribs    20 14 14 18 20 12 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       86
+Keywords   foundation quartermaster outfitter~
+Short      the foundation quartermaster~
+Long       The foundation quartermaster stands behind a well-organized supply counter.
+~
+Desc       The quartermaster maintains baseline exploration and utility equipment used
+by trainers, builders and new content designers.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     female~
+Actflags   npc sentinel nokill~
+Stats1     0 5 0 100 0 0
+Stats2     2 8 8
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    10 14 14 12 12 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       87
+Keywords   foundation weapons officer armorer weapons~
+Short      the foundation weapons officer~
+Long       A weapons officer maintains a rack of standardized arms.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     male~
+Actflags   npc sentinel nokill~
+Stats1     0 10 0 100 0 0
+Stats2     2 8 10
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 12 12 12 12 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       88
+Keywords   foundation armor specialist armorer~
+Short      the foundation armor specialist~
+Long       An armor specialist waits beside several calibrated protective rigs.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     female~
+Actflags   npc sentinel nokill~
+Stats1     0 10 0 100 0 0
+Stats2     2 8 10
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    12 14 12 12 12 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       89
+Keywords   foundation medic clinician~
+Short      the foundation medic~
+Long       A foundation medic checks a cabinet of field treatment supplies.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel nokill~
+Stats1     0 10 0 100 0 0
+Stats2     2 8 10
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    10 14 16 12 12 12 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       90
+Keywords   foundation technician fabricator~
+Short      the foundation technician~
+Long       A foundation technician inventories standardized fabrication supplies.
+~
+Race       Human~
+Position   standing~
+DefPos     standing~
+Gender     neuter~
+Actflags   npc sentinel nokill~
+Stats1     0 10 0 100 0 0
+Stats2     2 8 10
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    10 16 14 12 12 10 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
 #ENDMOBILE
 
 #OBJECT
@@ -779,6 +1008,7 @@ Action   %s gobble$q down $p with gusto... disgusting!~
 WFlags   take~
 Values   10 0 0 0 0 0
 Stats    5 0 0 0 0
+Nutrition 8 2 5 2 4 1
 #ENDOBJECT
 
 #OBJECT
@@ -791,6 +1021,7 @@ Action   %s savagely devour$q $p!~
 WFlags   take~
 Values   16 0 0 0 0 0
 Stats    2 0 0 0 0
+Nutrition 9 1 4 3 5 1
 #ENDOBJECT
 
 #OBJECT
@@ -803,6 +1034,7 @@ Action   %s chomp$q on $p.~
 WFlags   take~
 Values   20 0 0 0 0 0
 Stats    5 0 0 0 0
+Nutrition 8 2 4 2 4 1
 #ENDOBJECT
 
 #OBJECT
@@ -815,6 +1047,7 @@ Action   %s chomp$q on $p.~
 WFlags   take~
 Values   20 0 0 0 0 0
 Stats    5 0 0 0 0
+Nutrition 8 3 4 2 4 1
 #ENDOBJECT
 
 #OBJECT
@@ -868,6 +1101,7 @@ Action     %s eat$q $p.~
 WFlags   take~
 Values   5 0 0 0 0 0
 Stats    1 10 1 0 0
+Nutrition 5 6 3 6 6 3
 #ENDOBJECT
 
 #OBJECT
@@ -912,6 +1146,7 @@ Flags    small_size~
 WFlags   take~
 Values   15 0 0 0 0 0
 Stats    2 0 0 0 0
+Nutrition 8 2 3 2 4 1
 #ENDOBJECT
 
 #OBJECT
@@ -1026,9 +1261,93 @@ Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
+Vnum     39
+Keywords   foundation resistance frame strength trainer~
+Type     furniture~
+Short      a Foundation resistance frame~
+Long       A Foundation resistance frame is anchored to the floor here.~
+Values     0 100 6 3 0 1414680135
+Stats      20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     40
+Keywords   foundation reaction rig dexterity trainer~
+Type     furniture~
+Short      a Foundation reaction rig~
+Long       A Foundation reaction rig flashes targets around its articulated frame.~
+Values     1 100 6 2 0 1414680135
+Stats      15 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     41
+Keywords   foundation endurance treadmill constitution trainer~
+Type     furniture~
+Short      a Foundation endurance treadmill~
+Long       A Foundation endurance treadmill waits for its next training session.~
+Values     2 100 6 3 0 1414680135
+Stats      25 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     42
+Keywords   foundation cognitive terminal intelligence trainer~
+Type     furniture~
+Short      a Foundation cognitive terminal~
+Long       A Foundation cognitive terminal presents technical analysis exercises.~
+Values     3 100 6 1 0 1414680135
+Stats      10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     44
+Keywords   foundation focus station wisdom trainer~
+Type     furniture~
+Short      a Foundation sensory focus station~
+Long       A Foundation sensory focus station is arranged for awareness drills.~
+Values     4 100 6 1 0 1414680135
+Stats      10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     47
+Keywords   foundation negotiation simulator charisma trainer~
+Type     furniture~
+Short      a Foundation negotiation simulator~
+Long       A Foundation negotiation simulator waits for another trainee.~
+Values     5 100 6 1 0 1414680135
+Stats      10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     48
+Keywords   ammunition cell ammo power pack~
+Type     ammo~
+Short      a standard ammunition cell~
+Long       A standard ammunition cell rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     500 500 0 0 0 0
+Stats      1 50 5 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     49
+Keywords   comlink communicator radio~
+Type     comlink~
+Short      a standard comlink~
+Long       A standard handheld comlink rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      1 75 8 1 0
+#ENDOBJECT
+
+#OBJECT
 Vnum     43
 Keywords   keepsake medallion symbol~
-Type     armor~
+Type     treasure~
 Short      a personal medallion~
 Long       A small personal medallion rests here.~
 WFlags   take hold~
@@ -1068,7 +1387,7 @@ Long       A standard pulse rifle has been left here.~
 WFlags   take wield~
 Values     0 3 10 6 2000 2000
 Stats      10 3250 750 0 0
-Affect       -1 -1 2 18 0
+Affect       -1 -1 1 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1080,7 +1399,7 @@ Long       A standard pulse pistol has been left here.~
 WFlags   take wield~
 Values     0 2 8 6 2000 2000
 Stats      6 3000 300 0 0
-Affect       -1 -1 1 18 0
+Affect       -1 -1 0 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1104,7 +1423,7 @@ Long       An assault pulse rifle was left here.~
 WFlags   take wield~
 Values     0 4 12 6 2000 2000
 Stats      12 3750 375 0 0
-Affect       -1 -1 2 18 0
+Affect       -1 -1 1 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1116,7 +1435,7 @@ Long       A repeating pulse rifle is collecting dust.~
 WFlags   take wield~
 Values     0 4 14 6 2000 2000
 Stats      10 3900 390 0 0
-Affect       -1 -1 3 18 0
+Affect       -1 -1 1 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1139,7 +1458,7 @@ Long       A cheap compact pulse pistol is here.~
 WFlags   take wield~
 Values     0 1 6 6 300 300
 Stats      4 900 90 0 0
-Affect       -1 -1 -3 18 0
+Affect       -1 -1 -1 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1176,7 +1495,7 @@ Flags    inventory~
 WFlags   take wield~
 Values     12 2 8 2 100 110
 Stats      4 350 120 0 0
-Affect       -1 -1 -1 18 0
+Affect       -1 -1 0 18 0
 #ENDOBJECT
 
 #OBJECT
@@ -1188,7 +1507,464 @@ Long       A civilian pulse rifle was dropped here.~
 WFlags   take wield~
 Values     0 3 10 6 0 0
 Stats      10 3000 300 0 0
-Affect       -1 -1 1 18 0
+Affect       -1 -1 0 18 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     61
+Keywords   light field armor vest protective~
+Type     armor~
+Short      a light field armor vest~
+Long       A light field armor vest rests on a fitting stand.~
+Flags    inventory~
+WFlags   take body~
+Values     6 6 0 0 0 0
+Stats      8 600 60 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     62
+Keywords   medium tactical armor suit protective~
+Type     armor~
+Short      a medium tactical armor suit~
+Long       A medium tactical armor suit hangs from a reinforced rack.~
+Flags    inventory~
+WFlags   take body~
+Values     14 14 0 0 0 0
+Stats      14 1400 140 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     63
+Keywords   heavy assault armor suit protective~
+Type     armor~
+Short      a heavy assault armor suit~
+Long       A heavy assault armor suit stands ready for fitting.~
+Flags    inventory~
+WFlags   take body~
+Values     24 24 0 0 0 0
+Stats      24 2800 280 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     64
+Keywords   compact personal shield buckler~
+Type     armor~
+Short      a compact personal shield~
+Long       A compact personal shield projector rests here.~
+Flags    inventory~
+WFlags   take shield~
+Values     5 5 0 0 0 0
+Stats      4 800 80 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     65
+Keywords   tactical personal shield projector~
+Type     armor~
+Short      a tactical personal shield~
+Long       A tactical personal shield projector rests here.~
+Flags    inventory~
+WFlags   take shield~
+Values     10 10 0 0 0 0
+Stats      6 1800 180 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     66
+Keywords   heavy personal shield projector~
+Type     armor~
+Short      a heavy personal shield~
+Long       A heavy personal shield projector rests here.~
+Flags    inventory~
+WFlags   take shield~
+Values     15 15 0 0 0 0
+Stats      10 3200 320 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     67
+Keywords   tactical helmet protective headgear~
+Type     armor~
+Short      a tactical helmet~
+Long       A tactical helmet rests on a display stand.~
+Flags    inventory~
+WFlags   take head~
+Values     2 2 0 0 0 0
+Stats      3 350 35 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     68
+Keywords   combat greaves protective legs~
+Type     armor~
+Short      a pair of combat greaves~
+Long       A pair of combat greaves has been set aside here.~
+Flags    inventory~
+WFlags   take legs~
+Values     3 3 0 0 0 0
+Stats      5 500 50 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     69
+Keywords   armored gloves protective hands~
+Type     armor~
+Short      a pair of armored gloves~
+Long       A pair of armored gloves rests here.~
+Flags    inventory~
+WFlags   take hands~
+Values     2 2 0 0 0 0
+Stats      2 250 25 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     70
+Keywords   utility knife blade~
+Type     weapon~
+Short      a utility knife~
+Long       A compact utility knife lies here.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 1 4 2 100 100
+Stats      1 75 8 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     71
+Keywords   shock baton baton club~
+Type     weapon~
+Short      a shock baton~
+Long       A rugged shock baton lies here.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 1 6 8 100 100
+Stats      3 220 22 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     72
+Keywords   vibroknife vibro knife blade~
+Type     weapon~
+Short      a vibroknife~
+Long       A compact vibroknife rests in its sheath.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 1 6 2 500 500
+Stats      2 300 30 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     73
+Keywords   vibroaxe vibro axe~
+Type     weapon~
+Short      a vibroaxe~
+Long       A balanced vibroaxe has been placed on the rack.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 2 10 1 500 500
+Stats      6 650 65 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     74
+Keywords   force pike pike polearm~
+Type     weapon~
+Short      a force pike~
+Long       A standard force pike rests against the rack.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 2 8 11 500 500
+Stats      7 900 90 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     75
+Keywords   bowcaster ranged weapon~
+Type     weapon~
+Short      a standard bowcaster~
+Long       A standard bowcaster rests on a weapons cradle.~
+Flags    inventory~
+WFlags   take wield~
+Values     0 3 12 9 1000 1000
+Stats      10 1800 180 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     76
+Keywords   quarterstaff staff training~
+Type     weapon~
+Short      a reinforced quarterstaff~
+Long       A reinforced training staff leans against the wall.~
+Flags    inventory~
+WFlags   take wield~
+Values     12 1 8 8 0 0
+Stats      4 120 12 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     77
+Keywords   field pack backpack container~
+Type     container~
+Short      a field pack~
+Long       A durable field pack rests here.~
+Flags    inventory~
+WFlags   take about~
+Values     60 0 0 0 0 0
+Stats      3 180 18 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     78
+Keywords   utility belt container~
+Type     container~
+Short      a utility belt~
+Long       A modular utility belt lies here.~
+Flags    inventory~
+WFlags   take waist~
+Values     20 0 0 0 0 0
+Stats      1 120 12 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     79
+Keywords   field toolkit tools~
+Type     toolkit~
+Short      a field toolkit~
+Long       A compact field toolkit has been set down here.~
+Flags    inventory~
+WFlags   take hold~
+Values     100 0 0 0 0 0
+Stats      5 450 45 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     80
+Keywords   precision lockpick set picks~
+Type     lockpick~
+Short      a precision lockpick set~
+Long       A precision lockpick set rests in a slim case.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      1 300 30 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     81
+Keywords   sensor lens optics scanner lens~
+Type     lens~
+Short      a field sensor lens~
+Long       A field sensor lens rests in a padded sleeve.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      1 250 25 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     82
+Keywords   survival shovel entrenching tool~
+Type     shovel~
+Short      a folding survival shovel~
+Long       A folding survival shovel lies here.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      3 100 10 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     83
+Keywords   medpac medical kit first aid~
+Type     medpac~
+Short      a standard medpac~
+Long       A sealed standard medpac rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     5 0 0 0 0 0
+Stats      2 400 40 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     84
+Keywords   trauma medpac medical kit~
+Type     medpac~
+Short      a trauma medpac~
+Long       A reinforced trauma medpac rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     10 0 0 0 0 0
+Stats      3 900 90 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     85
+Keywords   foundation field manual d20 reference book~
+Type     book~
+Short      a Foundation field manual~
+Long       A Foundation field manual has been left open on a desk.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      2 50 5 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     86
+Keywords   power battery cell~
+Type     battery~
+Short      a standard power battery~
+Long       A standard power battery rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     50 0 0 0 0 0
+Stats      2 180 18 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     87
+Keywords   duraplast sheet material~
+Type     duraplast~
+Short      a duraplast sheet~
+Long       A standardized duraplast sheet rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      5 120 12 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     88
+Keywords   durasteel billet material~
+Type     durasteel~
+Short      a durasteel billet~
+Long       A standardized durasteel billet rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      8 180 18 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     89
+Keywords   circuit board electronics~
+Type     circuit~
+Short      a standard circuit board~
+Long       A standard circuit board rests in an antistatic sleeve.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      1 140 14 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     90
+Keywords   superconductor component~
+Type     superconductor~
+Short      a compact superconductor~
+Long       A compact superconductor rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      1 300 30 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     91
+Keywords   portable fabrication oven furnace~
+Type     oven~
+Short      a portable fabrication oven~
+Long       A portable fabrication oven sits ready for use.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      12 650 65 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     92
+Keywords   fabric roll material~
+Type     fabric~
+Short      a roll of technical fabric~
+Long       A roll of technical fabric rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      2 80 8 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     93
+Keywords   rare metal ingot material~
+Type     rare_metal~
+Short      a rare-metal ingot~
+Long       A small rare-metal ingot rests in a security tray.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      3 600 60 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     94
+Keywords   magnet assembly component~
+Type     magnet~
+Short      a precision magnet assembly~
+Long       A precision magnet assembly rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      2 160 16 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     95
+Keywords   industrial thread spool material~
+Type     thread~
+Short      a spool of industrial thread~
+Long       A spool of industrial thread rests here.~
+Flags    inventory~
+WFlags   take~
+Values     0 0 0 0 0 0
+Stats      1 40 4 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     96
+Keywords   chemical reagent sealed compound~
+Type     chemical~
+Short      a sealed chemical reagent~
+Long       A sealed chemical reagent container rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      1 120 12 1 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     97
+Keywords   hydration pouch water drink~
+Type     drinkcon~
+Short      a sealed hydration pouch~
+Long       A sealed hydration pouch rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     10 10 0 0 0 0
+Stats      1 35 4 1 0
+Nutrition 0 0 0 0 1 10
+#ENDOBJECT
+
+#OBJECT
+Vnum     98
+Keywords   portable field scanner device~
+Type     device~
+Short      a portable field scanner~
+Long       A portable field scanner rests here.~
+Flags    inventory~
+WFlags   take hold~
+Values     0 0 0 0 0 0
+Stats      2 350 35 1 0
 #ENDOBJECT
 
 #OBJECT
@@ -1255,6 +2031,11 @@ infrastructure rather than a normal destination.
 #EXIT
 Direction up~
 ToRoom    32145
+#ENDEXIT
+
+#EXIT
+Direction north~
+ToRoom    46
 #ENDEXIT
 
 Reset M 0 1 1 2
@@ -1955,6 +2736,446 @@ Flags    nomob spacecraft~
 Desc       A thin grey maintenance haze hangs over a secured storage yard used for vessels
 that are inactive, unassigned or awaiting system maintenance.
 ~
+#ENDROOM
+
+#ROOM
+Vnum     46
+Name       D20 Foundation Concourse~
+Sector   inside~
+Flags    indoors safe norecall~
+Desc       This clean concourse is the canonical rules-and-content foundation for the
+Local Sphere. Baseline equipment, services, training and calibrated encounter
+cells branch from here so builders can test content against consistent D20 bands.
+~
+#EXIT
+Direction south~
+ToRoom    2
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    47
+#ENDEXIT
+#EXIT
+Direction west~
+ToRoom    48
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    49
+#ENDEXIT
+#EXIT
+Direction up~
+ToRoom    52
+#ENDEXIT
+#EXIT
+Direction down~
+ToRoom    57
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     47
+Name       Foundation General Outfitter~
+Sector   inside~
+Flags    indoors safe~
+Desc       Standard packs, tools, communications equipment and expedition supplies line
+numbered shelves. These are baseline references rather than rare or unique gear.
+~
+#EXIT
+Direction west~
+ToRoom    46
+#ENDEXIT
+Reset M 0 86 1 47
+  Reset G 1 77 1
+  Reset G 1 78 1
+  Reset G 1 80 1
+  Reset G 1 81 1
+  Reset G 1 82 1
+  Reset G 1 85 1
+  Reset G 1 98 1
+  Reset G 1 20 1
+  Reset G 1 21 1
+  Reset G 1 49 1
+#ENDROOM
+
+#ROOM
+Vnum     48
+Name       Foundation Weapons Counter~
+Sector   inside~
+Flags    indoors safe~
+Desc       Standardized melee and ranged weapons are secured behind the counter. Their
+statistics establish ordinary equipment bands for world builders and encounter design.
+~
+#EXIT
+Direction east~
+ToRoom    46
+#ENDEXIT
+Reset M 0 87 1 48
+  Reset G 1 50 1
+  Reset G 1 51 1
+  Reset G 1 52 1
+  Reset G 1 53 1
+  Reset G 1 54 1
+  Reset G 1 55 1
+  Reset G 1 56 1
+  Reset G 1 57 1
+  Reset G 1 58 1
+  Reset G 1 59 1
+  Reset G 1 60 1
+  Reset G 1 70 1
+  Reset G 1 71 1
+  Reset G 1 72 1
+  Reset G 1 73 1
+  Reset G 1 74 1
+  Reset G 1 75 1
+  Reset G 1 76 1
+  Reset G 1 48 1
+#ENDROOM
+
+#ROOM
+Vnum     49
+Name       Foundation Armor Fitting Bay~
+Sector   inside~
+Flags    indoors safe~
+Desc       Protective equipment is arranged by coverage and protection band. The racks
+exist to demonstrate the engine's native ascending Defense and armor-Dexterity rules.
+~
+#EXIT
+Direction south~
+ToRoom    46
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    50
+#ENDEXIT
+#EXIT
+Direction west~
+ToRoom    51
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    54
+#ENDEXIT
+Reset M 0 88 1 49
+  Reset G 1 61 1
+  Reset G 1 62 1
+  Reset G 1 63 1
+  Reset G 1 64 1
+  Reset G 1 65 1
+  Reset G 1 66 1
+  Reset G 1 67 1
+  Reset G 1 68 1
+  Reset G 1 69 1
+#ENDROOM
+
+#ROOM
+Vnum     50
+Name       Foundation Medical Clinic~
+Sector   inside~
+Flags    indoors safe~
+Desc       Diagnostic beds and sealed treatment cabinets support ordinary field medicine
+and first-aid testing without pretending to be a full hospital.
+~
+#EXIT
+Direction west~
+ToRoom    49
+#ENDEXIT
+Reset M 0 89 1 50
+  Reset G 1 83 1
+  Reset G 1 84 1
+  Reset G 1 97 1
+  Reset G 1 20 1
+#ENDROOM
+
+#ROOM
+Vnum     51
+Name       Foundation Fabrication Workshop~
+Sector   inside~
+Flags    indoors safe factory~
+Desc       Benches, clamps and fabrication stations provide the engine's canonical factory
+environment. Standard crafting materials are available for controlled engineering tests.
+~
+#EXIT
+Direction east~
+ToRoom    49
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    64
+#ENDEXIT
+Reset M 0 90 1 51
+  Reset G 1 79 1
+  Reset G 1 86 1
+  Reset G 1 87 1
+  Reset G 1 88 1
+  Reset G 1 89 1
+  Reset G 1 90 1
+  Reset G 1 91 1
+  Reset G 1 92 1
+  Reset G 1 93 1
+  Reset G 1 94 1
+  Reset G 1 95 1
+  Reset G 1 96 1
+#ENDROOM
+
+#ROOM
+Vnum     52
+Name       Foundation Account Services~
+Sector   inside~
+Flags    indoors safe bank~
+Desc       Secure terminals provide the standard banking service used by ordinary hubs.
+This room also links the reference archive, training wing and rest quarters.
+~
+#EXIT
+Direction down~
+ToRoom    46
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    53
+#ENDEXIT
+#EXIT
+Direction west~
+ToRoom    56
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    55
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     53
+Name       Foundation Rest Quarters~
+Sector   inside~
+Flags    indoors safe hotel~
+Desc       Plain private bunks establish the baseline hotel and rest service expected in a
+fully supported settlement hub.
+~
+#EXIT
+Direction west~
+ToRoom    52
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     54
+Name       Physical Training Hall~
+Sector   inside~
+Flags    indoors safe~
+Desc       Strength, reaction and endurance stations provide explicit physical attribute
+training using the same reusable equipment supplied to the academies.
+~
+#EXIT
+Direction south~
+ToRoom    49
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    55
+#ENDEXIT
+Reset O 0 39 1 54
+Reset O 0 40 1 54
+Reset O 0 41 1 54
+#ENDROOM
+
+#ROOM
+Vnum     55
+Name       Cognitive and Social Training Hall~
+Sector   inside~
+Flags    indoors safe~
+Desc       Analysis, awareness and negotiation stations support the mental and social
+attribute side of the D20 progression. The master instructor handles skill practice.
+~
+#EXIT
+Direction west~
+ToRoom    54
+#ENDEXIT
+#EXIT
+Direction south~
+ToRoom    52
+#ENDEXIT
+Reset M 0 4 1 55
+Reset O 0 42 1 55
+Reset O 0 44 1 55
+Reset O 0 47 1 55
+#ENDROOM
+
+#ROOM
+Vnum     56
+Name       Foundation Rules Archive~
+Sector   inside~
+Flags    indoors safe~
+Desc       Builder terminals summarize the Local Sphere's implemented D20 conventions:
+ascending Defense, ability modifiers, heroic bands, equipment tiers and encounter baselines.
+No external rulebook text is reproduced here.
+~
+#EXIT
+Direction east~
+ToRoom    52
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    65
+#ENDEXIT
+Reset O 0 85 1 56
+#ENDROOM
+
+#ROOM
+Vnum     57
+Name       Simulation Control~
+Sector   inside~
+Flags    indoors safe norecall~
+Desc       Five isolated cells ahead hold standardized combat drones representing D20
+levels one, five, ten, fifteen and twenty. They provide repeatable encounter benchmarks.
+~
+#EXIT
+Direction up~
+ToRoom    46
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    58
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     58
+Name       Calibration Cell - D20 Level 1~
+Sector   inside~
+Flags    indoors norecall~
+Desc       A simple marked floor and unobstructed sightlines provide a clean level-one
+combat benchmark.
+~
+#EXIT
+Direction south~
+ToRoom    57
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    59
+#ENDEXIT
+Reset M 0 81 1 58
+#ENDROOM
+
+#ROOM
+Vnum     59
+Name       Calibration Cell - D20 Level 5~
+Sector   inside~
+Flags    indoors norecall~
+Desc       This isolated chamber provides a clean level-five combat benchmark.
+~
+#EXIT
+Direction south~
+ToRoom    58
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    60
+#ENDEXIT
+Reset M 0 82 1 59
+#ENDROOM
+
+#ROOM
+Vnum     60
+Name       Calibration Cell - D20 Level 10~
+Sector   inside~
+Flags    indoors norecall~
+Desc       This isolated chamber provides a clean level-ten combat benchmark.
+~
+#EXIT
+Direction south~
+ToRoom    59
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    61
+#ENDEXIT
+Reset M 0 83 1 60
+#ENDROOM
+
+#ROOM
+Vnum     61
+Name       Calibration Cell - D20 Level 15~
+Sector   inside~
+Flags    indoors norecall~
+Desc       This isolated chamber provides a clean level-fifteen combat benchmark.
+~
+#EXIT
+Direction south~
+ToRoom    60
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    62
+#ENDEXIT
+Reset M 0 84 1 61
+#ENDROOM
+
+#ROOM
+Vnum     62
+Name       Calibration Cell - D20 Level 20~
+Sector   inside~
+Flags    indoors norecall~
+Desc       This isolated chamber provides a clean level-twenty combat benchmark.
+~
+#EXIT
+Direction south~
+ToRoom    61
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    63
+#ENDEXIT
+Reset M 0 85 1 62
+#ENDROOM
+
+#ROOM
+Vnum     63
+Name       Foundation Equipment Test Range~
+Sector   inside~
+Flags    indoors norecall~
+Desc       Marked lanes allow builders to compare ordinary weapons, armor and shields
+without environmental modifiers obscuring the result.
+~
+#EXIT
+Direction west~
+ToRoom    62
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     64
+Name       Foundation Supply Storage~
+Sector   inside~
+Flags    indoors safe nomob~
+Desc       Standard reference materials are kept here as a controlled reserve for the
+fabrication workshop. Nothing in this room is intended to be unique loot.
+~
+#EXIT
+Direction south~
+ToRoom    51
+#ENDEXIT
+Reset O 0 86 1 64
+Reset O 0 87 1 64
+Reset O 0 88 1 64
+Reset O 0 89 1 64
+Reset O 0 90 1 64
+#ENDROOM
+
+#ROOM
+Vnum     65
+Name       Builder Calibration Reference~
+Sector   inside~
+Flags    indoors safe~
+Desc       This quiet design bay records the intended use of the Foundation: ordinary
+content should be compared against the five calibration tiers before being promoted to
+special, elite or boss status. Unique equipment belongs outside this baseline package.
+~
+#EXIT
+Direction south~
+ToRoom    56
+#ENDEXIT
 #ENDROOM
 
 #ENDAREA
