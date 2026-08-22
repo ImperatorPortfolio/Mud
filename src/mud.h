@@ -19,6 +19,7 @@
 #include "space/space.h"
 #include "game/social.h"
 #include "game/quest.h"
+#include "game/dialogue.h"
 #include "world/affect.h"
 #include "world/definitions.h"
 #include "character/character.h"
