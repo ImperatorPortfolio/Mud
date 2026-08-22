@@ -18,8 +18,8 @@ Long       A compact retail droid waits behind the travel-supplies counter.
 Desc       A practical retail droid manages luggage, communications gear and basic travel equipment for arriving passengers.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel droid~
 Stats1     0 8 0 100 0 0
@@ -42,8 +42,8 @@ Long       A food-service droid works the arrivals market checkout.
 Desc       A clean service droid manages the chilled displays and hot-food counter for passengers moving through the terminal.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel droid~
 Stats1     0 8 0 100 0 0
@@ -58,17 +58,15 @@ ShopData   0 0 0 0 0 120 90 0 23
 #MUDPROG
 Progtype  rand_prog~
 Arglist   11~
-Comlist   mpecho The food-service droid studies a flashing delivery alert and mutters, "Cold-chain problem in the stockroom. SAY DELIVERY if you can help."
-mpecho [Quest hint: SAY DELIVERY]
+Comlist   mpecho The food-service droid studies a flashing delivery alert and says, "Cold-chain problem in the stockroom. TALK DROID if you can help."
+mpecho [Quest hint: TALK DROID]
 ~
 #ENDPROG
 #MUDPROG
 Progtype  speech_prog~
 Arglist   delivery shipment cold-chain cold chain stockroom~
-Comlist   mpqueststart $n 2002
-if questactive(2002)
-say A chilled supplier crate arrived with a damaged temperature seal. I need the broken seal brought back for the delivery report.
-say The stockroom is staff-only, but I can open it while you check this shipment.
+Comlist   if questactive(2002)
+mpeload $n The food-service droid authorises temporary access to the staff stockroom.
 mpoload 255
 unlock north
 open north
@@ -79,7 +77,7 @@ endif
 #ENDPROG
 #MUDPROG
 Progtype  give_prog~
-Arglist   damaged cold-chain cold chain temperature seal~
+Arglist   damaged cold-chain cold chain temperature seal broken~
 Comlist   if queststage(2002) == 3
 mpechoat $n The food-service droid scans the broken seal and records its batch number.
 mpechoaround $n The food-service droid checks a damaged temperature seal against the delivery manifest.
@@ -106,8 +104,8 @@ Long       A pharmacy kiosk droid waits behind the counter.
 Desc       A small medical-retail droid manages basic first-aid and hygiene supplies for travellers passing through the terminal.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel droid~
 Stats1     0 6 0 100 0 0
@@ -130,8 +128,8 @@ Long       A small attendant droid manages the news and transit kiosk.
 Desc       A compact information droid sells local maps, transit information and current city guides to newly arrived passengers.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel droid~
 Stats1     0 5 0 100 0 0
@@ -155,11 +153,11 @@ Desc       Dressed in a dark Terran Union terminal uniform, this officer monitor
 passengers, staff doors and security feeds around the arrivals complex.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
-Stats1     0 8 0 95 0 0
+Stats1     0 8 0 100 0 0
 Stats2     2 8 8
 Stats3     1 4 0
 Stats4     0 0 1 1 0
@@ -186,11 +184,11 @@ Desc       This officer supervises the terminal screening lane, watching the sca
 readouts and keeping the flow of arriving passengers moving safely.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
-Stats1     0 8 0 95 0 0
+Stats1     0 8 0 100 0 0
 Stats2     2 8 8
 Stats3     1 4 0
 Stats4     0 0 1 1 0
@@ -215,8 +213,8 @@ Desc       Carrying a compact travel bag and looking slightly tired, this passen
 has clearly just arrived in Den Haag and is working out where to go next.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 3 0 100 10 0
@@ -239,8 +237,8 @@ Desc       The low wheeled droid carries brushes, diagnostic probes and small re
 tools for keeping the public areas of the terminal in working order.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
 Stats1     0 3 0 100 0 0
@@ -263,8 +261,8 @@ Desc       Built for routine inspections, the droid carries diagnostic sensors a
 small articulated tools for servicing doors, lights and platform fittings.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
 Stats1     0 3 0 100 0 0
@@ -289,11 +287,11 @@ Desc       Wearing a smart Terran Union customs uniform, the officer works betwe
 identity readers and baggage scanners at the international arrivals checkpoint.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
-Stats1     0 7 0 95 0 0
+Stats1     0 7 0 100 0 0
 Stats2     2 8 6
 Stats3     1 4 0
 Stats4     0 0 1 0 0
@@ -305,12 +303,6 @@ Speaking   common~
 Progtype  rand_prog~
 Arglist   7~
 Comlist   mpecho A customs officer compares a travel document with the identity scanner.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   customs~
-Comlist   say Keep your identification ready and declare restricted goods before screening.
 ~
 #ENDPROG
 #ENDMOBILE
@@ -325,8 +317,8 @@ Desc       The clerk has a live terminal map, local transport schedules and curr
 shuttle information available for newly arrived passengers.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 3 0 100 0 0
@@ -337,30 +329,6 @@ Attribs    9 10 12 10 10 14 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-#MUDPROG
-Progtype  speech_prog~
-Arglist   alpha~
-Comlist   say Alpha departures are reached through the west concourse and Alpha junction.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   bravo~
-Comlist   say Bravo departures are reached through the west concourse and Bravo junction.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   charlie~
-Comlist   say Charlie departures are reached through the east concourse and Charlie junction.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   delta~
-Comlist   say Delta departures are reached through the east concourse and Delta junction.
-~
-#ENDPROG
 #MUDPROG
 Progtype  give_prog~
 Arglist   misrouted baggage routing tag alpha transfer~
@@ -381,7 +349,7 @@ endif
 #MUDPROG
 Progtype  rand_prog~
 Arglist   8~
-Comlist   mpecho A route panel beside the information clerk reads: SAY ALPHA, SAY BRAVO, SAY CHARLIE or SAY DELTA for directions.
+Comlist   mpecho A route panel beside the information clerk reads: TALK CLERK for terminal directions and passenger services.
 ~
 #ENDPROG
 #ENDMOBILE
@@ -395,8 +363,8 @@ Desc       Equipped with a handheld passenger scanner, the attendant keeps the g
 area orderly and answers routine questions about boarding.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 4 0 100 0 0
@@ -425,8 +393,8 @@ Desc       The cleaner wears a practical service uniform and guides a compact cl
 cart between benches, bins and other high-traffic terminal fixtures.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 2 0 100 0 0
@@ -455,8 +423,8 @@ Desc       The clerk maintains the terminal's property records and stores recove
 items in numbered lockers behind the public reception desk.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 3 0 100 0 0
@@ -467,20 +435,6 @@ Attribs    9 10 12 10 10 12 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-#MUDPROG
-Progtype  speech_prog~
-Arglist   lost~
-Comlist   say If you have lost something, report the item and where you last saw it here.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   bag luggage suitcase claim~
-Comlist   say Misrouted baggage is held in the archive until its routing tag can be verified at an information centre.
-say The archive is directly north. Check the sorting trays for a tag.
-mpechoat $n [Next: NORTH; EXAMINE TAG; GET TAG.]
-~
-#ENDPROG
 #MUDPROG
 Progtype  give_prog~
 Arglist   verified baggage release slip alpha~
@@ -501,8 +455,8 @@ endif
 #MUDPROG
 Progtype  rand_prog~
 Arglist   10~
-Comlist   mpecho The Lost Property clerk checks the claim register and calls, "Missing a bag? SAY LUGGAGE and I can check the archive."
-mpecho [Quest hint: SAY LUGGAGE]
+Comlist   mpecho The Lost Property clerk checks the claim register and calls, "If you need help with recovered property, TALK CLERK."
+mpecho [Quest hint: TALK CLERK]
 ~
 #ENDPROG
 #ENDMOBILE
@@ -516,8 +470,8 @@ Desc       Still carrying a cabin bag, this passenger looks to be between the ar
 hall and one of the local shuttle connections.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 4 0 100 20 0
@@ -528,17 +482,6 @@ Attribs    10 10 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-#MUDPROG
-Progtype  speech_prog~
-Arglist   wrong bag luggage suitcase~
-Comlist   mpqueststart $n 2001
-if questactive(2001)
-say My black case was exchanged for another after the interstellar arrival.
-say Lost Property is west of Alpha Gate Junction. Ask the clerk about LUGGAGE and check their archive for the routing tag.
-mpechoat $n [Next: Find Lost Property Reception and SAY LUGGAGE.]
-endif
-~
-#ENDPROG
 #MUDPROG
 Progtype  give_prog~
 Arglist   recovered business suitcase black luggage~
@@ -556,8 +499,8 @@ endif
 #MUDPROG
 Progtype  rand_prog~
 Arglist   12~
-Comlist   mpecho A tired business traveller checks an empty claim stub and mutters, "Lost luggage again... if anyone can help, ask me about my LUGGAGE."
-mpecho [Quest hint: SAY LUGGAGE]
+Comlist   mpecho A tired business traveller checks an empty claim stub and mutters, "Lost luggage again... perhaps someone here can help."
+mpecho [Quest hint: TALK TRAVELLER]
 ~
 #ENDPROG
 #ENDMOBILE
@@ -571,8 +514,8 @@ Desc       A compact tool belt, diagnostic pad and marked service jacket identif
 technician as part of the terminal facilities team.
 ~
 Race       Human~
-Position   aggressive~
-DefPos     aggressive~
+Position   standing~
+DefPos     standing~
 Gender     neuter~
 Actflags   npc sentinel noassist~
 Stats1     0 5 0 100 0 0
@@ -615,6 +558,7 @@ Flags    inventory~
 WFlags   take~
 Values   10 0 0 0 0 0
 Stats    1 6 0 0 0
+Nutrition 7 6 3 3 4 2
 #EXDESC
 ExDescKey chicken salad sandwich~
 ExDesc Sliced chicken, leaves and a light dressing are packed between two pieces of grain bread. The wrapper carries a preparation time and a short chilled-storage notice.~
@@ -630,6 +574,7 @@ Flags    inventory~
 WFlags   take~
 Values   8 0 0 0 0 0
 Stats    1 5 0 0 0
+Nutrition 1 8 0 7 3 4
 #EXDESC
 ExDescKey fruit cup~
 ExDesc Pieces of melon, berries, citrus and apple fill a clear chilled cup. A snap lid and disposable fork keep the serving secure during travel.~
@@ -645,6 +590,7 @@ Flags    inventory~
 WFlags   take~
 Values   18 0 0 0 0 0
 Stats    2 10 1 0 0
+Nutrition 5 9 2 6 5 3
 #EXDESC
 ExDescKey grain vegetable bowl~
 ExDesc Whole grains, roasted vegetables and pulses fill a sealed heat-safe bowl. A printed label lists the ingredients and reheating instructions.~
@@ -660,6 +606,7 @@ Flags    inventory~
 WFlags   take~
 Values   14 0 0 0 0 0
 Stats    1 8 0 0 0
+Nutrition 5 8 3 5 5 3
 #EXDESC
 ExDescKey yoghurt oats breakfast pot~
 ExDesc Layers of yoghurt, rolled oats and berries fill a small lidded pot. The ingredients and preparation time are printed around the rim.~
@@ -675,6 +622,7 @@ Flags    inventory~
 WFlags   take~
 Values   10 10 0 0 0 0
 Stats    1 5 0 0 0
+Nutrition 0 0 0 0 4 12
 #EXDESC
 ExDescKey electrolyte water~
 ExDesc A clear bottle contains lightly mineralised water with added electrolytes. The seal is intact and a nutritional panel runs down one side.~
@@ -967,7 +915,7 @@ mpechoaround $n A small paper receipt slips from the travel document wallet.
 #OBJECT
 Vnum     229
 Keywords transit card pass fare card~
-Type     trash~
+Type     device~
 Short    a Den Haag transit card~
 Long     A rechargeable Den Haag transit card has been left here.~
 WFlags   take hold~
@@ -1066,7 +1014,7 @@ ExDesc The terminal presents a touch map of arrivals, customs, passenger service
 #MUDPROG
 Progtype  exa_prog~
 Arglist   100~
-Comlist   mpechoat $n The terminal map highlights Customs and Security north, Alpha-Bravo west, Charlie-Delta east, and Lost Property beyond Alpha services. A maintenance overlay marks the east security service passage.
+Comlist   mpechoat $n The terminal map highlights Customs and Security north, Alpha-Bravo west, Charlie-Delta east, and Lost Property beyond Alpha services.
 mpechoaround $n The information terminal redraws its route map.
 ~
 #ENDPROG
@@ -1239,7 +1187,7 @@ ExDesc The compact counter contains a payment terminal, staff display and recess
 #OBJECT
 Vnum     246
 Keywords misrouted baggage routing tag alpha transfer~
-Type     trash~
+Type     paper~
 Short    a misrouted baggage tag~
 Long     A narrow baggage-routing tag lies among the archive sorting trays.~
 WFlags   take hold~
@@ -1269,7 +1217,7 @@ mpechoat $n [Next: GET TAG]
 #OBJECT
 Vnum     247
 Keywords verified baggage release slip alpha~
-Type     trash~
+Type     paper~
 Short    a verified baggage release slip~
 Long     A freshly validated baggage-release slip has been printed here.~
 WFlags   take hold~
@@ -1295,29 +1243,6 @@ ExDescKey recovered business suitcase black luggage~
 ExDesc The hard black shell carries the same case number recorded on the baggage-release slip. A worn interstellar claim stub remains fixed beneath the handle.~
 #ENDEXDESC
 #ENDOBJECT
-
-#OBJECT
-Vnum     249
-Keywords faulted security sensor coupler scanner~
-Type     trash~
-Short    a faulted security sensor coupler~
-Long     A heat-marked sensor coupler lies beside an open service panel.~
-WFlags   take hold~
-Values   0 0 0 0 0 0
-Stats    1 0 0 0 0
-#EXDESC
-ExDescKey faulted security sensor coupler scanner~
-ExDesc One contact is darkened by repeated arcing and the ceramic collar has a hairline crack. The part number matches the passenger-screening sensor family.~
-#ENDEXDESC
-#MUDPROG
-Progtype  exa_prog~
-Arglist   100~
-Comlist   mpechoat $n The cracked ceramic collar and scorched contacts mark this as discarded maintenance scrap. No active work order is attached to it.
-mpechoaround $n A tiny amber diode flickers once on the discarded coupler.
-~
-#ENDPROG
-#ENDOBJECT
-
 
 #OBJECT
 Vnum     251
@@ -1417,7 +1342,7 @@ ExDesc A plain coded key carries a FOOD MARKET - STOCKROOM tag. It is an interna
 #OBJECT
 Vnum     256
 Keywords damaged cold-chain cold chain temperature seal broken~
-Type     trash~
+Type     device~
 Short    a damaged cold-chain seal~
 Long     A split green temperature seal is caught beside the chilled supplier crate.~
 WFlags   take hold~
@@ -1793,13 +1718,6 @@ Direction west~
 ToRoom    207
 Flags     isdoor closed locked~
 #ENDEXIT
-Reset O 0 249 1 212
-#MUDPROG
-Progtype  rand_prog~
-Arglist   4~
-Comlist   mpecho An amber service light flickers once behind an open east-loop access panel.
-~
-#ENDPROG
 #ENDROOM
 #ROOM
 Vnum     213
@@ -2819,7 +2737,7 @@ The public route leads west into the arrivals food market.
 #EXIT
 Direction north~
 ToRoom    253
-Flags     isdoor closed locked secret~
+Flags     isdoor closed locked~
 Key       255
 #ENDEXIT
 
@@ -2845,12 +2763,12 @@ Desc     Shelves and chilled cabinets hold reserve food-market stock.
 Dry goods fill labelled racks while prepared food stays in cold storage.
 A central bench supports stock rotation and delivery checks.
 Two locked doors divide the room from checkout and administration.
-The concealed checkout door lies south while the office remains west.
+The checkout door lies south while the office remains west.
 ~
 #EXIT
 Direction south~
 ToRoom    252
-Flags     isdoor closed locked secret~
+Flags     isdoor closed locked~
 Key       255
 #ENDEXIT
 
