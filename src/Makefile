@@ -1,7 +1,6 @@
 #This is the ZeroPoint Makefile.
 #This should be usable on pretty much any Linux system.
 #Refer to your 'man gcc' for explanations of these options
-#To compile in FreeBSD or OpenBSD, use the gmake compiler.
 
 #Change this to reflect whichever compiler you want to use.
 CC      = g++
@@ -48,7 +47,7 @@ L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c area_builder_commands.c attribute_math.c boards.c bounty.c \
-	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
+	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dialogue.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c quest.c reset.c room_metadata.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
@@ -97,10 +96,11 @@ o/clans.o: C_FLAGS += -Dload_planets=legacy_load_planets
 
 # Keep the inherited data-driven command loader intact. geography_commands.c
 # layers the Sector/Zone builder commands over it, then geography_ui_commands.c
-# owns the final load_commands() boundary for friendly show selectors and
-# showplanet parity.
+# owns the human-facing geography layer. dialogue.c becomes the final command
+# boundary and adds TALK/CHOOSE after preserving all geography bindings.
 o/tables.o: C_FLAGS += -Dload_commands=legacy_load_commands
 o/geography_commands.o: C_FLAGS += -Dload_commands=geography_load_commands
+o/geography_ui_commands.o: C_FLAGS += -Dload_commands=geography_ui_load_commands
 
 #
 # Telnet/MSDP input filtering and canonical command capacity
@@ -110,8 +110,14 @@ o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
 
 #
 # Modern quest journal owns do_quest; keep the inherited implementation link-safe.
+# Dialogue owns the final quest bootstrap and save/load boundary so persistent
+# memories travel with the modern quest state without duplicating save.c logic.
 #
 o/act_comm.o: C_FLAGS += -Ddo_quest=legacy_do_quest
+o/quest.o: C_FLAGS += \
+	-Dload_quests=quest_engine_load_quests \
+	-Dquest_save_player=quest_engine_save_player \
+	-Dquest_load_player_field=quest_engine_load_player_field
 
 #
 # Modern output flushing
