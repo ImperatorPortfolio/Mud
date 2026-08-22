@@ -8,201 +8,185 @@ Economy      0 31260569
 ResetFreq    15
 #ENDAREADATA
 
+
 #MOBILE
-Vnum       200
-Keywords   toll robot ticket token~
-Short      a ticket robot~
-Long       A robot is here collecting maglev car tokens.
+Vnum       201
+Keywords   travel supplies clerk droid robot~
+Short      a travel-supplies clerk droid~
+Long       A compact retail droid waits behind the travel-supplies counter.
 ~
-Desc       This is a plain looking robot whos only purpose day in and day out is to
-collect credits and tokens for entrance into the transit system. It
-doesn't apear that it would be useful in any other capacity.
+Desc       A practical retail droid manages luggage, communications gear and basic travel equipment for arriving passengers.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc sentinel~
-Affected   detect_invis~
-Stats1     0 5 0 95 0 0
-Stats2     1 8 1
+Actflags   npc sentinel droid~
+Stats1     0 8 0 100 0 0
+Stats2     2 8 2
 Stats3     1 4 0
 Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
+Attribs    10 14 13 12 12 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       202
+Keywords   food drink clerk droid robot~
+Short      a food-and-drink clerk droid~
+Long       A food-service droid works the arrivals market checkout.
+~
+Desc       A clean service droid manages the chilled displays and hot-food counter for passengers moving through the terminal.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Stats1     0 8 0 100 0 0
+Stats2     2 8 2
+Stats3     1 4 0
+Stats4     0 0 0 0 0
+Attribs    10 14 13 12 12 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       212
+Keywords   health convenience kiosk attendant droid robot~
+Short      a health-kiosk attendant droid~
+Long       A pharmacy kiosk droid waits behind the counter.
+~
+Desc       A small medical-retail droid manages basic first-aid and hygiene supplies for travellers passing through the terminal.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Stats1     0 6 0 100 0 0
+Stats2     2 8 2
+Stats3     1 4 0
+Stats4     0 0 0 0 0
+Attribs    10 14 13 12 12 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       211
+Keywords   news transit kiosk attendant droid robot~
+Short      a news-kiosk attendant droid~
+Long       A small attendant droid manages the news and transit kiosk.
+~
+Desc       A compact information droid sells local maps, transit information and current city guides to newly arrived passengers.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel droid~
+Stats1     0 5 0 100 0 0
+Stats2     2 8 2
+Stats3     1 4 0
+Stats4     0 0 0 0 0
+Attribs    10 14 13 12 12 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+ShopData   0 0 0 0 0 120 90 0 23
+#ENDMOBILE
+
+#MOBILE
+Vnum       203
+Keywords   terminal security officer guard~
+Short      a terminal security officer~
+Long       A terminal security officer keeps watch over the secure concourse.
+~
+Desc       Dressed in a dark Terran Union terminal uniform, this officer monitors
+passengers, staff doors and security feeds around the arrivals complex.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
+Stats1     0 8 0 95 0 0
+Stats2     2 8 8
+Stats3     1 4 0
+Stats4     0 0 1 1 0
+Attribs    12 12 12 12 12 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #MUDPROG
-Progtype  bribe_prog~
-Arglist   5~
-Comlist   mpechoat $n The robot scans your credits and allows you to pass.
-mpechoaround $n $n passes through the turnstile.
-mptransfer $n 215
+Progtype  rand_prog~
+Arglist   8~
+Comlist   mpecho The security officer checks a nearby access panel and resumes watching the concourse.
 ~
 #ENDPROG
 
 #ENDMOBILE
 
 #MOBILE
-Vnum       201
-Keywords   storekeeper hopkeeper robot~
-Short      a shopkeeper robot~
-Long       A robot is here scanning your purchaces.
-~
-Desc       This robot is a very rudimentry humanoid shape. Its voice synthesyser is
-worn out and makes a slight hissing sound when it speaks.
-~
-Race       Human~
-Position   aggressive~
-DefPos     aggressive~
-Gender     neuter~
-Actflags   npc sentinel droid~
-Stats1     0 25 0 100 0 0
-Stats2     5 6 0
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 14 13 11 11 16 10 0
-Saves      0 0 0 0 0
-Speaks     common~
-Speaking   common~
-VIPFlags   coruscant~
-ShopData   0 0 0 0 0 120 90 0 23
-#ENDMOBILE
-
-#MOBILE
-Vnum       202
-Keywords   retail robot~
-Short      a retail robot~
-Long       A retail robot is here to assist you with your purchaces.
-~
-Desc       The retail robot is similar in apearance to a standard proticol robot.
-It is fittened however with a crdit exchange terminal in its hip and
-is programmed to be an expert salesperson.
-~
-Race       Human~
-Position   aggressive~
-DefPos     aggressive~
-Gender     neuter~
-Actflags   npc sentinel droid~
-Stats1     0 10 0 95 0 0
-Stats2     2 8 2
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
-Saves      0 0 0 0 0
-Speaks     common~
-Speaking   common~
-VIPFlags   coruscant~
-ShopData   0 0 0 0 0 120 90 0 23
-#ENDMOBILE
-
-#MOBILE
-Vnum       203
-Keywords   spaceport security guard~
-Short      a spaceport security guard~
-Long       A spaceport security guard looks around the entrance.
-~
-Race       Human~
-Position   aggressive~
-DefPos     aggressive~
-Gender     neuter~
-Actflags   npc sentinel~
-Stats1     0 50 0 90 0 0
-Stats2     10 10 20
-Stats3     1 6 2
-Stats4     0 0 0 1 1
-Attribs    14 11 12 14 14 10 10 0
-Saves      0 0 0 0 0
-Speaks     common~
-Speaking   common~
-#ENDMOBILE
-
-#MOBILE
 Vnum       204
-Keywords   spaceport security guard~
-Short      a spaceport security guard~
-Long       A spaceport security guard watches the docking bays.
+Keywords   terminal security officer guard scanner~
+Short      a security screening officer~
+Long       A security screening officer watches passengers pass through the scanners.
+~
+Desc       This officer supervises the terminal screening lane, watching the scanner
+readouts and keeping the flow of arriving passengers moving safely.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc sentinel~
-Stats1     0 50 0 90 0 0
-Stats2     10 10 20
-Stats3     1 6 2
-Stats4     0 0 0 1 1
-Attribs    14 11 12 14 14 10 10 0
+Actflags   npc sentinel noassist~
+Stats1     0 8 0 95 0 0
+Stats2     2 8 8
+Stats3     1 4 0
+Stats4     0 0 1 1 0
+Attribs    12 12 12 12 12 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
+#MUDPROG
+Progtype  rand_prog~
+Arglist   8~
+Comlist   mpecho A scanner gives a soft chime as the officer waves another passenger through.
+~
+#ENDPROG
+
 #ENDMOBILE
 
-#MOBILE
-Vnum       205
-Keywords   technician~
-Short      a newly created technician~
-Long       Some god abandoned a newly created technician here.
-~
-Race       Human~
-Position   aggressive~
-DefPos     aggressive~
-Gender     neuter~
-Actflags   npc~
-Stats1     0 5 0 95 0 0
-Stats2     1 8 1
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
-Saves      0 0 0 0 0
-Speaks     common~
-Speaking   common~
-#ENDMOBILE
-
-#MOBILE
-Vnum       206
-Keywords   technician~
-Short      a technician~
-Long       A technician is readying ships for launch.
-~
-Desc       This is a young human tecnician. He is dressed in a grey worksuit that
-is smuged with greasea. Several tools hang from a belt around his
-waist.
-~
-Race       Human~
-Position   aggressive~
-DefPos     aggressive~
-Gender     male~
-Actflags   npc practice noassist~
-Stats1     0 9 0 95 0 0
-Stats2     2 8 2
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
-Saves      0 0 0 0 0
-Speaks     common~
-Speaking   common~
-#ENDMOBILE
 
 #MOBILE
 Vnum       207
-Keywords   human~
-Short      a human~
-Long       A human is sitting here waiting for his shuttle to arrive.
+Keywords   arriving traveller passenger human~
+Short      an arriving traveller~
+Long       An arriving traveller studies the terminal signs.
 ~
-Desc       This young human man is in his early twenties. He is dressed in the latest
-fashions and is clean cut. He is probably a student at the university.
+Desc       Carrying a compact travel bag and looking slightly tired, this passenger
+has clearly just arrived in Den Haag and is working out where to go next.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
-Gender     male~
+Gender     neuter~
 Actflags   npc sentinel noassist~
-Stats1     0 5 0 100 10 0
-Stats2     1 6 0
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    8 10 10 12 9 10 10 0
+Stats1     0 3 0 100 10 0
+Stats2     1 6 2
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    9 10 10 11 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
@@ -210,26 +194,23 @@ Speaking   common~
 
 #MOBILE
 Vnum       208
-Keywords   maintenance robot r2~
-Short      an maintenance robot~
-Long       maintenance robot wheels around the floor.
+Keywords   maintenance droid service droid~
+Short      a terminal maintenance droid~
+Long       A compact maintenance droid rolls between terminal fixtures.
 ~
-Desc       This common make of maintenance robot is also known as an R2 unit. It is
-a small wheeled robot designed primarily for ship maintenence and
-repair. It has an interface apendage to plug into a ships computer as
-well as several other tools hidden within its domed frame that it
-uses to preform various functions.
+Desc       The low wheeled droid carries brushes, diagnostic probes and small repair
+tools for keeping the public areas of the terminal in working order.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc wimpy noassist droid~
-Stats1     0 5 0 95 0 0
-Stats2     1 8 1
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
+Actflags   npc sentinel noassist droid~
+Stats1     0 3 0 100 0 0
+Stats2     1 6 2
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    8 12 10 12 12 6 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
@@ -237,91 +218,247 @@ Speaking   common~
 
 #MOBILE
 Vnum       209
-Keywords   maintenance robot r2~
-Short      an maintenance robot~
-Long       maintenance robot wheels around the floor.
+Keywords   maintenance droid service droid~
+Short      a terminal service droid~
+Long       A terminal service droid quietly checks the platform equipment.
 ~
-Desc       This common make of maintenance robot is also known as an R2 unit. It is
-a small wheeled robot designed primarily for ship maintenence and
-repair. It has an interface apendage to plug into a ships computer as
-well as several other tools hidden within its domed frame that it
-uses to preform various functions.
+Desc       Built for routine inspections, the droid carries diagnostic sensors and
+small articulated tools for servicing doors, lights and platform fittings.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc wimpy noassist droid~
-Stats1     0 5 0 95 0 0
-Stats2     1 8 1
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 16 12 14 12 9 10 0
+Actflags   npc sentinel noassist droid~
+Stats1     0 3 0 100 0 0
+Stats2     1 6 2
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    8 12 10 12 12 6 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #ENDMOBILE
 
+
+
 #MOBILE
-Vnum       210
-Keywords   begger~
-Short      a begger~
-Long       A small child begs for money.
+Vnum       213
+Keywords   customs officer arrivals official~
+Short      a customs officer~
+Long       A customs officer checks arriving passengers and their declarations.
+~
+Desc       Wearing a smart Terran Union customs uniform, the officer works between
+identity readers and baggage scanners at the international arrivals checkpoint.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc sentinel practice~
+Actflags   npc sentinel noassist~
+Stats1     0 7 0 95 0 0
+Stats2     2 8 6
+Stats3     1 4 0
+Stats4     0 0 1 0 0
+Attribs    11 12 13 11 11 12 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  rand_prog~
+Arglist   7~
+Comlist   mpecho A customs officer compares a travel document with the identity scanner.
+~
+#ENDPROG
+#MUDPROG
+Progtype  speech_prog~
+Arglist   customs~
+Comlist   say Keep your identification ready and declare restricted goods before screening.
+~
+#ENDPROG
+#ENDMOBILE
+
+#MOBILE
+Vnum       214
+Keywords   information clerk terminal assistant~
+Short      a terminal information clerk~
+Long       A terminal information clerk waits behind the information counter.
+~
+Desc       The clerk has a live terminal map, local transport schedules and current
+shuttle information available for newly arrived passengers.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
+Stats1     0 3 0 100 0 0
+Stats2     1 6 2
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    9 10 12 10 10 14 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   alpha~
+Comlist   say Alpha departures are reached through the west concourse and Alpha junction.
+~
+#ENDPROG
+#MUDPROG
+Progtype  speech_prog~
+Arglist   bravo~
+Comlist   say Bravo departures are reached through the west concourse and Bravo junction.
+~
+#ENDPROG
+#MUDPROG
+Progtype  speech_prog~
+Arglist   charlie~
+Comlist   say Charlie departures are reached through the east concourse and Charlie junction.
+~
+#ENDPROG
+#MUDPROG
+Progtype  speech_prog~
+Arglist   delta~
+Comlist   say Delta departures are reached through the east concourse and Delta junction.
+~
+#ENDPROG
+#ENDMOBILE
+
+#MOBILE
+Vnum       215
+Keywords   shuttle attendant gate attendant~
+Short      a shuttle gate attendant~
+Long       A shuttle attendant watches the boarding lane and departure display.
+~
+Desc       Equipped with a handheld passenger scanner, the attendant keeps the gate
+area orderly and answers routine questions about boarding.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
+Stats1     0 4 0 100 0 0
+Stats2     1 6 3
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    10 10 11 10 10 13 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  rand_prog~
+Arglist   7~
+Comlist   mpecho The gate attendant checks the departure display and straightens the boarding lane.
+~
+#ENDPROG
+#ENDMOBILE
+
+#MOBILE
+Vnum       216
+Keywords   cleaner terminal cleaner attendant~
+Short      a terminal cleaner~
+Long       A terminal cleaner works methodically through the public area.
+~
+Desc       The cleaner wears a practical service uniform and guides a compact cleaning
+cart between benches, bins and other high-traffic terminal fixtures.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
 Stats1     0 2 0 100 0 0
-Stats2     1 6 0
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    8 10 10 12 9 10 10 0
+Stats2     1 6 1
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    9 9 10 10 10 9 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #MUDPROG
-Progtype  entry_prog~
-Arglist   50~
-Comlist   say Spare some change?
+Progtype  rand_prog~
+Arglist   6~
+Comlist   mpecho The cleaner wipes down a nearby surface and checks the recycling station.
 ~
 #ENDPROG
-
-#MUDPROG
-Progtype  all_greet_prog~
-Arglist   50~
-Comlist   look $n
-say Spare some change?
-~
-#ENDPROG
-
-#MUDPROG
-Progtype  bribe_prog~
-Arglist   1~
-Comlist   say thank you.
-bow $n
-~
-#ENDPROG
-
 #ENDMOBILE
 
 #MOBILE
-Vnum       225
-Keywords   mobmarker~
-Short      a newly created mobmarker~
-Long       Some god abandoned a newly created mobmarker here.
+Vnum       217
+Keywords   lost found clerk property clerk~
+Short      a lost-and-found clerk~
+Long       A lost-and-found clerk sorts tagged property behind the counter.
+~
+Desc       The clerk maintains the terminal's property records and stores recovered
+items in numbered lockers behind the public reception desk.
 ~
 Race       Human~
 Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
-Actflags   npc~
-Stats1     0 1 0 100 0 0
-Stats2     1 6 0
-Stats3     1 4 0
-Stats4     0 0 0 0 0
-Attribs    10 11 11 10 10 11 10 0
+Actflags   npc sentinel noassist~
+Stats1     0 3 0 100 0 0
+Stats2     1 6 2
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    9 10 12 10 10 12 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#MUDPROG
+Progtype  speech_prog~
+Arglist   lost~
+Comlist   say If you have lost something, report the item and where you last saw it here.
+~
+#ENDPROG
+#ENDMOBILE
+
+#MOBILE
+Vnum       218
+Keywords   tired traveller passenger business traveller~
+Short      a tired business traveller~
+Long       A tired business traveller checks a departure board.
+~
+Desc       Still carrying a cabin bag, this passenger looks to be between the arrivals
+hall and one of the local shuttle connections.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
+Stats1     0 4 0 100 20 0
+Stats2     1 6 3
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    10 10 11 10 10 11 10 0
+Saves      0 0 0 0 0
+Speaks     common~
+Speaking   common~
+#ENDMOBILE
+
+#MOBILE
+Vnum       219
+Keywords   terminal technician maintenance technician~
+Short      a terminal maintenance technician~
+Long       A maintenance technician checks the nearby terminal systems.
+~
+Desc       A compact tool belt, diagnostic pad and marked service jacket identify this
+technician as part of the terminal facilities team.
+~
+Race       Human~
+Position   aggressive~
+DefPos     aggressive~
+Gender     neuter~
+Actflags   npc sentinel noassist~
+Stats1     0 5 0 100 0 0
+Stats2     1 8 4
+Stats3     1 3 0
+Stats4     0 0 1 0 0
+Attribs    10 11 13 10 11 9 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
@@ -351,14 +488,14 @@ Stats    1 2 0 0 0
 
 #OBJECT
 Vnum     202
-Keywords some beat up sneakers~
+Keywords travel shoes sneakers footwear~
 Type     armor~
-Short    some beat up sneakers~
-Long     Some beat up sneakers really stink.~
-Flags    human_size~
+Short    a pair of comfortable travel shoes~
+Long     A practical pair of comfortable travel shoes is displayed here.~
+Flags    human_size inventory~
 WFlags   take feet~
 Values   0 3 0 0 0 0
-Stats    1 2 0 0 0
+Stats    1 20 2 0 0
 #ENDOBJECT
 
 #OBJECT
@@ -451,35 +588,392 @@ Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
+#OBJECT
+Vnum     209
+Keywords den haag transit map city map~
+Type     map~
+Short    a Den Haag transit map~
+Long     A folded Den Haag transit map shows the city's main passenger routes.~
+Flags    inventory~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 10 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     211
+Keywords den haag city guide travel guide~
+Type     book~
+Short    a Den Haag city guide~
+Long     A compact city guide introduces the districts, services and major landmarks of Den Haag.~
+Flags    inventory~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 12 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     212
+Keywords transit timetable arrivals schedule~
+Type     book~
+Short    an arrivals transit timetable~
+Long     A pocket timetable lists the main shuttle and surface-transit connections from the terminal.~
+Flags    inventory~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 5 0 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     213
+Keywords compact travel bag luggage carry bag~
+Type     container~
+Short    a compact travel bag~
+Long     A compact soft-sided travel bag is sized for carry-on luggage.~
+Flags    inventory~
+WFlags   take about~
+Values   30 0 0 0 0 0
+Stats    2 35 3 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     214
+Keywords pocket toolkit travel tools~
+Type     toolkit~
+Short    a pocket toolkit~
+Long     A small general-purpose toolkit contains the basic implements useful to a traveller.~
+Flags    inventory~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    2 60 6 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     215
+Keywords replacement battery power cell travel~
+Type     battery~
+Short    a replacement power cell~
+Long     A sealed replacement power cell is packaged for common personal electronics.~
+Flags    inventory~
+WFlags   take hold~
+Values   50 0 0 0 0 0
+Stats    1 25 2 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     216
+Keywords travel comlink communicator radio~
+Type     comlink~
+Short    a basic travel comlink~
+Long     A simple hand-held comlink is packaged for travellers who need a local communicator.~
+Flags    inventory~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 50 5 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     217
+Keywords compact medpac first aid travel~
+Type     medpac~
+Short    a compact travel medpac~
+Long     A sealed compact medpac contains basic emergency first-aid supplies.~
+Flags    inventory~
+WFlags   take hold~
+Values   5 0 0 0 0 0
+Stats    1 75 7 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     218
+Keywords hygiene kit toiletries travel~
+Type     trash~
+Short    a sealed hygiene kit~
+Long     A sealed hygiene kit contains basic toiletries for a short journey.~
+Flags    inventory~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 15 1 0 0
+#ENDOBJECT
+#OBJECT
+Vnum     219
+Keywords sanitary wipes travel wipes~
+Type     trash~
+Short    a pack of sanitary wipes~
+Long     A small sealed pack of sanitary wipes is intended for travellers on the move.~
+Flags    inventory~
+WFlags   take~
+Values   0 0 0 0 0 0
+Stats    1 5 0 0 0
+#ENDOBJECT
+
+
+#OBJECT
+Vnum     220
+Keywords terminal bench seating seats~
+Type     furniture~
+Short    a row of terminal benches~
+Long     A row of durable terminal benches provides seating for waiting passengers.~
+Values   0 0 0 0 0 0
+Stats    20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     221
+Keywords display departures arrivals flight information screen~
+Type     furniture~
+Short    a live departure display~
+Long     A large display cycles through arrivals, departures and gate information.~
+Values   0 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     222
+Keywords customs scanner identity baggage inspection~
+Type     furniture~
+Short    a customs inspection scanner~
+Long     A combined identity and baggage scanner stands ready at the customs desk.~
+Values   0 0 0 0 0 0
+Stats    30 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     223
+Keywords security scanner arch screening gate~
+Type     furniture~
+Short    a security scanner arch~
+Long     A slim security scanner arch spans the passenger screening lane.~
+Values   0 0 0 0 0 0
+Stats    30 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     224
+Keywords luggage trolley cart baggage~
+Type     furniture~
+Short    a luggage trolley~
+Long     A compact luggage trolley waits beside the passenger route.~
+Values   0 0 0 0 0 0
+Stats    15 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     226
+Keywords recycling station bin waste~
+Type     furniture~
+Short    a recycling station~
+Long     A labelled recycling station is built into the terminal wall.~
+Values   0 0 0 0 0 0
+Stats    10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     227
+Keywords suitcase luggage case hard shell~
+Type     container~
+Short    a hard-shell suitcase~
+Long     A compact hard-shell suitcase has been placed here.~
+WFlags   take~
+Values   25 0 0 0 0 0
+Stats    4 35 5 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     228
+Keywords document wallet passport holder travel~
+Type     container~
+Short    a travel document wallet~
+Long     A slim travel document wallet rests here.~
+WFlags   take~
+Values   5 0 0 0 0 0
+Stats    1 15 2 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     229
+Keywords transit card pass fare card~
+Type     trash~
+Short    a Den Haag transit card~
+Long     A rechargeable Den Haag transit card has been left here.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     230
+Keywords directional sign terminal wayfinding~
+Type     furniture~
+Short    a terminal wayfinding sign~
+Long     A clear wayfinding sign points toward customs, services and shuttle gates.~
+Values   0 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     231
+Keywords vending machine refreshments terminal~
+Type     furniture~
+Short    an automated vending unit~
+Long     A compact vending unit offers basic drinks and packaged snacks.~
+Values   0 0 0 0 0 0
+Stats    25 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     232
+Keywords charging station device power terminal~
+Type     furniture~
+Short    a public charging station~
+Long     A public charging station provides secure power sockets for personal devices.~
+Values   0 0 0 0 0 0
+Stats    20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     233
+Keywords cleaning cart supplies janitor~
+Type     container~
+Short    a terminal cleaning cart~
+Long     A service cart carries cleaning supplies and replacement liners.~
+Values   30 0 0 0 0 0
+Stats    15 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     234
+Keywords information terminal map directory kiosk~
+Type     furniture~
+Short    an interactive information terminal~
+Long     An interactive terminal displays maps, transport links and gate information.~
+Values   0 0 0 0 0 0
+Stats    15 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     235
+Keywords baggage scale luggage weighing~
+Type     furniture~
+Short    a baggage scale~
+Long     A low baggage scale is set into the floor beside the service counter.~
+Values   0 0 0 0 0 0
+Stats    20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     236
+Keywords boarding barrier gate lane divider~
+Type     furniture~
+Short    a retractable boarding barrier~
+Long     Retractable barriers form an orderly lane leading toward the shuttle gate.~
+Values   0 0 0 0 0 0
+Stats    10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     237
+Keywords drinking fountain water fountain~
+Type     fountain~
+Short    a drinking fountain~
+Long     A clean drinking fountain is recessed into the terminal wall.~
+Values   1000 1000 0 0 0 0
+Stats    10 0 0 0 0
+Nutrition 0 0 0 0 1 10
+#ENDOBJECT
+
+#OBJECT
+Vnum     238
+Keywords security tray baggage tray scanner~
+Type     container~
+Short    a security screening tray~
+Long     A shallow screening tray waits beside the security scanner.~
+Values   20 0 0 0 0 0
+Stats    2 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     239
+Keywords lost property locker lockers storage~
+Type     container~
+Short    a bank of lost-property lockers~
+Long     Numbered secure lockers hold property recovered around the terminal.~
+Values   100 0 0 0 0 0
+Stats    40 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     240
+Keywords hand dryer dryer sanitary~
+Type     furniture~
+Short    an automatic hand dryer~
+Long     A touch-free hand dryer is mounted beside the wash area.~
+Values   0 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     241
+Keywords wash basin sink sanitary~
+Type     furniture~
+Short    a wash basin~
+Long     A clean sensor-operated wash basin is built into the counter.~
+Values   0 0 0 0 0 0
+Stats    10 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     242
+Keywords gate placard shuttle sign alpha bravo charlie delta~
+Type     furniture~
+Short    a shuttle gate placard~
+Long     A bright gate placard shows the current shuttle boarding information.~
+Values   0 0 0 0 0 0
+Stats    5 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     243
+Keywords retail shelving shelf merchandise~
+Type     furniture~
+Short    a bank of retail shelving~
+Long     Neat modular shelving displays compact travel-sized merchandise.~
+Values   0 0 0 0 0 0
+Stats    20 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     244
+Keywords refrigerated display cooler food drinks~
+Type     furniture~
+Short    a refrigerated food display~
+Long     A chilled display keeps prepared meals, fruit and drinks ready for travellers.~
+Values   0 0 0 0 0 0
+Stats    30 0 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     245
+Keywords service counter checkout kiosk counter~
+Type     furniture~
+Short    a compact service counter~
+Long     A compact counter contains a payment terminal and small customer display.~
+Values   0 0 0 0 0 0
+Stats    20 0 0 0 0
+#ENDOBJECT
+
 #ROOM
 Vnum     200
-Name     A Small Shuttle~
+Name     A Small Interstellar Shuttle~
 Sector   city~
 Flags    nomob indoors~
-Desc     You stand inside a small shuttlecraft that flies between Earth's
-The Hague Interstellar Terminal and An Orbitting Shipyard. There are several plastic
-covered seats along the walls but passengers are mostly expected to
-stand for the brief journey.
-Type LEAVE to exit after the ship lands.
-
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+Desc     This compact passenger shuttle is built for short transfer hops between Den Haag
+Arrivals and nearby orbital traffic. Rows of crash-rated seats line the cabin beneath
+overhead handholds, while sealed viewports frame the terminal beyond.
 ~
 #ENDROOM
-
 #ROOM
 Vnum     201
-Name     &#5b91a6I&#879e91n&#b3ab7dt&#d4b46de&#c9b172r&#beae77s&#b3ab7dt&#a8a882e&#9da487l&#92a18cl&#879e91a&#7c9b96r&#71979c &#6694a1S&#5b91a6h&#6694a1u&#71979ct&#7c9b96t&#879e91l&#92a18ce&#9da487 &#a8a882P&#b3ab7dl&#beae77a&#c9b172t&#d4b46df&#b3ab7do&#879e91r&#5b91a6m &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6I&#6494a2n&#6e979dt&#779999e&#819c94r&#8a9f90s&#93a28bt&#9da487e&#a6a782l&#afaa7el&#b9ad79a&#c2af75r &#ccb270S&#d5b56ch&#ccb270u&#c2af75t&#b9ad79t&#afaa7el&#a6a782e &#9da487P&#93a28bl&#8a9f90a&#819c94t&#779999f&#6e979do&#6494a2r&#5b91a6m &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
-Desc     This platform is reserved for the publicly funded tour shuttle, the
-Serin Pluogus. The rest of the The Hague Interstellar Terminal is to the west and
-north of here.  Around the rest of the platform you can view the
-southern reaches of Directorate  City ( a rather inapropriate name as
-Earth has been the governing seat  of Terran Union for over
-20 years ). To the south tower the Scheveningen Arcology Ridge.
-When the pluogus lands type BOARD PLUOGUS to enter.
+Desc     A reinforced passenger platform serves interstellar shuttle arrivals beneath articulated
+docking arms and pressure-rated boarding equipment. Floor markings keep arriving
+passengers moving clear of the active berth.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+The only exit leads north to Interstellar Arrival Gangway.
 ~
 #EXIT
 Direction north~
@@ -488,24 +982,21 @@ ToRoom    202
 
 Reset M 0 209 1 201
 Reset O 0 203 1 201
+Reset O 0 220 1 201
+Reset O 0 221 1 201
+Reset O 0 236 1 201
 #ENDROOM
-
 #ROOM
 Vnum     202
-Name     &#5b91a6A&#baad79 &#c5b074L&#aea97fo&#96a28an&#7e9b95g&#6794a0 G&#7e9b95a&#96a28an&#aea97fg&#c5b074w&#baad79a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6I&#6594a1n&#6f979dt&#789a98e&#829d93r&#8c9f8fs&#96a28at&#9fa586e&#a9a881l&#b3ab7cl&#bdae78a&#c6b173r &#d0b46eA&#d0b46er&#c6b173r&#bdae78i&#b3ab7cv&#a9a881a&#9fa586l &#96a28aG&#8c9f8fa&#829d93n&#789a98g&#6f979dw&#6594a1a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
-Desc     This platform is reserved for shuttles flying between The Hague Interstellar Terminal
-and orbitting space stations. The rest of the The Hague Interstellar Terminal is to
-the south-east and  north of here.  Around the rest of the platform
-you can view the southern reaches of Directorate  City ( a rather
-inapropriate name as Earth has been the governing seat  of the
-Terran Union for over 20 years ). To the south tower the Scheveningen
-Mountains.
- 
-Wait here for the shipyard ferry. When it lands BOARD FERRY.
+Desc     A sealed, gently sloping gangway carries passengers away from the shuttle platform
+through a ribbed transparisteel tube. Soft guide lights and arrival signage direct foot
+traffic toward the terminal.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to Interstellar Shuttle Waiting Area, and south to
+Interstellar Shuttle Platform.
 ~
 #EXIT
 Direction north~
@@ -519,20 +1010,17 @@ ToRoom    201
 
 Reset M 0 208 1 202
 #ENDROOM
-
 #ROOM
 Vnum     203
-Name     &#5b91a6A&#96a28a &#d0b36fS&#c9b172h&#baad79u&#aca980t&#9da487t&#8ea08el&#809c95e&#71979c &#6293a3Wa&#71979ci&#809c95t&#8ea08ei&#9da487n&#aca980g&#baad79 &#c9b172A&#d0b36fr&#96a28ae&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6I&#6393a2n&#6c969et&#74989ae&#7d9b96r&#859d92s&#8da08et&#96a28ae&#9ea586l&#a7a782l&#afaa7ea&#b8ac7ar &#c0af76S&#c8b172h&#d1b46eu&#d1b46et&#c8b172t&#c0af76l&#b8ac7ae &#afaa7eW&#a7a782a&#9ea586i&#96a28at&#8da08ei&#859d92n&#7d9b96g &#74989aA&#6c969er&#6393a2e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
-Desc     This is the main platform in the The Hague Interstellar Terminal. All kinds of ships
-are docked here. There are even a few that can be rented. The rest of
-the spaceport is to the north. Around it is the southern end of
-Directorate City ( or The Hague Government Quarter ) which covers a good portion of
-the planet. To the south is a beautiful view of the Scheveningen Arcology
-Range.
+Desc     Rows of durable seats and standing rails form a compact waiting area between the shuttle
+berth and the main arrivals route. Information panels display docking status, customs
+notices and onward connections.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to Main Arrivals Gangway, and south to Interstellar Arrival
+Gangway.
 ~
 #EXIT
 Direction north~
@@ -544,24 +1032,28 @@ Direction south~
 ToRoom    202
 #ENDEXIT
 
-Reset M 0 206 2 203
-Reset M 0 206 2 203
+Reset M 0 218 2 203
+Reset O 0 220 1 203
+Reset O 0 221 1 203
+Reset O 0 224 1 203
+#MUDPROG
+Progtype  rand_prog~
+Arglist   4~
+Comlist   mpecho A departure display updates with a quiet tone above the waiting seats.
+~
+#ENDPROG
 #ENDROOM
-
 #ROOM
 Vnum     204
-Name     &#5b91a6A&#baad79 &#c5b074L&#aea97fo&#96a28an&#7e9b95g&#6794a0 G&#7e9b95a&#96a28an&#aea97fg&#c5b074w&#baad79a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6M&#6995a0a&#769999i&#849d93n &#91a18cA&#9fa586r&#aca97fr&#baad79i&#c7b172v&#d5b56ca&#c7b172l&#baad79s &#aca97fG&#9fa586a&#91a18cn&#849d93g&#769999w&#6995a0a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
-Desc     From the platform area of the spaceport you have an excellent view of
-the Scheveningen Arcology Ridge to the south. This large mountain range marks
-the southern limit of The Hague Government Quarter. The air is cool here and
-tastes cleaner than that  of the rest of the planet. It would be
-quite peaceful here watching spaceships take off against the
-backgound of the snow capped mountains. The main platform is to the
-south of here. A walkway leads north into the spaceport.
+Desc     This broad enclosed gangway links the interstellar waiting area with the terminal's main
+arrivals concourse. Glazed side panels look across service lanes and the lower docking
+apron.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to Arrivals Concourse Junction, and south to Interstellar
+Shuttle Waiting Area.
 ~
 #EXIT
 Direction north~
@@ -573,21 +1065,18 @@ Direction south~
 ToRoom    203
 #ENDEXIT
 
-Reset M 0 204 2 204
-Reset M 0 204 2 204
 #ENDROOM
-
 #ROOM
 Vnum     205
-Name     &#5b91a6A&#7b9a97p&#9aa388p&#baad79r&#d5b56co&#cdb270a&#c5b074c&#beae78h&#b6ac7bi&#aea97fn&#a6a783g&#9ea586 &#96a28at&#8ea08eh&#869e92e&#7e9b95 &#779999I&#6f979dn&#6794a0t&#5f92a4er&#6794a0s&#6f979dt&#779999e&#7e9b95l&#869e92l&#8ea08ea&#96a28ar&#9ea586 &#a6a783S&#aea97fh&#b6ac7bu&#beae78t&#c5b074t&#cdb270l&#d5b56ce&#baad79 &#9aa388P&#7b9a97a&#5b91a6d &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6A&#6594a1r&#6f979cr&#7a9a98i&#849d93v&#8ea08ea&#98a389l&#a2a684s &#aca97fC&#b6ac7ao&#c1af76n&#cbb271c&#d5b56co&#cbb271u&#c1af76r&#b6ac7as&#aca97fe &#a2a684J&#98a389u&#8ea08en&#849d93c&#7a9a98t&#6f979ci&#6594a1o&#5b91a6n &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The walkway is a long corridor enclosed in transpariplast windows.
-Through the windows you can see that the spaceport is surrounded by
-mountains to the south and a seemongly endless city that stretches
-out in all other directions.
+Desc     Several passenger routes meet at this busy junction just inside the arrivals complex.
+Overhead signs divide traffic between the central hall, information services and the
+shuttle wings.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to Central Arrivals Hall, east to East Information Booth,
+south to Main Arrivals Gangway, and west to West Information Booth.
 ~
 #EXIT
 Direction north~
@@ -609,27 +1098,19 @@ Direction west~
 ToRoom    222
 #ENDEXIT
 
-Reset M 0 210 2 205
-  Reset E 1 332 1 5
-  Reset G 1 3 1
-  Reset E 1 202 1 8
-Reset M 0 210 2 205
-  Reset E 1 332 1 5
-  Reset E 1 202 1 8
 #ENDROOM
-
 #ROOM
 Vnum     206
-Name     &#5b91a6H&#a3a684a&#d1b36fa&#beae77g&#aca980 &#9aa488A&#889e91r&#769999r&#6494a2iv&#769999a&#889e91l&#9aa488s&#aca980 &#beae77A&#d1b36fr&#a3a684e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6C&#6995a0e&#769999n&#849d93t&#91a18cr&#9fa586a&#aca97fl &#baad79A&#c7b172r&#d5b56cr&#c7b172i&#baad79v&#aca97fa&#9fa586l&#91a18cs &#849d93H&#769999a&#6995a0l&#5b91a6l &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This large room is filled with benches and chairs. Most are arranged
-in rows or around small islands of plants. Some however are arranged
-in small groups  facing each other. Scattered amidst the seats are
-many tables housing abandoned magazines. There is a projection display showing
-an old movie in one corner of the room.
+Desc     The central arrivals hall opens into a high, bright concourse filled with wayfinding
+displays, seating islands and streams of newly arrived passengers. The hall distributes
+traffic toward customs, both shuttle wings and the main interstellar approach.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to Customs Checkpoint, east to North-East Arrivals Waiting
+Area, south to Arrivals Concourse Junction, and west to North-West Arrivals Waiting
+Area.
 ~
 #EXIT
 Direction north~
@@ -654,20 +1135,33 @@ ToRoom    214
 Reset M 0 207 2 206
 Reset M 0 207 2 206
 Reset O 0 10315 1 206
+Reset M 0 216 1 206
+Reset O 0 220 1 206
+Reset O 0 221 1 206
+Reset O 0 224 1 206
+Reset O 0 226 1 206
+Reset O 0 230 1 206
+Reset O 0 232 1 206
+Reset O 0 233 1 206
+Reset O 0 237 1 206
+#MUDPROG
+Progtype  rand_prog~
+Arglist   6~
+Comlist   mpecho A calm announcement rolls across the arrivals hall, listing shuttle connections and local transit.
+~
+#ENDPROG
 #ENDROOM
-
 #ROOM
 Vnum     207
-Name     &#5b91a6C&#a3a684u&#d1b36fs&#beae77t&#aca980o&#9aa488m&#889e91s&#769999 &#6494a2Ch&#769999e&#889e91c&#9aa488k&#aca980p&#beae77o&#d1b36fi&#a3a684n&#5b91a6t &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6C&#6a969fu&#7a9a98s&#899e90t&#98a389o&#a7a882m&#b6ac7as &#c6b073C&#d5b56ch&#c6b073e&#b6ac7ac&#a7a882k&#98a389p&#899e90o&#7a9a98i&#6a969fn&#5b91a6t &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The spaceport cafe is a good sized self-serve cafeteria. There is a
-long counter with many snack type foods and small instant meals. A
-drink dispenser is at one end and at the other a robot teller handles
-the credit transactions. There are a many tables along the walls and
-a several in the center of the room.
+Desc     Inspection desks, biometric scanners and declaration lanes fill the customs checkpoint.
+Passengers are channelled through controlled lanes before they can continue deeper into
+the terminal.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to Security Gate, east to East Security Corridor, south to
+Central Arrivals Hall, and west to West Security Corridor.
 ~
 #EXIT
 Direction north~
@@ -691,29 +1185,27 @@ ToRoom    213
 Keywords  locked~
 #ENDEXIT
 
-Reset M 0 202 1 207
-  Reset G 1 305 1
-  Reset G 1 304 1
-  Reset G 1 32207 1
-  Reset G 1 201 1
-  Reset G 1 204 1
-  Reset G 1 205 1
-  Reset G 1 206 1
-  Reset G 1 207 1
-  Reset G 1 208 1
+Reset M 0 213 2 207
+Reset O 0 222 1 207
+Reset O 0 224 1 207
+#MUDPROG
+Progtype  rand_prog~
+Arglist   5~
+Comlist   mpecho The customs queue advances as another set of travel documents is cleared.
+~
+#ENDPROG
 #ENDROOM
-
 #ROOM
 Vnum     208
-Name     &#5b91a6S&#c2af76ec&#a8a882u&#8ea08er&#75999ai&#5b91a6t&#75999ay&#8ea08e &#a8a882G&#c2af76at&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6S&#71989be&#879e91c&#9ea586u&#b4ab7cr&#cab271i&#cab271t&#b4ab7cy &#9ea586G&#879e91a&#71989bt&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    nomob indoors donation~
-Desc     The lost and found is a small plain room. There is a bin of clothing,
-a table with several small boxes, a couple of large boxes and several
-suitcases lined up against the wall. Some of the stuff has been
-collecting dust for quite some time.
+Flags    nomob indoors~
+Desc     A bank of security arches and identity scanners forms the final controlled barrier
+between customs and the landside terminal. Security staff can divert passengers into
+offices and side corridors without blocking the main route.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to Landside Arrivals Exit, east to East Security Office,
+south to Customs Checkpoint, and west to West Security Office.
 ~
 #EXIT
 Direction north~
@@ -737,20 +1229,27 @@ ToRoom    211
 Flags     window~
 #ENDEXIT
 
-Reset O 0 210 1 208
+Reset M 0 204 2 208
+Reset O 0 223 1 208
+Reset O 0 238 3 208
+Reset O 0 230 1 208
+#MUDPROG
+Progtype  rand_prog~
+Arglist   5~
+Comlist   mpecho A security scanner chirps softly before its indicator returns to green.
+~
+#ENDPROG
 #ENDROOM
-
 #ROOM
 Vnum     209
-Name     &#5b91a6O&#8ea08eu&#c2af76t&#ceb370s&#c2af76i&#b5ab7cd&#a8a882e&#9ba488 &#8ea08eT&#819c94h&#75999ae&#6895a0 &#5b91a6A&#6895a0r&#75999ar&#819c94i&#8ea08ev&#9ba488a&#a8a882l&#b5ab7cs&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6L&#6895a0a&#75999an&#829c94d&#8ea08es&#9ba487i&#a8a881d&#b5ac7be &#c2af75A&#cfb36fr&#cfb36fr&#c2af75i&#b5ac7bv&#a8a881a&#9ba487l&#8ea08es &#829c94E&#75999ax&#6895a0i&#5b91a6t &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The The Hague Interstellar Terminal lobby is a large open room with a transparisteel
-ceiling. The floor is a polished white with a black fractal pattern.
-There is a ticket booth in one corner of the room. An escalater in
-the opposite corner leads down.
+Desc     Beyond the controlled arrivals zone, the terminal opens into the public landside
+concourse. Transport signs, meeting points and city information boards face arriving
+travellers as they leave border control.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+The only exit leads south to Security Gate.
 ~
 #EXIT
 Direction south~
@@ -758,19 +1257,19 @@ ToRoom    208
 #ENDEXIT
 
 Reset O 0 32201 1 209
+Reset O 0 224 1 209
+Reset O 0 226 1 209
 #ENDROOM
-
 #ROOM
 Vnum     210
-Name     &#5b91a6A&#93a18c &#cbb271Sm&#bdae78a&#afaa7el&#a1a585l&#93a18c &#859d92S&#779999e&#69959fc&#5b91a6u&#69959fr&#779999i&#859d92t&#93a18cy&#a1a585 &#afaa7eO&#bdae78f&#cbb271fi&#93a18cc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6E&#69959fa&#789998s&#869e92t &#94a28bS&#a3a684e&#b1aa7dc&#bfaf76u&#ceb36fr&#ceb36fi&#bfaf76t&#b1aa7dy &#a3a684O&#94a28bf&#869e92f&#789998i&#69959fc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The entranceway of the Scheveningen Arcology Ridge Spaceport is a large wide
-staicase  leading from the walkway outside down to the spaceport
-lobby. A large set of double doors opens and closes automaticly as
-people approach.
+Desc     This compact office overlooks the eastern side of the security gate through reinforced
+observation glass. Workstations, evidence lockers and a small interview desk support
+security staff assigned to the checkpoint.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead south to East Security Corridor, and west to Security Gate.
 ~
 #EXIT
 Direction south~
@@ -785,20 +1284,16 @@ Flags     window~
 
 Reset M 0 203 1 210
 #ENDROOM
-
 #ROOM
 Vnum     211
-Name     &#5b91a6A&#93a18c &#cbb271Sm&#bdae78a&#afaa7el&#a1a585l&#93a18c &#859d92S&#779999e&#69959fc&#5b91a6u&#69959fr&#779999i&#859d92t&#93a18cy&#a1a585 &#afaa7eO&#bdae78f&#cbb271fi&#93a18cc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6W&#69959fe&#789998s&#869e92t &#94a28bS&#a3a684e&#b1aa7dc&#bfaf76u&#ceb36fr&#ceb36fi&#bfaf76t&#b1aa7dy &#a3a684O&#94a28bf&#869e92f&#789998i&#69959fc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    nomob indoors safe hotel~
-Desc     The The Hague Interstellar Terminal Hotel is attached directly to the lobby of
-spaceport allowing travelers to find quick lodgings after a long
-journey. The rooms here are well kept although a bit pricy. It would
-be a good safe place to rest for a while.
+Flags    nomob indoors~
+Desc     This compact office overlooks the western side of the security gate through reinforced
+observation glass. Duty terminals and secure storage give officers a quiet place to
+handle incidents away from the public lanes.
 
-You may safely leave and reenter the game from here.
-
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead east to Security Gate, and south to West Security Corridor.
 ~
 #EXIT
 Direction east~
@@ -811,64 +1306,64 @@ Direction south~
 ToRoom    213
 #ENDEXIT
 
-Reset O 0 38 1 211
+Reset M 0 203 2 211
 #ENDROOM
-
 #ROOM
 Vnum     212
-Name     &#5b91a6A&#8ea08e &#c2af76S&#ceb370m&#c2af76a&#b5ab7cl&#a8a882l&#9ba488 &#8ea08eS&#819c94e&#75999ac&#6895a0u&#5b91a6r&#6895a0i&#75999at&#819c94y&#8ea08e &#9ba488C&#a8a882o&#b5ab7cr&#c2af76i&#ceb370d&#c2af76o&#8ea08eo&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6E&#6895a0a&#75999as&#829c94t &#8ea08eS&#9ba487e&#a8a881c&#b5ac7bu&#c2af75r&#cfb36fi&#cfb36ft&#c2af75y &#b5ac7bC&#a8a881o&#9ba487r&#8ea08er&#829c94i&#75999ad&#6895a0o&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The spaceport store seems to carry mostly only useless souveniers.
-There are however a few nice garments for sale and one or two of the
-things on display could come in handy if the prices weren't so high.
+Desc     A narrow staff corridor runs behind the eastern side of customs and security.
+Access-controlled doors keep operational traffic separate from passengers in the main
+checkpoint.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to East Security Office, and west to Customs Checkpoint.
 ~
 #EXIT
 Direction north~
 ToRoom    210
 #ENDEXIT
 
-Reset M 0 201 1 212
-  Reset G 1 32270 1
-  Reset G 1 32261 1
-  Reset G 1 32253 1
-  Reset G 1 10424 1
-  Reset G 1 10311 1
-  Reset G 1 329 1
-#ENDROOM
+#EXIT
+Direction west~
+ToRoom    207
+Flags     isdoor closed locked~
+#ENDEXIT
 
+#ENDROOM
 #ROOM
 Vnum     213
-Name     &#5b91a6A&#8ea08e &#c2af76S&#ceb370m&#c2af76a&#b5ab7cl&#a8a882l&#9ba488 &#8ea08eS&#819c94e&#75999ac&#6895a0u&#5b91a6r&#6895a0i&#75999at&#819c94y&#8ea08e &#9ba488C&#a8a882o&#b5ab7cr&#c2af76i&#ceb370d&#c2af76o&#8ea08eo&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6W&#6895a0e&#75999as&#829c94t &#8ea08eS&#9ba487e&#a8a881c&#b5ac7bu&#c2af75r&#cfb36fi&#cfb36ft&#c2af75y &#b5ac7bC&#a8a881o&#9ba487r&#8ea08er&#829c94i&#75999ad&#6895a0o&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The The Hague Interstellar Terminal Transit Station is one of many interconnected
-maglev car stations running through The Hague Government Quarter. Its probably the
-easiest fasted and cheapest way to get around the enormous city and
-thus is a favoured means  of transportation.
+Desc     A narrow staff corridor runs behind the western side of customs and security. The
+passage links the security office to the customs side of the controlled zone.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to West Security Office, and east to Customs Checkpoint.
 ~
 #EXIT
 Direction north~
 ToRoom    211
 #ENDEXIT
 
-#ENDROOM
+#EXIT
+Direction east~
+ToRoom    207
+Flags     isdoor closed locked~
+#ENDEXIT
 
+#ENDROOM
 #ROOM
 Vnum     214
-Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6N&#6494a2o&#6c969er&#75999at&#7e9b95h&#879e91-&#8fa08dW&#98a389e&#a1a685s&#a9a881t &#b2ab7dA&#bbad78r&#c4b074r&#ccb270i&#d5b56cv&#ccb270a&#c4b074l&#bbad78s &#b2ab7dW&#a9a881a&#a1a685i&#98a389t&#8fa08di&#879e91n&#7e9b95g &#75999aA&#6c969er&#6494a2e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     For one small fee you can ride the maglev car transit system to almost
-anywhere throught Directorate City. The turnstile allows one person
-through at a time as they pay the robot on duty. The cost is 5
-credits.
+Desc     A quieter waiting area occupies the north-west side of the arrivals hall, with modular
+seating arranged around charging tables and flight displays. Passengers gather here
+before moving toward the western shuttle facilities.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead east to Central Arrivals Hall, south to West Information Booth,
+and west to West Concourse Kiosk.
 ~
 #EXIT
 Direction east~
@@ -885,22 +1380,27 @@ Direction west~
 ToRoom    215
 #ENDEXIT
 
-Reset M 0 200 1 214
+Reset O 0 220 1 214
+Reset O 0 221 1 214
 #ENDROOM
-
 #ROOM
 Vnum     215
-Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6W&#69959fe&#789998s&#869e92t &#94a28bC&#a3a684o&#b1aa7dn&#bfaf76c&#ceb36fo&#ceb36fu&#bfaf76r&#b1aa7ds&#a3a684e &#94a28bK&#869e92i&#789998o&#69959fs&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extremely high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A compact service kiosk stands at the centre of the western concourse, its counter
+surrounded by terminal maps, ticket readers and vending displays. It marks the crossing
+between the western waiting areas and the shuttle junctions.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to Arrivals Retail Store, east to North-West Arrivals
+Waiting Area, south to Bravo Shuttle Junction, and west to West Wing Arrivals Waiting
+Area.
 ~
+#EXIT
+Direction north~
+ToRoom    237
+#ENDEXIT
+
 #EXIT
 Direction east~
 ToRoom    214
@@ -917,19 +1417,17 @@ ToRoom    216
 #ENDEXIT
 
 #ENDROOM
-
 #ROOM
 Vnum     216
-Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6W&#6494a2e&#6e979ds&#779999t &#819c94W&#8a9f90i&#93a28bn&#9da487g &#a6a782A&#afaa7er&#b9ad79r&#c2af75i&#ccb270v&#d5b56ca&#ccb270l&#c2af75s &#b9ad79W&#afaa7ea&#a6a782i&#9da487t&#93a28bi&#8a9f90n&#819c94g &#779999A&#6e979dr&#6494a2e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     This western waiting area provides additional seating away from the busiest part of the
+central hall. Electronic boards show Alpha and Bravo shuttle status together with gate
+changes and boarding calls.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead east to West Concourse Kiosk, south to Alpha-Bravo Waiting Area,
+and west to West Wing Service Kiosk.
 ~
 #EXIT
 Direction east~
@@ -947,20 +1445,23 @@ ToRoom    217
 #ENDEXIT
 
 #ENDROOM
-
 #ROOM
 Vnum     217
-Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6W&#6895a0e&#75999as&#829c94t &#8ea08eW&#9ba487i&#a8a881n&#b5ac7bg &#c2af75S&#cfb36fe&#cfb36fr&#c2af75v&#b5ac7bi&#a8a881c&#9ba487e &#8ea08eK&#829c94i&#75999ao&#6895a0s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A small service kiosk occupies the outer end of the west wing. Its counter handles
+simple passenger enquiries and supplies while nearby routes lead toward support rooms
+and the Alpha-side concourse.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to West Wing Service Counter, east to West Wing Arrivals
+Waiting Area, and south to Alpha Shuttle Junction.
 ~
+#EXIT
+Direction north~
+ToRoom    235
+#ENDEXIT
+
 #EXIT
 Direction east~
 ToRoom    216
@@ -972,19 +1473,17 @@ ToRoom    225
 #ENDEXIT
 
 #ENDROOM
-
 #ROOM
 Vnum     218
-Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6N&#6494a2o&#6c969er&#75999at&#7e9b95h&#879e91-&#8fa08dE&#98a389a&#a1a685s&#a9a881t &#b2ab7dA&#bbad78r&#c4b074r&#ccb270i&#d5b56cv&#ccb270a&#c4b074l&#bbad78s &#b2ab7dW&#a9a881a&#a1a685i&#98a389t&#8fa08di&#879e91n&#7e9b95g &#75999aA&#6c969er&#6494a2e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A quieter waiting area occupies the north-east side of the arrivals hall, with rows of
+seats facing live shuttle and transfer information. Passengers gather here before moving
+toward the eastern shuttle facilities.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead east to East Concourse Kiosk, south to East Information Booth,
+and west to Central Arrivals Hall.
 ~
 #EXIT
 Direction east~
@@ -1001,21 +1500,27 @@ Direction west~
 ToRoom    206
 #ENDEXIT
 
+Reset O 0 220 1 218
+Reset O 0 231 1 218
 #ENDROOM
-
 #ROOM
 Vnum     219
-Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6E&#69959fa&#789998s&#869e92t &#94a28bC&#a3a684o&#b1aa7dn&#bfaf76c&#ceb36fo&#ceb36fu&#bfaf76r&#b1aa7ds&#a3a684e &#94a28bK&#869e92i&#789998o&#69959fs&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A compact service kiosk stands at the centre of the eastern concourse beside route maps,
+public terminals and vending units. It separates the main waiting spaces from the
+Charlie and Delta shuttle junctions.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to Arrivals Convenience Store, east to East Wing Arrivals
+Waiting Area, south to Charlie Shuttle Junction, and west to North-East Arrivals Waiting
+Area.
 ~
+#EXIT
+Direction north~
+ToRoom    251
+#ENDEXIT
+
 #EXIT
 Direction east~
 ToRoom    220
@@ -1032,19 +1537,17 @@ ToRoom    218
 #ENDEXIT
 
 #ENDROOM
-
 #ROOM
 Vnum     220
-Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6E&#6494a2a&#6e979ds&#779999t &#819c94W&#8a9f90i&#93a28bn&#9da487g &#a6a782A&#afaa7er&#b9ad79r&#c2af75i&#ccb270v&#d5b56ca&#ccb270l&#c2af75s &#b9ad79W&#afaa7ea&#a6a782i&#9da487t&#93a28bi&#8a9f90n&#819c94g &#779999A&#6e979dr&#6494a2e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     This eastern waiting area provides additional seating away from the central hall.
+Electronic boards show Charlie and Delta shuttle status together with boarding and
+connection information.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead east to East Wing Service Kiosk, south to Charlie-Delta Waiting
+Area, and west to East Concourse Kiosk.
 ~
 #EXIT
 Direction east~
@@ -1061,21 +1564,27 @@ Direction west~
 ToRoom    219
 #ENDEXIT
 
+Reset M 0 207 3 220
+Reset O 0 220 1 220
+Reset O 0 221 1 220
 #ENDROOM
-
 #ROOM
 Vnum     221
-Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Name     &#5b91a6E&#6895a0a&#75999as&#829c94t &#8ea08eW&#9ba487i&#a8a881n&#b5ac7bg &#c2af75S&#cfb36fe&#cfb36fr&#c2af75v&#b5ac7bi&#a8a881c&#9ba487e &#8ea08eK&#829c94i&#75999ao&#6895a0s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A small service kiosk occupies the outer end of the east wing. It provides passenger
+assistance beside the routes toward eastern support services and the Delta-side
+concourse.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to East Wing Service Counter, south to Delta Shuttle
+Junction, and west to East Wing Arrivals Waiting Area.
 ~
+#EXIT
+Direction north~
+ToRoom    249
+#ENDEXIT
+
 #EXIT
 Direction south~
 ToRoom    229
@@ -1087,19 +1596,17 @@ ToRoom    220
 #ENDEXIT
 
 #ENDROOM
-
 #ROOM
 Vnum     222
-Name     maglev car Platform - Zoo Station ~
+Name     &#5b91a6W&#6895a0e&#75999as&#829c94t &#8ea08eI&#9ba487n&#a8a881f&#b5ac7bo&#c2af75r&#cfb36fm&#cfb36fa&#c2af75t&#b5ac7bi&#a8a881o&#9ba487n &#8ea08eB&#829c94o&#75999ao&#6895a0t&#5b91a6h &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A staffed information booth occupies the western side of the arrivals concourse.
+Interactive maps, local transport information and shuttle schedules are displayed around
+the counter.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to North-West Arrivals Waiting Area, east to Arrivals
+Concourse Junction, and west to Bravo Shuttle Junction.
 ~
 #EXIT
 Direction north~
@@ -1116,20 +1623,21 @@ Direction west~
 ToRoom    223
 #ENDEXIT
 
+Reset M 0 214 2 222
+Reset O 0 234 1 222
+Reset O 0 245 1 222
 #ENDROOM
-
 #ROOM
 Vnum     223
-Name     maglev car Platform - Dometown Station~
+Name     Bravo Shuttle Junction &w:: Den Haag Arrivals~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     This junction controls access to the Bravo shuttle route while also linking the western
+waiting and information areas. Large gate signs make the southbound path to Bravo
+unmistakable.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to West Concourse Kiosk, east to West Information Booth,
+south to Bravo Pad Gangway, and west to Alpha-Bravo Waiting Area.
 ~
 #EXIT
 Direction north~
@@ -1142,24 +1650,28 @@ ToRoom    222
 #ENDEXIT
 
 #EXIT
+Direction south~
+ToRoom    241
+#ENDEXIT
+
+#EXIT
 Direction west~
 ToRoom    224
 #ENDEXIT
 
+Reset M 0 215 4 223
+Reset O 0 242 1 223
 #ENDROOM
-
 #ROOM
 Vnum     224
-Name     maglev car Platform - Plaza Station~
+Name     &#5b91a6A&#6794a0l&#72989bp&#7e9b95h&#899f90a&#95a28a-&#a1a685B&#aca97fr&#b8ac7aa&#c4b074v&#cfb36fo &#cfb36fW&#c4b074a&#b8ac7ai&#aca97ft&#a1a685i&#95a28an&#899f90g &#7e9b95A&#72989br&#6794a0e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     This long narrow room is devided down the middle by a wide maglev car
-track. The maglev cars move at extreemly high speeds and as they
-aproach a gust of wind tugs at you threatening to knock you off
-ballance. When the maglev car comes to a complete stop you may "board"
-it and look for a seat.
+Desc     A shared waiting area sits between the Alpha and Bravo shuttle junctions. Passengers can
+watch both boarding queues from rows of seating arranged along the west wing.
 
-Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
+From here, routes lead north to West Wing Arrivals Waiting Area, east to Bravo Shuttle
+Junction, and west to Alpha Shuttle Junction.
 ~
 #EXIT
 Direction north~
@@ -1176,19 +1688,20 @@ Direction west~
 ToRoom    225
 #ENDEXIT
 
+Reset M 0 218 2 224
+Reset O 0 220 1 224
+Reset O 0 221 1 224
 #ENDROOM
-
 #ROOM
 Vnum     225
-Name     A maglev car~
+Name     &#5b91a6A&#6895a0l&#75999ap&#829c94h&#8ea08ea &#9ba487S&#a8a881h&#b5ac7bu&#c2af75t&#cfb36ft&#cfb36fl&#c2af75e &#b5ac7bJ&#a8a881u&#9ba487n&#8ea08ec&#829c94t&#75999ai&#6895a0o&#5b91a6n &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
-Desc     The maglev car is long and narrow. There are benches along both sides of
-the car but they are almost always filled. Most passengers are forced
-to grab onto one of the many handholds that extend from the ceiling
-and lock into position once the car starts moving.
+Desc     This junction controls access to the Alpha shuttle route and the western support rooms.
+Gate displays and floor markings direct Alpha passengers toward the southbound gangway.
 
-Terran Union customs, transit and emergency markings are integrated into the terminal walls.
+From here, routes lead north to West Wing Service Kiosk, east to Alpha-Bravo Waiting
+Area, south to Alpha Pad Gangway, and west to Lost and Found Reception.
 ~
 #EXIT
 Direction north~
@@ -1200,19 +1713,30 @@ Direction east~
 ToRoom    224
 #ENDEXIT
 
-#ENDROOM
+#EXIT
+Direction south~
+ToRoom    233
+#ENDEXIT
 
+#EXIT
+Direction west~
+ToRoom    230
+#ENDEXIT
+
+Reset M 0 215 4 225
+Reset O 0 242 1 225
+#ENDROOM
 #ROOM
 Vnum     226
-Name     &RDO NOT FLY THIS SHIP&w~
+Name     &#5b91a6E&#6895a0a&#75999as&#829c94t &#8ea08eI&#9ba487n&#a8a881f&#b5ac7bo&#c2af75r&#cfb36fm&#cfb36fa&#c2af75t&#b5ac7bi&#a8a881o&#9ba487n &#8ea08eB&#829c94o&#75999ao&#6895a0t&#5b91a6h &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    nomob~
-Desc     Do not fly this ship it is controlled automaticly by the code. Do not
-fly this ship it is controlled automaticly by the code. Do not fly
-this ship it is controlled automaticly by the code. Do not fly this
-ship it is controlled automaticly by the code.
+Flags    nomob indoors~
+Desc     A staffed information booth occupies the eastern side of the arrivals concourse.
+Interactive maps, local transport information and shuttle schedules are displayed around
+the counter.
 
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
+From here, routes lead north to North-East Arrivals Waiting Area, east to Charlie
+Shuttle Junction, and west to Arrivals Concourse Junction.
 ~
 #EXIT
 Direction north~
@@ -1229,13 +1753,15 @@ Direction west~
 ToRoom    205
 #ENDEXIT
 
+Reset M 0 214 2 226
+Reset O 0 234 1 226
+Reset O 0 245 1 226
 #ENDROOM
-
 #ROOM
 Vnum     227
-Name     Floating in a void~
+Name     &#5b91a6C&#6794a0h&#72989ba&#7e9b95r&#899f90l&#95a28ai&#a1a685e &#aca97fS&#b8ac7ah&#c4b074u&#cfb36ft&#cfb36ft&#c4b074l&#b8ac7ae &#aca97fJ&#a1a685u&#95a28an&#899f90c&#7e9b95t&#72989bi&#6794a0o&#5b91a6n &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    prototype~
+Flags    nomob indoors~
 #EXIT
 Direction north~
 ToRoom    219
@@ -1247,17 +1773,23 @@ ToRoom    228
 #ENDEXIT
 
 #EXIT
+Direction south~
+ToRoom    255
+#ENDEXIT
+
+#EXIT
 Direction west~
 ToRoom    226
 #ENDEXIT
 
+Reset M 0 215 4 227
+Reset O 0 242 1 227
 #ENDROOM
-
 #ROOM
 Vnum     228
-Name     Floating in a void~
+Name     &#5b91a6C&#6694a1h&#70979ca&#7b9a97r&#859e92l&#90a18di&#9ba488e&#a5a783-&#b0aa7eD&#baad79e&#c5b074l&#d0b36ft&#d0b36fa &#c5b074W&#baad79a&#b0aa7ei&#a5a783t&#9ba488i&#90a18dn&#859e92g &#7b9a97A&#70979cr&#6694a1e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    prototype~
+Flags    nomob indoors~
 #EXIT
 Direction north~
 ToRoom    220
@@ -1273,16 +1805,27 @@ Direction west~
 ToRoom    227
 #ENDEXIT
 
+Reset O 0 220 1 228
+Reset O 0 221 1 228
 #ENDROOM
-
 #ROOM
 Vnum     229
-Name     Floating in a void~
+Name     &#5b91a6D&#6895a0e&#75999al&#829c94t&#8ea08ea &#9ba487S&#a8a881h&#b5ac7bu&#c2af75t&#cfb36ft&#cfb36fl&#c2af75e &#b5ac7bJ&#a8a881u&#9ba487n&#8ea08ec&#829c94t&#75999ai&#6895a0o&#5b91a6n &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
-Flags    prototype~
+Flags    nomob indoors~
 #EXIT
 Direction north~
 ToRoom    221
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    245
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    247
 #ENDEXIT
 
 #EXIT
@@ -1290,6 +1833,513 @@ Direction west~
 ToRoom    228
 #ENDEXIT
 
+Reset M 0 215 4 229
+Reset O 0 242 1 229
+#ENDROOM
+#ROOM
+Vnum     230
+Name     &#5b91a6L&#6795a0o&#73989as&#809c95t &#8c9f8fa&#98a389n&#a4a783d &#b0aa7dF&#bdae78o&#c9b172u&#d5b56cn&#c9b172d &#bdae78R&#b0aa7de&#a4a783c&#98a389e&#8c9f8fp&#809c95t&#73989ai&#6795a0o&#5b91a6n &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    231
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    225
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    232
+Flags     isdoor closed locked~
+#ENDEXIT
+
+Reset M 0 217 1 230
+Reset O 0 234 1 230
+Reset O 0 245 1 230
+#ENDROOM
+#ROOM
+Vnum     231
+Name     &#5b91a6L&#6995a0o&#769999s&#849d93t &#91a18ca&#9fa586n&#aca97fd &#baad79F&#c7b172o&#d5b56cu&#c7b172n&#baad79d &#aca97fS&#9fa586t&#91a18co&#849d93r&#769999a&#6995a0g&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction south~
+ToRoom    230
+#ENDEXIT
+
+Reset O 0 239 1 231
+Reset O 0 227 1 231
+Reset O 0 228 1 231
+#ENDROOM
+#ROOM
+Vnum     232
+Name     &#5b91a6L&#69959fo&#789998s&#869e92t &#94a28ba&#a3a684n&#b1aa7dd &#bfaf76F&#ceb36fo&#ceb36fu&#bfaf76n&#b1aa7dd &#a3a684O&#94a28bf&#869e92f&#789998i&#69959fc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    230
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     233
+Name     &#5b91a6A&#6c969el&#7e9b95p&#8fa08dh&#a1a685a &#b2ab7dP&#c4b074a&#d5b56cd &#c4b074G&#b2ab7da&#a1a685n&#8fa08dg&#7e9b95w&#6c969ea&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    225
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    234
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     234
+Name     &#5b91a6A&#6c969el&#7e9b95p&#8fa08dh&#a1a685a &#b2ab7dS&#c4b074h&#d5b56cu&#c4b074t&#b2ab7dt&#a1a685l&#8fa08de &#7e9b95P&#6c969ea&#5b91a6d &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob~
+#EXIT
+Direction north~
+ToRoom    233
+#ENDEXIT
+
+Reset M 0 219 1 234
+Reset O 0 220 1 234
+Reset O 0 221 1 234
+Reset O 0 236 1 234
+Reset O 0 242 1 234
+#ENDROOM
+#ROOM
+Vnum     235
+Name     News & Transit Kiosk &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A compact kiosk serves newly arrived passengers with maps, current city guides and transit information. A narrow stockroom lies north, while the passenger concourse is directly south.
+~
+#EXIT
+Direction north~
+ToRoom    236
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    217
+#ENDEXIT
+
+Reset M 0 211 1 235
+  Reset G 1 209 1
+  Reset G 1 211 1
+  Reset G 1 212 1
+Reset O 0 243 1 235
+Reset O 0 245 1 235
+#ENDROOM
+#ROOM
+Vnum     236
+Name     News Kiosk Stockroom &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     Shelves hold spare maps, guidebooks and printed transit material for the kiosk. The kiosk counter is directly south.
+~
+#EXIT
+Direction south~
+ToRoom    235
+Flags     isdoor closed locked~
+#ENDEXIT
+
+Reset O 0 243 1 236
+#ENDROOM
+#ROOM
+Vnum     237
+Name     Travel Supplies Store &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A compact travel shop displays luggage, communications gear and basic equipment for passengers continuing their journey. The concourse is south and the checkout is west.
+~
+#EXIT
+Direction south~
+ToRoom    215
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    238
+#ENDEXIT
+
+Reset O 0 243 2 237
+Reset O 0 235 1 237
+#ENDROOM
+#ROOM
+Vnum     238
+Name     Travel Supplies Checkout &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A staffed counter handles purchases from the travel-supplies store. The sales floor is east and the stockroom is north.
+~
+#EXIT
+Direction north~
+ToRoom    239
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    237
+#ENDEXIT
+
+Reset M 0 201 1 238
+  Reset G 1 202 1
+  Reset G 1 213 1
+  Reset G 1 214 1
+  Reset G 1 215 1
+  Reset G 1 216 1
+Reset O 0 245 1 238
+#ENDROOM
+#ROOM
+Vnum     239
+Name     Travel Supplies Stockroom &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     Shelving holds boxed luggage, spare electronics and basic travel equipment. The checkout is south and a small staff office is east.
+~
+#EXIT
+Direction east~
+ToRoom    240
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    238
+Flags     isdoor closed locked~
+#ENDEXIT
+
+Reset O 0 243 2 239
+#ENDROOM
+#ROOM
+Vnum     240
+Name     Travel Supplies Staff Office &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A cramped staff office contains a desk, terminal and inventory records for the travel shop. The stockroom is directly west.
+~
+#EXIT
+Direction west~
+ToRoom    239
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     241
+Name     &#5b91a6B&#6c969er&#7e9b95a&#8fa08dv&#a1a685o &#b2ab7dP&#c4b074a&#d5b56cd &#c4b074G&#b2ab7da&#a1a685n&#8fa08dg&#7e9b95w&#6c969ea&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    223
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    242
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     242
+Name     &#5b91a6B&#6694a1r&#71989ba&#7c9b96v&#879e91o &#92a18cS&#9ea586h&#a9a881u&#b4ab7ct&#bfae77t&#cab271l&#d5b56ce &#cab271W&#bfae77a&#b4ab7ci&#a9a881t&#9ea586i&#92a18cn&#879e91g &#7c9b96A&#71989br&#6694a1e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    241
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    243
+#ENDEXIT
+
+Reset M 0 207 3 242
+Reset O 0 220 1 242
+Reset O 0 221 1 242
+#ENDROOM
+#ROOM
+Vnum     243
+Name     Bravo Shuttle Pad &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob~
+#EXIT
+Direction north~
+ToRoom    242
+#ENDEXIT
+
+Reset O 0 220 1 243
+Reset O 0 221 1 243
+Reset O 0 236 1 243
+Reset O 0 242 1 243
+#ENDROOM
+#ROOM
+Vnum     244
+Name     &#5b91a6M&#6f979ce&#849d93n&#98a389'&#aca97fs &#c1af76R&#d5b56ce&#c1af76s&#aca97ft&#98a389r&#849d93o&#6f979co&#5b91a6m &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction south~
+ToRoom    245
+#ENDEXIT
+
+Reset O 0 241 2 244
+Reset O 0 240 1 244
+#ENDROOM
+#ROOM
+Vnum     245
+Name     &#5b91a6P&#6995a0u&#769999b&#849d93l&#91a18ci&#9fa586c &#aca97fR&#baad79e&#c7b172s&#d5b56ct&#c7b172r&#baad79o&#aca97fo&#9fa586m &#91a18cL&#849d93o&#769999b&#6995a0b&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    244
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    246
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    229
+#ENDEXIT
+
+Reset O 0 230 1 245
+Reset O 0 226 1 245
+#ENDROOM
+#ROOM
+Vnum     246
+Name     &#5b91a6W&#6c969eo&#7e9b95m&#8fa08de&#a1a685n&#b2ab7d'&#c4b074s &#d5b56cR&#c4b074e&#b2ab7ds&#a1a685t&#8fa08dr&#7e9b95o&#6c969eo&#5b91a6m &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    245
+#ENDEXIT
+
+Reset O 0 241 2 246
+Reset O 0 240 1 246
+#ENDROOM
+#ROOM
+Vnum     247
+Name     &#5b91a6D&#6c969ee&#7e9b95l&#8fa08dt&#a1a685a &#b2ab7dP&#c4b074a&#d5b56cd &#c4b074G&#b2ab7da&#a1a685n&#8fa08dg&#7e9b95w&#6c969ea&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    229
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    248
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     248
+Name     &#5b91a6D&#6c969ee&#7e9b95l&#8fa08dt&#a1a685a &#b2ab7dS&#c4b074h&#d5b56cu&#c4b074t&#b2ab7dt&#a1a685l&#8fa08de &#7e9b95P&#6c969ea&#5b91a6d &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob~
+#EXIT
+Direction north~
+ToRoom    247
+#ENDEXIT
+
+Reset O 0 220 1 248
+Reset O 0 221 1 248
+Reset O 0 236 1 248
+Reset O 0 242 1 248
+#ENDROOM
+#ROOM
+Vnum     249
+Name     Health & Convenience Kiosk &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A small pharmacy and convenience kiosk carries basic first-aid, hygiene and travel essentials. Its stockroom is north and the concourse is south.
+~
+#EXIT
+Direction north~
+ToRoom    250
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    221
+#ENDEXIT
+
+Reset M 0 212 1 249
+  Reset G 1 217 1
+  Reset G 1 218 1
+  Reset G 1 219 1
+  Reset G 1 208 1
+Reset O 0 243 1 249
+Reset O 0 245 1 249
+#ENDROOM
+#ROOM
+Vnum     250
+Name     Health Kiosk Stockroom &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     Compact shelving stores sealed medical and hygiene supplies for the kiosk. The sales counter is directly south.
+~
+#EXIT
+Direction south~
+ToRoom    249
+Flags     isdoor closed locked~
+#ENDEXIT
+
+Reset O 0 243 1 250
+#ENDROOM
+#ROOM
+Vnum     251
+Name     Food & Drink Market &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     Chilled displays and a compact hot-food counter offer simple meals, fruit and drinks for arriving passengers. The concourse is south and the checkout is east.
+~
+#EXIT
+Direction east~
+ToRoom    252
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    219
+#ENDEXIT
+
+Reset O 0 243 1 251
+Reset O 0 244 2 251
+#ENDROOM
+#ROOM
+Vnum     252
+Name     Food & Drink Checkout &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A service counter handles purchases from the arrivals food market. The market is west and the stockroom is north.
+~
+#EXIT
+Direction north~
+ToRoom    253
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    251
+#ENDEXIT
+
+Reset M 0 202 1 252
+  Reset G 1 204 1
+  Reset G 1 205 1
+  Reset G 1 206 1
+  Reset G 1 207 1
+  Reset G 1 208 1
+Reset O 0 245 1 252
+#ENDROOM
+#ROOM
+Vnum     253
+Name     Food & Drink Stockroom &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     Shelves and chilled storage hold packaged food and drinks for the market. The checkout is south and a small staff office is west.
+~
+#EXIT
+Direction south~
+ToRoom    252
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    254
+Flags     isdoor closed locked~
+#ENDEXIT
+
+Reset O 0 243 2 253
+Reset O 0 244 1 253
+#ENDROOM
+#ROOM
+Vnum     254
+Name     Food & Drink Staff Office &w:: Den Haag Arrivals~
+Sector   city~
+Flags    nomob indoors~
+Desc     A cramped staff office contains scheduling, stock and food-safety records. The stockroom is directly east.
+~
+#EXIT
+Direction east~
+ToRoom    253
+Flags     isdoor closed locked~
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     255
+Name     &#5b91a6C&#6a969fh&#7a9a98a&#899e90r&#98a389l&#a7a882i&#b6ac7ae &#c6b073P&#d5b56ca&#c6b073d &#b6ac7aG&#a7a882a&#98a389n&#899e90g&#7a9a98w&#6a969fa&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    227
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    256
+#ENDEXIT
+
+#ENDROOM
+#ROOM
+Vnum     256
+Name     &#5b91a6C&#6594a1h&#6f979ca&#7a9a98r&#849d93l&#8ea08ei&#98a389e &#a2a684S&#aca97fh&#b6ac7au&#c1af76t&#cbb271t&#d5b56cl&#cbb271e &#c1af76W&#b6ac7aa&#aca97fi&#a2a684t&#98a389i&#8ea08en&#849d93g &#7a9a98A&#6f979cr&#6594a1e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob indoors~
+#EXIT
+Direction north~
+ToRoom    255
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    257
+#ENDEXIT
+
+Reset O 0 220 1 256
+Reset O 0 221 1 256
+#ENDROOM
+#ROOM
+Vnum     257
+Name     &#5b91a6C&#6a969fh&#7a9a98a&#899e90r&#98a389l&#a7a882i&#b6ac7ae &#c6b073S&#d5b56ch&#c6b073u&#b6ac7at&#a7a882t&#98a389l&#899e90e &#7a9a98P&#6a969fa&#5b91a6d &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
+Sector   city~
+Flags    nomob~
+#EXIT
+Direction north~
+ToRoom    256
+#ENDEXIT
+
+Reset O 0 220 1 257
+Reset O 0 221 1 257
+Reset O 0 236 1 257
+Reset O 0 242 1 257
 #ENDROOM
 
 #ENDAREA

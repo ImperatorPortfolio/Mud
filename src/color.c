@@ -1349,7 +1349,8 @@ char *color_align( const char *argument, int size, int align )
  */
 char *colorize( const char *txt, DESCRIPTOR_DATA * d )
 {
-   static char result[MAX_STRING_LENGTH];
+   /* A two-byte legacy token can expand to a 19-byte ANSI sequence. */
+   static char result[MAX_COLORIZED_LENGTH];
 
    *result = '\0';
 
@@ -1366,9 +1367,9 @@ char *colorize( const char *txt, DESCRIPTOR_DATA * d )
 
          if( colstr > prevstr )
          {
-            if( ( MAX_STRING_LENGTH - ( reslen = strlen( result ) ) ) <= ( colstr - prevstr ) )
+            if( ( sizeof( result ) - ( reslen = strlen( result ) ) ) <= ( size_t )( colstr - prevstr ) )
             {
-               bug( "%s: OVERFLOW in internal MAX_STRING_LENGTH buffer!", __func__ );
+               bug( "%s: overflow in color expansion buffer", __func__ );
                break;
             }
             strncat( result, prevstr, ( colstr - prevstr ) );  /* Leave this one alone! BAD THINGS(TM) will happen if you don't! */
@@ -1392,14 +1393,14 @@ char *colorize( const char *txt, DESCRIPTOR_DATA * d )
          ln = colorcode( colstr, colbuf, d, 20, NULL );
          if( ln > 0 )
          {
-            strlcat( result, colbuf, MAX_STRING_LENGTH );
+            strlcat( result, colbuf, sizeof( result ) );
             prevstr = colstr + ln;
          }
          else
             prevstr = colstr + 1;
       }
       if( *prevstr )
-         strlcat( result, prevstr, MAX_STRING_LENGTH );
+         strlcat( result, prevstr, sizeof( result ) );
    }
    return result;
 }

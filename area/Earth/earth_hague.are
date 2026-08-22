@@ -5,6 +5,7 @@ Name         The Hague Metropolitan District~
 Author       Durga~
 Ranges       0 0 0 103
 Economy      0 25410227
+ResetFreq    15
 #ENDAREADATA
 
 #MOBILE
@@ -13,7 +14,8 @@ Keywords   bookend~
 Short      a newly created bookend~
 Long       Some god abandoned a newly created bookend here.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -36,7 +38,8 @@ Long       A young man is walking by.
 Desc       This young human man is in his early twenties. He is dressed in the latest
 fashions and is clean cut. He is probably a student at the university.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -61,7 +64,8 @@ Desc       The waitress is an older human woman who doesn't look overly impresse
 the thought of having to serve you. You imagine that she probably doesn't
 enjoy her job. 
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -97,7 +101,8 @@ Desc       This young human woman is in her early twenties. She is very attracti
 dressed in the latest fashions. She is probably a student at the
 university. 
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc~
@@ -122,7 +127,8 @@ Desc       There is nothing unusual about this guy at all. He is one of millions
 middle aged business people found in the enormous governemnt city. Funny
 how they all seem to look the same.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -147,7 +153,8 @@ Desc       There is nothing unusual about this woman at all. She is one of milli
 middle aged business people found in the enormous governemnt city. Funny
 how they all seem to look the same.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc~
@@ -171,7 +178,8 @@ Long       A young Noxian woman studies the city crowd with alert red eyes.
 Desc       Noxian area race of small rodent like humanoids coming from the planet
 Chad. This one smiles at you as she walks by. 
 ~
-Race       Defel~Position   aggressive~
+Race       Defel~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc noassist~
@@ -196,7 +204,8 @@ Desc       The Veyran are a very intelligent race of bipedal insectoids. The hav
 large eyes short snouts and 2 antennea coming out of the sides of their
 heads. Their bodies are thin and stick like.
 ~
-Race       Verpine~Position   aggressive~
+Race       Verpine~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc noassist~
@@ -221,7 +230,8 @@ Desc       The Veyran are a very intelligent race of bipedal insectoids. The hav
 large eyes short snouts and 2 antennea coming out of the sides of their
 heads. Their bodies are thin and stick like.
 ~
-Race       Verpine~Position   aggressive~
+Race       Verpine~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc noassist~
@@ -242,7 +252,8 @@ Keywords   pawn broker~
 Short      the pawnbroker~
 Long       A pawnbroker will buy almost anything.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel~
@@ -272,7 +283,8 @@ Keywords   automated defence system~
 Short      an automatic defence laser~
 Long       An automated defence system is installed on the wall.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel deadly droid~
@@ -293,7 +305,8 @@ Keywords   taurill~
 Short      a taurill~
 Long       Taurills are a Lethari best friend.. try calling him.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc secretive~
@@ -326,7 +339,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -347,7 +361,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -368,7 +383,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -389,7 +405,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -410,7 +427,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -431,7 +449,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -452,7 +471,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -473,7 +493,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -494,7 +515,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -515,7 +537,8 @@ Keywords   human citizen~
 Short      a human citizen~
 Long       A human citizen walks quickly down the street.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc~
@@ -536,7 +559,8 @@ Keywords   begger child~
 Short      a begger~
 Long       A small child begs for money.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc practice~
@@ -557,7 +581,8 @@ Keywords   Drakken guard~
 Short      a Drakken guard~
 Long       &G A big Drakken guard is here watching the refinery entrance. &x
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -577,7 +602,8 @@ Keywords   Lethari~
 Short      a Lethari~
 Long       A Lethari trade liaison studies a stream of market reports.
 ~
-Race       Twi'lek~Position   aggressive~
+Race       Twi'lek~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel practice prototype~
@@ -613,7 +639,8 @@ Keywords   Thomas Dean~
 Short      Thomas Dean~
 Long       A human tries to hide his face from you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc nocorpse prototype~
@@ -643,7 +670,8 @@ Keywords   Noah Cole~
 Short      Noah Cole~
 Long       A scrawny humanoid lurks in the shadows.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc nocorpse~
@@ -674,7 +702,8 @@ Keywords   bell~
 Short      Peter Bell~
 Long       A dangerous looking Keshari glares at you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc nocorpse~
@@ -706,7 +735,8 @@ Keywords   lee~
 Short      Samuel Lee~
 Long       Samuel Lee watches the street from the shadows, his red eyes alert.
 ~
-Race       Defel~Position   aggressive~
+Race       Defel~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc deadly nocorpse~
@@ -738,7 +768,8 @@ Keywords   mobslave~
 Short      a mouse robot~
 Long       A mouse robot tries to avoid being crushed.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc secretive~
@@ -759,7 +790,8 @@ Keywords   prostitute woman~
 Short      a prostitute~
 Long       A prostitute is giving you the time of your life.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc nokill~
@@ -814,7 +846,8 @@ Keywords   young prostitute woman girl wp1~
 Short      a prostitute~
 Long       A young woman is wearing a very skimpy outfit.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc~
@@ -852,7 +885,8 @@ Keywords   prostitute young man ~
 Short      a young man~
 Long       A young man is wearing only a g-string and a cutoff t-shirt.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc nokill~
@@ -907,7 +941,8 @@ Keywords   male prostitute young man ymp~
 Short      a young man~
 Long       A young man is wearing only a g-string and a cutoff t-shirt.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc~
@@ -945,7 +980,8 @@ Keywords   granite slug~
 Short      a granite slug~
 Long       A granite slug edges its way across the rock.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Specfun    spec_fido~
 Gender     neuter~
@@ -966,7 +1002,8 @@ Keywords   Drakken Guard~
 Short      a Drakken guard~
 Long       A Drakken security officer guards the westernmost door.
 ~
-Race       Trandoshan~Position   aggressive~
+Race       Trandoshan~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel~
@@ -990,7 +1027,8 @@ Desc       Keshari are deliberate, sharp-eyed people known for patience, discret
 a talent for following difficult leads across crowded worlds. This investigator
 wears a compact field jacket and keeps one hand close to a data slate.
 ~
-Race       Noghri~Position   aggressive~
+Race       Noghri~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc practice~
@@ -1010,7 +1048,8 @@ Keywords   human police officer cop~
 Short      a human police officer~
 Long       A police officer patrolls the city streets.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Specfun    spec_guardian~
 Specfun2    spec_police_attack~
@@ -1033,7 +1072,8 @@ Keywords   Pelagian police officer cop~
 Short      a Pelagian cop~
 Long       A Pelagian police officer patrols the civic district.
 ~
-Race       Mon Calamari~Position   aggressive~
+Race       Mon Calamari~
+Position   aggressive~
 DefPos     aggressive~
 Specfun    spec_guardian~
 Gender     male~
@@ -1055,7 +1095,8 @@ Keywords   old Vordan woman~
 Short      an old Vordan woman~
 Long       An elderly Vordan woman moves carefully along the busy street.
 ~
-Race       Wookiee~Position   aggressive~
+Race       Wookiee~
+Position   aggressive~
 DefPos     aggressive~
 Gender     female~
 Actflags   npc~
@@ -1075,7 +1116,8 @@ Keywords   junkie human~
 Short      a junkie~
 Long       A junkie wanders the streets in serch of a fix.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc wimpy~
@@ -1103,7 +1145,8 @@ Keywords   Self Defence Trainer~
 Short      a self defence trainer~
 Long       A self defence trainer can give you a few lessons.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel train practice r28~
@@ -1123,7 +1166,8 @@ Keywords   target~
 Short      a target~
 Long       A target hangs on the wall here.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc droid~
@@ -1150,7 +1194,8 @@ Keywords   student sparring partner~
 Short      a student~
 Long       A fellow student wants to spar with you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist nokill~
@@ -1170,7 +1215,8 @@ Keywords   student sparring partner~
 Short      a student~
 Long       A fellow student wants to spar with you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist nokill~
@@ -1190,7 +1236,8 @@ Keywords   student sparring partner~
 Short      a student~
 Long       A fellow student wants to spar with you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist nokill~
@@ -1210,7 +1257,8 @@ Keywords   student sparring partner~
 Short      a student~
 Long       A fellow student wants to spar with you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist nokill~
@@ -1230,7 +1278,8 @@ Keywords   student sparring partner~
 Short      a student~
 Long       A fellow student wants to spar with you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel noassist nokill~
@@ -1250,7 +1299,8 @@ Keywords   training remote~
 Short      a remote~
 Long       A training remote hovers nearby.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
@@ -1277,7 +1327,8 @@ Keywords   training remote~
 Short      a remote~
 Long       A training remote hovers nearby.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
@@ -1304,7 +1355,8 @@ Keywords   training remote~
 Short      a remote~
 Long       A training remote hovers nearby.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
@@ -1331,7 +1383,8 @@ Keywords   training remote~
 Short      a remote~
 Long       A training remote hovers nearby.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
@@ -1358,7 +1411,8 @@ Keywords   training remote~
 Short      a remote~
 Long       A training remote hovers nearby.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc sentinel noassist droid~
@@ -1385,7 +1439,8 @@ Keywords   shopkeeper~
 Short      a shopkeeper~
 Long       A shopkeeper is here ready to assist you.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     male~
 Actflags   npc sentinel~
@@ -1406,7 +1461,8 @@ Keywords   bookend~
 Short      a newly created bookend~
 Long       Some god abandoned a newly created bookend here.
 ~
-Race       Human~Position   aggressive~
+Race       Human~
+Position   aggressive~
 DefPos     aggressive~
 Gender     neuter~
 Actflags   npc~
@@ -1439,7 +1495,6 @@ Long     A glass of water is a good cheap drink.~
 Flags    inventory~
 WFlags   take~
 Values   2 2 0 0 0 0
-Nutrition   0 0 0 0 0 14
 Stats    1 2 0 0 0
 #ENDOBJECT
 
@@ -1452,7 +1507,6 @@ Long     Some poached hawk-bat eggs are a bit chewy.~
 Flags    inventory~
 WFlags   take~
 Values   20 20 0 0 0 0
-Nutrition   12 2 8 5 6 2
 Stats    1 5 0 0 0
 #ENDOBJECT
 
@@ -1464,7 +1518,6 @@ Short    some fruit salad~
 Long     Some fruit salad is delicious.~
 WFlags   take~
 Values   10 0 0 0 0 0
-Nutrition   2 12 1 14 5 10
 Stats    1 7 0 0 0
 #ENDOBJECT
 
@@ -1943,6 +1996,54 @@ Affect       -1 -1 -1 18 0
 #ENDOBJECT
 
 #OBJECT
+Vnum     343
+Keywords lentil vegetable stew~
+Type     food~
+Short    a bowl of lentil and vegetable stew~
+Long     A warm bowl of lentils and vegetables gives off a rich, savoury aroma.~
+Flags    inventory~
+WFlags   take~
+Values   20 0 0 0 0 0
+Stats    2 14 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     344
+Keywords berry yoghurt yogurt pot~
+Type     food~
+Short    a berry yoghurt pot~
+Long     A chilled pot of yoghurt is topped with fresh berries.~
+Flags    inventory~
+WFlags   take~
+Values   12 0 0 0 0 0
+Stats    1 9 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     345
+Keywords brown rice chicken bowl~
+Type     food~
+Short    a chicken and brown rice bowl~
+Long     A balanced bowl combines grilled chicken, brown rice and fresh vegetables.~
+Flags    inventory~
+WFlags   take~
+Values   26 0 0 0 0 0
+Stats    2 18 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     346
+Keywords mineral water bottle~
+Type     drinkcon~
+Short    a bottle of mineral water~
+Long     A chilled bottle of mineral water is ready to drink.~
+Flags    inventory~
+WFlags   take~
+Values   8 8 0 0 0 0
+Stats    1 4 0 0 0
+#ENDOBJECT
+
+#OBJECT
 Vnum     400
 Keywords Doh~
 Type     trash~
@@ -1981,9 +2082,9 @@ Long     Wholegrain toast topped with fresh avocado is ready to eat.~
 Flags    inventory~
 WFlags   take~
 Values   12 0 0 0 0 0
-Nutrition   4 11 9 8 7 4
 Stats    1 8 0 0 0
 #ENDOBJECT
+
 #OBJECT
 Vnum     50091
 Keywords grilled chicken vegetables plate~
@@ -1993,56 +2094,7 @@ Long     A plate of grilled chicken and colourful vegetables looks freshly prepa
 Flags    inventory~
 WFlags   take~
 Values   24 0 0 0 0 0
-Nutrition   16 5 5 11 10 5
 Stats    2 16 1 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     343
-Keywords lentil vegetable stew~
-Type     food~
-Short    a bowl of lentil and vegetable stew~
-Long     A warm bowl of lentils and vegetables gives off a rich, savoury aroma.~
-Flags    inventory~
-WFlags   take~
-Values   20 0 0 0 0 0
-Nutrition   9 13 3 13 10 7
-Stats    2 14 1 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     344
-Keywords berry yoghurt yogurt pot~
-Type     food~
-Short    a berry yoghurt pot~
-Long     A chilled pot of yoghurt is topped with fresh berries.~
-Flags    inventory~
-WFlags   take~
-Values   12 0 0 0 0 0
-Nutrition   7 9 4 11 7 5
-Stats    1 9 0 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     345
-Keywords brown rice chicken bowl~
-Type     food~
-Short    a chicken and brown rice bowl~
-Long     A balanced bowl combines grilled chicken, brown rice and fresh vegetables.~
-Flags    inventory~
-WFlags   take~
-Values   26 0 0 0 0 0
-Nutrition   15 14 5 10 10 6
-Stats    2 18 1 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     346
-Keywords mineral water bottle~
-Type     drinkcon~
-Short    a bottle of mineral water~
-Long     A chilled bottle of mineral water is ready to drink.~
-Flags    inventory~
-WFlags   take~
-Values   8 8 0 0 0 0
-Nutrition   0 0 0 0 4 20
-Stats    1 4 0 0 0
 #ENDOBJECT
 
 #ROOM
@@ -2877,11 +2929,6 @@ ToRoom    319
 #EXIT
 Direction west~
 ToRoom    323
-#ENDEXIT
-
-#EXIT
-Direction northwest~
-ToRoom    410
 #ENDEXIT
 
 Reset M 0 304 100 322
@@ -4165,11 +4212,6 @@ ToRoom    359
 #EXIT
 Direction west~
 ToRoom    357
-#ENDEXIT
-
-#EXIT
-Direction northwest~
-ToRoom    409
 #ENDEXIT
 
 Reset M 0 303 50 358
@@ -5648,11 +5690,6 @@ Direction west~
 ToRoom    383
 #ENDEXIT
 
-#EXIT
-Direction northwest~
-ToRoom    411
-#ENDEXIT
-
 Reset M 0 405 100 398
 Reset M 0 411 50 398
 Reset M 0 321 100 398
@@ -6018,11 +6055,6 @@ The streets belong to a future The Hague: dense, international, heavily connecte
 #EXIT
 Direction up~
 ToRoom    410
-#ENDEXIT
-
-#EXIT
-Direction down~
-ToRoom    427
 #ENDEXIT
 
 #EXIT
@@ -6403,27 +6435,11 @@ ToRoom    425
 
 #ROOM
 Vnum     427
-Name     A Turbolift~
+Name     Inside a Directorate City Turbolift~
 Sector   city~
 Flags    nomob indoors~
-Desc     This is one of many turbolifts found throughout Directorate City (or
-The Hague Government Quarter) on Earth. It runs up and down connecting several
-levels of streets. Most people travel only on the upper levels of the city
-and on most of these lifts the bottom levels have been disabled
-completely.
-
-Terran Union transit signs share the streetscape with old European stonework and newer composite towers.
+Desc     A clean composite-metal elevator car hums softly around you. A luminous control panel is set beside the doors, while a narrow indicator above it shows the current street level. The car is designed to move vertically through Directorate City's stacked transport levels.
 ~
-#EXIT
-Direction up~
-ToRoom    411
-#ENDEXIT
-
-#EXIT
-Direction down~
-ToRoom    428
-#ENDEXIT
-
 #ENDROOM
 
 #ROOM
@@ -6439,11 +6455,6 @@ completely.
 
 Pedestrians move between diplomatic offices, markets, housing and interstellar transport links.
 ~
-#EXIT
-Direction up~
-ToRoom    427
-#ENDEXIT
-
 #ENDROOM
 
 #ROOM

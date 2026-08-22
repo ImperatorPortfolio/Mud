@@ -3062,7 +3062,7 @@ bool is_valid_filename( CHAR_DATA *ch, const char *direct, const char *filename 
  */
 const char *fread_string( FILE * fp )
 {
-   char buf[MAX_STRING_LENGTH];
+   char buf[MAX_LONG_TEXT_LENGTH];
    char *plast;
    char c;
    int ln;
@@ -3093,7 +3093,7 @@ const char *fread_string( FILE * fp )
 
    for( ;; )
    {
-      if( ln >= ( MAX_STRING_LENGTH - 1 ) )
+      if( ln >= ( MAX_LONG_TEXT_LENGTH - 1 ) )
       {
          bug( "%s: string too long", __func__ );
          *plast = '\0';
@@ -3136,7 +3136,7 @@ const char *fread_string( FILE * fp )
  */
 char *fread_string_nohash( FILE * fp )
 {
-   char buf[MAX_STRING_LENGTH];
+   char buf[MAX_LONG_TEXT_LENGTH];
    char *plast;
    char c;
    int ln;
@@ -3167,7 +3167,7 @@ char *fread_string_nohash( FILE * fp )
 
    for( ;; )
    {
-      if( ln >= ( MAX_STRING_LENGTH - 1 ) )
+      if( ln >= ( MAX_LONG_TEXT_LENGTH - 1 ) )
       {
          bug( "%s: string too long", __func__ );
          *plast = '\0';

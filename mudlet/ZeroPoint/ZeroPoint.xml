@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+  <ScriptPackage>
+    <Script isActive="yes" isFolder="no">
+      <name>ZeroPoint Unified Client</name>
+      <packageName>ZeroPoint</packageName>
+      <script><![CDATA[ZeroPoint = ZeroPoint or {}
+local ZP = ZeroPoint
+
+ZP.version = "1.5.0"
+ZP.enabled = ZP.enabled ~= false
+ZP.visible = ZP.visible ~= false
+ZP.adminVisible = ZP.adminVisible ~= false
+ZP.currentRoom = ZP.currentRoom
+ZP.lastRoom = ZP.lastRoom
+ZP.lastPacket = ZP.lastPacket
+ZP.roomExits = ZP.roomExits or {}
+ZP.aliasIDs = ZP.aliasIDs or {}
+ZP.eventIDs = ZP.eventIDs or {}
+ZP.built = ZP.built or false
+ZP.msdpSeen = ZP.msdpSeen or false
+ZP.isImmortal = ZP.isImmortal == true
+ZP.buildLevel = tonumber(ZP.buildLevel) or 0
+ZP.envForColor = ZP.envForColor or {}
+ZP.roomBaseEnv = ZP.roomBaseEnv or {}
+ZP.roomAppliedColor = ZP.roomAppliedColor or {}
+ZP.mapRatio = tonumber(ZP.mapRatio) or 0.28
+ZP.uiRevision = "1.5.0"
+
+local MSDP_DIRS = {
+  n="north", north="north", ne="northeast", northeast="northeast",
+  e="east", east="east", se="southeast", southeast="southeast",
+  s="south", south="south", sw="southwest", southwest="southwest",
+  w="west", west="west", nw="northwest", northwest="northwest",
+  u="up", up="up", d="down", down="down",
+  ["in"]="in", inside="in", out="out", outside="out"
+}
+
+local STANDARD_DIRS = {
+  "north","northeast","east","southeast","south","southwest",
+  "west","northwest","up","down","in","out"
+}
+
+local DELTA = {
+  north={0,1,0}, northeast={1,1,0}, east={1,0,0}, southeast={1,-1,0},
+  south={0,-1,0}, southwest={-1,-1,0}, west={-1,0,0}, northwest={-1,1,0},
+  up={0,0,1}, down={0,0,-1}, ["in"]={0,0,1}, out={0,0,-1}
+}
+
+local ROOM_COLOR_ENV = {
+  ["#00AFC8"]=51001, ["#D8AD3D"]=51002, ["#A65353"]=51003,
+  ["#D97706"]=51004, ["#35A86B"]=51005, ["#A95C32"]=51006,
+  ["#B47B26"]=51007, ["#C06BAE"]=51008, ["#9B7CC1"]=51009,
+  ["#7AAE7A"]=51010, ["#6F8FC4"]=51011, ["#B85C5C"]=51012
+}
+
+local function trim(s)
+  return tostring(s or ""):gsub("^%s+", ""):gsub("%s+$", "")
+end
+
+local function stripMudColors(s)
+  local text = tostring(s or "")
+  text = text:gsub("&#[%x][%x][%x][%x][%x][%x]", "")
+  text = text:gsub("&.", "")
+  return trim(text)
+end
+
+local function patternEscape(s)
+  return tostring(s or ""):gsub("([%%%^%$%(%)%.%[%]%*%+%-%?])", "%%%1")
+end
+
+local function tagLabels(raw)
+  local labels = {}
+  if type(raw) ~= "table" then return labels end
+  for key, value in pairs(raw) do
+    local label
+    if tonumber(key) then label = trim(value) else label = trim(key) end
+    if label ~= "" then table.insert(labels, label) end
+  end
+  table.sort(labels)
+  return labels
+end
+
+local function baseRoomName(data)
+  local text = stripMudColors(type(data) == "table" and (data.NAME or data.name) or data)
+  if type(data) == "table" then
+    for _, label in ipairs(tagLabels(data.TAGS or data.tags)) do
+      text = text:gsub("%s*%[" .. patternEscape(label) .. "%]", "")
+    end
+  end
+  return trim(text)
+end
+
+local function displayRoomName(data)
+  local text = baseRoomName(data)
+  for _, label in ipairs(tagLabels(type(data) == "table" and (data.TAGS or data.tags) or nil)) do
+    text = text .. " [" .. label .. "]"
+  end
+  return trim(text)
+end
+
+local function echo(msg)
+  cecho("\n<cyan>[ZeroPoint]<reset> " .. msg .. "\n")
+end
+
+local function roomExists(id)
+  id = tonumber(id)
+  if not id or id <= 0 then return false end
+  local ok, name = pcall(getRoomName, id)
+  return ok and name ~= nil
+end
+
+local function ensureArea(name)
+  name = trim(name)
+  if name == "" then name = "Zero Point" end
+  local areas = getAreaTable() or {}
+  if areas[name] then return areas[name] end
+  return addAreaName(name)
+end
+
+local function roomsAt(areaID, x, y, z)
+  if type(getRoomsByPosition1) == "function" then
+    local ok, rooms = pcall(getRoomsByPosition1, areaID, x, y, z)
+    if ok and type(rooms) == "table" then return rooms end
+  end
+
+  if type(getRoomsByPosition) == "function" then
+    local ok, rooms = pcall(getRoomsByPosition, areaID, x, y, z)
+    if ok and type(rooms) == "table" then
+      local result = {}
+      for _, roomID in pairs(rooms) do table.insert(result, roomID) end
+      return result
+    end
+  end
+
+  local result = {}
+  if type(getAreaRooms) == "function" then
+    local ok, rooms = pcall(getAreaRooms, areaID)
+    if ok and type(rooms) == "table" then
+      for _, roomID in pairs(rooms) do
+        local rx, ry, rz = getRoomCoordinates(roomID)
+        if tonumber(rx) == x and tonumber(ry) == y and tonumber(rz) == z then
+          table.insert(result, roomID)
+        end
+      end
+    end
+  end
+  return result
+end
+
+local function coordinateOccupied(areaID, x, y, z, ignoreRoom)
+  for _, roomID in pairs(roomsAt(areaID, x, y, z)) do
+    if tonumber(roomID) ~= tonumber(ignoreRoom) then return true end
+  end
+  return false
+end
+
+local function collisionFreeCoordinates(areaID, x, y, z, roomID, dir)
+  if not coordinateOccupied(areaID, x, y, z, roomID) then
+    return x, y, z, false
+  end
+
+  local candidates = {}
+  local d = DELTA[dir] or {0,0,0}
+
+  if d[1] ~= 0 or d[2] ~= 0 then
+    table.insert(candidates, {x - d[2], y + d[1]})
+    table.insert(candidates, {x + d[2], y - d[1]})
+  end
+
+  for radius = 1, 12 do
+    for dx = -radius, radius do
+      table.insert(candidates, {x + dx, y + radius})
+      table.insert(candidates, {x + dx, y - radius})
+    end
+    for dy = -radius + 1, radius - 1 do
+      table.insert(candidates, {x + radius, y + dy})
+      table.insert(candidates, {x - radius, y + dy})
+    end
+  end
+
+  local seen = {}
+  for _, candidate in ipairs(candidates) do
+    local cx, cy = candidate[1], candidate[2]
+    local key = tostring(cx) .. ":" .. tostring(cy)
+    if not seen[key] then
+      seen[key] = true
+      if not coordinateOccupied(areaID, cx, cy, z, roomID) then
+        return cx, cy, z, true
+      end
+    end
+  end
+
+  local nz = z + 1
+  while coordinateOccupied(areaID, x, y, nz, roomID) do nz = nz + 1 end
+  return x, y, nz, true
+end
+
+local function findArrivalDirection(fromRoom, toRoom)
+  if not fromRoom or not toRoom then return nil end
+  local exits = ZP.roomExits[tonumber(fromRoom)]
+  if type(exits) ~= "table" then return nil end
+
+  local found
+  for dir, dest in pairs(exits) do
+    if tonumber(dest) == tonumber(toRoom) then
+      if found then return nil end
+      found = dir
+    end
+  end
+  return found
+end
+
+local function nextCoordinates(fromRoom, dir)
+  if not fromRoom or not dir or not roomExists(fromRoom) then return 0,0,0 end
+  local x,y,z = getRoomCoordinates(fromRoom)
+  x,y,z = tonumber(x) or 0, tonumber(y) or 0, tonumber(z) or 0
+  local d = DELTA[dir]
+  if not d then return x,y,z end
+  return x+d[1], y+d[2], z+d[3]
+end
+
+local function serverCoordinates(data)
+  if type(data) ~= "table" then return nil end
+  local isSet = tonumber(data.COORDS_SET or data.coords_set or data.ROOM_COORDS_SET)
+  if isSet ~= 1 then return nil end
+
+  local x = tonumber(data.X or data.x or data.ROOM_X)
+  local y = tonumber(data.Y or data.y or data.ROOM_Y)
+  local z = tonumber(data.Z or data.z or data.ROOM_Z)
+  if not x or not y or not z then return nil end
+  return {x=x, y=y, z=z}
+end
+
+local function hexToRgb(color)
+  local hex = trim(color):gsub("^#", "")
+  if not hex:match("^[%x][%x][%x][%x][%x][%x]$") then return nil end
+  return tonumber(hex:sub(1,2),16), tonumber(hex:sub(3,4),16), tonumber(hex:sub(5,6),16)
+end
+
+local function applyRoomColor(roomID, color)
+  roomID = tonumber(roomID)
+  color = trim(color):upper()
+  if not roomID or roomID <= 0 then return end
+
+  if ZP.roomBaseEnv[roomID] == nil and type(getRoomEnv) == "function" then
+    local ok, env = pcall(getRoomEnv, roomID)
+    if ok then ZP.roomBaseEnv[roomID] = env end
+  end
+
+  if color == "" then
+    if ZP.roomAppliedColor[roomID] and ZP.roomBaseEnv[roomID] ~= nil and type(setRoomEnv) == "function" then
+      pcall(setRoomEnv, roomID, ZP.roomBaseEnv[roomID])
+    end
+    ZP.roomAppliedColor[roomID] = nil
+    return
+  end
+
+  local r,g,b = hexToRgb(color)
+  if not r then return end
+
+  local envID = ZP.envForColor[color] or ROOM_COLOR_ENV[color]
+  if not envID then
+    -- Unknown future colours still receive a deterministic environment ID so
+    -- map persistence cannot remap existing rooms merely because visit order
+    -- changed between client sessions.
+    envID = 52000 + ((r * 31 + g * 17 + b) % 7000)
+  end
+  ZP.envForColor[color] = envID
+
+  if type(setCustomEnvColor) == "function" then
+    pcall(setCustomEnvColor, envID, r, g, b, 255)
+  end
+  if type(setRoomEnv) == "function" then
+    pcall(setRoomEnv, roomID, envID)
+    ZP.roomAppliedColor[roomID] = color
+  end
+end
+
+local function ensureRoom(id, name, areaName, fromRoom, dir, coords, color)
+  id = tonumber(id)
+  if not id or id <= 0 then return nil end
+
+  local areaID = ensureArea(areaName)
+  local isNew = not roomExists(id)
+  if isNew then
+    addRoom(id, areaID)
+  else
+    pcall(setRoomArea, id, areaID)
+  end
+
+  if coords then
+    pcall(setRoomCoordinates, id, coords.x, coords.y, coords.z)
+    if type(setRoomUserData) == "function" then
+      pcall(setRoomUserData, id, "zeropoint_coordinates", "server")
+      pcall(setRoomUserData, id, "zeropoint_layout_collision", "0")
+    end
+  elseif isNew then
+    local x,y,z = nextCoordinates(fromRoom, dir)
+    local px,py,pz,shifted = collisionFreeCoordinates(areaID, x, y, z, id, dir)
+    setRoomCoordinates(id, px, py, pz)
+    if shifted and type(setRoomUserData) == "function" then
+      pcall(setRoomUserData, id, "zeropoint_layout_collision", "1")
+    end
+  end
+
+  if name and trim(name) ~= "" then setRoomName(id, trim(name)) end
+  applyRoomColor(id, color)
+  return id
+end
+
+local function normaliseExits(raw)
+  if type(raw) ~= "table" then return nil end
+
+  local result = {}
+  for rawDir, rawDest in pairs(raw) do
+    local dir = MSDP_DIRS[trim(rawDir):lower()]
+    local dest = tonumber(rawDest)
+    if dir and dest and dest > 0 then result[dir] = dest end
+  end
+  return result
+end
+
+local function reconcileRoom(roomID, exits, areaName)
+  if type(exits) ~= "table" then return end
+  local localExits = getRoomExits(roomID) or {}
+
+  for _, dir in ipairs(STANDARD_DIRS) do
+    local existing = tonumber(localExits[dir])
+    local wanted = tonumber(exits[dir])
+    if existing and existing > 0 and existing ~= wanted then
+      setExit(roomID, -1, dir)
+    end
+  end
+
+  for _, dir in ipairs(STANDARD_DIRS) do
+    local destID = tonumber(exits[dir])
+    if destID and destID > 0 then
+      local destination = ensureRoom(destID, nil, areaName, roomID, dir)
+      if destination then
+        local current = tonumber((getRoomExits(roomID) or {})[dir])
+        if current ~= destination then
+          if current and current > 0 then setExit(roomID, -1, dir) end
+          setExit(roomID, destination, dir)
+        end
+      end
+    end
+  end
+
+  updateMap()
+end
+
+local function orderedValues(raw)
+  local values = {}
+  if type(raw) ~= "table" then return values end
+
+  local numbered, other = {}, {}
+  for key, value in pairs(raw) do
+    local n = tonumber(key)
+    if n then
+      table.insert(numbered, {number=n, value=tostring(value or "")})
+    else
+      table.insert(other, {key=tostring(key), value=tostring(value or "")})
+    end
+  end
+
+  table.sort(numbered, function(a,b) return a.number < b.number end)
+  table.sort(other, function(a,b) return a.key < b.key end)
+  for _,v in ipairs(numbered) do table.insert(values, v.value) end
+  for _,v in ipairs(other) do table.insert(values, v.value) end
+  return values
+end
+
+local function section(console, title, raw)
+  local values = orderedValues(raw)
+  console:cecho("<cyan>" .. title .. " <grey>(" .. tostring(#values) .. ")<reset>\n")
+  if #values == 0 then
+    console:cecho("  <grey>None<reset>\n\n")
+  else
+    for _, value in ipairs(values) do
+      console:echo("  • " .. value .. "\n")
+    end
+    console:echo("\n")
+  end
+end
+
+local META_STYLE = [[
+  QLabel {
+    background-color: rgb(23, 28, 33);
+    color: rgb(166, 181, 193);
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 10px;
+    border-top: 2px solid rgb(61, 190, 230);
+    border-bottom: 1px solid rgb(44, 54, 62);
+  }
+]]
+
+local BUILDER_TITLE_STYLE = [[
+  QLabel {
+    background-color: rgb(20, 27, 32);
+    color: rgb(107, 220, 255);
+    padding-left: 8px;
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid rgb(48, 61, 70);
+  }
+]]
+
+local BUILDER_BUTTON_STYLE = [[
+  QLabel {
+    background-color: rgb(31, 43, 51);
+    color: rgb(224, 232, 237);
+    border: 1px solid rgb(59, 76, 87);
+    font-size: 9px;
+    font-weight: bold;
+  }
+  QLabel::hover {
+    background-color: rgb(39, 61, 72);
+    color: rgb(116, 224, 255);
+  }
+]]
+
+local BUILDER_INPUT_STYLE = [[
+  QPlainTextEdit {
+    background-color: rgb(9, 14, 18);
+    color: rgb(235, 245, 250);
+    border: 1px solid rgb(82, 105, 119);
+    border-radius: 2px;
+    padding: 4px;
+    selection-background-color: rgb(38, 111, 137);
+    selection-color: rgb(255, 255, 255);
+    font-size: 10px;
+  }
+  QPlainTextEdit:focus {
+    border: 1px solid rgb(73, 202, 240);
+    background-color: rgb(12, 20, 25);
+  }
+]]
+
+local BUILDER_FIELD_STYLE = [[
+  QLabel {
+    background-color: rgb(15, 21, 26);
+    color: rgb(139, 205, 224);
+    padding-left: 7px;
+    font-size: 9px;
+    font-weight: bold;
+  }
+]]
+
+local VIEW_BUTTON_STYLE = [[
+  QLabel {
+    background-color: rgb(24, 31, 37);
+    color: rgb(153, 169, 181);
+    border-top: 1px solid rgb(58, 71, 81);
+    border-bottom: 1px solid rgb(58, 71, 81);
+    border-right: 1px solid rgb(46, 57, 66);
+    font-size: 10px;
+    font-weight: bold;
+  }
+  QLabel::hover {
+    background-color: rgb(34, 47, 56);
+    color: rgb(103, 221, 255);
+  }
+]]
+
+local VIEW_BUTTON_ACTIVE_STYLE = [[
+  QLabel {
+    background-color: rgb(31, 58, 69);
+    color: rgb(119, 225, 255);
+    border-top: 1px solid rgb(71, 196, 232);
+    border-bottom: 1px solid rgb(71, 196, 232);
+    border-right: 1px solid rgb(46, 57, 66);
+    font-size: 10px;
+    font-weight: bold;
+  }
+]]
+
+local DIRECTION_LABELS = {
+  north="NORTH", northeast="NORTHEAST", east="EAST", southeast="SOUTHEAST",
+  south="SOUTH", southwest="SOUTHWEST", west="WEST", northwest="NORTHWEST",
+  up="UP", down="DOWN", ["in"]="IN", out="OUT"
+}
+
+local function activeLayoutName(ratio)
+  ratio = tonumber(ratio) or 0.28
+  if ratio <= 0.24 then return "room" end
+  if ratio >= 0.39 then return "map" end
+  return "balanced"
+end
+
+function ZP.refreshLayoutButtons()
+  if not ZP.viewButtons then return end
+  local active = activeLayoutName(ZP.mapRatio)
+  for name, button in pairs(ZP.viewButtons) do
+    button:setStyleSheet(name == active and VIEW_BUTTON_ACTIVE_STYLE or VIEW_BUTTON_STYLE)
+  end
+end
+
+function ZP.setMapRatio(ratio, quiet)
+  ratio = tonumber(ratio) or 0.28
+  ratio = math.max(0.16, math.min(0.50, ratio))
+  ZP.mapRatio = ratio
+
+  if ZP.map and ZP.inspector and ZP.layout then
+    ZP.map.v_stretch_factor = ratio * 100
+    ZP.inspector.v_stretch_factor = (1.0 - ratio) * 100
+    if type(ZP.layout.organize) == "function" then ZP.layout:organize() end
+  end
+
+  ZP.refreshLayoutButtons()
+  if not quiet then
+    echo("Layout: map " .. tostring(math.floor(ratio * 100 + 0.5)) .. "% / inspector " ..
+         tostring(math.floor((1.0 - ratio) * 100 + 0.5)) .. "%")
+  end
+end
+
+function ZP.setLayoutPreset(name)
+  name = trim(name):lower()
+  if name == "room" or name == "inspector" then ZP.setMapRatio(0.18); return true end
+  if name == "balanced" or name == "balance" then ZP.setMapRatio(0.27); return true end
+  if name == "map" then ZP.setMapRatio(0.44); return true end
+
+  local percent = tonumber(name)
+  if percent then
+    if percent > 1 then percent = percent / 100 end
+    ZP.setMapRatio(percent)
+    return true
+  end
+  return false
+end
+
+local function makeViewButton(parent, key, text, preset, tooltip)
+  local button = Geyser.Label:new({
+    name="ZeroPointView" .. key,
+    h_stretch_factor=1.0
+  }, parent)
+  button:setStyleSheet(VIEW_BUTTON_STYLE)
+  button:echo("<center>" .. text .. "</center>")
+  button:setToolTip(tooltip, 6)
+  button:setClickCallback(function() ZP.setLayoutPreset(preset) end)
+  return button
+end
+
+local function formatRoomDescription(raw)
+  local text = tostring(raw or "")
+
+  -- ZeroPoint's MSDP text encoder currently escapes CR/LF/TAB before
+  -- publication. Normalise BOTH those literal escape sequences and real
+  -- control characters. Room descriptions are presentation prose here:
+  -- legacy terminal wrapping must not become inspector paragraphs.
+  text = text:gsub("\\r\\n", " ")
+  text = text:gsub("\\n", " ")
+  text = text:gsub("\\r", " ")
+  text = text:gsub("\\t", " ")
+  text = text:gsub("\r\n", " ")
+  text = text:gsub("\r", " ")
+  text = text:gsub("\n", " ")
+  text = text:gsub("\t", " ")
+
+  -- Remove area-file indentation and all terminal-formatting runs. Mudlet's
+  -- MiniConsole then performs the only wrapping, based on the actual dock width.
+  text = text:gsub("%s+", " ")
+  return trim(text)
+end
+
+local INSPECTOR_FG = {238, 242, 245}
+local INSPECTOR_BG = {18, 23, 28}
+local MUD_COLORS = {
+  x={0, 0, 0}, O={128, 128, 0}, c={0, 128, 128}, z={128, 128, 128},
+  g={0, 128, 0}, G={0, 255, 0}, P={255, 0, 255}, r={128, 0, 0},
+  b={0, 0, 128}, w={192, 192, 192}, Y={255, 255, 0}, C={0, 255, 255},
+  p={128, 0, 128}, R={255, 0, 0}, B={0, 0, 255}, W={255, 255, 255}
+}
+local MUD_ATTRIBUTES = {i=true, I=true, v=true, V=true, u=true, U=true, s=true, S=true}
+
+local function setConsoleFg(console, color)
+  setFgColor(console.name, color[1], color[2], color[3])
+end
+
+local function setConsoleBg(console, color)
+  setBgColor(console.name, color[1], color[2], color[3])
+end
+
+local function setInspectorTextColors(console)
+  setConsoleFg(console, INSPECTOR_FG)
+  setConsoleBg(console, INSPECTOR_BG)
+end
+
+local function hexColorAt(text, offset)
+  local value = text:sub(offset, offset + 5)
+  if #value ~= 6 or not value:match("^%x%x%x%x%x%x$") then return nil end
+  return {
+    tonumber(value:sub(1, 2), 16),
+    tonumber(value:sub(3, 4), 16),
+    tonumber(value:sub(5, 6), 16)
+  }
+end
+
+local function renderMudText(console, raw)
+  local text = tostring(raw or "")
+  local length = #text
+  local plainStart = 1
+  local index = 1
+
+  local function flushPlain(last)
+    if last >= plainStart then console:echo(text:sub(plainStart, last)) end
+  end
+
+  setInspectorTextColors(console)
+  while index <= length do
+    local marker = text:sub(index, index)
+    if marker == "&" or marker == "^" or marker == "}" then
+      local code = text:sub(index + 1, index + 1)
+      local consumed = 0
+      local color
+
+      if code == marker then
+        flushPlain(index - 1)
+        console:echo(marker)
+        consumed = 2
+      elseif code == "#" then
+        color = hexColorAt(text, index + 2)
+        if color then
+          flushPlain(index - 1)
+          if marker == "^" then
+            setConsoleBg(console, color)
+          else
+            setConsoleFg(console, color)
+          end
+          consumed = 8
+        end
+      elseif MUD_COLORS[code] then
+        flushPlain(index - 1)
+        color = MUD_COLORS[code]
+        if marker == "^" then
+          setConsoleBg(console, color)
+        else
+          setConsoleFg(console, color)
+        end
+        consumed = 2
+      elseif marker == "&" and (code == "d" or code == "D") then
+        flushPlain(index - 1)
+        setInspectorTextColors(console)
+        consumed = 2
+      elseif marker == "&" and MUD_ATTRIBUTES[code] then
+        -- Attributes have no safe MiniConsole equivalent; consume them as
+        -- formatting rather than leaking their source tokens into room prose.
+        flushPlain(index - 1)
+        consumed = 2
+      end
+
+      if consumed > 0 then
+        index = index + consumed
+        plainStart = index
+      else
+        index = index + 1
+      end
+    else
+      index = index + 1
+    end
+  end
+
+  flushPlain(length)
+  setInspectorTextColors(console)
+end
+
+local function countValues(raw)
+  return #orderedValues(raw)
+end
+
+local function sectionHeader(console, title, count)
+  console:cecho("\n<cyan><b>" .. title .. "</b><reset>")
+  if count ~= nil then
+    console:cecho(" <grey>[" .. tostring(count) .. "]<reset>")
+  end
+  -- Use plain output for the divider: <dark_cyan> is not a valid cecho tag
+  -- on the user's Mudlet build and was being rendered literally.
+  console:echo("\n────────────────────────────\n")
+end
+
+local function renderSimpleValues(console, raw)
+  local values = orderedValues(raw)
+  if #values == 0 then
+    console:cecho("<grey>None<reset>\n")
+    return
+  end
+
+  for _, value in ipairs(values) do
+    console:cecho("<white>•<reset> ")
+    renderMudText(console, trim(value))
+    console:echo("\n")
+  end
+end
+
+local function renderExitRows(console, raw)
+  local exits = normaliseExits(raw)
+  local count = 0
+  if exits then
+    for _, dir in ipairs(STANDARD_DIRS) do
+      if exits[dir] then count = count + 1 end
+    end
+  end
+
+  sectionHeader(console, "EXITS", count)
+  if count == 0 then
+    console:cecho("<grey>None<reset>\n")
+    return
+  end
+
+  for _, dir in ipairs(STANDARD_DIRS) do
+    local dest = exits and tonumber(exits[dir])
+    if dest then
+      local destination = "#" .. tostring(dest)
+      if roomExists(dest) then
+        local ok, roomName = pcall(getRoomName, dest)
+        if ok and roomName and trim(roomName) ~= "" then
+          destination = trim(roomName)
+        end
+      end
+
+      local direction = DIRECTION_LABELS[dir] or dir:upper()
+      console:cecho("<cyan>" .. string.format("%-10s", direction) ..
+                    "<reset> <grey>›<reset> <white>" .. destination .. "<reset>\n")
+    end
+  end
+end
+
+local function renderContents(console, data)
+  local people = data.PEOPLE or data.people
+  local objects = data.OBJECTS or data.objects
+  local ships = data.SHIPS or data.ships
+  local furniture = data.FURNITURE or data.furniture
+
+  local pc = countValues(people)
+  local oc = countValues(objects)
+  local sc = countValues(ships)
+  local fc = countValues(furniture)
+
+  sectionHeader(console, "ROOM CONTENTS")
+  console:cecho("<grey>People <white>" .. pc ..
+                "<grey>  •  Objects <white>" .. oc ..
+                "<grey>  •  Ships <white>" .. sc ..
+                "<grey>  •  Furniture <white>" .. fc .. "<reset>\n")
+
+  if pc + oc + sc + fc == 0 then
+    console:cecho("<grey>Nothing of note is here.<reset>\n")
+    return
+  end
+
+  if pc > 0 then
+    console:cecho("\n<cyan><b>PEOPLE</b><reset> <grey>[" .. pc .. "]<reset>\n")
+    renderSimpleValues(console, people)
+  end
+
+  if oc > 0 then
+    console:cecho("\n<cyan><b>OBJECTS</b><reset> <grey>[" .. oc .. "]<reset>\n")
+    renderSimpleValues(console, objects)
+  end
+
+  if sc > 0 then
+    console:cecho("\n<cyan><b>SHIPS</b><reset> <grey>[" .. sc .. "]<reset>\n")
+    renderSimpleValues(console, ships)
+  end
+
+  if fc > 0 then
+    console:cecho("\n<cyan><b>FURNITURE</b><reset> <grey>[" .. fc .. "]<reset>\n")
+    renderSimpleValues(console, furniture)
+  end
+end
+
+local function builderButton(parent, name, text, callback, stretch)
+  local button = Geyser.Label:new({
+    name=name,
+    h_stretch_factor=stretch or 1.0
+  }, parent)
+  button:setStyleSheet(BUILDER_BUTTON_STYLE)
+  button:echo("<center>" .. text .. "</center>")
+  button:setClickCallback(callback)
+  return button
+end
+
+local function builderFieldLabel(parent, name, text)
+  local label = Geyser.Label:new({
+    name=name,
+    height=18,
+    v_policy=Geyser.Fixed
+  }, parent)
+  label:setStyleSheet(BUILDER_FIELD_STYLE)
+  label:echo(text)
+  return label
+end
+
+local function styleBuilderInput(widget)
+  if widget and type(widget.setStyleSheet) == "function" then
+    widget:setStyleSheet(BUILDER_INPUT_STYLE)
+  end
+end
+
+local function builderText(widget)
+  if not widget or type(widget.getText) ~= "function" then return "" end
+  local ok, value = pcall(function() return widget:getText() end)
+  return ok and trim(value) or ""
+end
+
+local function builderSetText(widget, value)
+  if widget and type(widget.setText) == "function" then
+    pcall(function() widget:setText(tostring(value or "")) end)
+  end
+end
+
+local function requireBuilder()
+  if ZP.isImmortal then return true end
+  echo("<red>Builder controls are only exposed when the server reports IS_IMMORTAL=1.<reset>")
+  return false
+end
+
+function ZP.sendBuildCommand(command)
+  if not requireBuilder() then return end
+  command = trim(command)
+  if command ~= "" then send(command) end
+end
+
+function ZP.updateBuilderVisibility()
+  if ZP.isImmortal then
+    ZP.buildBuilderUI()
+    if ZP.builderWindow then
+      if ZP.adminVisible then
+        pcall(function() ZP.builderWindow:show() end)
+      else
+        pcall(function() ZP.builderWindow:hide() end)
+      end
+    end
+  elseif ZP.builderWindow then
+    pcall(function() ZP.builderWindow:hide() end)
+  end
+end
+
+function ZP.populateBuilder(data)
+  if not ZP.isImmortal or type(data) ~= "table" then return end
+  builderSetText(ZP.builderName, baseRoomName(data))
+  builderSetText(ZP.builderDesc, formatRoomDescription(data.DESCRIPTION or data.description or ""))
+  local coords = serverCoordinates(data)
+  builderSetText(ZP.builderX, coords and coords.x or "")
+  builderSetText(ZP.builderY, coords and coords.y or "")
+  builderSetText(ZP.builderZ, coords and coords.z or "")
+  if ZP.builderMeta then
+    local vnum = tonumber(data.VNUM or data.vnum) or 0
+    local area = trim(data.AREA or data.area)
+    local xyz = coords and (tostring(coords.x) .. "," .. tostring(coords.y) .. "," .. tostring(coords.z)) or "UNSET"
+    ZP.builderMeta:echo("#" .. tostring(vnum) .. "  •  L" .. tostring(ZP.buildLevel) ..
+                        "  •  XYZ " .. xyz .. (area ~= "" and ("  •  " .. area) or ""))
+  end
+end
+
+function ZP.setImmortalState(value)
+  ZP.isImmortal = tonumber(value) == 1 or value == true or tostring(value):lower() == "true"
+  ZP.updateBuilderVisibility()
+  if ZP.isImmortal and msdp and type(msdp.ROOM) == "table" then
+    ZP.populateBuilder(msdp.ROOM)
+  end
+end
+
+function ZP.setBuildLevel(value)
+  ZP.buildLevel = tonumber(value) or 0
+  ZP.updateBuilderVisibility()
+  if ZP.isImmortal and msdp and type(msdp.ROOM) == "table" then
+    ZP.populateBuilder(msdp.ROOM)
+  end
+end
+
+function ZP.disableMapRoomNames()
+  if type(setMapUserData) == "function" then
+    pcall(setMapUserData, "room.ui_showName", "0")
+  end
+  if type(getRooms) == "function" and type(setRoomUserData) == "function" then
+    local ok, rooms = pcall(getRooms)
+    if ok and type(rooms) == "table" then
+      for roomID, _ in pairs(rooms) do
+        local id = tonumber(roomID)
+        if id then pcall(setRoomUserData, id, "room.ui_showName", "0") end
+      end
+    end
+  end
+end
+
+function ZP.buildBuilderUI()
+  if not ZP.isImmortal then return false end
+  if ZP.builderBuilt and ZP._builderRevision == ZP.uiRevision and ZP.builderWindow then return true end
+  if not Geyser or not Geyser.UserWindow or not Geyser.VBox or not Geyser.HBox
+     or not Geyser.Label or not Geyser.CommandLine then
+    return false
+  end
+
+  if ZP.builderWindow and type(ZP.builderWindow.delete) == "function" then
+    pcall(function() ZP.builderWindow:delete() end)
+  end
+
+  ZP.builderWindow = Geyser.UserWindow:new({
+    name="ZeroPointBuilderWindow",
+    titleText="ZeroPoint Builder",
+    restoreLayout=true,
+    dockPosition="right"
+  })
+
+  ZP.builderLayout = Geyser.VBox:new({
+    name="ZeroPointBuilderLayout",
+    x=0, y=0, width="100%", height="100%"
+  }, ZP.builderWindow)
+
+  ZP.builderTitle = Geyser.Label:new({
+    name="ZeroPointBuilderTitle",
+    height=24,
+    v_policy=Geyser.Fixed
+  }, ZP.builderLayout)
+  ZP.builderTitle:setStyleSheet(BUILDER_TITLE_STYLE)
+  ZP.builderTitle:echo("BUILDER  •  server-authorized room editing")
+
+  ZP.builderMeta = Geyser.Label:new({
+    name="ZeroPointBuilderMeta",
+    height=24,
+    v_policy=Geyser.Fixed
+  }, ZP.builderLayout)
+  ZP.builderMeta:setStyleSheet(META_STYLE)
+  ZP.builderMeta:echo("Awaiting room metadata")
+
+  builderFieldLabel(ZP.builderLayout, "ZeroPointBuilderNameLabel", "ROOM NAME")
+  local nameRow = Geyser.HBox:new({name="ZeroPointBuilderNameRow", height=34, v_policy=Geyser.Fixed}, ZP.builderLayout)
+  ZP.builderName = Geyser.CommandLine:new({name="ZeroPointBuilderName", h_stretch_factor=4.0}, nameRow)
+  styleBuilderInput(ZP.builderName)
+  local function submitName(value)
+    value = trim(value or builderText(ZP.builderName))
+    if value ~= "" then ZP.sendBuildCommand("redit name " .. value) end
+  end
+  ZP.builderName:setAction(submitName)
+  builderButton(nameRow, "ZeroPointBuilderNameSet", "SET NAME", function() submitName() end, 1.1)
+
+  builderFieldLabel(ZP.builderLayout, "ZeroPointBuilderDescLabel", "ROOM DESCRIPTION")
+  local descRow = Geyser.HBox:new({name="ZeroPointBuilderDescRow", height=34, v_policy=Geyser.Fixed}, ZP.builderLayout)
+  ZP.builderDesc = Geyser.CommandLine:new({name="ZeroPointBuilderDesc", h_stretch_factor=4.0}, descRow)
+  styleBuilderInput(ZP.builderDesc)
+  local function submitDesc(value)
+    value = trim(value or builderText(ZP.builderDesc))
+    if value ~= "" then ZP.sendBuildCommand("redit descset " .. value) end
+  end
+  ZP.builderDesc:setAction(submitDesc)
+  builderButton(descRow, "ZeroPointBuilderDescSet", "SET DESC", function() submitDesc() end, 1.0)
+  builderButton(descRow, "ZeroPointBuilderDescMulti", "MULTILINE", function()
+    ZP.sendBuildCommand("redit desc")
+  end, 1.1)
+
+  builderFieldLabel(ZP.builderLayout, "ZeroPointBuilderCoordLabel", "MAP COORDINATES  X / Y / Z")
+  local coordRow = Geyser.HBox:new({name="ZeroPointBuilderCoordRow", height=34, v_policy=Geyser.Fixed}, ZP.builderLayout)
+  ZP.builderX = Geyser.CommandLine:new({name="ZeroPointBuilderX", h_stretch_factor=1.0}, coordRow)
+  ZP.builderY = Geyser.CommandLine:new({name="ZeroPointBuilderY", h_stretch_factor=1.0}, coordRow)
+  ZP.builderZ = Geyser.CommandLine:new({name="ZeroPointBuilderZ", h_stretch_factor=1.0}, coordRow)
+  styleBuilderInput(ZP.builderX); styleBuilderInput(ZP.builderY); styleBuilderInput(ZP.builderZ)
+  local function submitCoords()
+    local x,y,z = builderText(ZP.builderX), builderText(ZP.builderY), builderText(ZP.builderZ)
+    if x ~= "" and y ~= "" and z ~= "" then
+      ZP.sendBuildCommand("redit coords " .. x .. " " .. y .. " " .. z)
+    end
+  end
+  ZP.builderX:setAction(function() submitCoords() end)
+  ZP.builderY:setAction(function() submitCoords() end)
+  ZP.builderZ:setAction(function() submitCoords() end)
+  builderButton(coordRow, "ZeroPointBuilderCoordSet", "SET XYZ", submitCoords, 1.0)
+  builderButton(coordRow, "ZeroPointBuilderCoordClear", "CLEAR XYZ", function()
+    ZP.sendBuildCommand("redit coords clear")
+  end, 1.1)
+
+  builderFieldLabel(ZP.builderLayout, "ZeroPointBuilderCommandLabel", "BUILD COMMAND")
+  local commandRow = Geyser.HBox:new({name="ZeroPointBuilderCommandRow", height=34, v_policy=Geyser.Fixed}, ZP.builderLayout)
+  ZP.builderCommand = Geyser.CommandLine:new({name="ZeroPointBuilderCommand", h_stretch_factor=4.0}, commandRow)
+  styleBuilderInput(ZP.builderCommand)
+  local function runCommand(value)
+    value = trim(value or builderText(ZP.builderCommand))
+    if value ~= "" then ZP.sendBuildCommand(value) end
+  end
+  ZP.builderCommand:setAction(runCommand)
+  builderButton(commandRow, "ZeroPointBuilderRun", "RUN", function() runCommand() end, 1.0)
+
+  local quickRow = Geyser.HBox:new({name="ZeroPointBuilderQuickRow", height=28, v_policy=Geyser.Fixed}, ZP.builderLayout)
+  builderButton(quickRow, "ZeroPointBuilderRstat", "RSTAT", function() ZP.sendBuildCommand("rstat") end)
+  builderButton(quickRow, "ZeroPointBuilderRedit", "REDIT ON", function() ZP.sendBuildCommand("redit on") end)
+  builderButton(quickRow, "ZeroPointBuilderFlags", "FLAGS", function() ZP.sendBuildCommand("redit flags") end)
+  builderButton(quickRow, "ZeroPointBuilderSector", "SECTOR", function() ZP.sendBuildCommand("redit sector") end)
+  builderButton(quickRow, "ZeroPointBuilderSave", "SAVEAREA", function() ZP.sendBuildCommand("savearea") end)
+
+  ZP.builderBuilt = true
+  ZP._builderRevision = ZP.uiRevision
+  if ZP.adminVisible then ZP.builderWindow:show() else ZP.builderWindow:hide() end
+  return true
+end
+
+function ZP.showAdmin()
+  if not requireBuilder() then return end
+  ZP.adminVisible = true
+  if ZP.buildBuilderUI() then
+    ZP.builderWindow:show()
+    if msdp and type(msdp.ROOM) == "table" then ZP.populateBuilder(msdp.ROOM) end
+  end
+end
+
+function ZP.hideAdmin()
+  ZP.adminVisible = false
+  if ZP.builderWindow then ZP.builderWindow:hide() end
+end
+
+function ZP.toggleAdmin()
+  if ZP.adminVisible then ZP.hideAdmin() else ZP.showAdmin() end
+end
+
+function ZP.adminStatus()
+  echo("Builder window: " .. (ZP.adminVisible and "<green>visible" or "<red>hidden") ..
+       "<reset> | immortal: " .. (ZP.isImmortal and "<green>yes" or "<red>no") ..
+       "<reset> | build level: <white>" .. tostring(ZP.buildLevel))
+end
+
+function ZP.buildUI()
+  if ZP.built and ZP._builtRevision == ZP.uiRevision then return true end
+
+  if ZP.built and ZP.window and type(ZP.window.delete) == "function" then
+    pcall(function() ZP.window:delete() end)
+    ZP.built = false
+  end
+
+  if type(Geyser) ~= "table" or not Geyser.UserWindow or not Geyser.VBox
+     or not Geyser.HBox or not Geyser.Mapper or not Geyser.Label or not Geyser.MiniConsole then
+    echo("<red>Required Geyser widgets are unavailable.<reset>")
+    return false
+  end
+
+  ZP.window = Geyser.UserWindow:new({
+    name="ZeroPointClient",
+    titleText="ZeroPoint",
+    restoreLayout=true
+  })
+
+  ZP.layout = Geyser.VBox:new({
+    name="ZeroPointClientLayout",
+    x=0, y=0, width="100%", height="100%"
+  }, ZP.window)
+
+  -- Working mapper/topology behavior is intentionally untouched.
+  ZP.map = Geyser.Mapper:new({
+    name="ZeroPointClientMap",
+    v_stretch_factor=ZP.mapRatio * 100
+  }, ZP.layout)
+
+  ZP.disableMapRoomNames()
+
+  ZP.viewBar = Geyser.HBox:new({
+    name="ZeroPointViewBar",
+    height=25,
+    v_policy=Geyser.Fixed
+  }, ZP.layout)
+
+  ZP.viewButtons = {}
+  ZP.viewButtons.room = makeViewButton(ZP.viewBar, "Room", "ROOM", "room",
+    "Room focus: smallest map, largest inspector")
+  ZP.viewButtons.balanced = makeViewButton(ZP.viewBar, "Balanced", "BALANCED", "balanced",
+    "Balanced map and inspector")
+  ZP.viewButtons.map = makeViewButton(ZP.viewBar, "Map", "MAP", "map",
+    "Map focus: larger map")
+
+  ZP.inspector = Geyser.VBox:new({
+    name="ZeroPointInspector",
+    v_stretch_factor=(1.0 - ZP.mapRatio) * 100
+  }, ZP.layout)
+
+  -- The map window deliberately has no duplicate room-name banner. The game
+  -- output remains the authoritative room-name presentation; this compact
+  -- line carries only mapping/build metadata.
+  ZP.meta = Geyser.Label:new({
+    name="ZeroPointClientMeta",
+    height=25,
+    v_policy=Geyser.Fixed
+  }, ZP.inspector)
+  ZP.meta:setStyleSheet(META_STYLE)
+  ZP.meta:echo("Awaiting authoritative room metadata")
+
+  -- Builder controls live in their own dockable/floating UserWindow so the
+  -- room inspector remains dedicated to player-facing room information.
+
+  -- One scroll surface for the whole inspector. This prevents the previous
+  -- nested-scrollbar problem where description, exits and contents each had
+  -- tiny independent viewports.
+  ZP.inspectorBody = Geyser.MiniConsole:new({
+    name="ZeroPointInspectorBody",
+    v_stretch_factor=1.0
+  }, ZP.inspector)
+  ZP.inspectorBody:setColor(18, 23, 28)
+  ZP.inspectorBody:setFontSize(10)
+  ZP.inspectorBody:enableAutoWrap()
+  pcall(enableScrollBar, ZP.inspectorBody.name)
+
+  ZP.built = true
+  ZP._builtRevision = ZP.uiRevision
+  ZP.refreshLayoutButtons()
+  ZP.updateBuilderVisibility()
+  if ZP.visible then ZP.window:show() else ZP.window:hide() end
+  return true
+end
+
+function ZP.renderRoom(data)
+  if type(data) ~= "table" then return end
+  if not ZP.buildUI() then return end
+
+  local vnum = tonumber(data.VNUM or data.vnum)
+  local area = trim(data.AREA or data.area)
+  local terrain = trim(data.TERRAIN or data.terrain)
+  local description = formatRoomDescription(data.DESCRIPTION or data.description or "")
+  local windows = data.WINDOWS or data.windows
+  local coords = serverCoordinates(data)
+
+  local metaParts = {"#" .. tostring(vnum or "—")}
+  if area ~= "" then table.insert(metaParts, area) end
+  if terrain ~= "" then table.insert(metaParts, terrain:upper()) end
+  if coords then
+    table.insert(metaParts, "XYZ " .. tostring(coords.x) .. "," .. tostring(coords.y) .. "," .. tostring(coords.z))
+  else
+    table.insert(metaParts, "XYZ UNSET")
+  end
+  ZP.meta:echo(table.concat(metaParts, "     •     "))
+  ZP.populateBuilder(data)
+
+  local body = ZP.inspectorBody
+  body:clear()
+
+  sectionHeader(body, "DESCRIPTION")
+  if trim(description) == "" then
+    body:cecho("<grey>No description supplied.<reset>\n")
+  else
+    -- No presentation indentation: the first character of the stored prose
+    -- begins at the first text column and Mudlet performs only visual wrapping.
+    renderMudText(body, description)
+    body:echo("\n")
+  end
+
+  renderExitRows(body, data.EXITS or data.exits)
+
+  local windowCount = countValues(windows)
+  sectionHeader(body, "WINDOWS", windowCount)
+  renderSimpleValues(body, windows)
+
+  renderContents(body, data)
+
+  -- New room packets always start at the important room-description context,
+  -- rather than leaving the inspector scrolled to a previous room's contents.
+  pcall(function() body:scrollTo(0) end)
+end
+
+function ZP.processRoom(data)
+  if type(data) ~= "table" then return false end
+
+  local vnum = tonumber(data.VNUM or data.vnum)
+  if not vnum or vnum <= 0 then
+    echo("<red>Ignored malformed MSDP ROOM packet: missing valid VNUM.<reset>")
+    return false
+  end
+
+  ZP.msdpSeen = true
+  ZP.renderRoom(data)
+
+  if not ZP.enabled then return true end
+
+  local areaName = trim(data.AREA or data.area)
+  local exits = normaliseExits(data.EXITS or data.exits)
+  local previous = ZP.currentRoom
+  local arrivalDir = findArrivalDirection(previous, vnum)
+  local coords = serverCoordinates(data)
+  local color = data.COLOR or data.color or data.ROOM_COLOR or ""
+  local room = ensureRoom(vnum, displayRoomName(data), areaName, previous, arrivalDir, coords, color)
+  if not room then return false end
+  if type(setRoomUserData) == "function" then
+    pcall(setRoomUserData, room, "room.ui_showName", "0")
+  end
+
+  ZP.lastRoom = previous
+  ZP.currentRoom = room
+  if exits then ZP.roomExits[room] = exits end
+  ZP.lastPacket = {
+    VNUM=room,
+    NAME=baseRoomName(data),
+    AREA=areaName,
+    TERRAIN=data.TERRAIN or data.terrain,
+    X=coords and coords.x or nil,
+    Y=coords and coords.y or nil,
+    Z=coords and coords.z or nil,
+    COORDS_SET=coords and 1 or 0,
+    COLOR=trim(color),
+    TAGS=data.TAGS or data.tags,
+    EXITS=exits
+  }
+
+  if exits then reconcileRoom(room, exits, areaName) end
+
+  pcall(centerview, room)
+  tempTimer(0, function()
+    if ZP.currentRoom == room then pcall(centerview, room) end
+  end)
+  return true
+end
+
+function ZP.consumeCurrentRoom()
+  if msdp and type(msdp.ROOM) == "table" then
+    return ZP.processRoom(msdp.ROOM)
+  end
+  return false
+end
+
+function ZP.requestRoom()
+  if type(sendMSDP) == "function" then
+    pcall(sendMSDP, "REPORT", "ROOM")
+  end
+  ZP.consumeCurrentRoom()
+end
+
+function ZP.start()
+  ZP.enabled = true
+  ZP.requestRoom()
+  if ZP.msdpSeen then
+    echo("<green>Mapping enabled.<reset> Using authoritative ROOM data.")
+  else
+    echo("Mapping enabled. Waiting for authoritative <white>ROOM<reset> data.")
+  end
+end
+
+function ZP.stop()
+  ZP.enabled = false
+  echo("Mapping stopped. Room inspector remains active.")
+end
+
+function ZP.show()
+  ZP.visible = true
+  if ZP.buildUI() then
+    ZP.window:show()
+    ZP.consumeCurrentRoom()
+    if ZP.currentRoom then
+      tempTimer(0, function() pcall(centerview, ZP.currentRoom) end)
+    end
+  end
+end
+
+function ZP.hide()
+  ZP.visible = false
+  if ZP.built and ZP.window then ZP.window:hide() end
+end
+
+function ZP.toggle()
+  if ZP.visible then ZP.hide() else ZP.show() end
+end
+
+function ZP.status()
+  local mapState = ZP.enabled and "<green>ON" or "<red>OFF"
+  local source = ZP.msdpSeen and "<green>MSDP ROOM received" or "<red>no MSDP ROOM"
+  echo("v" .. ZP.version ..
+       " | map: " .. mapState ..
+       "<reset> | source: " .. source ..
+       "<reset> | room: <white>" .. tostring(ZP.currentRoom or "unknown") ..
+       "<reset> | builder: " .. (ZP.isImmortal and ("<green>immortal L" .. tostring(ZP.buildLevel)) or "<grey>off") ..
+       "<reset> | window: " .. (ZP.visible and "<green>visible" or "<red>hidden"))
+end
+
+function ZP.debug()
+  if not ZP.lastPacket then
+    echo("No authoritative ROOM packet has been accepted yet.")
+    return
+  end
+
+  local p = ZP.lastPacket
+  local x,y,z = getRoomCoordinates(p.VNUM)
+  cecho("\n<cyan>[ZeroPoint Debug]<reset>\n")
+  cecho("  VNUM: <white>" .. tostring(p.VNUM) .. "<reset>\n")
+  cecho("  NAME: <white>" .. tostring(p.NAME or "") .. "<reset>\n")
+  cecho("  AREA: <white>" .. tostring(p.AREA or "") .. "<reset>\n")
+  cecho("  TERRAIN: <white>" .. tostring(p.TERRAIN or "") .. "<reset>\n")
+  cecho("  SERVER COORDS: <white>" .. tostring(p.X or "unset") .. "," .. tostring(p.Y or "unset") .. "," .. tostring(p.Z or "unset") .. "<reset>\n")
+  cecho("  MAP COORDS: <white>" .. tostring(x) .. "," .. tostring(y) .. "," .. tostring(z) .. "<reset>\n")
+  cecho("  COLOR: <white>" .. tostring(p.COLOR or "") .. "<reset>\n")
+  cecho("  IMMORTAL: <white>" .. tostring(ZP.isImmortal) .. "<reset>  BUILD LEVEL: <white>" .. tostring(ZP.buildLevel) .. "<reset>\n")
+  cecho("  EXITS:\n")
+  local count = 0
+  for _, dir in ipairs(STANDARD_DIRS) do
+    local dest = p.EXITS and p.EXITS[dir]
+    if dest then
+      cecho("    <white>" .. dir .. "<reset> -> <white>" .. tostring(dest) .. "<reset>\n")
+      count = count + 1
+    end
+  end
+  if count == 0 then cecho("    <grey>(none or not supplied)<reset>\n") end
+end
+
+function ZP.clear(confirm)
+  if confirm ~= true then
+    echo("<red>This deletes the ENTIRE Mudlet map database.<reset> Type <white>zpmap clear confirm<reset> to continue.")
+    return
+  end
+  if type(deleteMap) ~= "function" then
+    echo("<red>Your Mudlet version does not provide deleteMap().<reset>")
+    return
+  end
+  local ok, err = deleteMap()
+  if not ok then
+    echo("<red>Map clear failed:<reset> " .. tostring(err or "unknown error"))
+    return
+  end
+  ZP.currentRoom = nil
+  ZP.lastRoom = nil
+  ZP.lastPacket = nil
+  ZP.roomExits = {}
+  echo("<green>Map cleared.<reset>")
+end
+
+function ZP.help()
+  cecho([[
+<cyan>ZeroPoint Client v]] .. ZP.version .. [[<reset>
+
+  <white>zp show|hide|toggle<reset>    Control the ZeroPoint window.
+  <white>zp status<reset>              Show client/MSDP state.
+  <white>zp layout room<reset>         Room-first layout (largest inspector).
+  <white>zp layout balanced<reset>     Balanced layout.
+  <white>zp layout map<reset>          Map-first layout.
+  <white>zp layout 20..50<reset>       Set map height percentage directly.
+
+  <white>zpmap start<reset>            Enable authoritative mapping.
+  <white>zpmap stop<reset>             Disable map updates.
+  <white>zpmap status<reset>           Show client/MSDP state.
+  <white>zpmap here<reset>             Center on the current room.
+  <white>zpmap debug<reset>            Show last authoritative ROOM data.
+  <white>zpmap clear confirm<reset>    Delete the Mudlet map database.
+
+  <white>zproom show|hide|toggle<reset> Compatibility aliases for the same window.
+  <white>zpadmin show|hide|toggle<reset> Show or hide the separate immortal Builder window.
+  <white>zpadmin status<reset>          Show builder authorization/window state.
+
+ROOM.VNUM is room identity.
+ROOM.EXITS is the only source of topology.
+ROOM.X/Y/Z are authoritative whenever COORDS_SET=1.
+ROOM.COLOR and ROOM.TAGS drive map colour and player-relevant room markers.
+Immortals receive a separate server-gated Builder window for room/build commands.
+]])
+end
+
+local function handleZp(arg)
+  arg = trim(arg):lower()
+  if arg == "" or arg == "show" then ZP.show(); return end
+  if arg == "hide" then ZP.hide(); return end
+  if arg == "toggle" then ZP.toggle(); return end
+  if arg == "status" then ZP.status(); return end
+  if arg == "help" then ZP.help(); return end
+  local layoutArg = arg:match("^layout%s+(.+)$")
+  if layoutArg then
+    if not ZP.setLayoutPreset(layoutArg) then
+      echo("Unknown layout. Use <white>room<reset>, <white>balanced<reset>, <white>map<reset>, or a map percentage from 20 to 50.")
+    end
+    return
+  end
+  ZP.help()
+end
+
+local function handleMap(arg)
+  arg = trim(arg):lower()
+  if arg == "" or arg == "help" then ZP.help(); return end
+  if arg == "start" then ZP.start(); return end
+  if arg == "stop" then ZP.stop(); return end
+  if arg == "status" then ZP.status(); return end
+  if arg == "debug" then ZP.debug(); return end
+  if arg == "here" then
+    if ZP.currentRoom then pcall(centerview, ZP.currentRoom)
+    else echo("No authoritative current room yet.") end
+    return
+  end
+  if arg == "clear" then ZP.clear(false); return end
+  if arg == "clear confirm" then ZP.clear(true); return end
+  ZP.help()
+end
+
+local function handleAdmin(arg)
+  arg = trim(arg):lower()
+  if arg == "" or arg == "show" then ZP.showAdmin(); return end
+  if arg == "hide" then ZP.hideAdmin(); return end
+  if arg == "toggle" then ZP.toggleAdmin(); return end
+  if arg == "status" then ZP.adminStatus(); return end
+  echo("Use <white>zpadmin show|hide|toggle|status<reset>.")
+end
+
+function ZP.bootstrap()
+  for _, id in ipairs(ZP.aliasIDs or {}) do pcall(killAlias, id) end
+  for _, id in ipairs(ZP.eventIDs or {}) do pcall(killAnonymousEventHandler, id) end
+  ZP.aliasIDs, ZP.eventIDs = {}, {}
+
+  ZP.buildUI()
+  ZP.disableMapRoomNames()
+  if msdp then
+    if msdp.IS_IMMORTAL ~= nil then ZP.setImmortalState(msdp.IS_IMMORTAL) end
+    if msdp.BUILD_LEVEL ~= nil then ZP.setBuildLevel(msdp.BUILD_LEVEL) end
+  end
+
+  table.insert(ZP.eventIDs, registerAnonymousEventHandler("msdp.ROOM", function()
+    if msdp and type(msdp.ROOM) == "table" then ZP.processRoom(msdp.ROOM) end
+  end))
+
+  table.insert(ZP.eventIDs, registerAnonymousEventHandler("msdp.IS_IMMORTAL", function()
+    if msdp then ZP.setImmortalState(msdp.IS_IMMORTAL) end
+  end))
+
+  table.insert(ZP.eventIDs, registerAnonymousEventHandler("msdp.BUILD_LEVEL", function()
+    if msdp then ZP.setBuildLevel(msdp.BUILD_LEVEL) end
+  end))
+
+  table.insert(ZP.eventIDs, registerAnonymousEventHandler("sysConnectionEvent", function()
+    ZP.msdpSeen = false
+    ZP.isImmortal = false
+    ZP.buildLevel = 0
+    ZP.updateBuilderVisibility()
+    tempTimer(0.5, function() ZP.requestRoom() end)
+  end))
+
+  table.insert(ZP.aliasIDs, tempAlias("^zp(?:\\s+(.*))?$", function()
+    handleZp(matches[2] or "")
+  end))
+
+  table.insert(ZP.aliasIDs, tempAlias("^zpmap(?:\\s+(.*))?$", function()
+    handleMap(matches[2] or "")
+  end))
+
+  table.insert(ZP.aliasIDs, tempAlias("^zpadmin(?:\\s+(.*))?$", function()
+    handleAdmin(matches[2] or "")
+  end))
+
+  table.insert(ZP.aliasIDs, tempAlias("^zproom(?:\\s+(.*))?$", function()
+    local arg = trim(matches[2] or ""):lower()
+    if arg == "" or arg == "show" then ZP.show(); return end
+    if arg == "hide" then ZP.hide(); return end
+    if arg == "toggle" then ZP.toggle(); return end
+    if arg == "status" then ZP.status(); return end
+    ZP.help()
+  end))
+
+  ZP.consumeCurrentRoom()
+  ZP.requestRoom()
+  echo("Loaded unified client v" .. ZP.version .. ". Mapper/inspector loaded; builder is a separate immortal window.")
+end
+
+if not ZP._loadHandler then
+  ZP._loadHandler = registerAnonymousEventHandler("sysLoadEvent", "ZeroPoint.bootstrap")
+end
+
+ZP.bootstrap()
+]]></script>
+      <eventHandlerList />
+    </Script>
+  </ScriptPackage>
+</MudletPackage>

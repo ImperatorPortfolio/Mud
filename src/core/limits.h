@@ -7,7 +7,12 @@
 #define MAX_KEY_HASH		 2048
 #define MAX_STRING_LENGTH	 4096 /* buf */
 #define MAX_INPUT_LENGTH	 1024 /* arg */
-#define MAX_INBUF_SIZE		 1024
+#define MAX_COMMAND_LENGTH	 4096 /* canonical socket/editor line */
+#define MAX_INBUF_SIZE		16384 /* queued socket input */
+#define MAX_LONG_TEXT_LENGTH	16384 /* persisted/editor text */
+#define MAX_COLORIZED_LENGTH   ( MAX_LONG_TEXT_LENGTH * 10 )
+#define MAX_EDITOR_LINES	   60
+#define MAX_EDITOR_LINE_LENGTH MAX_COMMAND_LENGTH
 
 #define HASHSTR   /* use string hashing */
 

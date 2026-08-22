@@ -2,6 +2,7 @@
 
 # Set the port number
 PORT=${1:-4020}
+STREAM_LOG=${ZEROPOINT_STREAM_LOG:-0}
 
 # Change to area directory.
 cd ../area || { echo "Directory ../area not found!"; exit 1; }
@@ -28,8 +29,14 @@ while true; do
         exit 1
     fi
 
-    # Run SMAUG
-    ../src/ZeroPoint "$PORT" >> "$LOGFILE" 2>&1
+    # Interactive launchers can mirror the active log without changing the
+    # normal detached-server behavior.
+    if [ "$STREAM_LOG" = "1" ]; then
+        echo "Monitoring $LOGFILE"
+        ../src/ZeroPoint "$PORT" 2>&1 | tee -a "$LOGFILE"
+    else
+        ../src/ZeroPoint "$PORT" >> "$LOGFILE" 2>&1
+    fi
 
     # Check for clean shutdown
     if [ -f "shutdown.txt" ]; then

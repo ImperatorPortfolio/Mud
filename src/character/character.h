@@ -88,7 +88,7 @@ struct editor_data
    short numlines;
    short on_line;
    short size;
-   char line[49][81];
+   char line[MAX_EDITOR_LINES][MAX_EDITOR_LINE_LENGTH];
 };
 
 struct extracted_char_data

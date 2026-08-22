@@ -491,7 +491,7 @@ void accept_new( int ctrl )
 void game_loop( void )
 {
    struct timeval last_time;
-   char cmdline[MAX_INPUT_LENGTH];
+   char cmdline[MAX_COMMAND_LENGTH];
    DESCRIPTOR_DATA *d;
 /*  time_t	last_check = 0;  */
 
@@ -578,7 +578,7 @@ void game_loop( void )
                d->fcommand = TRUE;
                stop_idling( d->character );
 
-               strlcpy( cmdline, d->incomm , MAX_INPUT_LENGTH);
+               strlcpy( cmdline, d->incomm, sizeof( cmdline ) );
                d->incomm[0] = '\0';
 
                if( d->character )
@@ -1083,6 +1083,8 @@ bool read_from_descriptor( DESCRIPTOR_DATA * d )
 void read_from_buffer( DESCRIPTOR_DATA * d )
 {
    int i, j, k, iac = 0;
+   const int command_limit =
+      d->connected == CON_EDITING ? ( int )sizeof( d->incomm ) - 2 : MAX_INPUT_LENGTH - 2;
 
    /*
     * Hold horses if pending command already.
@@ -1104,7 +1106,7 @@ void read_from_buffer( DESCRIPTOR_DATA * d )
     */
    for( i = 0, k = 0; d->inbuf[i] != '\n' && d->inbuf[i] != '\r'; i++ )
    {
-      if( k >= ( int )sizeof( d->incomm ) - 2 )
+      if( k >= command_limit )
       {
          write_to_descriptor( d, "Line is too long.\r\n", 0 );
 
@@ -1178,9 +1180,9 @@ void read_from_buffer( DESCRIPTOR_DATA * d )
     * Do '!' substitution.
     */
    if( d->incomm[0] == '!' )
-      strlcpy( d->incomm, d->inlast, MAX_INPUT_LENGTH );
+      strlcpy( d->incomm, d->inlast, sizeof( d->incomm ) );
    else
-      strlcpy( d->inlast, d->incomm, MAX_INPUT_LENGTH );
+      strlcpy( d->inlast, d->incomm, sizeof( d->inlast ) );
 
    /*
     * Shift the input buffer.

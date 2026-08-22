@@ -670,7 +670,7 @@ int get_npc_sex( const char *sex )
  */
 char *strip_cr( const char *str )
 {
-   static char newstr[MAX_STRING_LENGTH];
+   static char newstr[MAX_LONG_TEXT_LENGTH];
    int i, j;
 
    if( !str || str[0] == '\0' )
@@ -679,7 +679,7 @@ char *strip_cr( const char *str )
       return newstr;
    }
 
-   for( i = j = 0; str[i] != '\0'; i++ )
+   for( i = j = 0; str[i] != '\0' && j < MAX_LONG_TEXT_LENGTH - 1; i++ )
    {
       if( str[i] != '\r' )
       {
@@ -716,10 +716,30 @@ void smush_tilde( char *str )
       strptr[len - 1] = last;
 }
 
+static size_t editor_text_size( const EDITOR_DATA *edit )
+{
+   size_t size = 0;
+
+   if( !edit )
+      return 0;
+
+   for( int line = 0; line < edit->numlines; ++line )
+      size += strlen( edit->line[line] ) + 1;
+
+   return size;
+}
+
+static void editor_sync_size( EDITOR_DATA *edit )
+{
+   if( edit )
+      edit->size = ( short )editor_text_size( edit );
+}
+
 void start_editing( CHAR_DATA * ch, const char *data )
 {
    EDITOR_DATA *edit;
-   short lines, size, lpos;
+   int lines;
+   size_t size, lpos;
    char c;
 
    if( !ch->desc )
@@ -746,31 +766,38 @@ void start_editing( CHAR_DATA * ch, const char *data )
    if( !data )
       bug( "%s: data is NULL!", __func__ );
    else
-      for( ;; )
+      while( data[size] != '\0' && size < MAX_LONG_TEXT_LENGTH - 1 && lines < MAX_EDITOR_LINES )
       {
          c = data[size++];
-         if( c == '\0' )
-         {
-            edit->line[lines][lpos] = '\0';
-            break;
-         }
-         else if( c == '\r' );
-         else if( c == '\n' || lpos > 78 )
+         if( c == '\r' )
+            continue;
+         if( c == '\n' )
          {
             edit->line[lines][lpos] = '\0';
             lines++;
             lpos = 0;
+            continue;
          }
-         else
-            edit->line[lines][lpos++] = c;
-         if( lines >= 49 || size > 4096 )
+
+         if( lpos >= MAX_EDITOR_LINE_LENGTH - 1 )
          {
             edit->line[lines][lpos] = '\0';
-            break;
+            if( ++lines >= MAX_EDITOR_LINES )
+               break;
+            lpos = 0;
          }
+
+         edit->line[lines][lpos++] = c;
       }
+
+   if( lpos > 0 && lines < MAX_EDITOR_LINES )
+   {
+      edit->line[lines][lpos] = '\0';
+      lines++;
+   }
+
    edit->numlines = lines;
-   edit->size = size;
+   editor_sync_size( edit );
    edit->on_line = lines;
    ch->editor = edit;
    ch->desc->connected = CON_EDITING;
@@ -778,8 +805,8 @@ void start_editing( CHAR_DATA * ch, const char *data )
 
 const char *copy_buffer( CHAR_DATA * ch )
 {
-   char buf[MAX_STRING_LENGTH];
-   char tmp[100];
+   char buf[MAX_LONG_TEXT_LENGTH];
+   char tmp[MAX_EDITOR_LINE_LENGTH + 2];
    short x, len;
 
    if( !ch )
@@ -797,14 +824,14 @@ const char *copy_buffer( CHAR_DATA * ch )
    buf[0] = '\0';
    for( x = 0; x < ch->editor->numlines; x++ )
    {
-      strlcpy( tmp, ch->editor->line[x], 100 );
+      strlcpy( tmp, ch->editor->line[x], sizeof( tmp ) );
       smush_tilde( tmp );
       len = strlen( tmp );
       if( len > 0 && tmp[len - 1] == '~' )
          tmp[len - 1] = '\0';
       else
-         strlcat( tmp, "\n", 100 );
-      strlcat( buf, tmp, MAX_STRING_LENGTH );
+         strlcat( tmp, "\n", sizeof( tmp ) );
+      strlcat( buf, tmp, sizeof( buf ) );
    }
    return STRALLOC( buf );
 }
@@ -4862,11 +4889,9 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
    DESCRIPTOR_DATA *d;
    EDITOR_DATA *edit;
    char cmd[MAX_INPUT_LENGTH];
-   char buf[MAX_INPUT_LENGTH];
-   const int max_buf_lines = 60;
+   char buf[MAX_EDITOR_LINE_LENGTH];
    int x;
    short line;
-   bool save;
 
    if( ( d = ch->desc ) == NULL )
    {
@@ -4898,7 +4923,6 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
    }
 
    edit = ch->editor;
-   save = FALSE;
 
    if( argument[0] == '/' || argument[0] == '\\' )
    {
@@ -4961,13 +4985,22 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
             while( ( wptr = strstr( lwptr, word1 ) ) != NULL )
             {
                ++count;
-               lineln = snprintf( buf, MAX_INPUT_LENGTH, "%s%s", word2, wptr + wordln );
-               if( lineln + wptr - edit->line[x] > 79 )
-                  buf[lineln] = '\0';
-               strlcpy( wptr, buf, MAX_STRING_LENGTH );
+               const size_t prefix = ( size_t )( wptr - edit->line[x] );
+               const size_t old_line_length = strlen( edit->line[x] );
+               const size_t available = MAX_EDITOR_LINE_LENGTH - prefix;
+
+               lineln = snprintf( buf, sizeof( buf ), "%s%s", word2, wptr + wordln );
+               if( lineln < 0 || ( size_t )lineln >= available
+                   || editor_text_size( edit ) - old_line_length + prefix + ( size_t )lineln >= MAX_LONG_TEXT_LENGTH )
+               {
+                  send_to_char( "Replacement would exceed the editor buffer.\r\n> ", ch );
+                  return;
+               }
+               strlcpy( wptr, buf, available );
                lwptr = wptr + word2ln;
             }
          }
+         editor_sync_size( edit );
          ch_printf( ch, "Found and replaced %d occurrence(s).\r\n> ", count );
          return;
       }
@@ -4981,7 +5014,7 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
        */
       if( !str_cmp( cmd + 1, "f" ) )
       {
-         char temp_buf[MAX_STRING_LENGTH + max_buf_lines];
+         char temp_buf[MAX_LONG_TEXT_LENGTH + MAX_EDITOR_LINES];
          int ep, old_p, end_mark;
          int p = 0;
 
@@ -4989,7 +5022,7 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
 
          for( x = 0; x < edit->numlines; x++ )
          {
-            strncpy( temp_buf + p, edit->line[x], MAX_STRING_LENGTH + max_buf_lines - p );
+            strncpy( temp_buf + p, edit->line[x], sizeof( temp_buf ) - p );
             p += strlen( edit->line[x] );
             temp_buf[p] = ' ';
             p++;
@@ -4997,6 +5030,11 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
 
          temp_buf[p] = '\0';
          end_mark = p;
+         if( end_mark > MAX_EDITOR_LINES * 75 )
+         {
+            send_to_char( "Text is too long to reformat within the editor line limit.\r\n> ", ch );
+            return;
+         }
          p = 75;
          old_p = 0;
          edit->on_line = 0;
@@ -5028,13 +5066,14 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
             p += 75;
 
          }
+         editor_sync_size( edit );
          pager_printf( ch, "Reformating done.\r\n> " );
          return;
       }
 
       if( !str_cmp( cmd + 1, "i" ) )
       {
-         if( edit->numlines >= max_buf_lines )
+         if( edit->numlines >= MAX_EDITOR_LINES )
             send_to_char( "Buffer is full.\r\n> ", ch );
          else
          {
@@ -5048,9 +5087,11 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
                send_to_char( "Out of range.\r\n> ", ch );
             else
             {
-               for( x = ++edit->numlines; x > line; x-- )
-                  strlcpy( edit->line[x], edit->line[x - 1], 81 );
-               strlcpy( edit->line[line], "", 81 );
+               for( x = edit->numlines; x > line; x-- )
+                  strlcpy( edit->line[x], edit->line[x - 1], MAX_EDITOR_LINE_LENGTH );
+               edit->numlines++;
+               edit->line[line][0] = '\0';
+               editor_sync_size( edit );
                send_to_char( "Line inserted.\r\n> ", ch );
             }
          }
@@ -5068,7 +5109,7 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
                line = edit->on_line;
             if( line < 0 )
                line = edit->on_line;
-            if( line < 0 || line > edit->numlines )
+            if( line < 0 || line >= edit->numlines )
                send_to_char( "Out of range.\r\n> ", ch );
             else
             {
@@ -5081,10 +5122,12 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
                   return;
                }
                for( x = line; x < ( edit->numlines - 1 ); x++ )
-                  strlcpy( edit->line[x], edit->line[x + 1], 81 );
-               strlcpy( edit->line[edit->numlines--], "", 81 );
+                  strlcpy( edit->line[x], edit->line[x + 1], MAX_EDITOR_LINE_LENGTH );
+               edit->numlines--;
+               edit->line[edit->numlines][0] = '\0';
                if( edit->on_line > edit->numlines )
                   edit->on_line = edit->numlines;
+               editor_sync_size( edit );
                send_to_char( "Line deleted.\r\n> ", ch );
             }
          }
@@ -5105,7 +5148,7 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
             }
             if( line < 0 )
                line = edit->on_line;
-            if( line < 0 || line > edit->numlines )
+            if( line < 0 || line >= edit->numlines )
                send_to_char( "Out of range.\r\n> ", ch );
             else
             {
@@ -5158,36 +5201,26 @@ void edit_buffer( CHAR_DATA * ch, char *argument )
       }
    }
 
-   if( edit->size + strlen( argument ) + 1 >= MAX_STRING_LENGTH - 1 )
-      send_to_char( "You buffer is full.\r\n", ch );
+   const size_t argument_length = strlen( argument );
+   size_t replaced_length = 0;
+
+   editor_sync_size( edit );
+   if( edit->on_line >= 0 && edit->on_line < edit->numlines )
+      replaced_length = strlen( edit->line[edit->on_line] ) + 1;
+
+   if( edit->on_line < 0 || edit->on_line >= MAX_EDITOR_LINES )
+      send_to_char( "Buffer is full. Save or delete a line before continuing.\r\n", ch );
+   else if( argument_length >= MAX_EDITOR_LINE_LENGTH )
+      send_to_char( "Line is too long for the editor buffer.\r\n", ch );
+   else if( ( size_t )edit->size - replaced_length + argument_length + 1 >= MAX_LONG_TEXT_LENGTH )
+      send_to_char( "Your buffer is full.\r\n", ch );
    else
    {
-      if( strlen( argument ) > 79 )
-      {
-         strncpy( buf, argument, 79 );
-         buf[79] = 0;
-         send_to_char( "(Long line trimmed)\r\n> ", ch );
-      }
-      else
-         strlcpy( buf, argument, MAX_INPUT_LENGTH );
-      strlcpy( edit->line[edit->on_line++], buf, 81 );
-      if( edit->on_line > edit->numlines )
-         edit->numlines++;
-      if( edit->numlines > max_buf_lines )
-      {
-         edit->numlines = max_buf_lines;
-         send_to_char( "Buffer full.\r\n", ch );
-         save = TRUE;
-      }
-   }
-
-   if( save )
-   {
-      d->connected = CON_PLAYING;
-      if( !ch->last_cmd )
-         return;
-      ( *ch->last_cmd ) ( ch, "" );
-      return;
+      strlcpy( edit->line[edit->on_line], argument, MAX_EDITOR_LINE_LENGTH );
+      if( edit->on_line >= edit->numlines )
+         edit->numlines = edit->on_line + 1;
+      edit->on_line++;
+      editor_sync_size( edit );
    }
    send_to_char( "> ", ch );
 }

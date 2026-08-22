@@ -7,20 +7,18 @@ set "REPO_ROOT=%~dp0.."
 for %%I in ("%REPO_ROOT%") do set "REPO_ROOT=%%~fI"
 set "MUD_HOST=127.0.0.1"
 set "USE_WSL=0"
-set "WSL_ROOT="
 
 where wsl.exe >nul 2>nul
 if not errorlevel 1 (
     wsl.exe -d Ubuntu -- true >nul 2>nul
     if not errorlevel 1 (
-        for /f "usebackq delims=" %%I in (`wsl.exe wslpath "%REPO_ROOT%"`) do set "WSL_ROOT=%%I"
         for /f "tokens=1" %%I in ('wsl.exe -d Ubuntu -- hostname -I') do if not defined MUD_HOST_FROM_WSL set "MUD_HOST_FROM_WSL=%%I"
+        set "USE_WSL=1"
     )
 )
 
-if defined WSL_ROOT (
+if "!USE_WSL!"=="1" (
     if defined MUD_HOST_FROM_WSL set "MUD_HOST=!MUD_HOST_FROM_WSL!"
-    set "USE_WSL=1"
 )
 
 echo Starting ZeroPoint on port %PORT%...
@@ -36,11 +34,13 @@ if "!USE_WSL!"=="1" (
         goto finish
     )
 
-    echo Server output is written to the log directory.
+    echo Streaming the active log below; output is also written to the log directory.
     echo Press Ctrl+C to stop the server, or use shutdown mud now in-game.
     echo.
-    wsl.exe -d Ubuntu -- bash -lc "cd \"%WSL_ROOT%/src\" && exec ./startup.sh %PORT%"
+    pushd "!REPO_ROOT!\src"
+    wsl.exe -d Ubuntu -- env ZEROPOINT_STREAM_LOG=1 bash ./startup.sh %PORT%
     set "EXIT_CODE=!ERRORLEVEL!"
+    popd
     goto finish
 )
 

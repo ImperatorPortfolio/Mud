@@ -186,8 +186,8 @@ struct descriptor_data
    short scrlen;
    bool fcommand;
    char inbuf[MAX_INBUF_SIZE];
-   char incomm[MAX_INPUT_LENGTH];
-   char inlast[MAX_INPUT_LENGTH];
+   char incomm[MAX_COMMAND_LENGTH];
+   char inlast[MAX_COMMAND_LENGTH];
    int repeat;
    char *outbuf;
    unsigned long outsize;
