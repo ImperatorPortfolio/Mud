@@ -1,0 +1,42 @@
+#QUEST
+Id 2001
+Name Wrong Bag~
+Description Recover a passenger's misrouted suitcase through Lost Property and Information.~
+MinLevel 1
+MaxLevel 20
+Prerequisite 0 0
+Repeatable 0
+Cooldown 0
+RewardXP -1 100
+RewardCredits 50
+RewardItem 229
+RewardReputation 0 0
+RewardSkill 0 0
+RewardQuestPoints 0
+Objective get 1 246 0 1 Recover the misrouted baggage tag from Lost Property.~
+Objective give 2 246 214 1 Give the baggage tag to an Information clerk for verification.~
+Objective give 3 247 217 1 Give the verified release slip to the Lost Property clerk.~
+Objective give 4 248 218 1 Return the recovered black suitcase to its owner.~
+End
+
+#QUEST
+Id 2002
+Name Cold Chain~
+Description Help the arrivals food market isolate a chilled delivery with a damaged temperature seal.~
+MinLevel 1
+MaxLevel 20
+Prerequisite 0 0
+Repeatable 1
+Cooldown 3600
+RewardXP -1 75
+RewardCredits 30
+RewardItem 208
+RewardReputation 0 0
+RewardSkill 0 0
+RewardQuestPoints 0
+Objective examine 1 254 0 1 Inspect the chilled supplier delivery crate.~
+Objective get 2 256 0 1 Recover the damaged cold-chain seal.~
+Objective give 3 256 202 1 Return the damaged seal to the food-service droid.~
+End
+
+#END
