@@ -105,10 +105,27 @@ o/geography_commands.o: C_FLAGS += -Dload_commands=geography_load_commands
 #
 # Telnet/MSDP input filtering and canonical command capacity
 #
-# comm.c owns both the game-loop call site and the canonical parser, so patch
-# that translation unit directly at compile time rather than relying on symbol
-# interposition. The source guard must match exactly once or the build fails.
+# comm.c owns the socket input path and the canonical parser.
 o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
+
+#
+# Modern output flushing
+#
+# The inherited flush_buffer() delays output larger than 4 KiB by sending only
+# 512 bytes per game loop. Dense true-colour room names make ordinary builder
+# lists exceed that threshold very quickly. write_to_descriptor() already owns
+# bounded 4096-byte socket writes, so compile comm.c with only that obsolete
+# throttle disabled. Refuse to build if the exact legacy guard stops matching.
+o/comm.o: comm.c Makefile | o
+	@echo "  Compiling $@...";
+	@count=$$(grep -F -c 'if( !mud_down && d->outtop > 4096 )' comm.c); \
+	if [ "$$count" -ne 1 ]; then \
+		echo "ERROR: expected exactly one legacy 4K output throttle in comm.c, found $$count"; \
+		exit 1; \
+	fi
+	@sed 's/if( !mud_down && d->outtop > 4096 )/if( FALSE \&\& !mud_down \&\& d->outtop > 4096 )/' comm.c > .comm_output.c
+	$(CC) -c $(C_FLAGS) .comm_output.c -o $@
+	@rm -f .comm_output.c
 
 #
 # Room metadata and area-builder command layering
@@ -177,7 +194,7 @@ ZeroPoint: $(O_FILES)
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o ZeroPoint.exe dependencies.d resolver.exe resolver.o *~ .comm_extended.c
+	@rm -f o/*.o ZeroPoint.exe dependencies.d resolver.exe resolver.o *~ .comm_extended.c .comm_output.c
 
 else
 ZeroPoint: $(O_FILES)
@@ -192,7 +209,7 @@ ZeroPoint: $(O_FILES)
 	@chmod g+w $(O_FILES)
 
 clean:
-	@rm -f o/*.o ZeroPoint dependencies.d resolver resolver.o *~ .comm_extended.c
+	@rm -f o/*.o ZeroPoint dependencies.d resolver resolver.o *~ .comm_extended.c .comm_output.c
 endif
 
 dns: resolver.o
