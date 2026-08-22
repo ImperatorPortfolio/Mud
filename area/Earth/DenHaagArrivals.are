@@ -282,10 +282,9 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #MUDPROG
-Progtype  bribe_prog~
-Arglist   1~
-Comlist   say thank you.
-bow $n
+Progtype  entry_prog~
+Arglist   50~
+Comlist   say Spare some change?
 ~
 #ENDPROG
 
@@ -298,9 +297,10 @@ say Spare some change?
 #ENDPROG
 
 #MUDPROG
-Progtype  entry_prog~
-Arglist   50~
-Comlist   say Spare some change?
+Progtype  bribe_prog~
+Arglist   1~
+Comlist   say thank you.
+bow $n
 ~
 #ENDPROG
 
@@ -595,8 +595,18 @@ ToRoom    206
 #ENDEXIT
 
 #EXIT
+Direction east~
+ToRoom    226
+#ENDEXIT
+
+#EXIT
 Direction south~
 ToRoom    204
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    222
 #ENDEXIT
 
 Reset M 0 210 2 205
@@ -624,6 +634,11 @@ Tall pressure-rated windows give brief views of Earth-orbit traffic approaching 
 #EXIT
 Direction north~
 ToRoom    207
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    218
 #ENDEXIT
 
 #EXIT
@@ -861,6 +876,11 @@ ToRoom    206
 #ENDEXIT
 
 #EXIT
+Direction south~
+ToRoom    222
+#ENDEXIT
+
+#EXIT
 Direction west~
 ToRoom    215
 #ENDEXIT
@@ -884,6 +904,11 @@ Tall pressure-rated windows give brief views of Earth-orbit traffic approaching 
 #EXIT
 Direction east~
 ToRoom    214
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    223
 #ENDEXIT
 
 #EXIT
@@ -912,6 +937,11 @@ ToRoom    215
 #ENDEXIT
 
 #EXIT
+Direction south~
+ToRoom    224
+#ENDEXIT
+
+#EXIT
 Direction west~
 ToRoom    217
 #ENDEXIT
@@ -936,11 +966,16 @@ Direction east~
 ToRoom    216
 #ENDEXIT
 
+#EXIT
+Direction south~
+ToRoom    225
+#ENDEXIT
+
 #ENDROOM
 
 #ROOM
 Vnum     218
-Name     maglev car Platform - Grandis Mon Station~
+Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -952,20 +987,25 @@ it and look for a seat.
 Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
-Direction west~
-ToRoom    436
+Direction east~
+ToRoom    219
 #ENDEXIT
 
 #EXIT
-Direction southwest~
-ToRoom    435
+Direction south~
+ToRoom    226
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    206
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     219
-Name     maglev car Platform - Palace Station~
+Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -977,20 +1017,25 @@ it and look for a seat.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
-Direction west~
-ToRoom    438
+Direction east~
+ToRoom    220
 #ENDEXIT
 
 #EXIT
-Direction southwest~
-ToRoom    437
+Direction south~
+ToRoom    227
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    218
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     220
-Name     maglev car Platform - Museum Station~
+Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -1002,15 +1047,25 @@ it and look for a seat.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
+Direction east~
+ToRoom    221
+#ENDEXIT
+
+#EXIT
 Direction south~
-ToRoom    439
+ToRoom    228
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    219
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     221
-Name     maglev car Platform - College Station~
+Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -1022,8 +1077,13 @@ it and look for a seat.
 Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
-Direction north~
-ToRoom    441
+Direction south~
+ToRoom    229
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    220
 #ENDEXIT
 
 #ENDROOM
@@ -1042,8 +1102,18 @@ it and look for a seat.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
+Direction north~
+ToRoom    214
+#ENDEXIT
+
+#EXIT
 Direction east~
-ToRoom    443
+ToRoom    205
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    223
 #ENDEXIT
 
 #ENDROOM
@@ -1062,8 +1132,18 @@ it and look for a seat.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
-Direction south~
-ToRoom    445
+Direction north~
+ToRoom    215
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    222
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    224
 #ENDEXIT
 
 #ENDROOM
@@ -1083,7 +1163,17 @@ Tall pressure-rated windows give brief views of Earth-orbit traffic approaching 
 ~
 #EXIT
 Direction north~
-ToRoom    447
+ToRoom    216
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    223
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    225
 #ENDEXIT
 
 #ENDROOM
@@ -1100,6 +1190,16 @@ and lock into position once the car starts moving.
 
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
+#EXIT
+Direction north~
+ToRoom    217
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    224
+#ENDEXIT
+
 #ENDROOM
 
 #ROOM
@@ -1114,6 +1214,82 @@ ship it is controlled automaticly by the code.
 
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
+#EXIT
+Direction north~
+ToRoom    218
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    227
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    205
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     227
+Name     Floating in a void~
+Sector   city~
+Flags    prototype~
+#EXIT
+Direction north~
+ToRoom    219
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    228
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    226
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     228
+Name     Floating in a void~
+Sector   city~
+Flags    prototype~
+#EXIT
+Direction north~
+ToRoom    220
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    229
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    227
+#ENDEXIT
+
+#ENDROOM
+
+#ROOM
+Vnum     229
+Name     Floating in a void~
+Sector   city~
+Flags    prototype~
+#EXIT
+Direction north~
+ToRoom    221
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    228
+#ENDEXIT
+
 #ENDROOM
 
 #ENDAREA
