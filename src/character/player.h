@@ -66,6 +66,9 @@ short learned[MAX_SKILL];
    short quest_number;  /* current *QUEST BEING DONE* DON'T REMOVE! */
    short quest_curr; /* current number of quest points */
    int quest_accum;  /* quest points accumulated in players life */
+   PLAYER_QUEST_STATE quests[MAX_ACTIVE_QUESTS];
+   PLAYER_QUEST_HISTORY quest_history[MAX_QUEST_HISTORY];
+   PLAYER_REPUTATION quest_reputation[MAX_QUEST_REPUTATIONS];
    int auth_state;
    time_t release_date; /* Auto-helling.. Altrag */
    const char *helled_by;

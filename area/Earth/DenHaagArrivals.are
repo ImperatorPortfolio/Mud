@@ -65,30 +65,34 @@ mpecho [Quest hint: SAY DELIVERY]
 #MUDPROG
 Progtype  speech_prog~
 Arglist   delivery shipment cold-chain cold chain stockroom~
-Comlist   say A chilled supplier crate arrived with a damaged temperature seal. I need the broken seal brought back for the delivery report.
+Comlist   mpqueststart $n 2002
+if questactive(2002)
+say A chilled supplier crate arrived with a damaged temperature seal. I need the broken seal brought back for the delivery report.
 say The stockroom is staff-only, but I can open it while you check this shipment.
 mpoload 255
 unlock north
 open north
 mpjunk stockroom
-mpechoat $n [Quest: COLD CHAIN]
 mpechoat $n [Next: NORTH; EXAMINE CRATE; GET SEAL; SOUTH; GIVE SEAL DROID.]
+endif
 ~
 #ENDPROG
 #MUDPROG
 Progtype  give_prog~
 Arglist   damaged cold-chain cold chain temperature seal~
-Comlist   mpechoat $n The food-service droid scans the broken seal and records its batch number.
+Comlist   if queststage(2002) == 3
+mpechoat $n The food-service droid scans the broken seal and records its batch number.
 mpechoaround $n The food-service droid checks a damaged temperature seal against the delivery manifest.
 mpjunk damaged
 mpoload 255
 close north
 lock north
 mpjunk stockroom
-say Logged and isolated. That shipment stays off sale until it is replaced. Take this electrolyte water for the help.
-mpoload 208
-give electrolyte $n
-mpechoat $n [Quest complete: COLD CHAIN]
+say Logged and isolated. That shipment stays off sale until it is replaced. Thank you for the help.
+else
+say I do not have an active delivery report for that seal.
+give damaged $n
+endif
 ~
 #ENDPROG
 #ENDMOBILE
@@ -360,13 +364,18 @@ Comlist   say Delta departures are reached through the east concourse and Delta 
 #MUDPROG
 Progtype  give_prog~
 Arglist   misrouted baggage routing tag alpha transfer~
-Comlist   mpechoat $n The information clerk runs the routing code through the terminal register.
+Comlist   if queststage(2001) == 2
+mpechoat $n The information clerk runs the routing code through the terminal register.
 mpechoaround $n The information clerk checks a baggage-routing tag against the terminal register.
 say This tag was diverted through Alpha by mistake. Lost Property is holding the matching black case.
 mpjunk misrouted
 mpoload 247
 give verified $n
 mpechoat $n [Next: Return to Lost Property Reception and GIVE SLIP CLERK.]
+else
+say I cannot verify this without an active baggage claim.
+give misrouted $n
+endif
 ~
 #ENDPROG
 #MUDPROG
@@ -475,13 +484,18 @@ mpechoat $n [Next: NORTH; EXAMINE TAG; GET TAG.]
 #MUDPROG
 Progtype  give_prog~
 Arglist   verified baggage release slip alpha~
-Comlist   mpechoat $n The clerk scans the release slip and opens the matching property record.
+Comlist   if queststage(2001) == 3
+mpechoat $n The clerk scans the release slip and opens the matching property record.
 mpechoaround $n The Lost Property clerk checks a release slip against the secure archive.
 say Found it. Black case, interstellar claim. Return it to its owner in the western gate lounges.
 mpjunk verified
 mpoload 248
 give recovered $n
 mpechoat $n [Next: Find the tired business traveller and GIVE SUITCASE TRAVELLER.]
+else
+say This release slip is not attached to an active claim.
+give verified $n
+endif
 ~
 #ENDPROG
 #MUDPROG
@@ -517,21 +531,26 @@ Speaking   common~
 #MUDPROG
 Progtype  speech_prog~
 Arglist   wrong bag luggage suitcase~
-Comlist   say My black case was exchanged for another after the interstellar arrival.
+Comlist   mpqueststart $n 2001
+if questactive(2001)
+say My black case was exchanged for another after the interstellar arrival.
 say Lost Property is west of Alpha Gate Junction. Ask the clerk about LUGGAGE and check their archive for the routing tag.
 mpechoat $n [Next: Find Lost Property Reception and SAY LUGGAGE.]
+endif
 ~
 #ENDPROG
 #MUDPROG
 Progtype  give_prog~
 Arglist   recovered business suitcase black luggage~
-Comlist   mpechoat $n The traveller compares the case number with a battered claim stub and unlocks the suitcase.
+Comlist   if queststage(2001) == 4
+mpechoat $n The traveller compares the case number with a battered claim stub and unlocks the suitcase.
 mpechoaround $n The traveller checks the recovered suitcase against a battered claim stub.
-say That's it. Thank you. Take my spare local transit card; I will not need it now.
+say That's it. Thank you. Keep my spare local transit card; I will not need it now.
 mpjunk recovered
-mpoload 229
-give transit $n
-mpechoat $n [Quest complete: WRONG BAG]
+else
+say That is not the case attached to an active claim of mine.
+give recovered $n
+endif
 ~
 #ENDPROG
 #MUDPROG

@@ -492,6 +492,8 @@ DECLARE_DO_FUN( do_put );
 DECLARE_DO_FUN( do_qpset );
 DECLARE_DO_FUN( do_quaff );
 DECLARE_DO_FUN( do_quest );
+DECLARE_DO_FUN( do_quests );
+DECLARE_DO_FUN( do_abandon );
 DECLARE_DO_FUN( do_qui );
 DECLARE_DO_FUN( do_quit );
 DECLARE_DO_FUN( do_rank );
@@ -648,6 +650,10 @@ DECLARE_DO_FUN( do_mpapply );
 DECLARE_DO_FUN( do_mpapplyb );
 DECLARE_DO_FUN( do_mppkset );
 DECLARE_DO_FUN( do_mpgain );
+DECLARE_DO_FUN( do_mpqueststart );
+DECLARE_DO_FUN( do_mpquestadvance );
+DECLARE_DO_FUN( do_mpquestcomplete );
+DECLARE_DO_FUN( do_mpquestfail );
 
 /*
 * Spell functions.

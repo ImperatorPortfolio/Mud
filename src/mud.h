@@ -18,6 +18,7 @@
 #include "world/services.h"
 #include "space/space.h"
 #include "game/social.h"
+#include "game/quest.h"
 #include "world/affect.h"
 #include "world/definitions.h"
 #include "character/character.h"

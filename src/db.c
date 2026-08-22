@@ -392,6 +392,9 @@ void boot_db( bool fCopyOver )
    load_skill_table(  );
    sort_skill_table(  );
 
+   log_string( "Loading quest definitions..." );
+   load_quests(  );
+
    gsn_first_spell = 0;
    gsn_first_skill = 0;
    gsn_first_weapon = 0;
