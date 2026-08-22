@@ -66,7 +66,7 @@ mpecho [Quest hint: TALK DROID]
 Progtype  speech_prog~
 Arglist   delivery shipment cold-chain cold chain stockroom~
 Comlist   if questactive(2002)
-mpeload $n The food-service droid authorises temporary access to the staff stockroom.
+mpechoat $n The food-service droid authorises temporary access to the staff stockroom.
 mpoload 255
 unlock north
 open north
