@@ -55,6 +55,42 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 ShopData   0 0 0 0 0 120 90 0 23
+#MUDPROG
+Progtype  rand_prog~
+Arglist   11~
+Comlist   mpecho The food-service droid studies a flashing delivery alert and mutters, "Cold-chain problem in the stockroom. SAY DELIVERY if you can help."
+mpecho [Quest hint: SAY DELIVERY]
+~
+#ENDPROG
+#MUDPROG
+Progtype  speech_prog~
+Arglist   delivery shipment cold-chain cold chain stockroom~
+Comlist   say A chilled supplier crate arrived with a damaged temperature seal. I need the broken seal brought back for the delivery report.
+say The stockroom is staff-only, but I can open it while you check this shipment.
+mpoload 255
+unlock north
+open north
+mpjunk stockroom
+mpechoat $n [Quest: COLD CHAIN]
+mpechoat $n [Next: NORTH; EXAMINE CRATE; GET SEAL; SOUTH; GIVE SEAL DROID.]
+~
+#ENDPROG
+#MUDPROG
+Progtype  give_prog~
+Arglist   damaged cold-chain cold chain temperature seal~
+Comlist   mpechoat $n The food-service droid scans the broken seal and records its batch number.
+mpechoaround $n The food-service droid checks a damaged temperature seal against the delivery manifest.
+mpjunk damaged
+mpoload 255
+close north
+lock north
+mpjunk stockroom
+say Logged and isolated. That shipment stays off sale until it is replaced. Take this electrolyte water for the help.
+mpoload 208
+give electrolyte $n
+mpechoat $n [Quest complete: COLD CHAIN]
+~
+#ENDPROG
 #ENDMOBILE
 
 #MOBILE
@@ -162,34 +198,6 @@ Speaking   common~
 Progtype  rand_prog~
 Arglist   8~
 Comlist   mpecho A scanner gives a soft chime as the officer waves another passenger through.
-~
-#ENDPROG
-#MUDPROG
-Progtype  speech_prog~
-Arglist   scanner fault false alarm maintenance~
-Comlist   say The east sensor loop keeps throwing false positives. Start by examining the security arch.
-say The east control door is usable from this checkpoint; beyond it, go south into the service passage and retrieve the damaged coupler.
-mpechoat $n [Next: EXAMINE ARCH; OPEN EAST; EAST; SOUTH; EXAMINE COUPLER; GET COUPLER.]
-~
-#ENDPROG
-#MUDPROG
-Progtype  give_prog~
-Arglist   calibrated security sensor coupler scanner~
-Comlist   mpechoat $n The screening officer seats the calibrated coupler and runs a short diagnostic cycle.
-mpechoaround $n The screening officer fits a replacement component into the scanner console.
-mpecho The security arch pulses amber once, then settles to a steady green status light.
-say Clean signal. That fixed it. Take this spare power cell for the trouble.
-mpjunk calibrated
-mpoload 215
-give replacement $n
-mpechoat $n [Quest complete: GHOST IN THE SCANNER]
-~
-#ENDPROG
-#MUDPROG
-Progtype  rand_prog~
-Arglist   12~
-Comlist   mpecho The screening officer frowns at an amber scanner warning and mutters, "False alarm again. If someone can help, ask me about the SCANNER."
-mpecho [Quest hint: SAY SCANNER]
 ~
 #ENDPROG
 #ENDMOBILE
@@ -557,28 +565,9 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #MUDPROG
-Progtype  speech_prog~
-Arglist   scanner coupler maintenance~
-Comlist   say Scanner couplers are matched components. Bring me the damaged one and I can calibrate a replacement against its serial.
-~
-#ENDPROG
-#MUDPROG
-Progtype  give_prog~
-Arglist   faulted security sensor coupler scanner~
-Comlist   mpechoat $n The technician checks the scorched contacts, then matches the serial against a replacement part.
-mpechoaround $n The maintenance technician compares a damaged coupler with a diagnostic pad.
-say The ceramic collar is cracked. Here is a calibrated replacement for the screening officer.
-mpjunk faulted
-mpoload 250
-give calibrated $n
-mpechoat $n [Next: Return to Primary Security Screening and GIVE COUPLER OFFICER.]
-~
-#ENDPROG
-#MUDPROG
 Progtype  rand_prog~
-Arglist   9~
-Comlist   mpecho The maintenance technician checks a calibration pad and says, "Scanner fault parts go through me. Bring me the COUPLER."
-mpecho [Quest hint: GIVE COUPLER TECHNICIAN]
+Arglist   8~
+Comlist   mpecho The maintenance technician checks a diagnostic pad and reseats a tool in the service belt.
 ~
 #ENDPROG
 #ENDMOBILE
@@ -890,10 +879,8 @@ ExDesc The arch contains paired sensor arrays behind smooth composite panels. A 
 #MUDPROG
 Progtype  exa_prog~
 Arglist   100~
-Comlist   mpechoat $n The maintenance display reports EAST SENSOR LOOP 2: COUPLER IMPEDANCE HIGH.
-mpechoat $n A service route diagram shows the east control door, then the passage immediately south.
-mpechoaround $n The security arch opens a small amber diagnostic panel.
-mpechoat $n [Next: OPEN EAST; EAST; SOUTH; EXAMINE COUPLER; GET COUPLER.]
+Comlist   mpechoat $n The recessed maintenance display reports both sensor loops nominal and shows the most recent calibration timestamp.
+mpechoaround $n The security arch opens a small green diagnostic panel.
 ~
 #ENDPROG
 #ENDOBJECT
@@ -1304,36 +1291,14 @@ ExDescKey faulted security sensor coupler scanner~
 ExDesc One contact is darkened by repeated arcing and the ceramic collar has a hairline crack. The part number matches the passenger-screening sensor family.~
 #ENDEXDESC
 #MUDPROG
-Progtype  get_prog~
-Arglist   100~
-Comlist   mpechoat $n A tiny diagnostic diode flashes amber when the damaged coupler is moved.
-mpechoaround $n $n retrieves a heat-marked component from beside the service panel.
-mpechoat $n [Next: Take this to the maintenance technician at Alpha Shuttle Berth. If lost, ask an information clerk with SAY ALPHA. Then GIVE COUPLER TECHNICIAN.]
-~
-#ENDPROG
-#MUDPROG
 Progtype  exa_prog~
 Arglist   100~
-Comlist   mpechoat $n The cracked ceramic collar and scorched contacts match the scanner diagnostic exactly.
-mpechoat $n [Next: GET COUPLER]
+Comlist   mpechoat $n The cracked ceramic collar and scorched contacts mark this as discarded maintenance scrap. No active work order is attached to it.
+mpechoaround $n A tiny amber diode flickers once on the discarded coupler.
 ~
 #ENDPROG
 #ENDOBJECT
 
-#OBJECT
-Vnum     250
-Keywords calibrated security sensor coupler scanner~
-Type     trash~
-Short    a calibrated security sensor coupler~
-Long     A calibrated replacement sensor coupler has been set here.~
-WFlags   take hold~
-Values   0 0 0 0 0 0
-Stats    1 0 0 0 0
-#EXDESC
-ExDescKey calibrated security sensor coupler scanner~
-ExDesc The replacement component has clean contacts, an intact ceramic collar and a fresh calibration mark. Its part number matches the security scanner's east sensor loop.~
-#ENDEXDESC
-#ENDOBJECT
 
 #OBJECT
 Vnum     251
@@ -1410,8 +1375,45 @@ ExDesc The reusable crate carries fresh-produce labels from a regional hydroponi
 #MUDPROG
 Progtype  exa_prog~
 Arglist   100~
-Comlist   mpechoat $n The delivery label traces the produce to a hydroponic cooperative outside central Den Haag, packed only a few hours ago.
-mpechoaround $n A green temperature seal glows briefly on the chilled delivery crate.
+Comlist   mpechoat $n The delivery crate is still cold, but one numbered green temperature seal has split away from the lid. The batch code matches the delivery alert.
+mpechoat $n [Next: GET SEAL]
+mpechoaround $n The chilled supplier crate gives a quiet refrigeration hum.
+~
+#ENDPROG
+#ENDOBJECT
+#OBJECT
+Vnum     255
+Keywords food market stockroom staff access key~
+Type     key~
+Short    a food-market stockroom access key~
+Long     A small staff access key is tagged for the food-market stockroom.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#EXDESC
+ExDescKey food market stockroom staff access key~
+ExDesc A plain coded key carries a FOOD MARKET - STOCKROOM tag. It is an internal staff key rather than a passenger access token.~
+#ENDEXDESC
+#ENDOBJECT
+#OBJECT
+Vnum     256
+Keywords damaged cold-chain cold chain temperature seal broken~
+Type     trash~
+Short    a damaged cold-chain seal~
+Long     A split green temperature seal is caught beside the chilled supplier crate.~
+WFlags   take hold~
+Values   0 0 0 0 0 0
+Stats    1 0 0 0 0
+#EXDESC
+ExDescKey damaged cold-chain cold chain temperature seal broken~
+ExDesc The numbered green seal has split through its temperature strip. Its printed batch code matches the chilled supplier crate beside it.~
+#ENDEXDESC
+#MUDPROG
+Progtype  get_prog~
+Arglist   100~
+Comlist   mpechoat $n The broken temperature strip flashes once as the damaged seal is lifted from the crate.
+mpechoaround $n $n retrieves a split green seal from beside the chilled supplier crate.
+mpechoat $n [Next: SOUTH; GIVE SEAL DROID.]
 ~
 #ENDPROG
 #ENDOBJECT
@@ -1649,9 +1651,9 @@ Sector   city~
 Flags    nomob indoors~
 Desc     Security arches span the route beneath cameras and identity readers.
 Screening tables and inspection trays stand beside officer stations.
-Side doors divert selected traffic without blocking the main lanes.
+Reinforced observation windows overlook the checkpoint from both sides.
 Status panels above each arch show clearance and inspection instructions.
-The checkpoint joins customs south, landside north and offices east and west.
+The checkpoint joins customs south with the landside concourse north.
 ~
 #EXIT
 Direction north~
@@ -1661,7 +1663,7 @@ ToRoom    209
 #EXIT
 Direction east~
 ToRoom    210
-Flags     isdoor closed~
+Flags     window~
 #ENDEXIT
 
 #EXIT
@@ -1672,7 +1674,7 @@ ToRoom    207
 #EXIT
 Direction west~
 ToRoom    211
-Flags     isdoor closed~
+Flags     window~
 #ENDEXIT
 
 Reset M 0 204 2 208
@@ -1712,7 +1714,7 @@ Desc     Reinforced glazing overlooks the eastern half of security screening.
 Workstations display camera feeds, access logs and lane information.
 Evidence cabinets and equipment lockers occupy the rear office wall.
 A compact interview desk sits beneath the recording and call system.
-The office connects west to screening and south to the service passage.
+The west window overlooks screening while staff access continues south.
 ~
 #EXIT
 Direction south~
@@ -1722,7 +1724,7 @@ ToRoom    212
 #EXIT
 Direction west~
 ToRoom    208
-Flags     isdoor closed~
+Flags     window~
 #ENDEXIT
 
 Reset M 0 203 1 210
@@ -1736,12 +1738,12 @@ Desc     Reinforced glazing overlooks the western half of security screening.
 Duty consoles display alarms, camera feeds and customs coordination.
 Secure lockers and incident equipment fill the rear office recesses.
 A small interview station keeps reports away from the public lanes.
-The office connects east to screening and south to the service passage.
+The east window overlooks screening while staff access continues south.
 ~
 #EXIT
 Direction east~
 ToRoom    208
-Flags     isdoor closed~
+Flags     window~
 #ENDEXIT
 
 #EXIT
@@ -2402,13 +2404,13 @@ Flags    nomob indoors~
 Desc     A compact kiosk displays city maps, news feeds and transit details.
 Rotating racks hold printed guides beside an electronic ticket terminal.
 A service counter faces the concourse beneath Den Haag transit symbols.
-A sign beside the north door reads CUSTOMER ARCHIVE - OPEN NORTH.
-The kiosk opens south to services and north into its public archive.
+Locked storage access sits behind the passenger-facing kiosk counter.
+The kiosk opens south to passenger services beneath bright route signs.
 ~
 #EXIT
 Direction north~
 ToRoom    236
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 #EXIT
@@ -2424,22 +2426,23 @@ Reset O 0 245 5 235
 #ENDROOM
 #ROOM
 Vnum     236
-Name     &CNews & Transit Archive &w:: &zDen Haag Arrivals~
+Name     &CNews Kiosk Stockroom &w:: &zDen Haag Arrivals~
 Sector   city~
 Flags    nomob indoors~
-Desc     Narrow shelving fills a customer archive behind the news-and-transit kiosk.
-Older maps, route notices and retired schedules are filed by district.
-A route-history board records recent changes to surface connections.
-Current sales stock remains separated behind the kiosk counter.
-The only public exit leads south through the archive door.
+Desc     Narrow shelving fills the secure news-and-transit stockroom.
+Boxes of maps, guides and schedules are arranged by route and district.
+Ticketing supplies and display stock occupy labelled wall cabinets.
+An inventory terminal sits beside the locked internal service door.
+The concealed staff exit leads south behind the public kiosk counter.
 ~
 #EXIT
 Direction south~
 ToRoom    235
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 Reset O 0 251 1 236
+Reset O 0 212 1 236
 #ENDROOM
 #ROOM
 Vnum     237
@@ -2472,14 +2475,14 @@ Sector   city~
 Flags    nomob indoors~
 Desc     A narrow checkout holds a payment terminal and baggage packing counter.
 Travel goods pass beneath pricing and warranty information displays.
-The staffed station separates the sales floor from reserve stock.
-A sign beside the north door reads COLLECTION ROOM - OPEN NORTH.
-Routes lead east into the shop and north into customer collections.
+The staffed station separates the sales floor from locked reserve stock.
+Small shelves hold quick-sale items beside the point-of-sale terminal.
+The public route leads east into the travel-supplies sales floor.
 ~
 #EXIT
 Direction north~
 ToRoom    239
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 #EXIT
@@ -2497,14 +2500,14 @@ Reset O 0 245 5 238
 #ENDROOM
 #ROOM
 Vnum     239
-Name     &CTravel Supplies Collection Room &w:: &zDen Haag Arrivals~
+Name     &CTravel Supplies Stockroom &w:: &zDen Haag Arrivals~
 Sector   city~
 Flags    nomob indoors~
-Desc     Metal shelving holds boxed luggage, returns and reserve travel supplies.
-Collection labels divide customer orders by equipment type and size.
+Desc     Metal shelving holds boxed luggage and reserve travel supplies.
+Inventory labels divide stock by equipment type, size and sales area.
 A packing bench occupies the centre beneath bright task lighting.
-A locked staff office remains east beyond the customer collection area.
-The public route returns south to the travel-supplies checkout.
+Two locked staff doors separate stock from public and office areas.
+The concealed public-side door lies south while the office remains east.
 ~
 #EXIT
 Direction east~
@@ -2515,11 +2518,12 @@ Flags     isdoor closed locked~
 #EXIT
 Direction south~
 ToRoom    238
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 Reset O 0 243 3 239
 Reset O 0 252 1 239
+Reset O 0 215 1 239
 #ENDROOM
 #ROOM
 Vnum     240
@@ -2717,13 +2721,13 @@ Flags    nomob indoors~
 Desc     A bright kiosk combines basic medical and travel necessities.
 Shelves carry hygiene goods beside first-aid and hydration supplies.
 A service counter contains payment and product-information terminals.
-A sign beside the north door reads COLLECTION ROOM - OPEN NORTH.
-The kiosk opens south to concourse and north into customer collections.
+Green medical symbols distinguish the kiosk from passenger services.
+The kiosk opens south while secured reserve stock remains out of sight.
 ~
 #EXIT
 Direction north~
 ToRoom    250
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 #EXIT
@@ -2740,22 +2744,23 @@ Reset O 0 245 5 249
 #ENDROOM
 #ROOM
 Vnum     250
-Name     &CHealth Collection Room &w:: &zDen Haag Arrivals~
+Name     &CHealth Kiosk Stockroom &w:: &zDen Haag Arrivals~
 Sector   city~
 Flags    nomob indoors~
-Desc     Compact shelving stores sealed medical and convenience reserve stock.
+Desc     Compact shelving stores sealed medical and convenience stock.
 Labelled bins separate first-aid supplies from toiletries and consumables.
-A recall board lists current batch checks and product safety notices.
-Customer collections occupy the open shelving nearest the doorway.
-The only public exit leads south through the collection-room door.
+A small inventory screen tracks stock and scheduled deliveries.
+Spare shelving and sealed cartons occupy the remaining wall recesses.
+A concealed locked door leads south behind the health-kiosk counter.
 ~
 #EXIT
 Direction south~
 ToRoom    249
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
 #ENDEXIT
 
 Reset O 0 253 1 250
+Reset O 0 219 1 250
 #ENDROOM
 #ROOM
 Vnum     251
@@ -2789,13 +2794,14 @@ Flags    nomob indoors~
 Desc     A service counter handles purchases from the arrivals food market.
 Payment terminals and collection space occupy the public side.
 Menu screens list prices, ingredients and current service times.
-A sign beside the north door reads COLLECTION ROOM - OPEN NORTH.
-Routes lead west into the market and north into customer collections.
+A locked staff door behind the till controls stockroom access.
+The public route leads west into the arrivals food market.
 ~
 #EXIT
 Direction north~
 ToRoom    253
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
+Key       255
 #ENDEXIT
 
 #EXIT
@@ -2813,19 +2819,20 @@ Reset O 0 245 5 252
 #ENDROOM
 #ROOM
 Vnum     253
-Name     &CFood Market Collection Room &w:: &zDen Haag Arrivals~
+Name     &CFood Market Stockroom &w:: &zDen Haag Arrivals~
 Sector   city~
 Flags    nomob indoors~
-Desc     Shelves and chilled cabinets hold reserve food and pre-ordered collections.
+Desc     Shelves and chilled cabinets hold reserve food-market stock.
 Dry goods fill labelled racks while prepared food stays in cold storage.
-A central bench supports stock rotation and passenger order collection.
-A locked staff office remains west beyond the customer collection area.
-The public route returns south to the food-market checkout.
+A central bench supports stock rotation and delivery checks.
+Two locked doors divide the room from checkout and administration.
+The concealed checkout door lies south while the office remains west.
 ~
 #EXIT
 Direction south~
 ToRoom    252
-Flags     isdoor closed~
+Flags     isdoor closed locked secret~
+Key       255
 #ENDEXIT
 
 #EXIT
@@ -2836,6 +2843,7 @@ Flags     isdoor closed locked~
 
 Reset O 0 244 2 253
 Reset O 0 254 1 253
+Reset O 0 256 1 253
 #ENDROOM
 #ROOM
 Vnum     254
