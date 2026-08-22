@@ -685,14 +685,14 @@ void quest_save_player( FILE *fp, CHAR_DATA *ch )
 
    for( i = 0; i < MAX_PLAYER_MEMORIES; ++i )
       if( ch->pcdata->memories[i].key[0] && ch->pcdata->memories[i].value[0] )
-         fprintf( fp, "Memory       %s %s\n",
+         fprintf( fp, "QuestMemory  %s %s\n",
                   ch->pcdata->memories[i].key,
                   ch->pcdata->memories[i].value );
 }
 
 bool quest_load_player_field( CHAR_DATA *ch, const char *word, FILE *fp )
 {
-   if( ch && !IS_NPC( ch ) && ch->pcdata && word && fp && !str_cmp( word, "Memory" ) )
+   if( ch && !IS_NPC( ch ) && ch->pcdata && word && fp && !str_cmp( word, "QuestMemory" ) )
    {
       char key[MAX_MEMORY_KEY_LENGTH];
       char value[MAX_MEMORY_VALUE_LENGTH];
