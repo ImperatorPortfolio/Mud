@@ -8,7 +8,7 @@ RequireMemory denhaag.wrongbag.attitude refused
 Choice
 Text All right. I'll help.~
 Memory denhaag.wrongbag.attitude helpful
-TriggerSpeech wrong bag~
+QuestStart 2001
 Close 1
 EndChoice
 Choice
@@ -30,7 +30,7 @@ RequireQuest 2001 available 0
 Choice
 Text I'll help. Tell me where to start.~
 Memory denhaag.wrongbag.attitude helpful
-TriggerSpeech wrong bag~
+QuestStart 2001
 Close 1
 EndChoice
 Choice
@@ -57,7 +57,7 @@ Text At the baggage pickup I took the case beside mine without checking the clai
 Choice
 Text All right. I'll look for it.~
 Memory denhaag.wrongbag.attitude curious
-TriggerSpeech wrong bag~
+QuestStart 2001
 Close 1
 EndChoice
 Choice
@@ -79,7 +79,7 @@ Text I have a spare local transit card. Get my case back to me and it's yours. T
 Choice
 Text Deal.~
 Memory denhaag.wrongbag.attitude mercenary
-TriggerSpeech wrong bag~
+QuestStart 2001
 Close 1
 EndChoice
 Choice
@@ -188,6 +188,188 @@ EndChoice
 End
 
 #NODE
+Id 21101
+Mob 217
+Root 1
+Text If you're here about the missing black case, start with the routing tag in the archive north of this desk. We cannot release baggage until Information verifies the route.~
+RequireQuest 2001 active 1
+Choice
+Text I'll inspect the archive.~
+Close 1
+EndChoice
+Choice
+Text Why does Information need the tag?~
+Next 21102
+EndChoice
+End
+
+#NODE
+Id 21102
+Mob 217
+Root 0
+Text The tag records the transfer path. Information can compare that code with the terminal register and issue a release slip for the correct case.~
+Choice
+Text Understood.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21103
+Mob 217
+Root 1
+Text If Information verified the routing tag, give me the release slip and I can retrieve the matching case.~
+RequireQuest 2001 active 3
+Choice
+Text I have the slip.~
+Close 1
+EndChoice
+Choice
+Text Remind me what the slip proves.~
+Next 21102
+EndChoice
+End
+
+#NODE
+Id 21110
+Mob 217
+Root 1
+Text Lost Property handles recovered baggage, documents and personal items. If you've lost something, tell me what it is and where you last saw it.~
+Choice
+Text I'm just checking the service.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21201
+Mob 214
+Root 1
+Text Let me see the routing tag. If the transfer code is wrong, I can validate the correct baggage record for Lost Property.~
+RequireQuest 2001 active 2
+Choice
+Text I have the tag.~
+Close 1
+EndChoice
+Choice
+Text What are you checking against?~
+Next 21202
+EndChoice
+End
+
+#NODE
+Id 21202
+Mob 214
+Root 0
+Text The terminal register records every transfer handoff. A mismatch here tells us exactly where the case was diverted and authorises Lost Property to release it.~
+Choice
+Text Got it.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21210
+Mob 214
+Root 1
+Text I can help with terminal directions. Which connection are you looking for?~
+Choice
+Text Alpha or Bravo.~
+Next 21211
+EndChoice
+Choice
+Text Charlie or Delta.~
+Next 21212
+EndChoice
+Choice
+Text Lost Property.~
+Next 21213
+EndChoice
+Choice
+Text Nothing right now.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21211
+Mob 214
+Root 0
+Text Alpha and Bravo departures use the west concourse. Follow the signs through the western transfer lounge toward their gate junctions.~
+Choice
+Text Thanks.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21212
+Mob 214
+Root 0
+Text Charlie and Delta departures use the east concourse. Follow the signs through the eastern transfer lounge toward their gate junctions.~
+Choice
+Text Thanks.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21213
+Mob 214
+Root 0
+Text Lost Property is in the western wing beyond Alpha Gate Junction. Follow the Lost Property signs from West Passenger Services.~
+Choice
+Text Thanks.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21301
+Mob 213
+Root 1
+Text Welcome to Terran Customs. Keep your identification ready and declare restricted goods before screening.~
+Choice
+Text What happens here?~
+Next 21302
+EndChoice
+Choice
+Text Where do I go after clearance?~
+Next 21303
+EndChoice
+Choice
+Text Understood.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21302
+Mob 213
+Root 0
+Text We verify identity, declarations and baggage status. Routine arrivals continue north to security once all three are clear.~
+Choice
+Text And after security?~
+Next 21303
+EndChoice
+Choice
+Text Thanks.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21303
+Mob 213
+Root 0
+Text Security is directly north. Once you're through screening, the landside concourse connects you to Den Haag surface transit.~
+Choice
+Text Thanks.~
+Close 1
+EndChoice
+End
+
+#NODE
 Id 22003
 Mob 202
 Root 1
@@ -197,6 +379,7 @@ RequireMemory denhaag.coldchain.attitude refused
 Choice
 Text Yes. Open the stockroom.~
 Memory denhaag.coldchain.attitude helpful
+QuestStart 2002
 TriggerSpeech delivery~
 Close 1
 EndChoice
@@ -219,6 +402,7 @@ RequireQuest 2002 available 0
 RequireMemory denhaag.coldchain.attitude cautious
 Choice
 Text Yes. Open the stockroom.~
+QuestStart 2002
 TriggerSpeech delivery~
 Close 1
 EndChoice
@@ -238,6 +422,7 @@ RequireQuest 2002 available 0
 Choice
 Text I'll inspect it.~
 Memory denhaag.coldchain.attitude helpful
+QuestStart 2002
 TriggerSpeech delivery~
 Close 1
 EndChoice
@@ -265,6 +450,7 @@ Text A broken seal can mean the shipment exceeded its safe temperature during tr
 Choice
 Text Understood. Open the stockroom.~
 Memory denhaag.coldchain.attitude cautious
+QuestStart 2002
 TriggerSpeech delivery~
 Close 1
 EndChoice
