@@ -69,6 +69,8 @@ short learned[MAX_SKILL];
    PLAYER_QUEST_STATE quests[MAX_ACTIVE_QUESTS];
    PLAYER_QUEST_HISTORY quest_history[MAX_QUEST_HISTORY];
    PLAYER_REPUTATION quest_reputation[MAX_QUEST_REPUTATIONS];
+   PLAYER_MEMORY memories[MAX_PLAYER_MEMORIES];
+   DIALOGUE_SESSION dialogue;
    int auth_state;
    time_t release_date; /* Auto-helling.. Altrag */
    const char *helled_by;
