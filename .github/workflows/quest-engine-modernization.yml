@@ -20,6 +20,41 @@ jobs:
         with:
           ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.ref || github.ref_name }}
 
+      - name: Fix helper speech-hook matcher
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p = Path('tools/apply_quest_engine.py')
+          s = p.read_text(encoding='utf-8')
+          old = '''needle = '                  mprog_driver( mprg->comlist, mob, actor, obj, vo, FALSE );\\n                  break;'
+          if chunk.count(needle) != 2:
+              raise RuntimeError(f'interact event: expected 2 speech driver sites, found {chunk.count(needle)}')
+          chunk = chunk.replace(
+              needle,
+              '                  mprog_driver( mprg->comlist, mob, actor, obj, vo, FALSE );\\n'
+              '                  if( actor && !IS_NPC( actor ) && mob && mob->pIndexData && ( type & SPEECH_PROG ) )\\n'
+              '                     quest_event( actor, QUEST_OBJECTIVE_INTERACT, mob->pIndexData->vnum, 0 );\\n'
+              '                  break;')
+          '''
+          new = '''speech_driver = re.compile(
+              r'(?P<indent> +)mprog_driver\\( mprg->comlist, mob, actor, obj, vo, FALSE \\);\\n(?P=indent)break;')
+          matches = list(speech_driver.finditer(chunk))
+          if len(matches) != 2:
+              raise RuntimeError(f'interact event: expected 2 speech driver sites, found {len(matches)}')
+          def add_interact_event(match):
+              indent = match.group('indent')
+              return (
+                  indent + 'mprog_driver( mprg->comlist, mob, actor, obj, vo, FALSE );\\n' +
+                  indent + 'if( actor && !IS_NPC( actor ) && mob && mob->pIndexData && ( type & SPEECH_PROG ) )\\n' +
+                  indent + '   quest_event( actor, QUEST_OBJECTIVE_INTERACT, mob->pIndexData->vnum, 0 );\\n' +
+                  indent + 'break;')
+          chunk = speech_driver.sub(add_interact_event, chunk)
+          '''
+          if old not in s:
+              raise SystemExit('speech-hook helper block not found')
+          p.write_text(s.replace(old, new, 1), encoding='utf-8')
+          PY
+
       - name: Apply quest integration
         run: python tools/apply_quest_engine.py
 
