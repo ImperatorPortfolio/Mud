@@ -3471,3 +3471,51 @@ Log         0
 End
 
 #END
+
+#COMMAND
+Name        quests~
+Code        do_quests
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        abandon~
+Code        do_abandon
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        mpqueststart~
+Code        do_mpqueststart
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        mpquestadvance~
+Code        do_mpquestadvance
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        mpquestcomplete~
+Code        do_mpquestcomplete
+Position    0
+Level       0
+Log         0
+End
+
+#COMMAND
+Name        mpquestfail~
+Code        do_mpquestfail
+Position    0
+Level       0
+Log         0
+End

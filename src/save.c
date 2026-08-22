@@ -340,6 +340,7 @@ void fwrite_char( CHAR_DATA * ch, FILE * fp )
    fprintf( fp, "Alignment    %d\n", ch->alignment );
    fprintf( fp, "Glory        %d\n", ch->pcdata->quest_curr );
    fprintf( fp, "MGlory       %d\n", ch->pcdata->quest_accum );
+   quest_save_player( fp, ch );
    fprintf( fp, "Hitroll      %d\n", ch->hitroll );
    fprintf( fp, "Damroll      %d\n", ch->damroll );
    fprintf( fp, "Armor        %d\n", ch->armor );
@@ -1425,6 +1426,14 @@ fprintf(
                ch->plr_home = get_room_index( fread_number( fp ) );
                if( !ch->plr_home )
                   ch->plr_home = NULL;
+               fMatch = TRUE;
+               break;
+            }
+            break;
+
+         case 'Q':
+            if( quest_load_player_field( ch, word, fp ) )
+            {
                fMatch = TRUE;
                break;
             }

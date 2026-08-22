@@ -702,6 +702,28 @@ int mprog_do_ifcheck( const char *ifcheck, CHAR_DATA * mob, CHAR_DATA * actor, O
       {
          return mprog_veval( chkchar->position, opr, atoi( rval ), mob );
       }
+      if( !str_cmp( chck, "questactive" ) )
+      {
+         return actor && !IS_NPC( actor ) && quest_is_active( actor, atoi( cvar ) );
+      }
+      if( !str_cmp( chck, "questcomplete" ) )
+      {
+         return actor && !IS_NPC( actor ) && quest_is_complete( actor, atoi( cvar ) );
+      }
+      if( !str_cmp( chck, "questfailed" ) )
+      {
+         return actor && !IS_NPC( actor ) && quest_is_failed( actor, atoi( cvar ) );
+      }
+      if( !str_cmp( chck, "queststage" ) )
+      {
+         const int stage = actor && !IS_NPC( actor ) ? quest_stage( actor, atoi( cvar ) ) : 0;
+         return !*opr ? stage > 0 : mprog_veval( stage, opr, atoi( rval ), mob );
+      }
+      if( !str_cmp( chck, "questoutcome" ) )
+      {
+         const int outcome = actor && !IS_NPC( actor ) ? quest_outcome( actor, atoi( cvar ) ) : 0;
+         return !*opr ? outcome != 0 : mprog_veval( outcome, opr, atoi( rval ), mob );
+      }
       if( !str_cmp( chck, "doingquest" ) )
       {
          return IS_NPC( actor ) ? FALSE : mprog_veval( chkchar->pcdata->quest_number, opr, atoi( rval ), mob );
@@ -1747,6 +1769,8 @@ void mprog_wordlist_check( const char *arg, CHAR_DATA * mob, CHAR_DATA * actor, 
                    && ( *( end = start + strlen( list ) ) == ' ' || *end == '\n' || *end == '\r' || *end == '\0' ) )
                {
                   mprog_driver( mprg->comlist, mob, actor, obj, vo, FALSE );
+                  if( actor && !IS_NPC( actor ) && mob && mob->pIndexData && ( type & SPEECH_PROG ) )
+                     quest_event( actor, QUEST_OBJECTIVE_INTERACT, mob->pIndexData->vnum, 0 );
                   break;
                }
                else
@@ -1761,6 +1785,8 @@ void mprog_wordlist_check( const char *arg, CHAR_DATA * mob, CHAR_DATA * actor, 
                       && ( *( end = start + strlen( word ) ) == ' ' || *end == '\n' || *end == '\r' || *end == '\0' ) )
                   {
                      mprog_driver( mprg->comlist, mob, actor, obj, vo, FALSE );
+                     if( actor && !IS_NPC( actor ) && mob && mob->pIndexData && ( type & SPEECH_PROG ) )
+                        quest_event( actor, QUEST_OBJECTIVE_INTERACT, mob->pIndexData->vnum, 0 );
                      break;
                   }
                   else
@@ -1936,10 +1962,14 @@ void mprog_bribe_trigger( CHAR_DATA * mob, CHAR_DATA * ch, int amount )
 
 void mprog_death_trigger( CHAR_DATA * killer, CHAR_DATA * mob )
 {
+   const int quest_mob_vnum = mob && mob->pIndexData ? mob->pIndexData->vnum : 0;
+
    if( IS_NPC( mob ) && killer != mob && ( mob->pIndexData->progtypes & DEATH_PROG ) )
    {
       mprog_percent_check( mob, killer, NULL, NULL, DEATH_PROG );
    }
+   if( killer && !IS_NPC( killer ) && quest_mob_vnum > 0 )
+      quest_event( killer, QUEST_OBJECTIVE_KILL, quest_mob_vnum, 0 );
    death_cry( mob );
 }
 
@@ -1959,6 +1989,8 @@ void mprog_give_trigger( CHAR_DATA * mob, CHAR_DATA * ch, OBJ_DATA * obj )
 {
    char buf[MAX_INPUT_LENGTH];
    MPROG_DATA *mprg;
+   const int quest_obj_vnum = obj && obj->pIndexData ? obj->pIndexData->vnum : 0;
+   const int quest_mob_vnum = mob && mob->pIndexData ? mob->pIndexData->vnum : 0;
 
    if( IS_NPC( mob ) && ( mob->pIndexData->progtypes & GIVE_PROG ) )
    {
@@ -1981,6 +2013,9 @@ void mprog_give_trigger( CHAR_DATA * mob, CHAR_DATA * ch, OBJ_DATA * obj )
          }
       }
    }
+
+   if( ch && !IS_NPC( ch ) && quest_obj_vnum > 0 && quest_mob_vnum > 0 )
+      quest_event( ch, QUEST_OBJECTIVE_GIVE, quest_obj_vnum, quest_mob_vnum );
 }
 
 void mprog_greet_trigger( CHAR_DATA * ch )
@@ -2011,6 +2046,9 @@ void mprog_greet_trigger( CHAR_DATA * ch )
       else if( vmob->pIndexData->progtypes & ALL_GREET_PROG )
          mprog_percent_check( vmob, ch, NULL, NULL, ALL_GREET_PROG );
    }
+
+   if( ch && !IS_NPC( ch ) && ch->in_room )
+      quest_event( ch, QUEST_OBJECTIVE_ENTER, ch->in_room->vnum, 0 );
 }
 
 void mprog_hitprcnt_trigger( CHAR_DATA * mob, CHAR_DATA * ch )
@@ -2321,12 +2359,16 @@ void oprog_sac_trigger( CHAR_DATA * ch, OBJ_DATA * obj )
  */
 void oprog_get_trigger( CHAR_DATA * ch, OBJ_DATA * obj )
 {
+   const int quest_obj_vnum = obj && obj->pIndexData ? obj->pIndexData->vnum : 0;
    if( obj->pIndexData->progtypes & GET_PROG )
    {
       set_supermob( obj );
       oprog_percent_check( supermob, ch, obj, NULL, GET_PROG );
       release_supermob(  );
    }
+
+   if( ch && !IS_NPC( ch ) && quest_obj_vnum > 0 )
+      quest_event( ch, QUEST_OBJECTIVE_GET, quest_obj_vnum, 0 );
 }
 
 /*
@@ -2375,12 +2417,16 @@ void oprog_drop_trigger( CHAR_DATA * ch, OBJ_DATA * obj )
  */
 void oprog_examine_trigger( CHAR_DATA * ch, OBJ_DATA * obj )
 {
+   const int quest_obj_vnum = obj && obj->pIndexData ? obj->pIndexData->vnum : 0;
    if( obj->pIndexData->progtypes & EXA_PROG )
    {
       set_supermob( obj );
       oprog_percent_check( supermob, ch, obj, NULL, EXA_PROG );
       release_supermob(  );
    }
+
+   if( ch && !IS_NPC( ch ) && quest_obj_vnum > 0 )
+      quest_event( ch, QUEST_OBJECTIVE_EXAMINE, quest_obj_vnum, 0 );
 }
 
 
