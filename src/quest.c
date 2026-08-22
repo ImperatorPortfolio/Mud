@@ -146,14 +146,6 @@ PLAYER_REPUTATION *find_player_reputation( CHAR_DATA *ch, int reputation_id, boo
    return NULL;
 }
 
-int quest_d20_level( const CHAR_DATA *ch )
-{
-   if( !ch || ch->top_level <= 0 )
-      return 0;
-
-   return URANGE( 1, ( ch->top_level + 4 ) / 5, 20 );
-}
-
 int current_quest_stage( const PLAYER_QUEST_STATE *state, const QUEST_DEFINITION *quest )
 {
    int stage = 0;
@@ -313,8 +305,8 @@ bool validate_quest_definition( QUEST_DEFINITION *quest )
    if( quest->min_level < 0 )
       quest->min_level = 0;
    if( quest->max_level <= 0 )
-      quest->max_level = 20;
-   if( quest->max_level > 20 || quest->max_level < quest->min_level )
+      quest->max_level = MAX_LEVEL;
+   if( quest->max_level < quest->min_level )
       return false;
    if( quest->objective_count <= 0 || quest->objective_count > MAX_QUEST_OBJECTIVES )
       return false;
@@ -432,7 +424,7 @@ void load_quests( void )
 
       QUEST_DEFINITION *quest;
       CREATE( quest, QUEST_DEFINITION, 1 );
-      quest->max_level = 20;
+      quest->max_level = MAX_LEVEL;
       quest->reward_xp_ability = -1;
 
       for( ;; )
@@ -569,15 +561,12 @@ bool quest_is_available( CHAR_DATA *ch, int quest_id )
 {
    QUEST_DEFINITION *quest = get_quest_definition( quest_id );
    PLAYER_QUEST_HISTORY *history;
-   int heroic_level;
 
    if( !ch || IS_NPC( ch ) || !ch->pcdata || !quest )
       return false;
    if( find_player_quest_state( ch, quest_id ) )
       return false;
-
-   heroic_level = quest_d20_level( ch );
-   if( heroic_level < quest->min_level || heroic_level > quest->max_level )
+   if( ch->top_level < quest->min_level || ch->top_level > quest->max_level )
       return false;
 
    if( quest->prerequisite_id > 0 )
@@ -649,6 +638,7 @@ bool quest_start( CHAR_DATA *ch, int quest_id )
    if( quest->description && quest->description[0] )
       ch_printf( ch, "%s\r\n", quest->description );
 
+   /* If a player found a quest item before accepting the quest, credit it. */
    for( i = 0; i < quest->objective_count; ++i )
    {
       QUEST_OBJECTIVE_DEFINITION *objective = &quest->objectives[i];
@@ -1001,13 +991,8 @@ extern "C" void do_quest( CHAR_DATA *ch, const char *argument )
    else if( state )
       ch_printf( ch, "Status: ACTIVE - Stage %d\r\n", stage );
    else if( history && history->completion_count > 0 )
-   {
-      ch_printf( ch, "Status: COMPLETED (%d time%s)",
-                 history->completion_count, history->completion_count == 1 ? "" : "s" );
-      if( history->outcome != 0 )
-         ch_printf( ch, ", outcome %d", history->outcome );
-      send_to_char( "\r\n", ch );
-   }
+      ch_printf( ch, "Status: COMPLETED (%d time%s), outcome %d\r\n",
+                 history->completion_count, history->completion_count == 1 ? "" : "s", history->outcome );
    else if( quest_is_available( ch, quest->id ) )
       send_to_char( "Status: AVAILABLE\r\n", ch );
    else

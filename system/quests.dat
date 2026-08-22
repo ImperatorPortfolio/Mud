@@ -3,7 +3,7 @@ Id 2001
 Name Wrong Bag~
 Description Recover a passenger's misrouted suitcase through Lost Property and Information.~
 MinLevel 1
-MaxLevel 20
+MaxLevel 100
 Prerequisite 0 0
 Repeatable 0
 Cooldown 0
@@ -24,7 +24,7 @@ Id 2002
 Name Cold Chain~
 Description Help the arrivals food market isolate a chilled delivery with a damaged temperature seal.~
 MinLevel 1
-MaxLevel 20
+MaxLevel 100
 Prerequisite 0 0
 Repeatable 1
 Cooldown 3600
