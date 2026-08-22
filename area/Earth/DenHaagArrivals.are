@@ -1370,7 +1370,7 @@ Values   0 0 0 0 0 0
 Stats    15 0 0 0 0
 #EXDESC
 ExDescKey supplier delivery crate produce food market collection~
-ExDesc The reusable crate carries fresh-produce labels from a regional hydroponic cooperative. Temperature seals along the lid remain green and intact.~
+ExDesc The reusable crate carries fresh-produce labels from a regional hydroponic cooperative. Most temperature seals remain green, but one numbered seal has split away from the lid.~
 #ENDEXDESC
 #MUDPROG
 Progtype  exa_prog~
