@@ -611,11 +611,12 @@ typedef enum
 
 #define ROOM_PLUOGUS_QUIT         32148
 
-#define ROOM_SHUTTLE_BUS           32140 /*PLUOGUS*/
-#define ROOM_SHUTTLE_BUS_2         32410 /*TOCCA*/
+#define ROOM_SHUTTLE_BUS           32140 /* Meridian Voyager */
+#define ROOM_SHUTTLE_BUS_2         32410 /* Aurora Clipper */
+#define ROOM_LUNA_SHUTTLE          32231
 #define ROOM_CORUSCANT_SHUTTLE     199
 #define ROOM_SENATE_SHUTTLE      10197
-#define ROOM_CORUSCANT_TURBOCAR    226
+#define ROOM_CORUSCANT_TURBOCAR  32501
 /*
 * Room flags.           Holy cow!  Talked about stripped away..
 * Used in #ROOMS.       Those merc guys know how to strip code down.

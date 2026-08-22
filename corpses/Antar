@@ -1,0 +1,30 @@
+#CORPSE
+Name         corpse Antar~
+ShortDescr   the corpse of Antar~
+Description  The corpse of Antar is lying here.~
+Vnum         11
+Room         32148
+Rvnum	   32148
+Timer        39
+Values       0 0 5 0 0 0
+End
+
+#OBJECT
+Nest         1
+Vnum         10312
+Values       12 5 20 2 910 1000
+End
+
+#OBJECT
+Nest         1
+Vnum         10424
+End
+
+#OBJECT
+Nest         1
+Vnum         50021
+Level        1
+End
+
+#END
+

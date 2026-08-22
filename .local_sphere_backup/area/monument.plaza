@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant - Monument Plaza~
+Name         Earth - Monument Plaza~
 Author       Exar/Durga~
 Ranges       50 100 0 103
 Economy      0 31254867
@@ -941,7 +941,7 @@ Name     Northern Side of Monument Plaza~
 Sector   city~
 Desc     You stand just north of one of the largest statues in the plaza. The air
 high up on the mountain is thin but clean and fresh. Refreshing compared
-to the heavy stale air found throughout the rest of the coruscant. 
+to the heavy stale air found throughout the rest of the earth. 
 ~
 #EXIT
 Direction north~
@@ -1004,7 +1004,7 @@ Name     Northern Side of Monument Plaza~
 Sector   city~
 Desc     You stand on the northetn end of monument plaza, the popular mall built
 high on a peek in the Menari Mountain range in the southern part of
-Coruscant. To the south are many large monuments depicting heroes (and
+Earth. To the south are many large monuments depicting heroes (and
 villians) of the past. In the center of the plaza the peek of the mountain
 pushes up above the palace floor coming to a high peak. To the north a
 wide walkway leads to a lookout point on the mountain
@@ -1097,7 +1097,7 @@ Name     Northern Side of Monument Plaza~
 Sector   city~
 Desc     You stand on the northetn end of monument plaza, the popular mall built
 high on a peek in the Menari Mountain range in the southern part of
-Coruscant. To the south are many large monuments depicting heroes (and
+Earth. To the south are many large monuments depicting heroes (and
 villians) of the past. In the center of the plaza the peek of the mountain
 pushes up above the palace floor coming to a high peak. To the north a
 wide walkway leads to a lookout point on the mountain 
@@ -1327,7 +1327,7 @@ Sector   city~
 Desc     You are standing in the most northerly section of Monument Plaza. A row of
 shops lie immediatly to your north and lead off westward. Several other
 citizens are here, admiring the square and the sheer beauty of the area. 
-Compared to much of the rest of Coruscant, this is a virtual paradise.  
+Compared to much of the rest of Earth, this is a virtual paradise.  
 ~
 #EXIT
 Direction north~
@@ -1421,7 +1421,7 @@ Vnum     26022
 Name     Southern Side of Monument Plaza~
 Sector   city~
 Desc     You stand upon the southern side of Monument Plaza in the Menari Mountain
-Range on Coruscant. This large mall is built around the tip of one of the
+Range on Earth. This large mall is built around the tip of one of the
 peaks in the mountain range. Directly to the south is a row of shops which
 extends around the plaza. Throught the plaza are many enormous statues.
 Most depict Heroes of the old Republic although there are many newer ones
@@ -1456,7 +1456,7 @@ Vnum     26023
 Name     Southern Side of Monument Plaza~
 Sector   city~
 Desc     You stand upon the southern side of Monument Plaza in the Menari Mountain
-Range on Coruscant. This large mall is built around the tip of one of the
+Range on Earth. This large mall is built around the tip of one of the
 peaks in the mountain range. Directly to the south is a row of shops which
 extends around the plaza. Throught the plaza are many enormous statues.
 Most depict Heroes of the old Republic although there are many newer ones
@@ -1491,7 +1491,7 @@ Vnum     26024
 Name     Southern Side of Monument Plaza~
 Sector   city~
 Desc     You stand upon the southern side of Monument Plaza in the Menari Mountain
-Range on Coruscant. This large mall is built around the tip of one of the
+Range on Earth. This large mall is built around the tip of one of the
 peaks in the mountain range. Directly to the south is a row of shops which
 extends around the plaza. Throught the plaza are many enormous statues.
 Most depict Heroes of the old Republic although there are many newer ones
@@ -1526,7 +1526,7 @@ Vnum     26025
 Name     Southern Side of Monument Plaza~
 Sector   city~
 Desc     The statue hear is one of the larger statues in the plaza. It is a
-depiction of one of the greatest architects in the history of coruscant
+depiction of one of the greatest architects in the history of earth
 who designed several of the older buildings in the cities core. A few of
 wich still stand in their original form ( although most of them have been
 built over top of and are buried beneath several newer structures.
@@ -1627,7 +1627,7 @@ Desc     The enormous statue before towers above all the others in the statue an
 a true sign of the hubris the man it depicts once displayed. It is a
 monument to the late Senator Palpatine, the self proclaimed emporer who
 died 20 years ago in the battle of Endor. The statue was built during his
-reign here on Coruscant probably under his direct orders. The inscription
+reign here on Earth probably under his direct orders. The inscription
 is illegible underneath layers of nasty graffitti.
 ~
 #EXIT
@@ -1684,7 +1684,7 @@ Vnum     26030
 Name     Southwest Corner of Monument Plaza~
 Sector   city~
 Desc     You stand in the southeast corner of monument plaza, one of the nicer areas
-of coruscant located on top of one of the menari mountains. To the west is
+of earth located on top of one of the menari mountains. To the west is
 the entrance to the plaza offices. Far to the east is the plaza hotel and
 turbocar station. There is a monument here that depicts a verpine shaking
 hands with a mon calamarian. Throughout the plaza are dozens of other
@@ -1719,8 +1719,8 @@ Vnum     26031
 Name     Southwest Corner of Monument Plaza~
 Sector   city~
 Desc     You stand along the western edge of Monument Plaza, the large mall built
-around the peak of one of the Menari Mountains on Coruscant. Because of
-its location it is one of the nicer areas of coruscant. A freesh breeze
+around the peak of one of the Menari Mountains on Earth. Because of
+its location it is one of the nicer areas of earth. A freesh breeze
 and clean air are a refreshing change to the busy dirty streets. The
 preimiter of the plaza is line with shops while the center of the plaza is
 filled with enourmous monuments of old heroes. 
@@ -1752,8 +1752,8 @@ Vnum     26032
 Name     West Side of Monument Plaza~
 Sector   city~
 Desc     You stand along the western edge of Monument Plaza, the large mall built
-around the peak of one of the Menari Mountains on Coruscant. Because of
-its location it is one of the nicer areas of coruscant. A freesh breeze
+around the peak of one of the Menari Mountains on Earth. Because of
+its location it is one of the nicer areas of earth. A freesh breeze
 and clean air are a refreshing change to the busy dirty streets. The
 preimiter of the plaza is line with shops while the center of the plaza is
 filled with enourmous monuments of old heroes.  
@@ -1785,8 +1785,8 @@ Vnum     26033
 Name     West Side of Monument Plaza~
 Sector   city~
 Desc     You stand along the western edge of Monument Plaza, the large mall built
-around the peak of one of the Menari Mountains on Coruscant. Because of
-its location it is one of the nicer areas of coruscant. A freesh breeze
+around the peak of one of the Menari Mountains on Earth. Because of
+its location it is one of the nicer areas of earth. A freesh breeze
 and clean air are a refreshing change to the busy dirty streets. The
 preimiter of the plaza is line with shops while the center of the plaza is
 filled with enourmous monuments of old heroes.  
@@ -1850,7 +1850,7 @@ Name     Northwest Corner of Monument Plaza~
 Sector   city~
 Desc     You stand in the northwest corner of Monument Plaza. It sports some of the
 largest statues in the Galaxy but the bigger attaction for the locals is
-the fact that its one of the few places in Coruscant you can actually
+the fact that its one of the few places in Earth you can actually
 touch bare rock in its natural state. A restaurant is to the north and
 many shops are to the west and south of here. 
 ~
@@ -2043,7 +2043,7 @@ ToRoom    26040
 Vnum     26042
 Name     Plaza Lookout~
 Sector   city~
-Desc     This has to be one of the most beautiful spots on Coruscant. The lookout is
+Desc     This has to be one of the most beautiful spots on Earth. The lookout is
 on the top of one of the Menari mountains. To the north and far bellow the
 lights of imperial city sretch from the base of the mountain as far as the
 eye can see. To the east and west many snow covered mounain peaks push up
@@ -2066,7 +2066,7 @@ ToRoom    26045
 Vnum     26043
 Name     Plaza Lookout~
 Sector   city~
-Desc     This has to be one of the most beautiful spots on Coruscant. The lookout is
+Desc     This has to be one of the most beautiful spots on Earth. The lookout is
 on the top of one of the Menari mountains. To the north and far bellow the
 lights of imperial city sretch from the base of the mountain as far as the
 eye can see. To the east and west many snow covered mounain peaks push up

@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant - The City Streets~
+Name         Earth - The City Streets~
 Author       Durga~
 Ranges       0 0 0 103
 Economy      0 25410227
@@ -50,7 +50,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -76,7 +76,7 @@ Attribs    10 10 10 10 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #MUDPROG
 Progtype  all_greet_prog~
@@ -113,7 +113,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -139,7 +139,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -165,7 +165,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -190,7 +190,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     chadra-fan~
 Speaking   chadra-fan~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -216,7 +216,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     verpine~
 Speaking   verpine~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -242,7 +242,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common verpine~
 Speaking   verpine~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -265,7 +265,7 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 Immune     charm~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   5 9 15 79 80 150 50 0 23
 #MUDPROG
 Progtype  death_prog~
@@ -351,7 +351,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -373,7 +373,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -395,7 +395,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -417,7 +417,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -439,7 +439,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -461,7 +461,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -483,7 +483,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -505,7 +505,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -527,7 +527,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -549,7 +549,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -571,7 +571,7 @@ Attribs    10 10 10 10 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -1062,7 +1062,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -1085,7 +1085,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common mon_calamari~
 Speaking   common mon_calamari~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -1708,7 +1708,7 @@ Stats    5 300 30 0 0
 
 #OBJECT
 Vnum     319
-Keywords coruscant police moisture suit top~
+Keywords earth police moisture suit top~
 Type     armor~
 Short    a police uniform top~
 Long     Part of a police uniform is here.~
@@ -1721,7 +1721,7 @@ Affect       -1 -1 1 27 0
 
 #OBJECT
 Vnum     320
-Keywords coruscant police moisture suit pants~
+Keywords earth police moisture suit pants~
 Type     armor~
 Short    a police uniform bottom~
 Long     Part of a police uniform is here.~
@@ -2077,7 +2077,7 @@ Vnum     301
 Name     Before Menari Spaceport~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2138,7 +2138,7 @@ Vnum     302
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2182,7 +2182,7 @@ Vnum     303
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2208,7 +2208,7 @@ Vnum     304
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2248,7 +2248,7 @@ Vnum     305
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2277,7 +2277,7 @@ Vnum     306
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2303,7 +2303,7 @@ Vnum     307
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2336,7 +2336,7 @@ Vnum     308
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2374,7 +2374,7 @@ Vnum     309
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2412,7 +2412,7 @@ Vnum     310
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2446,7 +2446,7 @@ Vnum     311
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2481,7 +2481,7 @@ Vnum     312
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2517,7 +2517,7 @@ Vnum     313
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2543,7 +2543,7 @@ Vnum     314
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2575,7 +2575,7 @@ Vnum     315
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2609,7 +2609,7 @@ Vnum     316
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2639,7 +2639,7 @@ Vnum     317
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2672,7 +2672,7 @@ Vnum     318
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2711,7 +2711,7 @@ Vnum     319
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2749,7 +2749,7 @@ Vnum     320
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2783,7 +2783,7 @@ Vnum     321
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2814,7 +2814,7 @@ Vnum     322
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2851,7 +2851,7 @@ Vnum     323
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2888,7 +2888,7 @@ Vnum     324
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2915,7 +2915,7 @@ Vnum     325
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2953,7 +2953,7 @@ Vnum     326
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -2993,7 +2993,7 @@ Vnum     327
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3023,7 +3023,7 @@ Vnum     328
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3056,7 +3056,7 @@ Vnum     329
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3092,7 +3092,7 @@ Vnum     330
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3126,7 +3126,7 @@ Vnum     331
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3152,7 +3152,7 @@ Vnum     332
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3184,7 +3184,7 @@ Vnum     333
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3214,7 +3214,7 @@ Vnum     334
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3245,7 +3245,7 @@ Vnum     335
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3279,7 +3279,7 @@ Vnum     336
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3314,7 +3314,7 @@ Vnum     337
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3349,7 +3349,7 @@ Vnum     338
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3378,7 +3378,7 @@ Vnum     339
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3416,7 +3416,7 @@ Vnum     340
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3460,7 +3460,7 @@ Vnum     341
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3492,7 +3492,7 @@ Vnum     342
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3528,7 +3528,7 @@ Vnum     343
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3559,7 +3559,7 @@ Vnum     344
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3586,7 +3586,7 @@ Vnum     345
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3619,7 +3619,7 @@ Vnum     346
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3649,7 +3649,7 @@ Vnum     347
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3678,7 +3678,7 @@ Vnum     348
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3711,7 +3711,7 @@ Vnum     349
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3741,7 +3741,7 @@ Vnum     350
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3772,7 +3772,7 @@ Vnum     351
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3814,7 +3814,7 @@ Vnum     352
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3847,7 +3847,7 @@ Vnum     353
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3876,7 +3876,7 @@ Vnum     354
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3914,7 +3914,7 @@ Vnum     355
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3953,7 +3953,7 @@ Vnum     356
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -3989,7 +3989,7 @@ Vnum     357
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4030,7 +4030,7 @@ Vnum     358
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4070,7 +4070,7 @@ Vnum     359
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4100,7 +4100,7 @@ Vnum     360
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4130,7 +4130,7 @@ Vnum     361
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4178,7 +4178,7 @@ Vnum     362
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4216,7 +4216,7 @@ Vnum     363
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4255,7 +4255,7 @@ Vnum     364
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4293,7 +4293,7 @@ Vnum     365
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4324,7 +4324,7 @@ Vnum     366
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4361,7 +4361,7 @@ Vnum     367
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4391,7 +4391,7 @@ Vnum     368
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4424,7 +4424,7 @@ Vnum     369
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4461,7 +4461,7 @@ Vnum     370
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4496,7 +4496,7 @@ Vnum     371
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4530,7 +4530,7 @@ Vnum     372
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4556,7 +4556,7 @@ Vnum     373
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4590,7 +4590,7 @@ Vnum     374
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4622,7 +4622,7 @@ Vnum     375
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4659,7 +4659,7 @@ Vnum     376
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4685,7 +4685,7 @@ Vnum     377
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4727,7 +4727,7 @@ Vnum     378
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4769,7 +4769,7 @@ Vnum     379
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4800,7 +4800,7 @@ Vnum     380
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4838,7 +4838,7 @@ Vnum     381
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4873,7 +4873,7 @@ Vnum     382
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4904,7 +4904,7 @@ Vnum     383
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4946,7 +4946,7 @@ Vnum     384
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -4978,7 +4978,7 @@ Vnum     385
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5013,7 +5013,7 @@ Vnum     386
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5039,7 +5039,7 @@ Vnum     387
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5077,7 +5077,7 @@ Vnum     388
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5113,7 +5113,7 @@ Vnum     389
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5140,7 +5140,7 @@ Vnum     390
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5173,7 +5173,7 @@ Vnum     391
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5208,7 +5208,7 @@ Vnum     392
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5244,7 +5244,7 @@ Vnum     393
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5281,7 +5281,7 @@ Vnum     394
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5323,7 +5323,7 @@ Vnum     395
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5365,7 +5365,7 @@ Vnum     396
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5396,7 +5396,7 @@ Vnum     397
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5431,7 +5431,7 @@ Vnum     398
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5468,7 +5468,7 @@ Vnum     399
 Name     A City Street~
 Sector   city~
 Desc     You stand at a street corner in Government City (also known as Imperial
-City). The enormous city covers almost all of the planet Coruscant. The
+City). The enormous city covers almost all of the planet Earth. The
 street is suspended high above the ground as is dwarfed on all sides by
 massive skyscrapers. Looking over the high railing at the edge of the road
 you can see other similar streets many stories bellow and several more up
@@ -5505,7 +5505,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5528,7 +5528,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5556,7 +5556,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5579,7 +5579,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5602,7 +5602,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5630,7 +5630,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5658,7 +5658,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5681,7 +5681,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5709,7 +5709,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5737,7 +5737,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5760,7 +5760,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5788,7 +5788,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5816,7 +5816,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5839,7 +5839,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5862,7 +5862,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5885,7 +5885,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5908,7 +5908,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5931,7 +5931,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5954,7 +5954,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -5977,7 +5977,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6028,7 +6028,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6051,7 +6051,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6069,7 +6069,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6092,7 +6092,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6110,7 +6110,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6133,7 +6133,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6151,7 +6151,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6174,7 +6174,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6192,7 +6192,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    nomob indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6215,7 +6215,7 @@ Name     A Turbolift~
 Sector   city~
 Flags    indoors~
 Desc     This is one of many turbolifts found throughout Imperial City (or
-Government City) on Coruscant. It runs up and down connecting several
+Government City) on Earth. It runs up and down connecting several
 levels of streets. Most people travel only on the upper levels of the city
 and on most of these lifts the bottom levels have been disabled
 completely. 
@@ -6629,7 +6629,7 @@ Vnum     449
 Name     Government Road~
 Sector   city~
 Desc     You stand on government road which is located at the heart of Imperial City
-(or Government City) on Coruscant. The To the north of you looms the
+(or Government City) on Earth. The To the north of you looms the
 enormous imperial palace, which is now the governing seat of the New
 Republic. To your west lies the Senate Hall where all the leaders of the
 galaxy come together monthly and discuss issues of galactic importance.
@@ -6658,7 +6658,7 @@ Vnum     450
 Name     Government Road~
 Sector   city~
 Desc     You stand on government road which is located at the heart of Imperial City
-(or Government City) on Coruscant. The To the north of you looms the
+(or Government City) on Earth. The To the north of you looms the
 enormous imperial palace, which is now the governing seat of the New
 Republic. To your west lies the Senate Hall where all the leaders of the
 galaxy come together monthly and discuss issues of galactic importance.
@@ -6687,7 +6687,7 @@ Vnum     451
 Name     Government Road~
 Sector   city~
 Desc     You stand on government road which is located at the heart of Imperial City
-(or Government City) on Coruscant. The To the north of you looms the
+(or Government City) on Earth. The To the north of you looms the
 enormous imperial palace, which is now the governing seat of the New
 Republic. To your west lies the Senate Hall where all the leaders of the
 galaxy come together monthly and discuss issues of galactic importance.

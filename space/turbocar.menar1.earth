@@ -1,6 +1,6 @@
 #SHIP
 Name         A Turbocar~
-Filename     turbocar.menar1.coruscant~
+Filename     turbocar.menar1.earth~
 Description  ~
 Owner        ~
 Pilot        ~
@@ -22,8 +22,8 @@ Maxrockets  0
 Torpedos     0
 Maxtorpedos  0
 Lastdoc      45
-Firstroom    225
-Lastroom     226
+Firstroom    32500
+Lastroom     32501
 Shield       0
 Maxshield    0
 Hull         1000
@@ -37,13 +37,13 @@ Sensor       0
 Astro_array  0
 Realspeed    0
 Type         0
-Cockpit      226
-Coseat       226
-Pilotseat    226
-Gunseat      226
-Navseat      226
+Cockpit      32501
+Coseat       32501
+Pilotseat    32501
+Gunseat      32501
+Navseat      32501
 Engineroom   0
-Entrance     225
+Entrance     32500
 Shipstate    0
 Missilestate 0
 Energy       1000

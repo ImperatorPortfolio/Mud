@@ -21,7 +21,7 @@ Rockets     0
 Maxrockets  0
 Torpedos     0
 Maxtorpedos  0
-Lastdoc      203
+Lastdoc      29001
 Firstroom    32202
 Lastroom     32202
 Shield       0
@@ -48,7 +48,7 @@ Shipstate    0
 Missilestate 0
 Energy       2500
 Manuever     78
-Home         Coruscant System~
+Home         Earth System~
 End
 
 #END

@@ -1,0 +1,273 @@
+#FUSSAREA
+#AREADATA
+Version      1
+Name         Luna Complex~
+Author       ZeroPoint~
+Ranges       0 0 0 103
+Economy      0 15000000
+ResetMsg     A low vibration passes through the Luna Complex as life-support systems cycle.~
+ResetFreq    15
+Flags        nopkill~
+#ENDAREADATA
+
+#ROOM
+Vnum     33000
+Name     &CLuna Transfer Pad &w:: &zLuna Complex~
+Sector   city~
+Flags    nomob can_land can_fly~
+Desc     A reinforced landing pad occupies a level shelf cut into the lunar regolith.
+Floodlights mark the docking collar while guidance beacons track approaching craft.
+Pressure-rated service lines run beneath armored covers toward the terminal lock.
+Beyond the safety barrier, the grey surface rolls toward a hard, airless horizon.
+The terminal pressure lock stands east of the active pad.
+~
+#EXIT
+Direction east~
+ToRoom    33001
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33001
+Name     &CTransfer Pressure Lock &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     A broad pressure lock separates the landing pad from the inhabited complex.
+Status panels monitor atmosphere, suit seals and the position of both blast doors.
+Dust-removal jets and floor grilles keep abrasive regolith outside the clean zone.
+The landing pad lies west and the arrivals concourse opens east.
+~
+#EXIT
+Direction west~
+ToRoom    33000
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33002
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33002
+Name     &CCentral Arrivals Concourse &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     The main concourse is built from pale pressure panels braced by exposed ribs.
+Route displays list Earth transfers, habitat services and current surface conditions.
+Cargo lanes are recessed into the floor so passengers can cross the compact hall safely.
+Operations lies north, habitation east, medical services south and the transfer lock west.
+~
+#EXIT
+Direction north~
+ToRoom    33003
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33004
+#ENDEXIT
+#EXIT
+Direction south~
+ToRoom    33006
+#ENDEXIT
+#EXIT
+Direction west~
+ToRoom    33001
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33003
+Name     &CComplex Operations &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     Controllers supervise docking, power allocation and environmental systems here.
+A curved operations table carries a live diagram of the buried complex and surface pad.
+Earth hangs above the local horizon on one wall display beside shuttle telemetry.
+The concourse is south and the communications room is east.
+~
+#EXIT
+Direction south~
+ToRoom    33002
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33010
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33004
+Name     &CHabitat Junction &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     Four pressure corridors meet beneath a circular emergency bulkhead assembly.
+Soft lighting and planted wall modules temper the complex's functional construction.
+Signs point west to arrivals, east to the commons, north to observation and south below.
+~
+#EXIT
+Direction west~
+ToRoom    33002
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33005
+#ENDEXIT
+#EXIT
+Direction north~
+ToRoom    33009
+#ENDEXIT
+#EXIT
+Direction south~
+ToRoom    33008
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33005
+Name     &CHabitat Commons &w:: &zLuna Complex~
+Sector   inside~
+Flags    indoors safe~
+Desc     Tables, compact food dispensers and shared work booths fill the habitat commons.
+The furniture is secured against vibration but arranged to give residents an open meeting place.
+A local information wall carries duty rosters, Earth news and community notices.
+The habitat junction is west and the clinic is south.
+~
+#EXIT
+Direction west~
+ToRoom    33004
+#ENDEXIT
+#EXIT
+Direction south~
+ToRoom    33006
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33006
+Name     &CLuna Medical Clinic &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors safe~
+Desc     A compact clinic provides routine care and emergency stabilization for the complex.
+Two treatment couches face sealed cabinets stocked for decompression and radiation exposure.
+Diagnostic equipment is mounted directly to the walls to keep the central aisle clear.
+The arrivals concourse is north and the habitat commons is east.
+~
+#EXIT
+Direction north~
+ToRoom    33002
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33005
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33007
+Name     &CRegolith Research Laboratory &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     Sealed benches hold mineral samples returned from nearby drilling sites.
+Analysis cabinets test regolith chemistry while filtered transfer ports protect the habitat.
+Survey maps mark extraction limits, buried ice prospects and protected scientific zones.
+The subsurface access gallery is north.
+~
+#EXIT
+Direction north~
+ToRoom    33008
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33008
+Name     &CSubsurface Access Gallery &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     A sloping gallery descends through exposed lunar rock beneath the habitat.
+Utility conduits follow the walls toward laboratories and the shielded engineering level.
+Emergency shelters are inset at regular intervals along the pressure-rated passage.
+The habitat is north, the laboratory south and engineering access east.
+~
+#EXIT
+Direction north~
+ToRoom    33004
+#ENDEXIT
+#EXIT
+Direction south~
+ToRoom    33007
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33011
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33009
+Name     &CEarth Observation Gallery &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors safe~
+Desc     Layered radiation glass frames Earth above the stark lunar landscape.
+Recessed seats face the window while navigation overlays identify orbital traffic.
+The gallery remains dim so the blue-white planet and sunlit regolith dominate the view.
+The habitat junction is south.
+~
+#EXIT
+Direction south~
+ToRoom    33004
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33010
+Name     &CCommunications Control &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     Directional arrays maintain continuous links with Earth and nearby orbital infrastructure.
+Operators monitor shuttle clearances, emergency channels and delayed surface expeditions.
+Shielded equipment racks surround a central communications console.
+Complex operations lies west.
+~
+#EXIT
+Direction west~
+ToRoom    33003
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33011
+Name     &CEngineering Access &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     Heavy pressure doors divide the inhabited complex from its engineering spaces.
+Coolant, power and atmosphere lines are color-coded across the reinforced ceiling.
+Tool lockers and isolation controls stand ready beside each service branch.
+The subsurface gallery is west and the power room is east.
+~
+#EXIT
+Direction west~
+ToRoom    33008
+#ENDEXIT
+#EXIT
+Direction east~
+ToRoom    33012
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     33012
+Name     &CFusion and Life-Support Plant &w:: &zLuna Complex~
+Sector   inside~
+Flags    nomob indoors~
+Desc     The complex's power conversion and atmosphere systems operate behind armored partitions.
+Status columns report reserve oxygen, water recovery, thermal load and reactor output.
+The steady machinery hum is carried through the floor rather than the insulated walls.
+The engineering access corridor returns west.
+~
+#EXIT
+Direction west~
+ToRoom    33011
+#ENDEXIT
+#ENDROOM
+
+#ENDAREA

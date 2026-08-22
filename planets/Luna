@@ -1,0 +1,11 @@
+#PLANET
+Name         Luna~
+Filename     Luna~
+BaseValue    150000
+Flags        1
+PopSupport   0.000000
+Starsystem   Sol System~
+Area         Earth/LunaComplex.are~
+End
+
+#END

@@ -20,7 +20,7 @@ assault.shuttle.0001
 corelliantrans.0001
 transport.0001
 freighter.0001
-coruscant.shipyard
+earth.shipyard
 byss.shipyard
 ta02
 ta03
@@ -102,8 +102,8 @@ z95mmL
 32231
 32234
 32237
-turbocar.menar1.coruscant
-coruscant.ferry
+turbocar.menar1.earth
+earth.ferry
 gunboat.32240
 gunboat.32241
 gunboat.32242

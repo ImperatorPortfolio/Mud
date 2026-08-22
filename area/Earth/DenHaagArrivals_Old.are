@@ -65,7 +65,7 @@ Attribs    10 14 13 11 11 16 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #ENDMOBILE
 
@@ -92,7 +92,7 @@ Attribs    10 16 12 14 12 9 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #ENDMOBILE
 

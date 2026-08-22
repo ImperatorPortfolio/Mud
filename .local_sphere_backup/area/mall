@@ -530,7 +530,7 @@ Comlist   grin
 ' right now we have the following jobs
 , gets a datapad off his desk.
 , looks at pad.
-' hmm a delivery to a Hutt on Coruscant. 
+' hmm a delivery to a Hutt on Earth. 
 ~
 #ENDPROG
 
@@ -632,7 +632,7 @@ Short      A short fat Man~
 Long       A short fat man in senators robes
 ~
 Desc       This man is a visiting senator from an Imperial planet , rumor has it he is
-wanted by the coruscant police for war crimes and he is in need of escort
+wanted by the earth police for war crimes and he is in need of escort
 to the government buildings  are you up to the job
 ~
 Race       Human~
@@ -648,7 +648,7 @@ Attribs    10 10 10 10 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #MUDPROG
 Progtype  speech_prog~
 Arglist   hello hi~
@@ -944,7 +944,7 @@ Vnum     7315
 Keywords package~
 Type     weapon~
 Short    A small package.~
-Long     This is a UPS Package addressed to a hut on Coruscant.~
+Long     This is a UPS Package addressed to a hut on Earth.~
 Flags    contraband~
 WFlags   take hold~
 Values   0 0 0 0 0 0

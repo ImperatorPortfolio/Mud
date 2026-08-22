@@ -1,10 +1,10 @@
 #PLANET
-Name         coruscant~
-Filename     coruscant~
+Name         earth~
+Filename     earth~
 BaseValue    500000
 Flags        1
 PopSupport   0.000000
-Starsystem   Coruscant System~
+Starsystem   Earth System~
 GovernedBy   The New Republic~
 Area         coruscant_streets~
 Area         corus.pt2~

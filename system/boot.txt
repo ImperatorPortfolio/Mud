@@ -1,1 +1,2 @@
 [*****] BOOT: ---------------------[ Boot Log ]--------------------
+[*****] BOOT: load_room_reset: nar.shadda (1) 'G': object 201 doesn't exist.

@@ -51,7 +51,7 @@ Attribs    8 10 10 12 9 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -77,7 +77,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #MUDPROG
 Progtype  all_greet_prog~
@@ -114,7 +114,7 @@ Attribs    8 10 10 12 9 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -140,7 +140,7 @@ Attribs    10 14 13 11 11 16 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -166,7 +166,7 @@ Attribs    10 14 13 11 11 16 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -191,7 +191,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -217,7 +217,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -243,7 +243,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -266,7 +266,7 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 Immune     charm~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   5 9 15 79 80 150 50 0 23
 #MUDPROG
 Progtype  death_prog~
@@ -352,7 +352,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -374,7 +374,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -396,7 +396,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -418,7 +418,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -440,7 +440,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -462,7 +462,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -484,7 +484,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -506,7 +506,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -528,7 +528,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -550,7 +550,7 @@ Attribs    10 11 11 10 10 11 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -572,7 +572,7 @@ Attribs    8 10 10 12 9 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -1063,7 +1063,7 @@ Attribs    14 11 12 14 14 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE
@@ -1086,7 +1086,7 @@ Attribs    14 11 12 14 14 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #ENDMOBILE
 
 #MOBILE

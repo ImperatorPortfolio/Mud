@@ -418,7 +418,7 @@ Stats    1 0 0 0 0
 Vnum     10100
 Name     Before The Senate Hall~
 Sector   city~
-Desc     You stand outside the enormous Senate Hall on Coruscant where council heads
+Desc     You stand outside the enormous Senate Hall on Earth where council heads
 meet once a month to discuss issues of galactic importance. Included in
 the senate hall is a ring of opinion booths available for citizens to
 communicate with there senators. To the north the enourmous imperial
@@ -896,7 +896,7 @@ ToRoom    10119
 
 #ROOM
 Vnum     10122
-Name     Coruscant Council~
+Name     Earth Council~
 Sector   city~
 Flags    nomob indoors~
 #ENDROOM
@@ -1243,7 +1243,7 @@ Vnum     10195
 Name     Senate Shuttle Landing Pad - Outer System~
 Sector   city~
 Flags    nomob~
-Desc     The shuttle that flys to the senate hall on coruscant lands here. It is a
+Desc     The shuttle that flys to the senate hall on earth lands here. It is a
 quick flight so your wait shouldn't be long.
 ~
 #EXIT
@@ -1260,10 +1260,10 @@ Sector   city~
 Flags    nomob~
 Desc     This landing pad is used exclusively by a shuttle that travels to and from
 the outer limits of the system. As some senators feel uncomfortable
-bringing their ships in close to coruscant this gives them the opertunity
+bringing their ships in close to earth this gives them the opertunity
 to land further out and provides them with a direct route to the hall. It
 also saves them the trouble of having to walk through the streets of
-coruscant.
+earth.
 ~
 #EXIT
 Direction east~

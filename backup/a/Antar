@@ -6,8 +6,8 @@ Race         0
 MainAbility  0
 Languages    1 1
 Toplevel     1
-Played       1549
-Room         206
+Played       6704
+Room         32148
 HpManaMove   500 500 0 0 1000 1000
 Force        0 0 0 0
 Gold         0
@@ -29,9 +29,9 @@ MGlory       0
 Hitroll      0
 Damroll      0
 Armor        100
-Mentalstate  0
+Mentalstate  -80
 Password     b4c66a4d4c59489ff37a2b94065cf65be4d97a9575e155b2922b45121b35f495~
-Lastplayed   1787093320
+Lastplayed   1787418909
 Title         Antar the Human~
 AuthedBy     professor schoolmaster teacher headmaster~
 Addiction    0 0 0 0 0 0 0 0 0 0
@@ -39,11 +39,11 @@ Druglevel    0 0 0 0 0 0 0 0 0 0
 Flags        0
 MKills       0
 MDeaths      0
-AttrPerm     9 16 14 7 13 14 13
+AttrPerm     6 10 9 16 14 14 6
 AttrMod      0 0 0 0 0 0 0
-Traits       5 3 67 2 49 1 13 1 70 3 20 3 
-Condition    0 29 29 10
-Nutrition    60 60 60 60 60 59
+Traits       91 2 9 2 85 1 39 1 84 3 82 2 
+Condition    0 0 0 10
+Nutrition    52 51 53 53 52 32
 Site         ATHENA.mshome.net
 Tongue       100 'common'
 MaxColors    116

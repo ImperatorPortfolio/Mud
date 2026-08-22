@@ -60,7 +60,7 @@ Speaking   common~
 Vnum       32002
 Keywords   Brennik Torien~
 Short      Brennik~
-Long       Brennik, the pluogus bartender is here selling drinks.
+Long       Brennik, the Meridian bartender is here selling drinks.
 ~
 Desc       Brennik Torien is not the most attractive correlien you've ever seen
 but he is by no means ugly either. His apearance does however suffer
@@ -1509,10 +1509,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32018
-Keywords serin pluogus bus shuttle~
+Keywords meridian voyager bus shuttle pluogus~
 Type     spacecraft~
-Short    The Serin Pluogus~
-Long     The Serin Pluogus is here waiting for passengers.~
+Short    the Meridian Voyager~
+Long     The Meridian Voyager is here waiting for passengers.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1951,8 +1951,8 @@ Stats    1 0 0 0 0
 Vnum     32064
 Keywords shuttle 32210~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32210 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32210 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1961,8 +1961,8 @@ Stats    1 0 0 0 0
 Vnum     32065
 Keywords shuttle 32213~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32213 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32213 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1971,8 +1971,8 @@ Stats    1 0 0 0 0
 Vnum     32066
 Keywords shuttle 32216~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32216 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32216 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1981,8 +1981,8 @@ Stats    1 0 0 0 0
 Vnum     32067
 Keywords shuttle 32219~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32219 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32219 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -1991,8 +1991,8 @@ Stats    1 0 0 0 0
 Vnum     32068
 Keywords shuttle 32222~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32222 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32222 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -2001,28 +2001,28 @@ Stats    1 0 0 0 0
 Vnum     32069
 Keywords shuttle 32225~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32225 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32225 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
 Vnum     32070
-Keywords shuttle 32228~
+Keywords frontier commuter shuttle 32228~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32228 is docked here.~
+Short    the Frontier Commuter~
+Long     The Frontier Commuter is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
 Vnum     32071
-Keywords shuttle 32231~
+Keywords luna link shuttle 32231~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32231 is docked here.~
+Short    the Luna Link~
+Long     The Luna Link is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -2031,8 +2031,8 @@ Stats    1 0 0 0 0
 Vnum     32072
 Keywords shuttle 32234~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32234 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32234 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -2041,8 +2041,8 @@ Stats    1 0 0 0 0
 Vnum     32073
 Keywords shuttle 32237~
 Type     spacecraft~
-Short    a lambda class shuttle~
-Long     Lambda class shuttle 32237 is docked here.~
+Short    an orbital utility shuttle~
+Long     Orbital utility shuttle 32237 is docked here.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -3296,7 +3296,7 @@ Vnum     32298
 Keywords shuttle~
 Type     trash~
 Short    a newly created shuttle~
-Long     This shuttle docks with the pluogus.~
+Long     This shuttle docks with the Meridian Voyager.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -3613,10 +3613,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     32410
-Keywords serin tocca~
+Keywords aurora clipper shuttle tocca~
 Type     spacecraft~
-Short    The Serin Tocca~
-Long     You may BOARD the Serin Tocca.~
+Short    the Aurora Clipper~
+Long     You may BOARD the Aurora Clipper.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -6693,9 +6693,9 @@ Vnum     32101
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -6775,7 +6775,7 @@ Sector   city~
 Flags    spacecraft~
 Desc     The assault shuttle is designed to carry stormtroopers and zero-g
 stormtroopers rather than small groups of passengers. Because of this
-it is designed more for combat and durability than the lambda class
+it is designed more for combat and durability than civilian utility
 shuttles. The cockpit is spacious and contains seating for 5
 crewmembers including a senoir officer, two pilots, a navigator, and
 a gunner. 
@@ -6857,9 +6857,9 @@ Vnum     32109
 Name     Cockpit~
 Sector   city~
 Flags    hotel spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -7335,7 +7335,7 @@ Vnum     32141
 Name     The Front Lounge~
 Sector   city~
 Flags    safe spacecraft~
-Desc     This is the main lounge of the Serin Pluogus and is quite large. The
+Desc     This is the main lounge of the Meridian Voyager and is quite large. The
 large central hallway is flanked by couches and chairs of various
 dimensions in an attempt to accomodate passengers of all shapes
 and sizes. Some are even designed to be adjustable although only
@@ -7407,7 +7407,7 @@ Vnum     32143
 Name     The Bar~
 Sector   city~
 Flags    spacecraft~
-Desc     Welcome to the hub of pluogus activity. This room seems to always be
+Desc     Welcome to the hub of Meridian Voyager activity. This room is almost always
 busy. THe main bar stretches across the back wall. A humaniod bar
 keeper moves quickly from customer to customer with the efficiency
 that only comes with years of experience. Behind him are shelves of
@@ -7579,10 +7579,10 @@ Vnum     32148
 Name     The Sleeping Compartment~
 Sector   city~
 Flags    safe hotel spacecraft~
-Desc     You are in the bed chambers of the public tour bus the Serin Pluogus.
+Desc     You are in the sleeping compartment of the public transport Meridian Voyager.
 In an attempt to promote galactic trade and tourism, several large
 corperations and planets teamed together to fund this completely free
-tour bus. This room was a late add on to the Pluogus for those
+transport network. This room was added for passengers requiring
 passengers wishing for private sleeping quarters on long tours. The
 large room   is sectioned off into enclosed bunks stacked along the
 walls. There are several different sized chambers but most of them
@@ -7616,7 +7616,7 @@ Vnum     32149
 Name     The Exit Ramp~
 Sector   city~
 Flags    nomob safe spacecraft~
-Desc     This room is the main entrance and exit from the Serin Pluogus. It
+Desc     This room is the main entrance and exit from the Meridian Voyager. It
 consists of two airlocks and a large hydrollic belly ramp that lowers
 down out of the ship when docked. A large turbo-lift leads up to the
 rest of the ship from here.
@@ -8071,7 +8071,7 @@ Vnum     32176
 Name     A Cargo Hold~
 Sector   city~
 Flags    spacecraft~
-Desc     The cargo holds on the Serin Pluogus are relatively narrow. The run
+Desc     The cargo holds on the Meridian Voyager are relatively narrow. They run
 lengthwise on either side of the main level towards the back of the
 ship. There are several sealed chests as well as a few crates, some
 parcels an alot of luggage. Because of the close proximity to the
@@ -8098,7 +8098,7 @@ Vnum     32177
 Name     A Cargo Hold~
 Sector   city~
 Flags    spacecraft~
-Desc     The cargo holds on the Serin Pluogus are relatively narrow. The run
+Desc     The cargo holds on the Meridian Voyager are relatively narrow. They run
 lengthwise on either side of the main level towards the back of the
 ship. There are several sealed chests as well as a few crates, some
 parcels an alot of luggage. Because of the close proximity to the
@@ -8122,10 +8122,10 @@ Reset D 0 32177 7 1
 
 #ROOM
 Vnum     32178
-Name     Serin Pluogus Engine Room~
+Name     Meridian Voyager Engine Room~
 Sector   city~
 Flags    spacecraft~
-Desc     The Serin Pluogus engine room is small and relatively simple. Most of
+Desc     The Meridian Voyager engine room is compact and straightforward. Most
 the accessible engine parts are concealed behind removable pannels.
 There is a large computer terminal on one wall with many controls and
 gages for monitoring the ships engines. It is also equiped with a
@@ -8619,9 +8619,9 @@ Vnum     32210
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8682,9 +8682,9 @@ Vnum     32213
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8745,9 +8745,9 @@ Vnum     32216
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8808,9 +8808,9 @@ Vnum     32219
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8871,9 +8871,9 @@ Vnum     32222
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8934,9 +8934,9 @@ Vnum     32225
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -8994,16 +8994,12 @@ ToRoom    32226
 
 #ROOM
 Vnum     32228
-Name     Shuttle Cockpit~
+Name     Frontier Commuter Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
-equiped with chairs for both  a pilot and a co-pilot. There is room
-enough behind the chairs for a few passengers or a flight officer who
-might wish to oversee the flight operation, however most of the
-passenger seating is towards the back of the spacecraft.
+Desc     The Frontier Commuter's compact cockpit surrounds two flight seats with
+navigation, communications and traffic-control displays. A short standing
+area behind the crew positions provides access to the passenger cabin.
 ~
 #EXIT
 Direction south~
@@ -9057,16 +9053,12 @@ ToRoom    32229
 
 #ROOM
 Vnum     32231
-Name     Shuttle Cockpit~
+Name     Luna Link Flight Deck~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
-equiped with chairs for both  a pilot and a co-pilot. There is room
-enough behind the chairs for a few passengers or a flight officer who
-might wish to oversee the flight operation, however most of the
-passenger seating is towards the back of the spacecraft.
+Desc     The Luna Link flight deck is optimized for the short route between Earth
+and Luna. Twin crew seats face orbital navigation, docking and pressure-status
+displays while a route panel shows the current terminal and next departure.
 ~
 #EXIT
 Direction south~
@@ -9123,9 +9115,9 @@ Vnum     32234
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -9186,9 +9178,9 @@ Vnum     32237
 Name     Shuttle Cockpit~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     You are in the cockpit of a standard Lambda-class shuttle. It is a
-popular lightly armed shuttle used by both Proxima Directorate and the New
-Republic for transporting small groups of people. The cockpit is
+Desc     You are in the cockpit of a standard orbital utility shuttle. It is a
+lightly armed civilian design used for transporting small groups of people.
+The cockpit is
 equiped with chairs for both  a pilot and a co-pilot. There is room
 enough behind the chairs for a few passengers or a flight officer who
 might wish to oversee the flight operation, however most of the
@@ -10089,7 +10081,7 @@ Flags     hidden can_leave~
 Progtype  entry_prog~
 Arglist   100~
 Comlist   mpat 32149 mpecho $n steps through the airlock.
-mpechoat $n &YAfter A quick shuttle ride you dock with the pluogus.
+mpechoat $n &YAfter a quick shuttle ride you dock with the Meridian Voyager.
 mptransfer $n 32149
 ~
 #ENDPROG
@@ -11708,12 +11700,11 @@ Vnum     32411
 Name     Entrance Ramp~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     This room is the main entrance and exit from the Serin Tocca. It consists
+Desc     This room is the main entrance and exit from the Aurora Clipper. It consists
 of two airlocks and a large hydrollic belly ramp that lowers down out of
 the ship when docked. A large turbo-lift leads up to the rest of the ship
-from here. It is a amaller ship then the Serin Pluogus built to accomadate
-the larger crowds generated after the imperial planets were removed from
-the pluogus route.
+from here. It is a smaller companion to the Meridian Voyager, built for
+the busier stops on the public transport route.
 To leave the ship type LEAVE.
 to get back on type BOARD TOCCA.
 To find out where it is type TOCCA.
@@ -11730,7 +11721,7 @@ Vnum     32412
 Name     Passenger Lounge~
 Sector   city~
 Flags    nomob spacecraft~
-Desc     The main loung of the Serin Tocca is very similar to the pluogus even
+Desc     The main lounge of the Aurora Clipper resembles the Meridian Voyager even
 though the ships are quite different. The large central hallway is flanked
 by couches and chairs of various dimensions in an attempt to accomodate
 passengers of all shapes and sizes. Some are even designed to be
@@ -11806,7 +11797,7 @@ ToRoom    32412
 
 #ROOM
 Vnum     32415
-Name     Tocca Restaurant and Pub~
+Name     Aurora Restaurant and Pub~
 Sector   city~
 Flags    nomob spacecraft~
 Desc     This large sectoin near the fron of the ship has many tables and chairs of
@@ -11859,6 +11850,36 @@ Vnum     32499
 Name     Floating in a void~
 Sector   city~
 Flags    nomob~
+#ENDROOM
+
+#ROOM
+Vnum     32500
+Name     Maglev Passenger Cabin~
+Sector   inside~
+Flags    nomob safe spacecraft~
+Desc     A compact urban maglev cabin provides standing rails and secured seating.
+Route displays identify the next Directorate City transit station.
+Wide doors lead into the driving compartment and open onto station platforms when docked.
+~
+#EXIT
+Direction east~
+ToRoom    32501
+#ENDEXIT
+#ENDROOM
+
+#ROOM
+Vnum     32501
+Name     Maglev Control Compartment~
+Sector   inside~
+Flags    nomob spacecraft~
+Desc     Automated controls govern the maglev car from behind a transparent partition.
+Diagnostic displays track guideway clearance, braking and station approach speed.
+The passenger cabin lies west.
+~
+#EXIT
+Direction west~
+ToRoom    32500
+#ENDEXIT
 #ENDROOM
 
 #ENDAREA

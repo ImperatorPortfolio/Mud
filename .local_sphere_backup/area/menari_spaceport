@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant - Menari Spaceport~
+Name         Earth - Menari Spaceport~
 Author       Durga~
 Ranges       0 0 0 103
 Economy      0 31260569
@@ -65,7 +65,7 @@ Attribs    13 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian devaronian droid spiritual magical gamorrean god ancient jawa adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
 Speaking   common wookiee twilek rodian hutt mon_calamari noghri ewok ithorian devaronian droid spiritual magical gamorrean god ancient jawa adarian verpine defel trandoshan chadra-fan quarren duinuogwuin~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #ENDMOBILE
 
@@ -92,7 +92,7 @@ Attribs    18 13 13 13 13 13 13 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 ShopData   0 0 0 0 0 120 90 0 23
 #ENDMOBILE
 
@@ -332,7 +332,7 @@ Vnum     200
 Keywords ferry shuttle~
 Type     trash~
 Short    the Shipyard Ferry~
-Long     The shipyard ferry travels back and forth between coruscant and the shipyard.~
+Long     The shipyard ferry travels back and forth between earth and the shipyard.~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
@@ -408,7 +408,7 @@ Vnum     200
 Name     A Small Shuttle~
 Sector   city~
 Flags    nomob indoors~
-Desc     You stand inside a small shuttlecraft that flies between Coruscant's
+Desc     You stand inside a small shuttlecraft that flies between Earth's
 Menari Spaceport and An Orbitting Shipyard. There are several plastic
 covered seats along the walls but passengers are mostly expected to
 stand for the brief journey.
@@ -425,7 +425,7 @@ Desc     This platform is reserved for the publicly funded tour shuttle, the
 Serin Pluogus. The rest of the Menari spaceport is to the west and
 north of here.  Around the rest of the platform you can view the
 southern reaches of Imperial  City ( a rather inapropriate name as
-Coruscant has been the governing seat  of the New Republic for over
+Earth has been the governing seat  of the New Republic for over
 20 years ). To the south tower the Menari Mountains.
 When the pluogus lands type BOARD PLUOGUS to enter.
 ~
@@ -447,7 +447,7 @@ Desc     This platform is reserved for shuttles flying between Menari spaceport
 and orbitting space stations. The rest of the Menari spaceport is to
 the south-east and  north of here.  Around the rest of the platform
 you can view the southern reaches of Imperial  City ( a rather
-inapropriate name as Coruscant has been the governing seat  of the
+inapropriate name as Earth has been the governing seat  of the
 New Republic for over 20 years ). To the south tower the Menari
 Mountains.
  

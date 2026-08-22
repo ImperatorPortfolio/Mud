@@ -648,7 +648,7 @@ Attribs    10 10 10 10 10 10 10 0
 Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
-VIPFlags   coruscant~
+VIPFlags   earth~
 #MUDPROG
 Progtype  speech_prog~
 Arglist   hello hi~

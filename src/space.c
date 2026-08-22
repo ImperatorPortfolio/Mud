@@ -40,25 +40,28 @@ int bus_planet = 0;
 int bus2_planet = 4;
 int turbocar_stop = 0;
 int corus_shuttle = 0;
+int luna_shuttle_pos = 0;
 
-#define MAX_STATION    10
+#define MAX_STATION     9
 #define MAX_BUS_STOP 10
 
-#define STOP_PLANET     202
+#define DEN_HAAG_ALPHA_BERTH 234
+#define DEN_HAAG_BRAVO_BERTH 243
+#define DEN_HAAG_DELTA_BERTH 248
+#define LUNA_TRANSFER_PAD   33000
 #define STOP_SHIPYARD   32015
 
 #define SENATEPAD       10196
 #define OUTERPAD        10195
 
 int const station_vnum[MAX_STATION] = {
-   215, 216, 217, 218, 219, 220, 221, 222, 223, 224
+   431, 433, 435, 437, 439, 441, 443, 445, 447
 };
 
 const char *const station_name[MAX_STATION] = {
-   "Menari Spaceport", "Skydome Botanical Gardens", "Grand Towers",
-   "Grandis Mon Theater", "Palace Station", "Great Galactic Museum",
-   "College Station", "Holographic Zoo of Extinct Animals",
-   "Dometown Station ", "Monument Plaza"
+   "Skydome Botanical Gardens", "Grand Towers", "Grandis Mon Theater",
+   "Palace Station", "Great Galactic Museum", "College Station",
+   "Holographic Zoo of Extinct Animals", "Dometown Station", "Monument Plaza"
 };
 
 int const bus_vnum[MAX_BUS_STOP] = {
@@ -66,10 +69,17 @@ int const bus_vnum[MAX_BUS_STOP] = {
 };
 
 const char *const bus_stop[MAX_BUS_STOP + 1] = {
-   "Coruscant",
+   "Earth",
    "Mon Calamari", "Adari", "Gamorr", "Tatooine", "Honoghr",   /* "Ryloth", */
-   "Kashyyyk", "Endor", "Byss", "Cloning Facilities", "Coruscant" /* last should always be same as first */
+   "Kashyyyk", "Endor", "Byss", "Cloning Facilities", "Earth" /* last should always be same as first */
 };
+
+static int bus_destination( int stop, bool alpha_at_earth )
+{
+   if( alpha_at_earth && stop == 0 )
+      return DEN_HAAG_ALPHA_BERTH;
+   return bus_vnum[stop];
+}
 
 /* local routines */
 void fread_ship args( ( SHIP_DATA * ship, FILE * fp ) );
@@ -147,11 +157,48 @@ void launch_bus( SHIP_DATA * ship )
    ship->shipstate = SHIP_READY;
 }
 
+static void update_luna_shuttle( void )
+{
+   SHIP_DATA *shuttle = ship_from_cockpit( ROOM_LUNA_SHUTTLE );
+
+   if( shuttle == NULL )
+      return;
+
+   switch( luna_shuttle_pos )
+   {
+      case 0:
+         if( land_bus( shuttle, DEN_HAAG_DELTA_BERTH ) )
+            echo_to_ship( AT_CYAN, shuttle, "Welcome to Den Haag Arrivals, Delta berth." );
+         break;
+
+      case 4:
+         if( shuttle->location != 0 )
+            launch_bus( shuttle );
+         break;
+
+      case 5:
+         if( land_bus( shuttle, LUNA_TRANSFER_PAD ) )
+            echo_to_ship( AT_CYAN, shuttle, "Welcome to the Luna Complex." );
+         break;
+
+      case 9:
+         if( shuttle->location != 0 )
+            launch_bus( shuttle );
+         break;
+   }
+
+   luna_shuttle_pos++;
+   if( luna_shuttle_pos >= 10 )
+      luna_shuttle_pos = 0;
+}
+
 void update_traffic(  )
 {
    SHIP_DATA *shuttle, *senate;
    SHIP_DATA *turbocar;
    char buf[MAX_STRING_LENGTH];
+
+   update_luna_shuttle();
 
    shuttle = ship_from_cockpit( ROOM_CORUSCANT_SHUTTLE );
    senate = ship_from_cockpit( ROOM_SENATE_SHUTTLE );
@@ -164,10 +211,10 @@ void update_traffic(  )
             break;
 
          case 0:
-            land_bus( shuttle, STOP_PLANET );
+            land_bus( shuttle, DEN_HAAG_BRAVO_BERTH );
             land_bus( senate, SENATEPAD );
             corus_shuttle++;
-            echo_to_ship( AT_CYAN, shuttle, "Welcome to Menari Spaceport." );
+            echo_to_ship( AT_CYAN, shuttle, "Welcome to Den Haag Arrivals, Bravo berth." );
             echo_to_ship( AT_CYAN, senate, "Welcome to The Senate Halls." );
             break;
 
@@ -180,7 +227,7 @@ void update_traffic(  )
          case 5:
             land_bus( shuttle, STOP_SHIPYARD );
             land_bus( senate, OUTERPAD );
-            echo_to_ship( AT_CYAN, shuttle, "Welcome to Coruscant Shipyard." );
+            echo_to_ship( AT_CYAN, shuttle, "Welcome to Earth Shipyard." );
             echo_to_ship( AT_CYAN, senate, "Welcome to The Outer System Landing Area." );
             corus_shuttle++;
             break;
@@ -239,7 +286,7 @@ void update_bus(  )
    switch ( bus_pos )
    {
       case 0:
-         target = ship_from_hanger( bus_vnum[bus_planet] );
+         target = ship_from_hanger( bus_destination( bus_planet, FALSE ) );
          if( target != NULL && !target->starsystem )
          {
             snprintf( buf, MAX_STRING_LENGTH, "An electronic voice says, 'Cannot land at %s ... it seems to have dissapeared.'",
@@ -248,7 +295,7 @@ void update_bus(  )
             bus_pos = 5;
          }
 
-         target = ship_from_hanger( bus_vnum[bus2_planet] );
+         target = ship_from_hanger( bus_destination( bus2_planet, TRUE ) );
          if( target != NULL && !target->starsystem )
          {
             snprintf( buf, MAX_STRING_LENGTH, "An electronic voice says, 'Cannot land at %s ... it seems to have dissapeared.'",
@@ -280,7 +327,7 @@ void update_bus(  )
          break;
 
       case 1:
-         destination = bus_vnum[bus_planet];
+         destination = bus_destination( bus_planet, FALSE );
          if( !land_bus( ship, destination ) )
          {
             snprintf( buf, MAX_STRING_LENGTH, "An electronic voice says, 'Oh My, %s seems to have dissapeared.'", bus_stop[bus_planet] );
@@ -293,7 +340,7 @@ void update_bus(  )
             echo_to_ship( AT_CYAN, ship, buf );
             echo_to_ship( AT_CYAN, ship, "It continues, 'Please exit through the main ramp. Enjoy your stay.'" );
          }
-         destination = bus_vnum[bus2_planet];
+         destination = bus_destination( bus2_planet, TRUE );
          if( !land_bus( ship2, destination ) )
          {
             snprintf( buf, MAX_STRING_LENGTH, "An electronic voice says, 'Oh My, %s seems to have dissapeared.'", bus_stop[bus_planet] );
@@ -2698,6 +2745,7 @@ bool load_ship_file( const char *shipfile )
       }
       else if( ship->cockpit == ROOM_SHUTTLE_BUS ||
                ship->cockpit == ROOM_SHUTTLE_BUS_2 ||
+               ship->cockpit == ROOM_LUNA_SHUTTLE ||
                ship->cockpit == ROOM_SENATE_SHUTTLE ||
                ship->cockpit == ROOM_CORUSCANT_TURBOCAR || ship->cockpit == ROOM_CORUSCANT_SHUTTLE )
       {
@@ -2843,7 +2891,7 @@ void resetship( SHIP_DATA * ship )
    if( ship->type == SHIP_REPUBLIC || ( ship->type == MOB_SHIP && !str_cmp( ship->owner, "the new republic" ) ) )
    {
       STRFREE( ship->home );
-      ship->home = STRALLOC( "coruscant" );
+      ship->home = STRALLOC( "earth" );
    }
    else if( ship->type == SHIP_IMPERIAL || ( ship->type == MOB_SHIP && !str_cmp( ship->owner, "the empire" ) ) )
    {
@@ -7359,13 +7407,13 @@ void do_pluogus( CHAR_DATA * ch, const char *argument )
       return;
    }
 
-   send_to_char( "Serin Pluogus Schedule Information:\r\n", ch );
+   send_to_char( "Meridian Voyager Schedule Information:\r\n", ch );
 
    /*
     * current port 
     */
    if( bus_pos < 7 && bus_pos > 1 )
-      ch_printf( ch, "The Pluogus is Currently docked at %s.\r\n", bus_stop[bus_planet] );
+      ch_printf( ch, "The Meridian Voyager is currently docked at %s.\r\n", bus_stop[bus_planet] );
 
    /*
     * destinations 
@@ -7386,14 +7434,14 @@ void do_pluogus( CHAR_DATA * ch, const char *argument )
 
    ch_printf( ch, "\r\n\r\n" );
 
-   send_to_char( "Serin Tocca Schedule Information:\r\n", ch );
+   send_to_char( "Aurora Clipper Schedule Information:\r\n", ch );
 
    /*
     * current port 
     */
 
    if( bus_pos < 7 && bus_pos > 1 )
-      ch_printf( ch, "The Tocca is Currently docked at %s.\r\n", bus_stop[bus2_planet] );
+      ch_printf( ch, "The Aurora Clipper is currently docked at %s.\r\n", bus_stop[bus2_planet] );
 
    /*
     * destinations 

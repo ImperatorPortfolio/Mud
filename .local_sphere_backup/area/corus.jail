@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant Prison~
+Name         Earth Prison~
 Author       Durga~
 Ranges       0 0 0 0
 Economy      0 6250000
@@ -105,7 +105,7 @@ ToRoom    9018
 
 #ROOM
 Vnum     9001
-Name     Coruscant Penitentiary~
+Name     Earth Penitentiary~
 Sector   city~
 Flags    nomob prototype~
 #EXIT

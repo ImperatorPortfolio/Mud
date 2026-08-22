@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant - More of Government City~
+Name         Earth - More of Government City~
 Author       Durga~
 Ranges       0 0 0 103
 Economy      0 31112383
@@ -1743,7 +1743,7 @@ ToRoom    10209
 
 #ROOM
 Vnum     10244
-Name     Coruscant Office of the Hunters Guild~
+Name     Earth Office of the Hunters Guild~
 Sector   city~
 Flags    indoors prototype~
 Desc     This small office offers local hunting jobs. To collect the bounty bring

@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         Coruscant Academy~
+Name         Earth Academy~
 Author       Scarab/Durga~
 Ranges       1 2 0 2
 Economy      0 497782131
@@ -614,7 +614,7 @@ Vnum     10304
 Keywords academy cap~
 Type     armor~
 Short    an academy cap~
-Long     A Coruscant Academy cap is here.~
+Long     A Earth Academy cap is here.~
 WFlags   take head~
 Values   3 3 0 0 0 0
 Stats    2 0 0 0 0
@@ -905,10 +905,10 @@ Stats    1 0 0 0 0
 
 #OBJECT
 Vnum     10321
-Keywords diploma academy coruscant graduation~
+Keywords diploma academy earth graduation~
 Type     paper~
 Short    a diploma~
-Long     Someone dropped their coruscant academy graduation diploma here.~
+Long     Someone dropped their earth academy graduation diploma here.~
 WFlags   take~
 Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
@@ -1208,7 +1208,7 @@ Stats    1 0 0 0 0
 
 #ROOM
 Vnum     10300
-Name     Coruscant Academy~
+Name     Earth Academy~
 Sector   inside~
 Flags    nomob indoors safe~
 Desc     You stand inside the Curuscant Academy, an establishment designed to teach
@@ -1500,7 +1500,7 @@ Reset M 0 10345 1 10308
 
 #ROOM
 Vnum     10309
-Name     Wandering Coruscant Academy~
+Name     Wandering Earth Academy~
 Sector   inside~
 Flags    indoors~
 Desc     This is where you will start learning about exits not listed under "Exits".
@@ -1583,7 +1583,7 @@ Reset D 0 10310 2 1
 
 #ROOM
 Vnum     10311
-Name     Lost in Coruscant Academy~
+Name     Lost in Earth Academy~
 Sector   inside~
 Flags    indoors~
 Desc     There are several special exit types that you may encounter in your travels.
@@ -1626,7 +1626,7 @@ Desc      Back to the beginning
 
 #ROOM
 Vnum     10312
-Name     Lost in Coruscant Academy~
+Name     Lost in Earth Academy~
 Sector   inside~
 Flags    indoors~
 Desc     You are standing in a richly decorated room. A large oak table surrounded

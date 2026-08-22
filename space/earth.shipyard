@@ -1,6 +1,6 @@
 #SHIP
-Name         Coruscant Shipyard~
-Filename     coruscant.shipyard~
+Name         Earth Shipyard~
+Filename     earth.shipyard~
 Description  ~
 Owner        The New Republic~
 Pilot        ~
@@ -48,7 +48,7 @@ Shipstate    1
 Missilestate 0
 Energy       30000
 Manuever     0
-Home         coruscant~
+Home         Sol System~
 End
 
 #END

@@ -3633,10 +3633,10 @@ Stats    1 0 0 0 0
 
 #ROOM
 Vnum     32000
-Name     Coruscant Shipyard: Docking Platform Alpha~
+Name     Earth Shipyard: Docking Platform Alpha~
 Sector   city~
 Flags    spacecraft~
-Desc     You are on the main platform of the shipyard orbiting Coruscant. Because
+Desc     You are on the main platform of the shipyard orbiting Earth. Because
 it is an off planet shipyard, larger capital ships maybe built and launched
 from here as well as the more standard planetary ones.
 All of the ships in this part of the shipyard are ready for flight.
@@ -3667,7 +3667,7 @@ ToRoom    32004
 
 #ROOM
 Vnum     32001
-Name     Coruscant Shipyard: Docking Platform Alpha-N~
+Name     Earth Shipyard: Docking Platform Alpha-N~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3701,7 +3701,7 @@ Reset M 0 32014 2 32001
 
 #ROOM
 Vnum     32002
-Name     Coruscant Shipyard: Docking Platform Alpha-E~
+Name     Earth Shipyard: Docking Platform Alpha-E~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3736,7 +3736,7 @@ Reset M 0 32008 1 32002
 
 #ROOM
 Vnum     32003
-Name     Coruscant Shipyard: Docking Platform Alpha-S~
+Name     Earth Shipyard: Docking Platform Alpha-S~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing near the shield wall Of docking platform-alpha.
@@ -3767,7 +3767,7 @@ Reset M 0 32112 10 32003
 
 #ROOM
 Vnum     32004
-Name     Coruscant Shipyard: Docking Platform Alpha-W~
+Name     Earth Shipyard: Docking Platform Alpha-W~
 Sector   city~
 Flags    spacecraft~
 Desc     You are standing by the inside wall of platform alpha. The enormous
@@ -3900,7 +3900,7 @@ ToRoom    32025
 
 #ROOM
 Vnum     32008
-Name     Coruscant Shipyard: Docking Platform Gamma-E~
+Name     Earth Shipyard: Docking Platform Gamma-E~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -3946,7 +3946,7 @@ Reset M 0 32039 2 32008
 
 #ROOM
 Vnum     32009
-Name     Coruscant Shipyard: Docking Platform Gamma~
+Name     Earth Shipyard: Docking Platform Gamma~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -3984,7 +3984,7 @@ ToRoom    32010
 
 #ROOM
 Vnum     32010
-Name     Coruscant Shipyard: Docking Platform Gamma-W~
+Name     Earth Shipyard: Docking Platform Gamma-W~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4018,7 +4018,7 @@ Reset M 0 32112 10 32010
 
 #ROOM
 Vnum     32011
-Name     Coruscant Shipyard: Docking Platform Gamma-N~
+Name     Earth Shipyard: Docking Platform Gamma-N~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4051,7 +4051,7 @@ ToRoom    32010
 
 #ROOM
 Vnum     32012
-Name     Coruscant Shipyard: Docking Platform Gamma-S~
+Name     Earth Shipyard: Docking Platform Gamma-S~
 Sector   city~
 Flags    spacecraft~
 Desc     This platform is filled with of many shapes and sizes in various
@@ -4111,7 +4111,7 @@ Flags     passage~
 
 #ROOM
 Vnum     32014
-Name     Coruscant Shipyard: Docking Platform Delta-S~
+Name     Earth Shipyard: Docking Platform Delta-S~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4147,7 +4147,7 @@ ToRoom    32017
 
 #ROOM
 Vnum     32015
-Name     Coruscant Shipyard: Planetary Shuttle Stop~
+Name     Earth Shipyard: Planetary Shuttle Stop~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4184,7 +4184,7 @@ ToRoom    32017
 
 #ROOM
 Vnum     32016
-Name     Coruscant Shipyard: Docking Platform Delta-N~
+Name     Earth Shipyard: Docking Platform Delta-N~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4217,7 +4217,7 @@ Reset M 0 32018 2 32016
 
 #ROOM
 Vnum     32017
-Name     Coruscant Shipyard: Docking Platform Delta-W~
+Name     Earth Shipyard: Docking Platform Delta-W~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4249,7 +4249,7 @@ Reset M 0 32112 10 32017
 
 #ROOM
 Vnum     32018
-Name     Coruscant Shipyard: Docking Platform Delta-E~
+Name     Earth Shipyard: Docking Platform Delta-E~
 Sector   city~
 Flags    spacecraft~
 Desc     This enormous platform is relatively empty except for a few shuttles
@@ -4310,7 +4310,7 @@ ToRoom    32028
 
 #ROOM
 Vnum     32020
-Name     Coruscant Shipyard: Docking Platform Beta-N~
+Name     Earth Shipyard: Docking Platform Beta-N~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4346,7 +4346,7 @@ ToRoom    32023
 
 #ROOM
 Vnum     32021
-Name     Coruscant Shipyard: Docking Platform Beta~
+Name     Earth Shipyard: Docking Platform Beta~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4389,7 +4389,7 @@ Reset O 0 32255 1 32021
 
 #ROOM
 Vnum     32022
-Name     Coruscant Shipyard: Docking Platform Beta-S~
+Name     Earth Shipyard: Docking Platform Beta-S~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4421,7 +4421,7 @@ Reset M 0 32112 10 32022
 
 #ROOM
 Vnum     32023
-Name     Coruscant Shipyard: Docking Platform Beta-W~
+Name     Earth Shipyard: Docking Platform Beta-W~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the
@@ -4452,7 +4452,7 @@ ToRoom    32022
 
 #ROOM
 Vnum     32024
-Name     Coruscant Shipyard: Docking Platform Beta-E~
+Name     Earth Shipyard: Docking Platform Beta-E~
 Sector   city~
 Flags    spacecraft~
 Desc     The ships in this part of the shipyard seem to in most cases be in the

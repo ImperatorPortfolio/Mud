@@ -42,7 +42,7 @@ bool validate_spec_fun( const char *name );
 /* planet constants for vip and wanted flags */
 
 const char *const planet_flags[] = {
-   "coruscant", "kashyyyk", "ryloth", "rodia", "nal_hutta", "mon_calamari",
+   "earth", "kashyyyk", "ryloth", "rodia", "nal_hutta", "mon_calamari",
    "honoghr", "gamorr", "tatooine", "adari", "byss", "endor", "roche", "af'el", "trandosh",
    "chad", "", "p16", "p17", "p18", "p19", "p20", "p21", "p22", "p23", "p24",
    "p25", "p26", "p27", "p28", "p29", "p30", "p31"

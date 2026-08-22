@@ -1,35 +1,35 @@
 #SPACE
-Name         Earth System~
+Name         Sol System~
 Filename     earth.system~
 Planet1      Earth~
-Planet2      Outpost Moon~
+Planet2      Luna~
 Planet3      ~
-Star1        Earth Sun~
+Star1        Sol~
 Star2        ~
-Location1a      Menari Spaceport~
-Location1b      ~
-Location1c      ~
-Location2a       Outer System Landing Area~
+Location1a   Den Haag Alpha Shuttle Berth~
+Location1b   Den Haag Delta Shuttle Berth~
+Location1c   Den Haag Bravo Shuttle Berth~
+Location2a   Luna Complex Transfer Pad~
 Location2b      ~
 Location2c      ~
 Location3a      ~
 Location3b      ~
 Location3c      ~
-Doc1a          203
-Doc2a          10190
+Doc1a          234
+Doc2a          33000
 Doc3a          0
-Doc1b          0
+Doc1b          248
 Doc2b          0
 Doc3b          0
-Doc1c          0
+Doc1c          243
 Doc2c          0
 Doc3c          0
 P1x          -345
 P1y          -987
 P1z          1562
-P2x          902011
-P2y          -1003651
-P2z          1100331
+P2x          3655
+P2y          -987
+P2z          1562
 P3x          0
 P3y          0
 P3z          0

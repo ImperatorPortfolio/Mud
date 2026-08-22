@@ -242,9 +242,9 @@ bool spec_newbie_pilot( CHAR_DATA * ch )
             do_look( ch, victim->name );
             do_say( ch, buf );
             do_say( ch, "You're home planet is a little hard to get to right now." );
-            do_say( ch, "I'll take you to the Pluogus instead." );
+            do_say( ch, "I'll take you to the Meridian Voyager instead." );
             echo_to_room( AT_ACTION, ch->in_room,
-                          "After a brief journey the shuttle docks with the Serin Pluogus.\r\n\r\n" );
+                          "After a brief journey the shuttle docks with the Meridian Voyager.\r\n\r\n" );
             break;
       }
 
