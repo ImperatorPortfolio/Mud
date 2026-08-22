@@ -47,7 +47,7 @@ L_FLAGS = $(M_FLAGS) $(HARDENING_FLAGS) -lz $(NEED_DL)
 D_FLAGS = -g2 -O $(M_FLAGS) $(HARDENING_FLAGS)
 
 C_FILES = act_comm.c act_info.c act_move.c act_obj.c act_wiz.c area_builder_commands.c attribute_math.c boards.c bounty.c \
-	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c dialogue.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
+	  build.c clans.c color.c comm.c comments.c const.c db.c defense_rules.c d20_content.c dialogue.c dns.c elevator.c exercise.c fight.c geography.c geography_commands.c geography_ui_commands.c \
 	  handler.c hashstr.c hotboot.c interp.c magic.c makeobjs.c mccp.c msdp_mapper.c msdp_telnet.c \
 	  misc.c mssp.c mud_comm.c mud_prog.c natural_progress.c player.c quest.c reset.c room_metadata.c save.c sha256.c shops.c \
 	  skills.c space.c special.c swskills.c tables.c track.c training.c training_guard.c traits.c update.c
@@ -85,6 +85,14 @@ $(ATTRIBUTE_MATH_OBJECTS): C_FLAGS += $(ATTRIBUTE_MATH_DEFINES)
 # source slice has been integrated upstream.
 #
 o/handler.o: C_FLAGS += -Dget_defense=legacy_get_defense -Dchar_to_room=legacy_char_to_room
+
+#
+# D20 world-content migration
+#
+# db.c retains the inherited database boot sequence behind a compatibility
+# symbol. d20_content.c owns the public boot boundary and normalizes all loaded
+# area prototypes after the legacy world has been read and reset.
+o/db.o: C_FLAGS += -Dboot_db=legacy_boot_db
 
 #
 # Hierarchical geography bootstrap
