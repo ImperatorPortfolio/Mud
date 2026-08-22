@@ -1,0 +1,351 @@
+#NODE
+Id 21004
+Mob 218
+Root 1
+Text You again. Changed your mind about helping me recover the case?~
+RequireQuest 2001 available 0
+RequireMemory denhaag.wrongbag.attitude refused
+Choice
+Text All right. I'll help.~
+Memory denhaag.wrongbag.attitude helpful
+TriggerSpeech wrong bag~
+Close 1
+EndChoice
+Choice
+Text Remind me what happened.~
+Next 21002
+EndChoice
+Choice
+Text No. I was just asking.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21001
+Mob 218
+Root 1
+Text Someone walked off with my black case after the interstellar arrival, and I was left with somebody else's luggage. I could use a hand.~
+RequireQuest 2001 available 0
+Choice
+Text I'll help. Tell me where to start.~
+Memory denhaag.wrongbag.attitude helpful
+TriggerSpeech wrong bag~
+Close 1
+EndChoice
+Choice
+Text Start at the beginning. What happened?~
+Memory denhaag.wrongbag.attitude curious
+Next 21002
+EndChoice
+Choice
+Text What's the job worth to you?~
+Next 21003
+EndChoice
+Choice
+Text I don't have time for this.~
+Memory denhaag.wrongbag.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21002
+Mob 218
+Root 0
+Text At the baggage pickup I took the case beside mine without checking the claim tag. By the time I noticed, mine had vanished into terminal handling. Lost Property should still have the routing record.~
+Choice
+Text All right. I'll look for it.~
+Memory denhaag.wrongbag.attitude curious
+TriggerSpeech wrong bag~
+Close 1
+EndChoice
+Choice
+Text And what do I get for doing this?~
+Next 21003
+EndChoice
+Choice
+Text That's unfortunate, but I can't help.~
+Memory denhaag.wrongbag.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21003
+Mob 218
+Root 0
+Text I have a spare local transit card. Get my case back to me and it's yours. That's the best I can offer.~
+Choice
+Text Deal.~
+Memory denhaag.wrongbag.attitude mercenary
+TriggerSpeech wrong bag~
+Close 1
+EndChoice
+Choice
+Text Keep it. I'm not interested.~
+Memory denhaag.wrongbag.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21011
+Mob 218
+Root 1
+Text Lost Property is west of Alpha Gate Junction. They should have the routing tag for the case.~
+RequireQuest 2001 active 1
+Choice
+Text I'll check there.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21012
+Mob 218
+Root 1
+Text If you found the routing tag, an Information clerk should be able to verify where the case was diverted.~
+RequireQuest 2001 active 2
+Choice
+Text Understood.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21013
+Mob 218
+Root 1
+Text A verified release slip should be enough for Lost Property to release the matching case.~
+RequireQuest 2001 active 3
+Choice
+Text I'll take it back there.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21014
+Mob 218
+Root 1
+Text If you have the black case, bring it straight to me. I still have the claim stub to prove it's mine.~
+RequireQuest 2001 active 4
+Choice
+Text Here goes.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21020
+Mob 218
+Root 1
+Text There you are. I won't forget that you stopped to help when you didn't have to.~
+RequireQuest 2001 complete 0
+RequireMemory denhaag.wrongbag.attitude helpful
+Choice
+Text Glad it worked out.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21021
+Mob 218
+Root 1
+Text A deal's a deal. You earned the transit card, and you got my case back. No complaints from me.~
+RequireQuest 2001 complete 0
+RequireMemory denhaag.wrongbag.attitude mercenary
+Choice
+Text Fair enough.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21022
+Mob 218
+Root 1
+Text Good to see you again. Thanks for getting my case back through the terminal maze.~
+RequireQuest 2001 complete 0
+Choice
+Text Take care.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 21030
+Mob 218
+Root 1
+Text I heard the baggage claim went nowhere. I'll have to keep chasing it through the terminal system.~
+RequireQuest 2001 failed 0
+Choice
+Text Sorry I couldn't sort it out.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22003
+Mob 202
+Root 1
+Text The quarantined chilled delivery is still unresolved. Will you inspect the damaged seal after all?~
+RequireQuest 2002 available 0
+RequireMemory denhaag.coldchain.attitude refused
+Choice
+Text Yes. Open the stockroom.~
+Memory denhaag.coldchain.attitude helpful
+TriggerSpeech delivery~
+Close 1
+EndChoice
+Choice
+Text Explain the problem again.~
+Next 22002
+EndChoice
+Choice
+Text No. Keep it quarantined.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22004
+Mob 202
+Root 1
+Text Another chilled delivery has flagged a seal fault. Your previous inspection was appropriately cautious. Will you check this batch as well?~
+RequireQuest 2002 available 0
+RequireMemory denhaag.coldchain.attitude cautious
+Choice
+Text Yes. Open the stockroom.~
+TriggerSpeech delivery~
+Close 1
+EndChoice
+Choice
+Text Not this time.~
+Memory denhaag.coldchain.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22001
+Mob 202
+Root 1
+Text Service advisory: a chilled supplier crate has arrived with a damaged temperature seal. The batch must remain isolated until somebody checks it.~
+RequireQuest 2002 available 0
+Choice
+Text I'll inspect it.~
+Memory denhaag.coldchain.attitude helpful
+TriggerSpeech delivery~
+Close 1
+EndChoice
+Choice
+Text What does a damaged seal mean?~
+Memory denhaag.coldchain.attitude cautious
+Next 22002
+EndChoice
+Choice
+Text Why can't you check it yourself?~
+Next 22002
+EndChoice
+Choice
+Text Not now.~
+Memory denhaag.coldchain.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22002
+Mob 202
+Root 0
+Text A broken seal can mean the shipment exceeded its safe temperature during transfer. I cannot leave the service counter, so the crate must be inspected in the staff stockroom and the damaged seal returned for the report.~
+Choice
+Text Understood. Open the stockroom.~
+Memory denhaag.coldchain.attitude cautious
+TriggerSpeech delivery~
+Close 1
+EndChoice
+Choice
+Text No. Keep the shipment isolated.~
+Memory denhaag.coldchain.attitude refused
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22011
+Mob 202
+Root 1
+Text The chilled crate is in the stockroom. Inspect the crate before disturbing anything.~
+RequireQuest 2002 active 1
+Choice
+Text I'll inspect it now.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22012
+Mob 202
+Root 1
+Text The damaged cold-chain seal should be with the supplier crate. Bring the seal back here once you have it.~
+RequireQuest 2002 active 2
+Choice
+Text Understood.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22013
+Mob 202
+Root 1
+Text I am ready to log the damaged seal against the delivery manifest. Give it to me when you are ready.~
+RequireQuest 2002 active 3
+Choice
+Text I'll hand it over.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22020
+Mob 202
+Root 1
+Text Your caution was justified. The affected batch is isolated and the cold-chain report is closed.~
+RequireQuest 2002 complete 0
+RequireMemory denhaag.coldchain.attitude cautious
+Choice
+Text Good. Keep it off sale.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22021
+Mob 202
+Root 1
+Text Delivery report closed. The affected shipment remains off sale until replacement stock arrives. Thank you for the assistance.~
+RequireQuest 2002 complete 0
+Choice
+Text You're welcome.~
+Close 1
+EndChoice
+End
+
+#NODE
+Id 22030
+Mob 202
+Root 1
+Text The chilled delivery remains quarantined. The inspection record was closed without resolution.~
+RequireQuest 2002 failed 0
+Choice
+Text Understood.~
+Close 1
+EndChoice
+End
+
+#END
