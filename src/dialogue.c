@@ -64,9 +64,12 @@ void quest_engine_load_quests( void );
 void quest_engine_save_player( FILE *fp, CHAR_DATA *ch );
 bool quest_engine_load_player_field( CHAR_DATA *ch, const char *word, FILE *fp );
 void geography_ui_load_commands( void );
+CHAR_DATA *get_char_room_mp( CHAR_DATA *ch, const char *argument );
 
 DECLARE_DO_FUN( do_talk );
 DECLARE_DO_FUN( do_choose );
+DECLARE_DO_FUN( do_mpmemoryset );
+DECLARE_DO_FUN( do_mpmemoryclear );
 
 static bool dialogue_memory_token_valid( const char *token, size_t maximum )
 {
@@ -540,7 +543,6 @@ extern "C" void do_talk( CHAR_DATA *ch, const char *argument )
    }
 
    mob_vnum = speaker->pIndexData->vnum;
-   quest_event( ch, QUEST_OBJECTIVE_INTERACT, mob_vnum, 0 );
    node = find_dialogue_root( ch, mob_vnum );
    if( !node )
    {
@@ -603,6 +605,8 @@ extern "C" void do_choose( CHAR_DATA *ch, const char *argument )
 
    if( choice->trigger_speech && choice->trigger_speech[0] )
       mprog_speech_trigger( choice->trigger_speech, ch );
+   else
+      quest_event( ch, QUEST_OBJECTIVE_INTERACT, speaker->pIndexData->vnum, 0 );
 
    if( choice->close_dialogue || choice->next_node_id <= 0 )
    {
@@ -618,6 +622,69 @@ extern "C" void do_choose( CHAR_DATA *ch, const char *argument )
    }
 
    show_dialogue_node( ch, speaker, node );
+}
+
+extern "C" void do_mpmemoryset( CHAR_DATA *ch, const char *argument )
+{
+   char who[MAX_INPUT_LENGTH];
+   char key[MAX_MEMORY_KEY_LENGTH];
+   char value[MAX_MEMORY_VALUE_LENGTH];
+   CHAR_DATA *victim;
+
+   if( !ch || !IS_NPC( ch ) )
+   {
+      if( ch ) send_to_char( "Huh?\r\n", ch );
+      return;
+   }
+
+   argument = one_argument( argument, who );
+   argument = one_argument( argument, key );
+   one_argument( argument, value );
+   if( !who[0] || !key[0] || !value[0] )
+   {
+      progbug( "Mpmemoryset: syntax mpmemoryset <player> <key> <value>", ch );
+      return;
+   }
+
+   victim = get_char_room_mp( ch, who );
+   if( !victim || IS_NPC( victim ) )
+   {
+      progbug( "Mpmemoryset: player not found", ch );
+      return;
+   }
+
+   if( !dialogue_memory_set( victim, key, value ) )
+      progbug( "Mpmemoryset: invalid key/value or player memory is full", ch );
+}
+
+extern "C" void do_mpmemoryclear( CHAR_DATA *ch, const char *argument )
+{
+   char who[MAX_INPUT_LENGTH];
+   char key[MAX_MEMORY_KEY_LENGTH];
+   CHAR_DATA *victim;
+
+   if( !ch || !IS_NPC( ch ) )
+   {
+      if( ch ) send_to_char( "Huh?\r\n", ch );
+      return;
+   }
+
+   argument = one_argument( argument, who );
+   one_argument( argument, key );
+   if( !who[0] || !key[0] )
+   {
+      progbug( "Mpmemoryclear: syntax mpmemoryclear <player> <key>", ch );
+      return;
+   }
+
+   victim = get_char_room_mp( ch, who );
+   if( !victim || IS_NPC( victim ) )
+   {
+      progbug( "Mpmemoryclear: player not found", ch );
+      return;
+   }
+
+   dialogue_memory_clear( victim, key );
 }
 
 static CMDTYPE *dialogue_find_command( const char *name )
@@ -636,14 +703,15 @@ static CMDTYPE *dialogue_find_command( const char *name )
    return NULL;
 }
 
-static void dialogue_bind_command( const char *name, DO_FUN *function, const char *function_name )
+static void dialogue_bind_command( const char *name, DO_FUN *function,
+                                   const char *function_name, short position )
 {
    CMDTYPE *command = dialogue_find_command( name );
 
    if( command )
    {
       command->do_fun = function;
-      command->position = 5;
+      command->position = position;
       command->level = 0;
       return;
    }
@@ -652,18 +720,20 @@ static void dialogue_bind_command( const char *name, DO_FUN *function, const cha
    command->name = strdup( name );
    command->do_fun = function;
    command->fun_name = strdup( function_name );
-   command->position = 5;
+   command->position = position;
    command->level = 0;
    command->log = 0;
    add_command( command );
 }
 
-/* Final command-loader layer: preserve geography UI bindings, then add TALK/CHOOSE. */
+/* Final command-loader layer: preserve geography UI bindings, then add dialogue APIs. */
 void load_commands( void )
 {
    geography_ui_load_commands();
-   dialogue_bind_command( "talk", do_talk, "do_talk" );
-   dialogue_bind_command( "choose", do_choose, "do_choose" );
+   dialogue_bind_command( "talk", do_talk, "do_talk", 5 );
+   dialogue_bind_command( "choose", do_choose, "do_choose", 5 );
+   dialogue_bind_command( "mpmemoryset", do_mpmemoryset, "do_mpmemoryset", 0 );
+   dialogue_bind_command( "mpmemoryclear", do_mpmemoryclear, "do_mpmemoryclear", 0 );
 }
 
 /* Final quest bootstrap layer: quest definitions first, then dependent dialogue data. */
