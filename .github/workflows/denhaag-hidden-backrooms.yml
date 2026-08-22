@@ -1,0 +1,33 @@
+name: Den Haag hidden backrooms
+
+on:
+  push:
+    branches:
+      - feature/den-haag-hidden-backrooms-cold-chain
+
+permissions:
+  contents: write
+
+jobs:
+  update-area:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+      - name: Apply and validate Den Haag pass
+        run: python tools/fix_denhaag_hidden_backrooms.py
+      - name: Commit generated area
+        shell: bash
+        run: |
+          git diff --check
+          if git diff --quiet; then
+            echo "No area changes required"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add area/Earth/DenHaagArrivals.are
+          git commit -m "Restore hidden backrooms and replace scanner quest"
+          git push
