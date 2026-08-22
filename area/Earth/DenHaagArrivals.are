@@ -1,7 +1,7 @@
 #FUSSAREA
 #AREADATA
 Version      1
-Name         The Hague Interstellar Terminal~
+Name         Den Haag Arrivals~
 Author       Durga~
 Ranges       0 0 0 103
 Economy      0 31260569
@@ -282,9 +282,10 @@ Saves      0 0 0 0 0
 Speaks     common~
 Speaking   common~
 #MUDPROG
-Progtype  entry_prog~
-Arglist   50~
-Comlist   say Spare some change?
+Progtype  bribe_prog~
+Arglist   1~
+Comlist   say thank you.
+bow $n
 ~
 #ENDPROG
 
@@ -297,10 +298,9 @@ say Spare some change?
 #ENDPROG
 
 #MUDPROG
-Progtype  bribe_prog~
-Arglist   1~
-Comlist   say thank you.
-bow $n
+Progtype  entry_prog~
+Arglist   50~
+Comlist   say Spare some change?
 ~
 #ENDPROG
 
@@ -346,7 +346,6 @@ Long     Don't step on that sandwich...~
 Flags    inventory~
 WFlags   take~
 Values   5 0 0 0 0 0
-Nutrition   9 10 4 4 5 4
 Stats    1 2 0 0 0
 #ENDOBJECT
 
@@ -373,6 +372,66 @@ Stats    1 0 0 0 0
 #ENDOBJECT
 
 #OBJECT
+Vnum     204
+Keywords chicken salad sandwich~
+Type     food~
+Short    a chicken salad sandwich~
+Long     A fresh chicken salad sandwich is sealed in a travel wrapper.~
+Flags    inventory~
+WFlags   take~
+Values   10 0 0 0 0 0
+Stats    1 6 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     205
+Keywords fruit cup~
+Type     food~
+Short    a fresh fruit cup~
+Long     A chilled cup contains a mix of freshly cut fruit.~
+Flags    inventory~
+WFlags   take~
+Values   8 0 0 0 0 0
+Stats    1 5 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     206
+Keywords grain vegetable bowl~
+Type     food~
+Short    a grain and vegetable bowl~
+Long     A compact hot meal combines whole grains, vegetables and pulses.~
+Flags    inventory~
+WFlags   take~
+Values   18 0 0 0 0 0
+Stats    2 10 1 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     207
+Keywords yoghurt oats breakfast pot~
+Type     food~
+Short    a yoghurt and oat breakfast pot~
+Long     Oats, yoghurt and berries are packed together in a convenient breakfast pot.~
+Flags    inventory~
+WFlags   take~
+Values   14 0 0 0 0 0
+Stats    1 8 0 0 0
+#ENDOBJECT
+
+#OBJECT
+Vnum     208
+Keywords electrolyte water~
+Type     drinkcon~
+Short    a bottle of electrolyte water~
+Long     A chilled bottle of lightly mineralised water is ready to drink.~
+Flags    inventory~
+WFlags   take~
+Values   10 10 0 0 0 0
+Stats    1 5 0 0 0
+#ENDOBJECT
+
+#OBJECT
 Vnum     210
 Keywords box~
 Type     trash~
@@ -392,81 +451,6 @@ Values   0 0 0 0 0 0
 Stats    1 0 0 0 0
 #ENDOBJECT
 
-#OBJECT
-Vnum     204
-Keywords chicken salad sandwich~
-Type     food~
-Short    a chicken salad sandwich~
-Long     A fresh chicken salad sandwich is sealed in a travel wrapper.~
-Flags    inventory~
-WFlags   take~
-Values   10 0 0 0 0 0
-Nutrition   10 11 4 7 6 4
-Stats    1 6 0 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     205
-Keywords fruit cup~
-Type     food~
-Short    a fresh fruit cup~
-Long     A chilled cup contains a mix of freshly cut fruit.~
-Flags    inventory~
-WFlags   take~
-Values   8 0 0 0 0 0
-Nutrition   2 11 1 13 5 9
-Stats    1 5 0 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     206
-Keywords grain vegetable bowl~
-Type     food~
-Short    a grain and vegetable bowl~
-Long     A compact hot meal combines whole grains, vegetables and pulses.~
-Flags    inventory~
-WFlags   take~
-Values   18 0 0 0 0 0
-Nutrition   8 14 3 12 9 6
-Stats    2 10 1 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     207
-Keywords yoghurt oats breakfast pot~
-Type     food~
-Short    a yoghurt and oat breakfast pot~
-Long     Oats, yoghurt and berries are packed together in a convenient breakfast pot.~
-Flags    inventory~
-WFlags   take~
-Values   14 0 0 0 0 0
-Nutrition   7 13 5 10 7 5
-Stats    1 8 0 0 0
-#ENDOBJECT
-#OBJECT
-Vnum     208
-Keywords electrolyte water~
-Type     drinkcon~
-Short    a bottle of electrolyte water~
-Long     A chilled bottle of lightly mineralised water is ready to drink.~
-Flags    inventory~
-WFlags   take~
-Values   10 10 0 0 0 0
-Nutrition   0 2 0 0 6 18
-Stats    1 5 0 0 0
-#ENDOBJECT
-
-#ROOM
-Vnum     199
-Name     &RDO NOT FLY THIS SHIP~
-Sector   city~
-Flags    nomob~
-Desc     Do not fly this ship it is controlled automaticly by the code. Do not
-fly this ship it is controlled automaticly by the code. Do not fly
-this ship it is controlled automaticly by the code. Do not fly this
-ship it is controlled automaticly by the code.
-
-Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
-~
-#ENDROOM
-
 #ROOM
 Vnum     200
 Name     A Small Shuttle~
@@ -484,7 +468,7 @@ Tall pressure-rated windows give brief views of Earth-orbit traffic approaching 
 
 #ROOM
 Vnum     201
-Name     Serin Pluogus Tourbus Platform~
+Name     &#5b91a6I&#879e91n&#b3ab7dt&#d4b46de&#c9b172r&#beae77s&#b3ab7dt&#a8a882e&#9da487l&#92a18cl&#879e91a&#7c9b96r&#71979c &#6694a1S&#5b91a6h&#6694a1u&#71979ct&#7c9b96t&#879e91l&#92a18ce&#9da487 &#a8a882P&#b3ab7dl&#beae77a&#c9b172t&#d4b46df&#b3ab7do&#879e91r&#5b91a6m &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
 Desc     This platform is reserved for the publicly funded tour shuttle, the
@@ -498,8 +482,8 @@ When the pluogus lands type BOARD PLUOGUS to enter.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
-Direction east~
-ToRoom    204
+Direction north~
+ToRoom    202
 #ENDEXIT
 
 Reset M 0 209 1 201
@@ -508,7 +492,7 @@ Reset O 0 203 1 201
 
 #ROOM
 Vnum     202
-Name     Shuttle Platform~
+Name     &#5b91a6A&#baad79 &#c5b074L&#aea97fo&#96a28an&#7e9b95g&#6794a0 G&#7e9b95a&#96a28an&#aea97fg&#c5b074w&#baad79a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
 Desc     This platform is reserved for shuttles flying between The Hague Interstellar Terminal
@@ -524,8 +508,13 @@ Wait here for the shipyard ferry. When it lands BOARD FERRY.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
-Direction west~
-ToRoom    204
+Direction north~
+ToRoom    203
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    201
 #ENDEXIT
 
 Reset M 0 208 1 202
@@ -533,7 +522,7 @@ Reset M 0 208 1 202
 
 #ROOM
 Vnum     203
-Name     Main Platform~
+Name     &#5b91a6A&#96a28a &#d0b36fS&#c9b172h&#baad79u&#aca980t&#9da487t&#8ea08el&#809c95e&#71979c &#6293a3Wa&#71979ci&#809c95t&#8ea08ei&#9da487n&#aca980g&#baad79 &#c9b172A&#d0b36fr&#96a28ae&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
 Desc     This is the main platform in the The Hague Interstellar Terminal. All kinds of ships
@@ -550,13 +539,18 @@ Direction north~
 ToRoom    204
 #ENDEXIT
 
+#EXIT
+Direction south~
+ToRoom    202
+#ENDEXIT
+
 Reset M 0 206 2 203
 Reset M 0 206 2 203
 #ENDROOM
 
 #ROOM
 Vnum     204
-Name     Platform Area~
+Name     &#5b91a6A&#baad79 &#c5b074L&#aea97fo&#96a28an&#7e9b95g&#6794a0 G&#7e9b95a&#96a28an&#aea97fg&#c5b074w&#baad79a&#5b91a6y &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob~
 Desc     From the platform area of the spaceport you have an excellent view of
@@ -575,18 +569,8 @@ ToRoom    205
 #ENDEXIT
 
 #EXIT
-Direction east~
-ToRoom    202
-#ENDEXIT
-
-#EXIT
 Direction south~
 ToRoom    203
-#ENDEXIT
-
-#EXIT
-Direction west~
-ToRoom    201
 #ENDEXIT
 
 Reset M 0 204 2 204
@@ -595,7 +579,7 @@ Reset M 0 204 2 204
 
 #ROOM
 Vnum     205
-Name     Walkway~
+Name     &#5b91a6A&#7b9a97p&#9aa388p&#baad79r&#d5b56co&#cdb270a&#c5b074c&#beae78h&#b6ac7bi&#aea97fn&#a6a783g&#9ea586 &#96a28at&#8ea08eh&#869e92e&#7e9b95 &#779999I&#6f979dn&#6794a0t&#5f92a4er&#6794a0s&#6f979dt&#779999e&#7e9b95l&#869e92l&#8ea08ea&#96a28ar&#9ea586 &#a6a783S&#aea97fh&#b6ac7bu&#beae78t&#c5b074t&#cdb270l&#d5b56ce&#baad79 &#9aa388P&#7b9a97a&#5b91a6d &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The walkway is a long corridor enclosed in transpariplast windows.
@@ -626,7 +610,7 @@ Reset M 0 210 2 205
 
 #ROOM
 Vnum     206
-Name     Waiting Room~
+Name     &#5b91a6H&#a3a684a&#d1b36fa&#beae77g&#aca980 &#9aa488A&#889e91r&#769999r&#6494a2iv&#769999a&#889e91l&#9aa488s&#aca980 &#beae77A&#d1b36fr&#a3a684e&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This large room is filled with benches and chairs. Most are arranged
@@ -639,12 +623,7 @@ Tall pressure-rated windows give brief views of Earth-orbit traffic approaching 
 ~
 #EXIT
 Direction north~
-ToRoom    209
-#ENDEXIT
-
-#EXIT
-Direction east~
-ToRoom    208
+ToRoom    207
 #ENDEXIT
 
 #EXIT
@@ -654,7 +633,7 @@ ToRoom    205
 
 #EXIT
 Direction west~
-ToRoom    207
+ToRoom    214
 #ENDEXIT
 
 Reset M 0 207 2 206
@@ -664,7 +643,7 @@ Reset O 0 10315 1 206
 
 #ROOM
 Vnum     207
-Name     Spaceport Cafe~
+Name     &#5b91a6C&#a3a684u&#d1b36fs&#beae77t&#aca980o&#9aa488m&#889e91s&#769999 &#6494a2Ch&#769999e&#889e91c&#9aa488k&#aca980p&#beae77o&#d1b36fi&#a3a684n&#5b91a6t &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The spaceport cafe is a good sized self-serve cafeteria. There is a
@@ -676,8 +655,25 @@ a several in the center of the room.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
+Direction north~
+ToRoom    208
+#ENDEXIT
+
+#EXIT
 Direction east~
+ToRoom    212
+Keywords  locked~
+#ENDEXIT
+
+#EXIT
+Direction south~
 ToRoom    206
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    213
+Keywords  locked~
 #ENDEXIT
 
 Reset M 0 202 1 207
@@ -694,7 +690,7 @@ Reset M 0 202 1 207
 
 #ROOM
 Vnum     208
-Name     Lost and Found~
+Name     &#5b91a6S&#c2af76ec&#a8a882u&#8ea08er&#75999ai&#5b91a6t&#75999ay&#8ea08e &#a8a882G&#c2af76at&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors donation~
 Desc     The lost and found is a small plain room. There is a bin of clothing,
@@ -705,8 +701,25 @@ collecting dust for quite some time.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
+Direction north~
+ToRoom    209
+#ENDEXIT
+
+#EXIT
+Direction east~
+ToRoom    210
+Flags     window~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    207
+#ENDEXIT
+
+#EXIT
 Direction west~
-ToRoom    206
+ToRoom    211
+Flags     window~
 #ENDEXIT
 
 Reset O 0 210 1 208
@@ -714,7 +727,7 @@ Reset O 0 210 1 208
 
 #ROOM
 Vnum     209
-Name     Spaceport Lobby~
+Name     &#5b91a6O&#8ea08eu&#c2af76t&#ceb370s&#c2af76i&#b5ab7cd&#a8a882e&#9ba488 &#8ea08eT&#819c94h&#75999ae&#6895a0 &#5b91a6A&#6895a0r&#75999ar&#819c94i&#8ea08ev&#9ba488a&#a8a882l&#b5ab7cs&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The The Hague Interstellar Terminal lobby is a large open room with a transparisteel
@@ -725,28 +738,8 @@ the opposite corner leads down.
 Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
-Direction north~
-ToRoom    210
-#ENDEXIT
-
-#EXIT
-Direction east~
-ToRoom    212
-#ENDEXIT
-
-#EXIT
 Direction south~
-ToRoom    206
-#ENDEXIT
-
-#EXIT
-Direction west~
-ToRoom    211
-#ENDEXIT
-
-#EXIT
-Direction down~
-ToRoom    213
+ToRoom    208
 #ENDEXIT
 
 Reset O 0 32201 1 209
@@ -754,7 +747,7 @@ Reset O 0 32201 1 209
 
 #ROOM
 Vnum     210
-Name     Spaceport Entrance~
+Name     &#5b91a6A&#93a18c &#cbb271Sm&#bdae78a&#afaa7el&#a1a585l&#93a18c &#859d92S&#779999e&#69959fc&#5b91a6u&#69959fr&#779999i&#859d92t&#93a18cy&#a1a585 &#afaa7eO&#bdae78f&#cbb271fi&#93a18cc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The entranceway of the Scheveningen Arcology Ridge Spaceport is a large wide
@@ -765,13 +758,14 @@ people approach.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
-Direction north~
-ToRoom    301
+Direction south~
+ToRoom    212
 #ENDEXIT
 
 #EXIT
-Direction south~
-ToRoom    209
+Direction west~
+ToRoom    208
+Flags     window~
 #ENDEXIT
 
 Reset M 0 203 1 210
@@ -779,7 +773,7 @@ Reset M 0 203 1 210
 
 #ROOM
 Vnum     211
-Name     Spaceport Hotel~
+Name     &#5b91a6A&#93a18c &#cbb271Sm&#bdae78a&#afaa7el&#a1a585l&#93a18c &#859d92S&#779999e&#69959fc&#5b91a6u&#69959fr&#779999i&#859d92t&#93a18cy&#a1a585 &#afaa7eO&#bdae78f&#cbb271fi&#93a18cc&#5b91a6e &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors safe hotel~
 Desc     The The Hague Interstellar Terminal Hotel is attached directly to the lobby of
@@ -793,7 +787,13 @@ Wayfinding bands identify this part of The Hague Interstellar Terminal in severa
 ~
 #EXIT
 Direction east~
-ToRoom    209
+ToRoom    208
+Flags     window~
+#ENDEXIT
+
+#EXIT
+Direction south~
+ToRoom    213
 #ENDEXIT
 
 Reset O 0 38 1 211
@@ -801,7 +801,7 @@ Reset O 0 38 1 211
 
 #ROOM
 Vnum     212
-Name     Spaceport Store~
+Name     &#5b91a6A&#8ea08e &#c2af76S&#ceb370m&#c2af76a&#b5ab7cl&#a8a882l&#9ba488 &#8ea08eS&#819c94e&#75999ac&#6895a0u&#5b91a6r&#6895a0i&#75999at&#819c94y&#8ea08e &#9ba488C&#a8a882o&#b5ab7cr&#c2af76i&#ceb370d&#c2af76o&#8ea08eo&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The spaceport store seems to carry mostly only useless souveniers.
@@ -811,8 +811,8 @@ things on display could come in handy if the prices weren't so high.
 Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
-Direction west~
-ToRoom    209
+Direction north~
+ToRoom    210
 #ENDEXIT
 
 Reset M 0 201 1 212
@@ -826,7 +826,7 @@ Reset M 0 201 1 212
 
 #ROOM
 Vnum     213
-Name     Transit Station~
+Name     &#5b91a6A&#8ea08e &#c2af76S&#ceb370m&#c2af76a&#b5ab7cl&#a8a882l&#9ba488 &#8ea08eS&#819c94e&#75999ac&#6895a0u&#5b91a6r&#6895a0i&#75999at&#819c94y&#8ea08e &#9ba488C&#a8a882o&#b5ab7cr&#c2af76i&#ceb370d&#c2af76o&#8ea08eo&#5b91a6r &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     The The Hague Interstellar Terminal Transit Station is one of many interconnected
@@ -837,20 +837,15 @@ thus is a favoured means  of transportation.
 Terran Union customs, transit and emergency markings are integrated into the terminal walls.
 ~
 #EXIT
-Direction east~
-ToRoom    214
-#ENDEXIT
-
-#EXIT
-Direction up~
-ToRoom    209
+Direction north~
+ToRoom    211
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     214
-Name     Toll Booth~
+Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     For one small fee you can ride the maglev car transit system to almost
@@ -861,8 +856,13 @@ credits.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
+Direction east~
+ToRoom    206
+#ENDEXIT
+
+#EXIT
 Direction west~
-ToRoom    213
+ToRoom    215
 #ENDEXIT
 
 Reset M 0 200 1 214
@@ -870,7 +870,7 @@ Reset M 0 200 1 214
 
 #ROOM
 Vnum     215
-Name     The Hague Interstellar Terminal Station~
+Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -882,15 +882,20 @@ it and look for a seat.
 Tall pressure-rated windows give brief views of Earth-orbit traffic approaching the terminal.
 ~
 #EXIT
+Direction east~
+ToRoom    214
+#ENDEXIT
+
+#EXIT
 Direction west~
-ToRoom    213
+ToRoom    216
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     216
-Name     maglev car Platform - Skydome Station~
+Name     &#5b91a6I&#8ea08en&#c2af76t&#ceb370e&#c2af76r&#b5ab7cs&#a8a882t&#9ba488e&#8ea08el&#819c94l&#75999aa&#6895a0r&#5b91a6 &#6895a0W&#75999aa&#819c94i&#8ea08et&#9ba488i&#a8a882n&#b5ab7cg&#c2af76 &#ceb370A&#c2af76r&#8ea08ee&#5b91a6a &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -903,14 +908,19 @@ Terran Union customs, transit and emergency markings are integrated into the ter
 ~
 #EXIT
 Direction east~
-ToRoom    431
+ToRoom    215
+#ENDEXIT
+
+#EXIT
+Direction west~
+ToRoom    217
 #ENDEXIT
 
 #ENDROOM
 
 #ROOM
 Vnum     217
-Name     maglev car Platform - Grand Towers Station~
+Name     &#5b91a6O&#a8a882u&#ceb370t&#bbad79s&#a8a882i&#95a28bd&#819c94e&#6e979d &#5b91a6T&#6e979dh&#819c94e&#95a28b &#a8a882K&#bbad79i&#ceb370o&#a8a882s&#5b91a6k &w:: &#5b91a6D&#a8a882e&#ceb370n&#bbad79 &#a8a882H&#95a28ba&#819c94a&#6e979dg&#5b91a6 &#6e979dA&#819c94r&#95a28br&#a8a882i&#bbad79v&#ceb370a&#a8a882l&#5b91a6s~
 Sector   city~
 Flags    nomob indoors~
 Desc     This long narrow room is devided down the middle by a wide maglev car
@@ -922,8 +932,8 @@ it and look for a seat.
 Wayfinding bands identify this part of The Hague Interstellar Terminal in several common trade languages.
 ~
 #EXIT
-Direction southwest~
-ToRoom    433
+Direction east~
+ToRoom    216
 #ENDEXIT
 
 #ENDROOM

@@ -109,15 +109,6 @@ o/geography_commands.o: C_FLAGS += -Dload_commands=geography_load_commands
 # that translation unit directly at compile time rather than relying on symbol
 # interposition. The source guard must match exactly once or the build fails.
 o/comm.o: C_FLAGS += -DZEROPOINT_TELNET_INPUT
-o/comm.o: comm.c Makefile | o
-	@echo "  Compiling $@..."
-	@count=$$(grep -c 'if( k >= 254 )' comm.c); \
-	if [ "$$count" -ne 1 ]; then \
-	   echo "ERROR: expected exactly one legacy 254-byte input guard in comm.c; found $$count"; \
-	   exit 1; \
-	fi
-	@sed 's/if( k >= 254 )/if( k >= ( int )sizeof( d->incomm ) - 2 )/' comm.c > .comm_extended.c
-	@$(CC) -c $(C_FLAGS) .comm_extended.c -o $@; status=$$?; rm -f .comm_extended.c; exit $$status
 
 #
 # Room metadata and area-builder command layering

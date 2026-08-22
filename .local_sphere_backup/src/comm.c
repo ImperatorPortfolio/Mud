@@ -1106,7 +1106,7 @@ void read_from_buffer( DESCRIPTOR_DATA * d )
    {
       if( k >= 254 )
       {
-         write_to_descriptor( d, "Line too long.\r\n", 0 );
+         write_to_descriptor( d, "Line is too long.\r\n", 0 );
 
          /*
           * skip the rest of the line 

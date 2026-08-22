@@ -3283,7 +3283,7 @@ char *fread_line( FILE * fp )
       ln++;
       if( ln >= ( MAX_STRING_LENGTH - 1 ) )
       {
-         bug( "%s: line too long", __func__ );
+         bug( "%s: line is too long", __func__ );
          break;
       }
    }

@@ -709,9 +709,6 @@ extern "C" void do_look( CHAR_DATA *ch, const char *argument )
 {
    if( !elevator_handle_look( ch, argument ) )
       legacy_do_look( ch, argument );
-
-   /* A look is the reliable initial synchronization point for stationary clients. */
-   msdp_send_room( ch );
 }
 
 void update_handler( void )

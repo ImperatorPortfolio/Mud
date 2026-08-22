@@ -5,10 +5,9 @@ BaseValue    500000
 Flags        1
 PopSupport   0.000000
 Starsystem   Sol System~
-GovernedBy   Terran Union~
 Area         Earth/earth_hague.are~
 Area         Earth/earth_hague_2.are~
-Area         Earth/hague_interstellar.are~
+Area         Earth/DenHaagArrivals.are~
 Area         Earth/hague_civic.are~
 Area         Earth/earth_assembly.are~
 Area         Earth/hague_detention.are~
